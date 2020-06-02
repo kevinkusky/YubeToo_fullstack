@@ -1,15 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter } from 'react-router-dom';
-
+// import { HashRouter } from 'react-router-dom';
 import App from './app';
 
 
 const Root = () => (
     <Provider >
-        <HashRouter>
+        {/* <HashRouter> */}
             <App />
-        </HashRouter>
+        {/* </HashRouter> */}
     </Provider>
     // <h3>Would you consider this reactionary?</h3>
 );

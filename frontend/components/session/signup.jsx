@@ -8,11 +8,29 @@ class Signup extends React.Component {
             email: '',
             password: '',
         };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleInput(feild){
+        return e => {
+            this.setState({ [feild]: e.currentTarget.value});
+        };
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+
+        this.props.createNewUser(this.state)
+        this.props.action(this.state).then(
+            // /videos place holder until other model is built
+            () => this.props.history.push('/videos')
+        );
     }
     render (){
         return(
             <div className="session-form">
-                <form action="">
+                <form onSubmit ={this.handleSubmit}>
                     <h3>Sign Up!</h3>
                     <label>Email:
                         <input type="text"
@@ -27,6 +45,7 @@ class Signup extends React.Component {
                         />
                     </label>
                     <input type="submit"
+                    value={this.props.}
                     />
                 </form>
             </div>

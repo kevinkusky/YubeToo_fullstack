@@ -1,11 +1,17 @@
 class Api::UsersController < ApplicationController
-    before_action :ensure_logged_in, only: [:show]
 
     def new
+        render :new
     end
 
     def create
+        @user = User.new(user_params)
 
+        if @user.save
+            render `api/users`
+        else
+            render :new
+        end
     end
 
     private
