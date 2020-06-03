@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
 
         if @user
             login(@user)
-            render 'api/users'
+            render `api/users/#{@user.id}`
         else
         end
     end
