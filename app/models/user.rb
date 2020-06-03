@@ -45,13 +45,15 @@ class User < ApplicationRecord
     
     def reset_session_token
         self.session_token = SecureRandom.base64(64)
+        #loud fail
         self.save!
         # implicit returns again
         self.session_token
     end
     
     private
+
     def ensure_session_token
-        self.session_token ||= SecureRandom.base64
+        self.session_token ||= SecureRandom.base64(64)
     end
 end
