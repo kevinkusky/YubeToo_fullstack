@@ -6,13 +6,14 @@ class Signup extends React.Component {
 
         this.state = {
             email: '',
-            password: '',
+            username: '',
+            password: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleInput(feild){
+    update(feild){
         return e => {
             this.setState({ [feild]: e.currentTarget.value});
         };
@@ -20,6 +21,9 @@ class Signup extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
+        // props do not appear to contain action or createNewUser
+        // .then failing - uncaugh $ - seems like the .then isn't getting
+        // an ajax response to attach to
 
         this.props.createNewUser(this.state);
         this.props.action(this.state).then(
@@ -27,6 +31,7 @@ class Signup extends React.Component {
             // /videos place holder until other model is built
         );
     }
+
     render (){
         return (
           <div className="session-form">
@@ -36,23 +41,23 @@ class Signup extends React.Component {
                 <input
                   type="text"
                   value={this.state.email}
-                  onChange={this.handleInput("email")}
+                  onChange={this.update("email")}
                 />
               </label>
-              <br />
+                    <br />
               <label> Username:
                 <input
                   type="text"
                   value={this.state.username}
-                  onChange={this.handleInput("username")}
+                  onChange={this.update("username")}
                 />
               </label>
-              <br />
+                    <br />
               <label>Password:
                 <input
                   type="password"
                   value={this.state.password}
-                  onChange={this.handleInput("password")}
+                  onChange={this.update("password")}
                 />
               </label>
               <input type="submit" value="Sign Up" />

@@ -1,22 +1,22 @@
-export const postUser = user =>(
+export const signupUser = user => (
     $.ajax({
-        url: `/apo/users`,
+        url: `/api/users`,
         method: 'POST',
         data: { user }
     })
 );
 
-export const postSession = user =>(
+export const loginUser = user => (
     $.ajax({
-        url: `/apo/session`,
+        url: `/api/session`,
         method: 'POST',
         data: { user }
     })
 );
 
-export const deleteSession = () =>(
+export const logoutSession = () => (
     $.ajax({
-        url: `/apo/session`,
+        url: `/api/session`,
         method: 'DELETE'
     })
 );
