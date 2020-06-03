@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+ .app > header > h1{
+    color: darkolivegreen;
+ }
+
+ .session-form{
+     box-sizing: border-box;
+     border: 1.5px solid lightgray;
+     height: auto, 500px;
+     width: auto, 450px;
+     background-color: whitesmoke;
+     padding: 48px 40px 36px;
+ }
+
+ .session-form > input{
+     width: auto;
+    border: 1px, solid lightskyblue;
+ }
+
+
+ .signup-button{
+     display: inline-block;
+     align-content: flex-end;
+
+ }
+
+ .session-form > form > input[type=submit]{
+     box-sizing: border-box;
+     display: inline-block;
+     width: 80px;
+     height: 45px;
+     color: whitesmoke;
+     font-size: 13px;
+     background-color: blue;
+     border: 1px, solid blue;
+ }
+
+ .session-form > form > input[type=text]{
+    width: auto;
+    border: 20px, solid lightskyblue;
+    background-color: white;
+ }
