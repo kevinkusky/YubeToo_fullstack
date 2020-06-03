@@ -1,7 +1,7 @@
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session';
 
 
-const defaultSession ={
+const defaultSession = {
     currentUser: null
 };
 
