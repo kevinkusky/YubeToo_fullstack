@@ -21,20 +21,23 @@
 
  .session-form{
      display: flex;
-     justify-content: center;
      justify-self: center;
+     justify-content: center;
      position: relative;
-     border: 1.5px solid lightgray;
+     border: 1px solid lightgray;
      border-radius: 12px;
      height: 510px;
      width: 424px;
      background-color: whitesmoke;
      padding: 48px 40px 36px;
+     margin-left: 25%;
+     margin-top: 3%;
  }
 
- .session-form > input{
-     width: auto;
-    border: 1px, solid lightskyblue;
+ .session-form > input {
+    width: auto;
+    height: 40px;
+    border: 10px, solid lightskyblue;
  }
 
 
@@ -46,14 +49,16 @@
  }
 
  .session-form > form > input[type=submit]{
-     box-sizing: border-box;
-     display: inline-block;
+     justify-content: center;
+     float: right;
+     font-family: "Lucida Console", Courier, monospace;
      width: 80px;
      height: 45px;
      color: whitesmoke;
      font-size: 13px;
      background-color: blue;
      border: 1px, solid blue;
+     border-radius: 12px;
  }
 
  .session-form > form > input[type=text]:focus{
