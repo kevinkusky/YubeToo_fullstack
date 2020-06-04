@@ -10,9 +10,10 @@ const App = () => (
             {/* <ToplineNav /> */}
         </header>
         <Switch>
-            <AuthRoute exact path='/login' component={LoginContainer}/>
-            <AuthRoute exact path='/signup' component={SignupContainer}/>
-
+            {/* AuthRoute - needs to be defined route util */}
+            {/* <AuthRoute exact path='/login' component={LoginContainer}/>
+            <AuthRoute exact path='/signup' component={SignupContainer}/> */}
+            <Route path='/signup' component={SignupContainer} />
         </Switch>
         {/* <SignupContainer /> */}
     </div>

@@ -16,13 +16,18 @@
 
  .app > header > h1{
     color: darkolivegreen;
+    font-family: "Lucida Console", Courier, monospace;
  }
 
  .session-form{
-     box-sizing: border-box;
+     display: flex;
+     justify-content: center;
+     justify-self: center;
+     position: relative;
      border: 1.5px solid lightgray;
-     height: auto, 500px;
-     width: auto, 450px;
+     border-radius: 12px;
+     height: 510px;
+     width: 424px;
      background-color: whitesmoke;
      padding: 48px 40px 36px;
  }
@@ -34,9 +39,10 @@
 
 
  .signup-button{
-     display: inline-block;
-     align-content: flex-end;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    font-family: "Lucida Console", Courier, monospace;
  }
 
  .session-form > form > input[type=submit]{
@@ -50,8 +56,7 @@
      border: 1px, solid blue;
  }
 
- .session-form > form > input[type=text]{
-    width: auto;
+ .session-form > form > input[type=text]:focus{
     border: 20px, solid lightskyblue;
-    background-color: white;
+    
  }
