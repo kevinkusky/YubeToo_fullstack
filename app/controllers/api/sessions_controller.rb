@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
         @user = current_user
 
         if @user
-            logout
+            logout!
             render 'api/session/new'
         end
     end
