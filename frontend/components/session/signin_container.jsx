@@ -1,11 +1,17 @@
+import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { loginUser, logoutUser } from '../../actions/session';
-// import Signup from './signup';
+import Signin from './signin';
 
-
+const mSTP = ({ errors }) => (
+    {
+        errors: errors.session,
+        navLink: <Link to="/signup">Not Valid Account Information - Sign Up Here!</Link>,
+    }
+);
 
 const mDTP = dispatch => (
-
     // login/out based on helped logged_in?
     {
         loginUser: user => dispatch(loginUser(user)),
@@ -13,4 +19,4 @@ const mDTP = dispatch => (
     }
 );
 
-// export default connect(null, mDTP)(Signup);
+export default connect(mSTP, mDTP)(Signin);

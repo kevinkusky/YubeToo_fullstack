@@ -14,7 +14,8 @@
  *= require_self
  */
 
- .app > header > h1{
+ .header-link{
+    text-decoration: none;
     color: darkolivegreen;
     font-family: "Lucida Console", Courier, monospace;
  }
