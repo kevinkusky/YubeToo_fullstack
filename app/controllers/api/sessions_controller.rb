@@ -1,10 +1,8 @@
-require 'byebug'
 
 class Api::SessionsController < ApplicationController
 
     def create
         @user = User.find_by_credentials(params[:user][:email_address], params[:user][:password])
-        # debugger
         if @user
             log_in(@user)
             render 'api/users/show'
@@ -18,7 +16,7 @@ class Api::SessionsController < ApplicationController
 
         if @user
             logout!
-            render 'api/session/new'
+            render json: {}
         end
     end
 end

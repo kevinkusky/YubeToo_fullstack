@@ -4,7 +4,7 @@ import Greeting from './greeting';
 
 const mSTP = ({ session, entities: { users } }) => (
     {
-        currentUser: users[session.id]
+        currentUser: session.currentUser
     }
 );
 
