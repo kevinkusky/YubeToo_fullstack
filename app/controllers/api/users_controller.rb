@@ -1,8 +1,8 @@
 class Api::UsersController < ApplicationController
 
-    def new
-        render :new
-    end
+    # def new
+    #     render :new
+    # end
 
     def create
         @user = User.new(user_params)
@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
             # properly saving but wrong render
             # render `api/users/#{@user.id}`
             log_in(@user)
-            render :show
+            render 'api/users/show'
         else
             render json: @user.errors.full_messages, status: 422
         end

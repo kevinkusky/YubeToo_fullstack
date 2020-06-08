@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SigninForm extends React.Component{
+class Signin extends React.Component{
     constructor(props) {
         super(props);
 
@@ -14,27 +14,27 @@ class SigninForm extends React.Component{
     
     update(field) {
         return e => {
-            this.setState( { [field]: e.currentTarget.value });
+            this.setState({ [field]: e.currentTarget.value });
         };
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.loginUser(user);
+        // const user = Object.assign({}, this.state);
+        this.props.loginUser(this.state);
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {this.props.errors.map((error, i) => (
+    //                 <li key={`error-${i}`}>
+    //                     {error}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
 
     render() {
         return (
@@ -43,33 +43,27 @@ class SigninForm extends React.Component{
                 <br />
                     <h3>Please Sign In</h3>
                     {/* {this.renderErrors()} */}
-                    {/* <div className="login-form"> */}
-                    <label> Email:
                     <br />
                         <input
+                            placeholder='Email'
                             type="text"
                             value={this.state.email_address}
                             onChange={this.update("email_address")}
                         />
-                    </label>
                     <br />
-                    <label>Password:
                     <br />
                         <input
+                            placeholder='Password'
                             type="password"
                             value={this.state.password}
                             onChange={this.update("password")}
                         />
-                    </label>
-                    <input className="signin-submit" 
-                        type="submit"
-                        value='Sign In'
-                    />
-                    {/* </div> */}
+                    <br />
+                    <input className="signin-submit" type="submit" value='Sign In' />
                 </form>
             </div>
         );
     }
 }
 
-export default SigninForm;
+export default Signin;

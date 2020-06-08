@@ -12,7 +12,7 @@ const Greeting = ({ currentUser, logout }) =>{
     );
     const greeting = ()=> (
         <hgroup className='header-display'>
-            <h2>{currentUser.username[0].toUpperCase()}</h2>
+            <h2>{currentUser.email_address[0].toUpperCase()}</h2>
             <button className='header-button' onClick={logout}>Log Out</button>
         </hgroup>
     );
