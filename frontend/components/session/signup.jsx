@@ -14,9 +14,9 @@ class Signup extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    update(feild){
+    update(field){
         return e => {
-            this.setState({ [feild]: e.currentTarget.value});
+            this.setState({ [field]: e.currentTarget.value });
         };
     }
 
@@ -36,42 +36,39 @@ class Signup extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <h5>YubeToo</h5>
               <h1>Join Us!</h1>
-              <label> Username:
                     <br />
                 <input
                   type="text"
+                  placeholder='Username'
                   value={this.state.username}
                   onChange={this.update("username")}
                 />
-              </label>
                     <br />
-              <label> Email: 
                     <br/>
                 <input
                   type="text"
+                  placeholder='Email'
                   value={this.state.email_address}
                   onChange={this.update("email_address")}
                 />
-              </label>
                     <br />
-              <label>Password:
                     <br />
                 <input
                   type="password"
+                  placeholder='Passowrd'
                   value={this.state.password}
                   onChange={this.update("password")}
                 />
-              </label>
+
               <h6>Password must be 6 or more characters</h6>
-                    {/* <br />
-              <label>Confirm Password:
-                    <br />
-                <input
+              
+                {/* <input
                   type="password"
+                  placeholder='Confirm'
                   value={this.state.checkPassword}
                   onChange={this.update("checkPassword")}
-                />
-              </label> */}
+                /> */}
+
                     <br />
               <input className='signup-button'type="submit" value="Sign Up" />
             </form>
