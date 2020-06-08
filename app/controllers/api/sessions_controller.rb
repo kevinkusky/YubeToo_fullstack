@@ -18,7 +18,7 @@ class Api::SessionsController < ApplicationController
 
         if @user
             logout!
-            render 'api/session/new'
+            render json: {}
         end
     end
 end
