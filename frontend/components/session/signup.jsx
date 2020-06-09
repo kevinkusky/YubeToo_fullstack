@@ -49,7 +49,6 @@ class Signup extends React.Component {
                         <label className='input-labels'>Username</label>
                     </div>
                     <br />
-                    <br/>
                     <div className='input-container'>
                         <input
                         type="text"
@@ -59,7 +58,6 @@ class Signup extends React.Component {
                         />
                         <label className='input-labels'>Email</label>
                     </div>
-                    <br />
                     <br />
                     <div className='input-container'>
                         <input
