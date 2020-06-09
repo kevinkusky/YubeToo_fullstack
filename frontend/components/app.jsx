@@ -9,13 +9,15 @@ const App = () => (
     <div className="app">
         {/* <h3>Hello From app jsx</h3> */}
         <header className='nav-bar'>
-            <div className='left'>
-                <h1 className='logo'>{"▷"}</h1>
-                <Link to='/' className='header-link'>
-                    <h1>YubeToo</h1>
-                </Link>
-            </div>
-            <GreetingContainer />
+            <nav>
+                <ul className='nav-left'>
+                    <Link to='/' className='header-link'>
+                        <li><h3 className='logo'>{"▷"}</h3></li>
+                        <li><h3 className='site-name'>YubeToo</h3></li>
+                    </Link>
+                </ul>
+                <GreetingContainer  />
+            </nav>
         </header>
         <Switch>
             {/* AuthRoute - needs to be defined route util */}

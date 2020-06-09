@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Signup extends React.Component {
     constructor(props){
@@ -35,7 +36,8 @@ class Signup extends React.Component {
           <div className="session-form-container">
             <form onSubmit={this.handleSubmit} className='session-form-box'>
                 <br/>
-              <h3>Join Us!</h3>
+              <h3>Create your YubeToo Account</h3>
+              <h5>to enjoy the full experience</h5>
                     <br />
                     <div className='input-container'>
                         <input
@@ -68,9 +70,7 @@ class Signup extends React.Component {
                         />
                         <label className='input-labels'>Password</label>
                     </div>
-
-              <h6>Password must be 6 or more characters</h6>
-              
+<h6>Password must be 6 or more characters. We suggest using a mix of letters, numbers {'&'} symbols</h6>
                 {/* className=password-check
                 <input
                   type="password"
@@ -81,7 +81,10 @@ class Signup extends React.Component {
                 <label className='input-labels'>Password</label>
                 */}
                     <br />
-              <input className='submit' type="submit" value="Sign Up" />
+                <div className='bottom-form'>
+                    <Link to='/login'><button>Sign in instead</button></Link>
+                    <input className='submit' type="submit" value="Sign Up" />
+                </div>
             </form>
           </div>
         );
