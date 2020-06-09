@@ -44,6 +44,7 @@ class Signin extends React.Component{
                     <h3>Please Sign In</h3>
                     {/* {this.renderErrors()} */}
                     <br />
+                    <br/>
                     <div className='input-container'>
                         <input
                             type="text"
@@ -53,7 +54,6 @@ class Signin extends React.Component{
                         />
                         <label className='input-labels'>Email</label>
                     </div>
-                    <br />
                     <br />
                     <div className='input-container'>
                         <input
