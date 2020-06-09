@@ -18,6 +18,10 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+    has_many :videos,
+        class_name: :Videos,
+        foreign_key: :creator_id
+
     # FIGVAPER
 
     def self.find_by_credentials(email_address, password)
