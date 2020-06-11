@@ -13,12 +13,23 @@
 #
 class Video < ApplicationRecord
     validates :title, :creator_id, :view_count, presence: true
+    validate :ensure_video
+
+    # attr_reader :view_count
 
     belongs_to :creator,
         class_name: :User,
         foreign_key: :creator_id
 
     has_one_attached :video
+
+    has_one_attached :title_card
+
+    def ensure_video
+        unless self.video.attached?
+            errors[:video] << 'video did not attach'
+        end
+    end
 
     def view_adder
         self.view_count += 1
