@@ -7,7 +7,7 @@ import Signup from './signup';
 const mSTP = ({ errors }) =>(
     {
         errors: errors.session,
-        navLink: <Link to='/login'>Already a Member, Please Sign In</Link>
+        navLink: <Link to="/login">Already a Member, Please Sign In</Link>
     }
 );
 
