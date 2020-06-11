@@ -1,4 +1,5 @@
 import React from 'react';
+import TopNav from '../navs/topnav';
 import {withRouter} from 'react-router';
 
 class VideoForm extends React.Component{
@@ -51,11 +52,19 @@ class VideoForm extends React.Component{
     }
 
     render(){
+        // refactor preview to be a title card upload
         const preview = this.state.videoUrl ? <video height='320' width='240' src={this.state.videoUrl}/> : null;
         return (
             <div>
-                <form>
+                <TopNav />
+                <form onSubmit={this.handleSubmit}>
 
+                    <h3>Upload Video</h3>
+                    <input type="file" onChange={this.handleFile}/>
+                    <h3>Preview</h3>
+                    {preview}
+                    <br/>
+                    <br/>
                     <input 
                         type="text"
                         value={this.state.title}
@@ -63,7 +72,7 @@ class VideoForm extends React.Component{
                         required=' '
                     />
                     <label className='upload-labels'>Title</label>
-
+            <br/>
                     <input 
                         type="text"
                         value={this.state.description}
@@ -71,11 +80,7 @@ class VideoForm extends React.Component{
                     />
                     <label className='upload-labels'>Description</label>
 
-                    <h3>Preview</h3>
-                    {preview}
-                    <h3>Upload Video</h3>
-                    <input type="file" onChange={this.handleFile}/>
-
+            <br/>
                     <input type="submit" value='Submit'/>
                 </form>
             </div>
@@ -84,4 +89,4 @@ class VideoForm extends React.Component{
 
 }
 
-export default VideoForm;
+export default withRouter(VideoForm);

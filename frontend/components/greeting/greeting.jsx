@@ -21,8 +21,25 @@ const Greeting = ({ currentUser, logout }) =>{
     );
     const greeting = ()=> (
         <hgroup className='header-display'>
-            <h2>{currentUser.email_address[0].toUpperCase()}</h2>
-            <button className='header-button' onClick={logout}>Log Out</button>
+            <ul className='drop-down'>
+                <li>
+                    <div className='circle-letter'>
+                        {currentUser.email_address[0].toUpperCase()}
+                    </div>
+                    <ul>
+                        <div className='sub-list'>
+                            <li>
+                                <button className='drop-button' onClick={logout}>Log Out</button>
+                            </li>
+                            <li>
+                                <Link to='/videos/new'>
+                                    <button className='drop-button'>Create New Video</button>
+                                </Link>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
         </hgroup>
     );
 

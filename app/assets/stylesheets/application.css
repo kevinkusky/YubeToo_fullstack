@@ -21,7 +21,7 @@
  }
 
  .site-name{
-    color: darkolivegreen;
+    color: rgba(76, 98, 146, 0.89);
     font-family: "Lucida Console", Courier, monospace;
     padding-left: 2px;
  }
@@ -36,6 +36,60 @@
      border-radius: 75px;
      align-content: center;
  }
+
+ li{
+     list-style: none;
+ }
+
+.circle-letter{
+    list-style: none;
+     display: flex;
+     background-color:  rgb(58, 108, 201);
+     color: whitesmoke;
+     border-radius: 50%;
+     font-size: 20px;
+     align-items: center;
+     width: 35px;
+     height: 35px;
+     margin-right: 35px;
+ }
+
+ .circle-letter{
+     display: flex;
+     justify-content: center;
+ }
+
+ .sub-list{
+     list-style: none;
+     display: none;
+}
+    
+.drop-down{   
+        position: relative;
+ }
+
+.sub-list button{
+    text-decoration: none;
+     border: 1.3px solid rgb(58, 108, 201);
+     background-color: white;
+     color: rgb(58, 108, 201);
+     border-radius: 2px;
+     margin-right: 9px;
+     height: 32px;
+     width: 94px;
+     text-align: center;
+     font-family: 'Roboto', sans-serif;
+     font-weight: 547;
+ }
+
+ .drop-down:hover .sub-list{
+     display: block;
+     position: absolute;
+     left: -13px;
+    }
+.drop-down:hover .sub-list button:hover{
+    background-color: rgba(238, 247, 255, 0.938);
+}
 
  nav{
      display: flex;
@@ -70,6 +124,7 @@
 
  .nav-right li button:hover{
      cursor: pointer;
+     background-color: rgba(240, 240, 240, 0.993);
  }
 
 .session-form-container{
@@ -145,7 +200,7 @@
      display: flex;
      justify-content: space-between;
      align-items: center;
-     padding-top: 22px;
+     margin-top: 25px;
      margin-bottom: 20px;
  }
  
@@ -181,6 +236,7 @@
      height: 39px;
      float: right;
      margin-right: 12%;
+     margin-top: 8%;
  }
 
  .session-form-container input[type='submit']:hover{

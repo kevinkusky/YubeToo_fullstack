@@ -10,6 +10,7 @@ class Signin extends React.Component{
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.populateDemo = this.populateDemo.bind(this);
     }
     
     update(field) {
@@ -22,6 +23,12 @@ class Signin extends React.Component{
         e.preventDefault();
         // const user = Object.assign({}, this.state);
         this.props.loginUser(this.state);
+    }
+
+    populateDemo(e){
+        e.preventDefault();
+        this.setState({ email_address: 'test-user@gmail.com'});
+        this.setState({ password: '123456'});
     }
 
     // renderErrors() {
@@ -67,6 +74,10 @@ class Signin extends React.Component{
                     <br />
                     <input className="submit" type="submit" value='Sign In' />
                 </form>
+
+                <div className='bottom-form' >
+                    <button onClick={this.populateDemo}>Demo Session</button>
+                </div>
             </div>
         );
     }

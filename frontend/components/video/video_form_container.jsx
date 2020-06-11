@@ -10,8 +10,7 @@ import VideoForm from './video_form';
 
 const mDTP = dispatch => (
     {
-        createVideo: video => dispatch(createVideo(video)),
-        editVideo: video => dispatch(editVideo(video)),
+        createVideo: video => dispatch(createVideo(video))
     }
 );
 
