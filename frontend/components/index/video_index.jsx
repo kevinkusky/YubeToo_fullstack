@@ -1,15 +1,19 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import TopNav from '../navs/topnav';
+import VideoIndexItem from './video_index_item';
 
 
-class VideoIndex extends React.Component {
-    // constructor(props){
-    //     super(props);
-    // }
+const VideoIndex = ({ videos }) => (
+    <div>
+        <TopNav />
+        <h2>All Recomendations</h2>
+        {videos.map(video =>(
+            <VideoIndexItem
+                video={video}
+                key={video.id}
+            />
+        ))}
+    </div>
+);
 
-    render(){
-        return null;
-    }
-}
-
-export default withRouter(VideoIndex);
+export default VideoIndex;

@@ -8,12 +8,16 @@ class VideoForm extends React.Component{
         this.state = {
             title: '',
             description: '',
+            creator_id: currentUser.id,
             videoFile: null,
-            videoUrl: null
+            videoUrl: null,
+            titlecardFile: null,
+            titlecardUrl: null
         };
         this.handleFile = this.handleFile.bind(this);
         this.navigateToSplash = this.navigateToSplash.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleNextFile = this.handleNextFile.bind(this);
     }
 
     navigateToSplash(){
@@ -37,6 +41,19 @@ class VideoForm extends React.Component{
         }
     }
 
+    handleNextFile(e){
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+
+        fileReader.onloadend = () => {
+            this.setState({ titlecardFile: file, titlecardUrl: fileReader.result });
+        };
+
+        if(file){
+            fileReader.readAsDataURL(file);
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
 
@@ -47,13 +64,16 @@ class VideoForm extends React.Component{
         if(this.state.videoFile){
             formData.append('video[video]', this.state.videoFile);
         }
+        if(this.state.titlecardFile){
+            formData.append('video[titlecard]', this.state.titlecardFile);
+        }
 
         this.props.createVideo(formData);
     }
 
     render(){
         // refactor preview to be a title card upload
-        const preview = this.state.videoUrl ? <video height='320' width='240' src={this.state.videoUrl}/> : null;
+        const preview = this.state.titlecardUrl ? <img height='200px' width='200px' src={this.state.titlecardUrl}/> : null;
         return (
             <div>
                 <TopNav />
@@ -61,7 +81,10 @@ class VideoForm extends React.Component{
 
                     <h3>Upload Video</h3>
                     <input type="file" onChange={this.handleFile}/>
-                    <h3>Preview</h3>
+                    <h3>Upload Preview Image</h3>
+                    <input type="file" onChange={this.handleNextFile}/>
+                    <br/>
+                    <h4>Preview</h4>
                     {preview}
                     <br/>
                     <br/>

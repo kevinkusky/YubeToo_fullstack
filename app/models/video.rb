@@ -15,7 +15,7 @@ class Video < ApplicationRecord
     validates :title, :creator_id, :view_count, presence: true
     validate :ensure_video
 
-    # attr_reader :view_count
+    attr_reader :view_count
 
     belongs_to :creator,
         class_name: :User,
@@ -23,7 +23,7 @@ class Video < ApplicationRecord
 
     has_one_attached :video
 
-    has_one_attached :title_card
+    has_one_attached :titlecard
 
     def ensure_video
         unless self.video.attached?
