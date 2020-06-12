@@ -1,4 +1,4 @@
-require 'byebug'
+
 class Api::VideosController < ApplicationController
     before_action :ensure_logged_in, only: [:create, :destroy]
 
@@ -18,7 +18,6 @@ class Api::VideosController < ApplicationController
         if @video.save
             render json: {message: 'Upload Successful'}
         else
-            debugger
             render json: @video.errors.full_messages, status: 422
         end
     end
