@@ -17,8 +17,8 @@ const removeVideo = () => ({
     type: REMOVE_VIDEO
 });
 
-export const fetchVideos =  filters => dispatch =>(
-    APIUtil.fetchVideos(filters).then(
+export const fetchVideos =  () => dispatch =>(
+    APIUtil.fetchVideos().then(
         videos => dispatch(receiveVideos(videos))
     )
 );

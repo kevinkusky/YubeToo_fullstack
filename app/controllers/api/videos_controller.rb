@@ -12,13 +12,13 @@ class Api::VideosController < ApplicationController
     end
 
     def create
-        @video = Video.create(video_params)
-        @video.view_count = 0;
+        @video = Video.new(video_params)
+        @video.view_count = 1
 
-        debugger
         if @video.save
             render json: {message: 'Upload Successful'}
         else
+            debugger
             render json: @video.errors.full_messages, status: 422
         end
     end
@@ -29,6 +29,6 @@ class Api::VideosController < ApplicationController
 
     private
     def video_params
-        params.require(:video).permit(:title, :description, :video, :titlecard)
+        params.require(:video).permit(:title, :description, :creator_id, :video, :titlecard)
     end
 end

@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #
 class Video < ApplicationRecord
-    validates :title, :creator_id, :view_count, presence: true
+    validates :title, :creator_id, presence: true
     validate :ensure_video
 
     attr_reader :view_count
@@ -31,7 +31,7 @@ class Video < ApplicationRecord
         end
     end
 
-    def view_adder
-        self.view_count += 1
-    end
+    # def view_adder
+    #     self.view_count += 1
+    # end
 end

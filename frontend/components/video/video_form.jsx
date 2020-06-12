@@ -8,7 +8,7 @@ class VideoForm extends React.Component{
         this.state = {
             title: '',
             description: '',
-            creator_id: currentUser.id,
+            creator_id: this.props.currentUser.id,
             videoFile: null,
             videoUrl: null,
             titlecardFile: null,
@@ -57,9 +57,11 @@ class VideoForm extends React.Component{
     handleSubmit(e) {
         e.preventDefault();
 
+        // debugger
         const formData = new FormData();
         formData.append('video[title]', this.state.title);
         formData.append('video[description]', this.state.description);
+        formData.append('video[creator_id]', this.state.creator_id);
         
         if(this.state.videoFile){
             formData.append('video[video]', this.state.videoFile);

@@ -2,11 +2,11 @@ import {connect} from 'react-redux';
 import {createVideo, editVideo} from '../../actions/video';
 import VideoForm from './video_form';
 
-// const mSTP = state => (
-//     {
-        
-//     }
-// );
+const mSTP = state => (
+    {
+        currentUser: state.session.currentUser
+    }
+);
 
 const mDTP = dispatch => (
     {
@@ -14,4 +14,4 @@ const mDTP = dispatch => (
     }
 );
 
-export default connect(null, mDTP)(VideoForm);
+export default connect(mSTP, mDTP)(VideoForm);
