@@ -65,7 +65,7 @@
 }
     
 .drop-down{   
-        position: relative;
+    position: relative;
  }
 
 .sub-list button{
@@ -86,7 +86,8 @@
      display: block;
      position: absolute;
      left: -13px;
-    }
+}
+
 .drop-down:hover .sub-list button:hover{
     background-color: rgba(238, 247, 255, 0.938);
 }
