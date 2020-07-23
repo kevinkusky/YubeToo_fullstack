@@ -17,7 +17,7 @@ class Comment < ApplicationRecord
         class_name: :Videos,
         foreign_key: :video_id
 
-    has_one :parent_comment
+    has_one :parent_comment,
         foreign_key: :parent_comment_id,
         class_name: :Comments
 
