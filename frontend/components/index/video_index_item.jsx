@@ -20,9 +20,11 @@ class VideoIndexItem extends React.Component {
                     <img src={title_card_url}/>
                     <div>
                         <span className='video-title'>{title}</span>
-                        <div className='secondary-info'>
-
-                        </div>
+                        <ul className='secondary-info'>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
                         <span className='video-discription'></span>
 
                     </div>
