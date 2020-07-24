@@ -25,6 +25,9 @@ class Video < ApplicationRecord
         class_name: :Comment,
         foreign_key: :video_id
 
+    has_many :likes,
+        as: :likeable
+        
     has_one_attached :video
 
     has_one_attached :titlecard
