@@ -13,6 +13,9 @@ class VideoIndexItem extends React.Component {
     }
 
     render() {
+        // this.props.videos.forEach( video => {
+            
+        // });
         const {title, title_card_url} = this.props.video;
         return(
             <div className='index-preview' onClick={this.handleClick}>
@@ -23,9 +26,9 @@ class VideoIndexItem extends React.Component {
                 <div className='preview-information'>
                     <span className='video-title'>{title}</span>
                     <ul className='secondary-info'>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li className='name'></li>
+                        <li className='count'></li>
+                        <li className='time'></li>
                     </ul>
                     <span className='video-discription'></span>
                 </div>

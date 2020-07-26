@@ -79,16 +79,15 @@ class VideoForm extends React.Component{
             <div>
                 <TopNav />
                 <form onSubmit={this.handleSubmit}>
-
                     <h3>Upload Video</h3>
                     <input type="file" onChange={this.handleFile}/>
                     <h3>Upload Preview Image</h3>
                     <input type="file" onChange={this.handleNextFile}/>
-                    <br/>
+                <br/>
                     <h4>Preview</h4>
                     {preview}
-                    <br/>
-                    <br/>
+                <br/>
+                <br/>
                     <input 
                         type="text"
                         value={this.state.title}
@@ -96,15 +95,14 @@ class VideoForm extends React.Component{
                         required=' '
                     />
                     <label className='upload-labels'>Title</label>
-            <br/>
+                <br/>
                     <input 
                         type="text"
                         value={this.state.description}
                         onChange={this.update('description')}
                     />
                     <label className='upload-labels'>Description</label>
-
-            <br/>
+                <br/>
                     <input type="submit" value='Submit'/>
                 </form>
             </div>
