@@ -5,9 +5,10 @@ import SignupContainer from './session/signup_container';
 import SigninContainer from './session/signin_container';
 import VideoFormContainer from  './video/video_form_container';
 import IndexContainer from './index/index_container';
-
+import TopNav from './navs/topnav';
 const App = () => (
     <div className="app">
+        <TopNav />
         <Switch>
             {/* AuthRoute/ProtectedRoute - defined route util */}
             <AuthRoute exact path='/login' component={SigninContainer}/>

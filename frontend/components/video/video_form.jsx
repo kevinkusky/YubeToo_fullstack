@@ -1,5 +1,4 @@
 import React from 'react';
-import TopNav from '../navs/topnav';
 import {withRouter} from 'react-router';
 
 class VideoForm extends React.Component{
@@ -77,7 +76,6 @@ class VideoForm extends React.Component{
         const preview = this.state.titlecardUrl ? <img height='200px' width='200px' src={this.state.titlecardUrl}/> : null;
         return (
             <div>
-                <TopNav />
                 <form onSubmit={this.handleSubmit}>
                     <h3>Upload Video</h3>
                     <input type="file" onChange={this.handleFile}/>
