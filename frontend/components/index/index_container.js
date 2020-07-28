@@ -9,8 +9,8 @@ const mSTP = state => ({
     currentUser: state.currentUser
 });
 
-// const mDTP = dispatch=> ({
-//     fetchVideos: () => dispatch(fetchVideos()),
-// });
+const mDTP = dispatch=> ({
+    fetchVideos: () => dispatch(fetchVideos()),
+});
 
 export default connect(mSTP)(VideoIndex);
