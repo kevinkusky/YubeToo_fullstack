@@ -1,5 +1,4 @@
 import * as APIUtil from '../util/comments_util';
-import { RECEIVE_VIDEOS } from './video';
 
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
@@ -12,7 +11,7 @@ const receiveComments = comments => ({
 
 const receiveComment = comment => ({
     type: RECEIVE_COMMENT,
-    comments
+    comment
 });
 
 const removeComment = () => ({
@@ -31,7 +30,7 @@ export const fetchComment = id => dispatch => (
     )
 );
 
-export const createComments = form => dispatch => (
+export const createComment = form => dispatch => (
     APIUtil.createComment(form).then(
         comment => dispatch(receiveComment(comment))
     )
