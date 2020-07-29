@@ -42,7 +42,6 @@
  }
 
 .circle-letter{
-    /* list-style: none; */
      display: flex;
      background-color:  rgb(58, 108, 201);
      justify-content: center;
@@ -52,8 +51,8 @@
      align-items: center;
      width: 35px;
      height: 35px;
-     margin-right: 35px;
      cursor: pointer;
+     margin-right: 100px;
  }
 
 .sub-list{
@@ -71,9 +70,8 @@
      background-color: white;
      color: rgb(58, 108, 201);
      border-radius: 2px;
-     margin-right: 9px;
-     height: 32px;
-     width: 94px;
+     height: 38px;
+     width: 102px;
      text-align: center;
      font-family: 'Roboto', sans-serif;
      font-weight: 547;
@@ -83,7 +81,8 @@
  .drop-down:hover .sub-list{
      display: block;
      position: absolute;
-     left: -13px;
+     margin-left: -37px;
+     margin-top: -5px;
 }
 
 .drop-down:hover .sub-list button:hover{

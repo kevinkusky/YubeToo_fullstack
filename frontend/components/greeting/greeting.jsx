@@ -19,31 +19,31 @@ const Greeting = ({ currentUser, logout }) => {
         </nav>
     );
 
-    const greeting = () => (
+    const userNav = () => (
       <hgroup className="header-display">
-        <ul className="drop-down">
-          <li>
+        <div className="drop-down">
             <div className="circle-letter">
               {currentUser.email_address[0].toUpperCase()}
             </div>
             <div className="sub-list">
-                <li>
-                    <Link to="/videos/new">
-                    <button className="drop-button">Create New Video</button>
-                    </Link>
-                </li>
-                <li>
-                    <button className="drop-button" onClick={logout}>
-                    Log Out
-                    </button>
-                </li>
+                <ul>
+                    <li>
+                        <Link to="/videos/new">
+                        <button className="drop-button">Create New Video</button>
+                        </Link>
+                    </li>
+                    <li>
+                        <button className="drop-button" onClick={logout}>
+                        Log Out
+                        </button>
+                    </li>
+                </ul>
             </div>
-          </li>
-        </ul>
+        </div>
       </hgroup>
     );
 
-    return currentUser ? greeting() : sessionLinks();
+    return currentUser ? userNav() : sessionLinks();
 };
 
 export default Greeting;
