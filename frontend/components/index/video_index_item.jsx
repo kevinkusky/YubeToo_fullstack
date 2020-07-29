@@ -13,9 +13,7 @@ class VideoIndexItem extends React.Component {
     }
 
     render() {
-        // this.props.videos.forEach( video => {
-            
-        // });
+        // singular video passed from index component
         const {title, title_card_url} = this.props.video;
         return(
             <div className='index-preview' onClick={this.handleClick}>
