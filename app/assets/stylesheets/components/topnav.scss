@@ -1,16 +1,21 @@
+.nav-bar {
+    display: flex;
+    align-items: center;
+}
+
 .header-link{
     text-decoration: none;
     padding-top: -120px;
     top: -20px;
- }
+}
 
- .site-name{
+.site-name{
     color: rgba(76, 98, 146, 0.89);
     font-family: "Lucida Console", Courier, monospace;
     padding-left: 2px;
- }
+}
 
- .logo{
+.logo{
      color: whitesmoke;
      background-color: rgba(28, 104, 25, 0.904);
      width: 47px;
@@ -19,8 +24,9 @@
      border: 1px solid whitesmoke;
      border-radius: 75px;
      align-content: center;
- }
- .circle-letter{
+}
+
+.circle-letter{
      display: flex;
      background-color:  rgb(58, 108, 201);
      justify-content: center;
@@ -69,12 +75,12 @@
     background-color: rgba(238, 247, 255, 0.938);
 }
 
- nav{
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 30px, 10%;
- }
+//  nav{
+//      display: flex;
+//      justify-content: space-between;
+//      align-items: center;
+//      padding: 30px, 10%;
+//  }
 
  .nav-left li{
      display: inline-block;
