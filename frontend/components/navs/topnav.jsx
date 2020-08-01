@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import GreetingContainer from './greeting_container';
 import LeftNav from './leftnav';
 import SearchBar from './searchbar';
-import GreetingContainer from './greeting_container';
 
  const TopNav = () =>{
     return(

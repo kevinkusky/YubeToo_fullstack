@@ -1,30 +1,74 @@
+// Overall Nav Bar
 .nav-bar .header {
     display: flex;
     align-items: center;
 }
-
-.header-link{
-    text-decoration: none;
-    padding-top: -120px;
-    top: -20px;
+//  nav{
+    //      display: flex;
+    //      justify-content: space-between;
+    //      align-items: center;
+    //      padding: 30px, 10%;
+    //  }
+    
+    
+    // Left Nav Bar
+    .header-link{
+        text-decoration: none;
+        padding-top: -120px;
+        top: -20px;
+    }
+    
+    .nav-left li{
+    display: inline-block;
+    margin-top: -9px;
 }
+    
+    .site-name{
+        color: rgba(76, 98, 146, 0.89);
+        font-family: "Lucida Console", Courier, monospace;
+        padding-left: 2px;
+    }
+    
+    .logo{
+         color: whitesmoke;
+         background-color: rgba(28, 104, 25, 0.904);
+         width: 47px;
+         text-align: center;
+         margin-left: 3px;
+         border: 1px solid whitesmoke;
+         border-radius: 75px;
+         align-content: center;
+    }
 
-.site-name{
-    color: rgba(76, 98, 146, 0.89);
-    font-family: "Lucida Console", Courier, monospace;
-    padding-left: 2px;
-}
 
-.logo{
-     color: whitesmoke;
-     background-color: rgba(28, 104, 25, 0.904);
-     width: 47px;
+// Center Nav Bar
+
+
+// Right Nav Bar
+ .nav-right li{
+    list-style: none;
+    display: inline-block;
+ }
+
+ .nav-right li button{
+     text-decoration: none;
+     border: 1.3px solid rgb(58, 108, 201);
+     background-color: white;
+     color: rgb(58, 108, 201);
+     border-radius: 2px;
+     margin-right: 9px;
+     height: 32px;
+     width: 75px;
      text-align: center;
-     margin-left: 3px;
-     border: 1px solid whitesmoke;
-     border-radius: 75px;
-     align-content: center;
-}
+     font-family: 'Roboto', sans-serif;
+     font-weight: 547;
+ }
+
+ .nav-right li button:hover{
+     cursor: pointer;
+     background-color: rgba(240, 240, 240, 0.993);
+ }
+
 
 .circle-letter{
      display: flex;
@@ -74,39 +118,3 @@
 .drop-down:hover .sub-list button:hover{
     background-color: rgba(238, 247, 255, 0.938);
 }
-
-//  nav{
-//      display: flex;
-//      justify-content: space-between;
-//      align-items: center;
-//      padding: 30px, 10%;
-//  }
-
- .nav-left li{
-     display: inline-block;
-     margin-top: -9px;
- }
-
- .nav-right li{
-    list-style: none;
-    display: inline-block;
- }
-
- .nav-right li button{
-     text-decoration: none;
-     border: 1.3px solid rgb(58, 108, 201);
-     background-color: white;
-     color: rgb(58, 108, 201);
-     border-radius: 2px;
-     margin-right: 9px;
-     height: 32px;
-     width: 75px;
-     text-align: center;
-     font-family: 'Roboto', sans-serif;
-     font-weight: 547;
- }
-
- .nav-right li button:hover{
-     cursor: pointer;
-     background-color: rgba(240, 240, 240, 0.993);
- }

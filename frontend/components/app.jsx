@@ -21,15 +21,4 @@ const App = () => (
   </div>
 );
 
-
- const TopNav = () => {
-   return (
-     <div className="header">
-       <LeftNav />
-       <SearchBar />
-       <GreetingContainer />
-     </div>
-   );
- };
-
 export default App;
