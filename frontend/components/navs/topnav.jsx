@@ -1,8 +1,9 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
 import { connect } from 'react-redux';
-import GreetingContainer from '../greeting/greeting_container';
+import GreetingContainer from './greeting_container';
 import MenuIcon from '@material-ui/icons/Menu';
+import SearchBar from './searchbar';
 
  const TopNav = () =>{
     return(
@@ -15,6 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
                         <li><h3 className='site-name'>YubeToo</h3></li>
                     </Link>
                 </ul>
+                <SearchBar />
                 <GreetingContainer />
             </nav>
         </header>
