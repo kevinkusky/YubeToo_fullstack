@@ -19,123 +19,16 @@
 
 // @import 'base/reset.scss';
 
-// //  components
+//  components
 
-// @import 'components/users.scss';
-// @import 'components/videos.scss';
-// @import 'components/likes.scss';
-// @import 'components/comments.scss';
-
- .header-link{
-    text-decoration: none;
-    padding-top: -120px;
-    top: -20px;
- }
-
- .site-name{
-    color: rgba(76, 98, 146, 0.89);
-    font-family: "Lucida Console", Courier, monospace;
-    padding-left: 2px;
- }
-
- .logo{
-     color: whitesmoke;
-     background-color: rgba(28, 104, 25, 0.904);
-     width: 47px;
-     text-align: center;
-     margin-left: 3px;
-     border: 1px solid whitesmoke;
-     border-radius: 75px;
-     align-content: center;
- }
+@import 'components/topnav.scss';
+@import 'components/users.scss';
+@import 'components/videos.scss';
+@import 'components/likes.scss';
+@import 'components/comments.scss';
 
  li{
      list-style: none;
- }
-
-.circle-letter{
-     display: flex;
-     background-color:  rgb(58, 108, 201);
-     justify-content: center;
-     color: whitesmoke;
-     border-radius: 50%;
-     font-size: 20px;
-     align-items: center;
-     width: 35px;
-     height: 35px;
-     cursor: pointer;
-     margin-right: 100px;
-     font-weight: bolder;
- }
-
-.sub-list{
-     list-style: none;
-     display: none;
-}
-    
-.drop-down{   
-    position: relative;
- }
-
-.sub-list button{
-    text-decoration: none;
-     border: 1.3px solid rgb(58, 108, 201);
-     background-color: white;
-     color: rgb(58, 108, 201);
-     border-radius: 2px;
-     height: 38px;
-     width: 102px;
-     text-align: center;
-     font-family: 'Roboto', sans-serif;
-     font-weight: 547;
-     cursor: pointer;
- }
-
- .drop-down:hover .sub-list{
-     display: block;
-     position: absolute;
-     margin-left: -37px;
-     margin-top: -5px;
-}
-
-.drop-down:hover .sub-list button:hover{
-    background-color: rgba(238, 247, 255, 0.938);
-}
-
- nav{
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 30px, 10%;
- }
-
- .nav-left li{
-     display: inline-block;
-     margin-top: -9px;
- }
-
- .nav-right li{
-    list-style: none;
-    display: inline-block;
- }
-
- .nav-right li button{
-     text-decoration: none;
-     border: 1.3px solid rgb(58, 108, 201);
-     background-color: white;
-     color: rgb(58, 108, 201);
-     border-radius: 2px;
-     margin-right: 9px;
-     height: 32px;
-     width: 75px;
-     text-align: center;
-     font-family: 'Roboto', sans-serif;
-     font-weight: 547;
- }
-
- .nav-right li button:hover{
-     cursor: pointer;
-     background-color: rgba(240, 240, 240, 0.993);
  }
 
 .session-form-container{
