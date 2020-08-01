@@ -15,6 +15,7 @@
  */
 
 
+
 //  Base
 
 // @import 'base/reset.scss';
@@ -27,9 +28,7 @@
 @import 'components/likes.scss';
 @import 'components/comments.scss';
 
- li{
-     list-style: none;
- }
+ li{list-style: none;}
 
 
 
