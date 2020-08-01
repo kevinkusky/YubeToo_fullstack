@@ -1,3 +1,128 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.session-form-container{
+     position: absolute;
+     top: 55%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     width: 35%;
+     height: 565px;
+     box-sizing: border-box;
+     border: 1px solid rgba(216, 216, 216, 0.877);
+     border-radius: 6px;
+ }
+
+ .session-form-container h3, h5, h6{
+     margin-left: 45px;
+     margin-top: 12px;
+     margin-bottom: 0;
+     width: 65%;
+     font-family: "roboto", sans-serif
+ }
+
+ .session-form-container .input-container{
+     position: relative;
+     top: 17%;
+     left: 13%;
+     width: 65%;
+     bottom: -20px;
+ }
+
+ .session-form-container .input-container input{
+     top: -20px;
+     left: 0;
+     padding-left: 3px;
+     border-radius: 6px;
+ }
+
+ .session-form-container .input-container label{
+     position: absolute;
+     top: 0;
+     left: 8px;
+     font-size: 18px;
+     padding: 10px 0;
+     font-family: "Lucida Console", Courier, monospace;
+     color:rgba(163, 163, 163, 0.815);
+     transition: .5s;
+ }
+
+  .session-form-container .input-container input:focus,
+  .session-form-container .input-container input:valid{
+     top: -20px;
+     left: 0;
+     padding-left: 3px;
+     border: 2.3px solid rgb(91, 128, 223);
+     border-radius: 6px;
+     background-color: whitesmoke;
+     font-family: "Lucida Console", Courier, monospace;
+     font-size: 15.5px;
+ }
+
+ .session-form-container .input-container input:focus ~label,
+  .session-form-container .input-container input:valid ~label{
+     top: -20px;
+     left: 2px;
+     color: rgb(5, 20, 175);
+     background: rgba(255,255,255,5);
+     font-size: 12px;
+     padding-bottom: 0;
+     padding-left:0;
+ }
+
+ .bottom-form{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-top: 25px;
+     margin-bottom: 20px;
+ }
+ 
+ .bottom-form button{
+     text-decoration: none;
+     margin: 8px;
+     margin-left: 20px;
+     color:rgb(58, 108, 201);
+     font-size: 13px;
+     font-weight: bolder;
+     background-color: white;
+     border: none;
+     width: 120px;
+     height: 46px;
+ }
+
+ .bottom-form button:hover{
+     background-color:  rgba(238, 247, 255, 0.938);
+     border-radius: 9px;
+     width: 120px;
+     height: 46px;
+ }
+
+ .session-form-container input[type='submit']{
+     background: rgb(58, 108, 201);
+     color: whitesmoke;
+     border: .8px solid  rgb(58, 108, 201);
+     font-family: "Lucida Console", Courier, monospace;
+     font-size: 14px;
+     font-weight: bolder;
+     border-radius: 3px;
+     width: 96px;
+     height: 39px;
+     float: right;
+     margin-right: 12%;
+     margin-top: 8%;
+ }
+
+ .session-form-container input[type='submit']:hover{
+     background: rgba(10, 22, 148, 0.877);;
+ }
+
+ .session-form-container .input-container input {
+     width: 100%;
+     padding: 10px 0;
+     margin-bottom: 30px;
+     border: 1px solid rgba(216, 216, 216, 0.877);
+     outline: none;
+     left: 5px;
+ }
