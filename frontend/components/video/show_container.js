@@ -10,7 +10,9 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-
+    fetchVideo: id => dispatch(fetchVideo(id)),
+    // fetchComments: ,
+    // fetchLikes:
 });
 
-export default connect(null)(VideoShow);
+export default connect(null, mDTP)(VideoShow);
