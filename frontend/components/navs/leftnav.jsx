@@ -2,14 +2,16 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import MenuIcon from "@material-ui/icons/Menu";
 
-export default LeftNav = () => {
+const LeftNav = () => {
     return (
-      <div className='header-left'>
+      <div className='nav-left'>
           <MenuIcon />
           <Link to="/" className="header-link">
             <h3 className="logo">{"▷"}</h3>
             <h3 className="site-name">YubeToo</h3>
           </Link>
       </div>
-    );
-}
+    )
+};
+
+export default LeftNav;

@@ -10,7 +10,6 @@ const Root = ({store}) => (
             <App />
         </HashRouter>
     </Provider>
-    // <h3>Would you consider this reactionary?</h3>
 );
 
 export default Root;
