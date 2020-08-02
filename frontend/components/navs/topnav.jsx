@@ -4,8 +4,12 @@ import GreetingContainer from './greeting_container';
 import LeftNav from './leftnav';
 import SearchBar from './searchbar';
 
- const TopNav = () =>{
-    return(
+const TopNav = () =>{
+    // turnary statement to check
+    // this.props.location.pathname
+    // create util consts for paths
+
+    const navBar = () => (
         <div className='header'>
             <nav className='nav-bar'>
                 <LeftNav />
@@ -14,6 +18,11 @@ import SearchBar from './searchbar';
             </nav>
         </div>
     );
+    
+    const noBar = () => (
+        <div></div>
+    )
+    return navBar;
 };
 
 export default connect(null)(TopNav);
