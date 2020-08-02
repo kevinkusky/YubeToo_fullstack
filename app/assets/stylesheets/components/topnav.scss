@@ -20,26 +20,34 @@
     align-items: center;
 }
     
-    .site-name{
-        color: rgba(76, 98, 146, 0.89);
-        font-family: "Lucida Console", Courier, monospace;
-        padding-left: 2px;
-    }
+.site-name{
+    color: rgba(76, 98, 146, 0.89);
+    font-family: "Lucida Console", Courier, monospace;
+    padding-left: 2px;
+    align-self: center;
+}
     
-    .logo{
-         color: whitesmoke;
-         background-color: rgba(28, 104, 25, 0.904);
-         width: 47px;
-         text-align: center;
-         margin-left: 3px;
-         border: 1px solid whitesmoke;
-         border-radius: 75px;
-         align-content: center;
-    }
+.logo{
+        color: whitesmoke;
+        background-color: rgba(28, 104, 25, 0.904);
+        width: 47px;
+        text-align: center;
+        margin-left: 3px;
+        border: 1px solid whitesmoke;
+        border-radius: 75px;
+        align-content: center;
+}
 
 
 // Center Nav Bar
+.search-bar {
+    display: flex;
+    align-items: center;
+}
 
+.search-icon {
+    cursor: pointer;
+}
 
 // Right Nav Bar
  .nav-right li{
@@ -78,7 +86,7 @@
      width: 35px;
      height: 35px;
      cursor: pointer;
-     margin-right: 100px;
+     margin-right: 67px;
      font-weight: bolder;
  }
 
