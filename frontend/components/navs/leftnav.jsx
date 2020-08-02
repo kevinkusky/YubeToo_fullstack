@@ -7,8 +7,10 @@ const LeftNav = () => {
       <div className='nav-left'>
           <MenuIcon />
           <Link to="/" className="header-link">
-            <h3 className="logo">{"▷"}</h3>
-            <h3 className="site-name">YubeToo</h3>
+              <div className='header-link'>
+                <h3 className="logo">{"▷"}</h3>
+                <h3 className="site-name">YubeToo</h3>
+              </div>
           </Link>
       </div>
     )

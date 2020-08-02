@@ -1,26 +1,23 @@
 // Overall Nav Bar
-.nav-bar .header {
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    
+// Left Nav Bar
+.header-link{
+    text-decoration: none;
+    display: flex;
+    padding-top: -120px;
+    top: -20px;
+}
+    
+.nav-left{
     display: flex;
     align-items: center;
-}
-//  nav{
-    //      display: flex;
-    //      justify-content: space-between;
-    //      align-items: center;
-    //      padding: 30px, 10%;
-    //  }
-    
-    
-    // Left Nav Bar
-    .header-link{
-        text-decoration: none;
-        padding-top: -120px;
-        top: -20px;
-    }
-    
-    .nav-left li{
-    display: inline-block;
-    margin-top: -9px;
 }
     
     .site-name{
