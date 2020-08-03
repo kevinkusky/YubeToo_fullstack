@@ -5,9 +5,7 @@ const SearchBar = () => {
     return (
         <div className='search-bar'>
             <input type="text"/>
-            <button className='search-icon'>
-                <SearchIcon />
-            </button>
+            <SearchIcon className='search-icon' />
         </div>
     )
 };

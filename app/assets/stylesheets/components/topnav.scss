@@ -4,6 +4,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 20px;
 }
 
     
@@ -32,7 +33,7 @@
         background-color: rgba(28, 104, 25, 0.904);
         width: 47px;
         text-align: center;
-        margin-left: 3px;
+        margin-left: 19px;
         border: 1px solid whitesmoke;
         border-radius: 75px;
         align-content: center;
@@ -43,6 +44,13 @@
 .search-bar {
     display: flex;
     align-items: center;
+    width: 40%;
+    border: 1px solid black;
+}
+
+.search-bar > input {
+    flex: 1;
+    border: none;
 }
 
 .search-icon {
