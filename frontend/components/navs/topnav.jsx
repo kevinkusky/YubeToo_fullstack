@@ -7,9 +7,7 @@ import SearchBar from './searchbar';
 import { LAUTH, SUPAUTH } from '../../util/route_utils';
 
 class TopNav extends React.Component {
-    // turnary statement to check
-    // this.props.location.pathname
-    // create util consts for paths
+    // withRouter import allows to pick location and pathname from props
 
     constructor(props) {
         super(props);
