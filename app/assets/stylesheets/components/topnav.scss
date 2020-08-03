@@ -51,10 +51,18 @@
 .search-bar > input {
     flex: 1;
     border: none;
+    margin-left: 5px;
 }
 
 .search-icon {
+    width: 50px !important;
+    background-color: #fafafa;
+    border-left: 1px solid lightgray;
     cursor: pointer;
+}
+
+.search-icon:hover, .search-icon:active{
+    background-color: #dadadabb;
 }
 
 // Right Nav Bar
