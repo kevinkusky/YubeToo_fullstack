@@ -8,14 +8,14 @@ export const SUPAUTH = '/signup';
 
 
 const mapStateToProps = state => ({
-    loggedIn: Boolean(state.session.currentUser)
     //   grabbing id - stored in session slice
+    loggedIn: Boolean(state.session.currentUser)
 });
 
 const Auth = ({ component: Component, path, loggedIn }) => (
     <Route
-        path= {path}
-        render= {
+        path={path}
+        render={
             props =>(loggedIn ? <Redirect to="/" /> : <Component {...props} />)
         }
     />
