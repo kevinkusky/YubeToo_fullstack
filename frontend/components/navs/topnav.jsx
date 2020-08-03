@@ -4,7 +4,7 @@ import GreetingContainer from './greeting_container';
 import LeftNav from './leftnav';
 import SearchBar from './searchbar';
 
-const TopNav = () =>{
+const TopNav = () => {
     // turnary statement to check
     // this.props.location.pathname
     // create util consts for paths
@@ -22,7 +22,8 @@ const TopNav = () =>{
     const noBar = () => (
         <div></div>
     )
-    return navBar;
+    
+
 };
 
 export default connect(null)(TopNav);
