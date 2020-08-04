@@ -14,6 +14,13 @@
     padding: 10px 20px;
 }
 
+.sidebar-row.selected {
+    background-color: lightgrey;
+    .sidebar-row-icon {
+        color: red;
+    }
+}
+
 .sidebar-row:hover {
     background-color: lightgrey;
     cursor: pointer;
