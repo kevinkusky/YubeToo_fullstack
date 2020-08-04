@@ -1,6 +1,9 @@
+// Entire Index Page
 .index-page {
     display: flex;
 }
+
+// Left Sidebar - 20%
 .side-bar {
     flex: 0.2;
 }
@@ -8,9 +11,27 @@
 .sidebar-row {
     display: flex;
     align-items: center;
-    margin-left: 2px;
+    padding: 10px 20px;
 }
 
+.sidebar-row:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.sidebar-row-icon {
+    color: #606060;
+    font-size: large !important;
+}
+
+.sidebar-row-title {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+// Right Index field - 80%
 .videos-index {
     flex: 0.8;
 }
