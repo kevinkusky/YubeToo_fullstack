@@ -5,7 +5,8 @@ import { Redirect, Route, withRouter } from 'react-router-dom';
 export const SPLAH = '/';
 export const LAUTH = '/login';
 export const SUPAUTH = '/signup';
-
+export const NEWVID = '/videos/new';
+// export const SHOWVID = '/'
 
 const mapStateToProps = state => ({
     //   grabbing id - stored in session slice
