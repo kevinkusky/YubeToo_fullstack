@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import MenuIcon from "@material-ui/icons/Menu";
+import Triangle from "@material-ui/icons/PlayArrow";
 
 const LeftNav = () => {
     return (
@@ -8,7 +9,7 @@ const LeftNav = () => {
           <MenuIcon />
           <Link to="/" className="header-link">
               <div className='header-link'>
-                <h3 className="logo">{"▷"}</h3>
+                <Triangle className='logo' />
                 <h3 className="site-name">YubeToo</h3>
               </div>
           </Link>
