@@ -49,6 +49,7 @@
     display: flex;
     align-items: center;
     width: 40%;
+    height: 30px;
     border: 1px solid black;
 }
 
@@ -61,12 +62,15 @@
 .search-icon {
     width: 50px !important;
     background-color: #fafafa;
+    color: #979797bb;
     border-left: 1px solid lightgray;
     cursor: pointer;
+    height: 30px !important;
 }
 
 .search-icon:hover, .search-icon:active{
     background-color: #dadadabb;
+    color: black;
 }
 
 // Right Nav Bar
