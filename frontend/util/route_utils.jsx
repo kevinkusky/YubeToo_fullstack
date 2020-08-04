@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, withRouter } from 'react-router-dom';
 
-export const SPLAH = '/';
+export const SPLASH = '/';
 export const LAUTH = '/login';
 export const SUPAUTH = '/signup';
 export const NEWVID = '/videos/new';
