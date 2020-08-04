@@ -1,5 +1,14 @@
+.index-page {
+    display: flex;
+}
 .side-bar {
     flex: 0.2;
+}
+
+.sidebar-row {
+    display: flex;
+    align-items: center;
+    margin-left: 2px;
 }
 
 .videos-index {
