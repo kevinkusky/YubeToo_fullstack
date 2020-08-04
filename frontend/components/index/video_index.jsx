@@ -13,7 +13,7 @@ const VideoIndex = ({ videos }) => {
                 <SidebarRow Icon={HomeIcon} title='Home' />
                 <SidebarRow Icon={TrendingIcon} title='Trending' />
                 <SidebarRow Icon={SubscriptionIcon} title='Subscriptions' />
-                <SidebarRow Icon={LikeIcon} title='Likes' />
+                <SidebarRow Icon={LikeIcon} title='Liked Videos' />
             </div>
             <div className='videos-index'>
                 <h2 className='index-header'>All Recomendations</h2>

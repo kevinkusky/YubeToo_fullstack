@@ -17,6 +17,14 @@
 .sidebar-row:hover {
     background-color: lightgrey;
     cursor: pointer;
+
+    .sidebar-row-icon {
+        color: red;
+    }
+
+    .sidebar-row-title {
+        font-weight: bold;
+    }
 }
 
 .sidebar-row-icon {
