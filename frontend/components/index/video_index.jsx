@@ -4,6 +4,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import TrendingIcon from '@material-ui/icons/Whatshot';
 import SubscriptionIcon from '@material-ui/icons/Subscriptions';
 import LikeIcon from '@material-ui/icons/ThumbUp';
+import ClockIcon from '@material-ui/icons/WatchLater';
 import VideoIndexItem from './video_index_item';
 
 const VideoIndex = ({ videos }) => {
@@ -13,6 +14,7 @@ const VideoIndex = ({ videos }) => {
                 <SidebarRow selected Icon={HomeIcon} title='Home' />
                 <SidebarRow Icon={TrendingIcon} title='Trending' />
                 <SidebarRow Icon={SubscriptionIcon} title='Subscriptions' />
+                <SidebarRow Icon={ClockIcon} title='Watch Later' />
                 <SidebarRow Icon={LikeIcon} title='Liked Videos' />
             </div>
             <div className='videos-index'>
