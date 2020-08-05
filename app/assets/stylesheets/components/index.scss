@@ -8,8 +8,12 @@
     flex: 0.2;
 }
 
-.sidebar-top{
-    border-bottom: 1px solid lightgrey;
+.side-bar > hr{
+    height: 1px;
+    border: 0;
+    background-color: lightgrey;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
 .sidebar-row {
@@ -20,6 +24,7 @@
 
 .sidebar-row.selected {
     background-color: lightgrey;
+
     .sidebar-row-icon {
         color: red;
     }
@@ -53,4 +58,12 @@
 // Right Index field - 80%
 .videos-index {
     flex: 0.8;
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    padding-bottom: 0;
+}
+
+.videos-index > h2 {
+    margin-left: 5px;
+    margin-bottom: 20px;
 }
