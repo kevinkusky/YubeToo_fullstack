@@ -5,7 +5,29 @@ import configureStore from './store/store';
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    let store;
     let preState = {};
+
+    // const token = getToken();
+
+    // if (token) {
+    //     setAuthToken(token);
+
+    //     const decodedUser = decodeToken(token);
+
+    //     const preState = {
+    //         session: {
+    //             isAuthenticated: true,
+    //             user: decodedUser
+    //         }
+    //     };
+
+    //     store = configureStore(preState);
+
+    // } else {
+    //     store = configureStore();
+    // }
+
     if(window.currentUser){
         preState = {
             entities: {
@@ -15,9 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // for cookies
         };
     }
-    const store = configureStore(preState);
+
+    store = configureStore(preState);
     const root = document.getElementById("root");
-    window.getState = store.getState;
+
+    window.getState = store.getState();
     
     ReactDOM.render(<Root store={store} />, root);
 });
