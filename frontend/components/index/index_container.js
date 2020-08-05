@@ -4,7 +4,7 @@ import{asArray} from '../../reducers/slectors';
 import { fetchVideos } from '../../util/video_util';
 
 const mSTP = state => ({
-    videos: asArray(state.entities.videos),
+    videos: asArray(state.entities),
 });
 
 const mDTP = dispatch => ({

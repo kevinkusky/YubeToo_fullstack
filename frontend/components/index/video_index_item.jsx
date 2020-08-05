@@ -18,11 +18,11 @@ class VideoIndexItem extends React.Component {
         // const videoChannel = this.props.video.author;
         // const videoViews = this.props.video.viewCount;
         // const timeStamp = this.props.video.timeStamp;
-        
         // singular video passed from index component
+
         return(
             <div className='index-preview' onClick={this.handleClick}>
-                <img 
+                {/* <img 
                     className='preview-image' 
                     src={videoURL}
                 />
@@ -30,11 +30,11 @@ class VideoIndexItem extends React.Component {
                     <span className='video-title'>{title}</span>
                     <ul className='secondary-info'>
                         <li className='name'></li>
-                        {/* <li className='count'>{video.viewCount}</li> */}
+                        <li className='count'>{video.viewCount}</li>
                         <li className='time'></li>
                     </ul>
                     <span className='video-discription'>{video.discription}</span>
-                </div>
+                </div> */}
             </div>
         )
     }
