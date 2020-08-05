@@ -13,11 +13,13 @@ class VideoIndexItem extends React.Component {
     }
 
     render() {
+        // const videoURL = this.props.video.title_card_url;
+        // const videoTitle = this.props.video.title;
+        // const videoChannel = this.props.video.author;
+        // const videoViews = this.props.video.viewCount;
+        // const timeStamp = this.props.video.timeStamp;
+        
         // singular video passed from index component
-        const videoURL = this.props.video.title_card_url;
-        const videoTitle = this.props.video.title;
-        // const video = this.props.video;
-        // const video = this.props.video;
         return(
             <div className='index-preview' onClick={this.handleClick}>
                 <img 
