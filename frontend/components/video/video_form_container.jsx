@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {createVideo, editVideo} from '../../actions/video';
+import {createVideo, editVideo} from '../../actions/videos';
 import VideoForm from './video_form';
 
 const mSTP = state => (

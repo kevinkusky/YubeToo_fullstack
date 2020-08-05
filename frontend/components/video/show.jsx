@@ -1,6 +1,6 @@
 import React from 'react';
-import Likes from './likes';
-import Comments from './comments';
+// import Likes from './likes';
+// import Comments from './comments';
 
 const VideoShow = () => {
     return(
