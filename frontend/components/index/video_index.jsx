@@ -11,9 +11,11 @@ const VideoIndex = ({ videos }) => {
     return (
         <div className='index-page'>
             <div className='side-bar'>
-                <SidebarRow selected Icon={HomeIcon} title='Home' />
-                <SidebarRow Icon={TrendingIcon} title='Trending' />
-                <SidebarRow Icon={SubscriptionIcon} title='Subscriptions' />
+                <div className='sidebar-top'>
+                    <SidebarRow selected Icon={HomeIcon} title='Home' />
+                    <SidebarRow Icon={TrendingIcon} title='Trending' />
+                    <SidebarRow Icon={SubscriptionIcon} title='Subscriptions' />
+                </div>
                 <SidebarRow Icon={ClockIcon} title='Watch Later' />
                 <SidebarRow Icon={LikeIcon} title='Liked Videos' />
             </div>
