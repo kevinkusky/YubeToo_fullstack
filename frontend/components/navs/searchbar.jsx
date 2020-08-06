@@ -4,23 +4,23 @@ import SearchIcon from '@material-ui/icons/Search';
 class SearchBar extends React.Component {
     constructor(props){
         super(props);
-        this.state={
+        this.state = {
             searchKey: '',
         };
     }
 
-    update(field){
-        return (e) => {
-            this.setState({searchKey: e.currentTarget});
-        };
-    }
-    
+    // update(field) {
+    //     return (e) => {
+    //         this.setState({ [field]: e.currentTarget.value });
+    //     };
+    // }
+
     render(){
         return(
             <div className='search-bar'>
                 <input
-                    value={searchKey}
-                    onChange={this.update()}
+                    // value={searchKey}
+                    // onChange={this.update('searchKey')}
                     placeholder='Search' 
                     type="text" />
                 <SearchIcon className='search-icon' />
