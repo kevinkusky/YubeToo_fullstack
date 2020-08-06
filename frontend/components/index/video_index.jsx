@@ -9,12 +9,27 @@ const VideoIndex = ({ videos }) => {
 
             <div className='videos-index'>
                 <h2 className='index-header'>All Recomendations</h2>
-                {videos.map(video => (
-                    <VideoIndexItem
-                        video={video}
-                        key={video.id}
-                    />
-                ))}
+                <div className='videos-list'>
+                    {videos.map(video => (
+                        <VideoIndexItem
+                            video={video}
+                            key={video.id}
+                        />
+                    ))}
+                    <div className='index-preview'>Video 1</div>
+                    <div className='index-preview'>Video 2</div>
+                    <div className='index-preview'>Video 5</div>
+                    <div className='index-preview'>Video 7</div>
+                    <div className='index-preview'>Video 8</div>
+                    <div className='index-preview'>Video 9</div>
+                    <div className='index-preview'>Video 9</div>
+                    <div className='index-preview'>Video 9</div>
+                    <div className='index-preview'>Video 9</div>
+                    <div className='index-preview'>Video 9</div>
+                    <div className='index-preview'>Video 9</div>
+                    <div className='index-preview'>Video 9</div>
+                    <div className='index-preview'>Video 9</div>
+                </div>
             </div>
         </div>
     )
