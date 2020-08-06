@@ -5,19 +5,20 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 9;
     background-color: white;
 }
-
-    
+.header{
+    width: 100%;
+    top: 0;
+    margin-bottom: auto;
+    background-color: white;
+}
 // Left Nav Bar
 .header-link{
     text-decoration: none;
     display: flex;
-    padding-top: -120px;
-    top: -20px;
 }
     
 .nav-left{
