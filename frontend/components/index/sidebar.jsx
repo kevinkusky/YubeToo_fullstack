@@ -12,13 +12,13 @@ const SideBar = () => {
     // SideabrRow component in Link
     return (
         <div className='side-bar'>
-            <SidebarRow selected Icon={HomeIcon} title='Home' />
-            <SidebarRow Icon={TrendingIcon} title='Trending' />
-            <SidebarRow Icon={SubscriptionIcon} title='Subscriptions' />
+            <SidebarRow selected='true' Icon={HomeIcon} title='Home' />
+            <SidebarRow selected='false' Icon={TrendingIcon} title='Trending' />
+            <SidebarRow selected='false' Icon={SubscriptionIcon} title='Subscriptions' />
             <hr />
-            <SidebarRow Icon={YourVidIcon} title='Your Videos' />
-            <SidebarRow Icon={ClockIcon} title='Watch Later' />
-            <SidebarRow Icon={LikeIcon} title='Liked Videos' />
+            <SidebarRow selected='false' Icon={YourVidIcon} title='Your Videos' />
+            <SidebarRow selected='false' Icon={ClockIcon} title='Watch Later' />
+            <SidebarRow selected='false' Icon={LikeIcon} title='Liked Videos' />
             <hr />
         </div>
     )
