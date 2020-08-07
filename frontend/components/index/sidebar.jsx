@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SidebarRow from './sidebar_row';
+import About from '../about/about';
 import HomeIcon from '@material-ui/icons/Home';
 import TrendingIcon from '@material-ui/icons/Whatshot';
 import SubscriptionIcon from '@material-ui/icons/Subscriptions';
@@ -7,7 +9,7 @@ import YourVidIcon from '@material-ui/icons/OndemandVideo';
 import LikeIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ClockIcon from '@material-ui/icons/WatchLater';
 import HistoryIcon from '@material-ui/icons/HistoryOutlined';
-import LinksIcon from '@material-ui/icons/FolderSharedOutlined';
+import LinksIcon from '@material-ui/icons/ContactSupportOutlined';
 
 const SideBar = () => {
     // possible solution - pass Links as props and wrap the
@@ -23,7 +25,9 @@ const SideBar = () => {
             <SidebarRow selected={false} Icon={ClockIcon} title='Watch Later' />
             <SidebarRow selected={false} Icon={LikeIcon} title='Liked Videos' />
             <hr />
-            <SidebarRow selected={false} Icon={LinksIcon} title='Contact' />
+            <Link to={About}>
+                <SidebarRow selected={false} Icon={LinksIcon} title='About' />
+            </Link>
             <hr />
         </div>
     )
