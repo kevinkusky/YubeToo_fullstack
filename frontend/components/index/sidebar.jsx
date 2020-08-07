@@ -25,7 +25,7 @@ const SideBar = () => {
             <SidebarRow selected={false} Icon={ClockIcon} title='Watch Later' />
             <SidebarRow selected={false} Icon={LikeIcon} title='Liked Videos' />
             <hr />
-            <Link to={ABOUT}>
+            <Link className='link-item' to={ABOUT}>
                 <SidebarRow selected={false} Icon={LinksIcon} title='About' />
             </Link>
             <hr />
