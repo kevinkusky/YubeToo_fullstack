@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SidebarRow from './sidebar_row';
-import About from '../about/about';
+import {ABOUT} from '../../util/route_utils';
 import HomeIcon from '@material-ui/icons/Home';
 import TrendingIcon from '@material-ui/icons/Whatshot';
 import SubscriptionIcon from '@material-ui/icons/Subscriptions';
@@ -25,7 +25,7 @@ const SideBar = () => {
             <SidebarRow selected={false} Icon={ClockIcon} title='Watch Later' />
             <SidebarRow selected={false} Icon={LikeIcon} title='Liked Videos' />
             <hr />
-            <Link to={About}>
+            <Link to={ABOUT}>
                 <SidebarRow selected={false} Icon={LinksIcon} title='About' />
             </Link>
             <hr />
