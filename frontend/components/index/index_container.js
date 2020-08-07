@@ -1,14 +1,14 @@
 import {connect} from 'react-redux';
 import VideoIndex from './video_index';
-import{asArray} from '../../reducers/slectors';
-// import { fetchVideos } from '../../actions/videos';
+import{videosAsArray} from '../../reducers/selectors';
+import { fetchVideos } from '../../actions/videos';
 
 const mSTP = state => ({
-    videos: asArray(state.entities),
+    videos: videosAsArray(state.entities),
 });
 
 const mDTP = dispatch => ({
-    // fetchVideos: () => dispatch(fetchVideos()),
+    fetchVideos: () => dispatch(fetchVideos()),
 });
 
-export default connect(mSTP)(VideoIndex);
+export default connect(mSTP, mDTP)(VideoIndex);

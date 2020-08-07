@@ -8,6 +8,7 @@ const receiveVideos = videos => ({
     type: RECEIVE_VIDEOS,
     videos,
 });
+
 const receiveVideo = video => ({
     type: RECEIVE_VIDEO,
     video,

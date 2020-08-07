@@ -25,16 +25,19 @@ class VideoIndexItem extends React.Component {
     }
 
     render() {
+        const { title, views, timestamp, channel, imageURL } = this.props.video;
+
         return(
             <div 
                 className='index-preview' 
                 onClick={this.handleClick}
             >
-                <img src={image} alt=""/>
+                <img src={imageURL} alt=""/>
                 <div className='card-info'>
 
                     <div className='card-text'>
                         <h4>{title}</h4>
+                        {/* check naming conventions */}
                         <p>{channel}</p>
                         <p>
                             {views} * {timestamp}
