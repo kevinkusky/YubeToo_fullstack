@@ -9,7 +9,7 @@ import YourVidIcon from '@material-ui/icons/OndemandVideo';
 import LikeIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ClockIcon from '@material-ui/icons/WatchLater';
 import HistoryIcon from '@material-ui/icons/HistoryOutlined';
-import LinksIcon from '@material-ui/icons/ContactSupportOutlined';
+import LinksIcon from '@material-ui/icons/BusinessCenterRounded';
 
 const SideBar = () => {
     // possible solution - pass Links as props and wrap the
