@@ -14,7 +14,12 @@
     margin-left: 40px;
 }
 
-.portfolio-links a{
-    text-decoration: none;
-    color: black !important;
+.portfolio-links{
+    a {
+        text-decoration: none !important;
+    }
+    color: black;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
 }
