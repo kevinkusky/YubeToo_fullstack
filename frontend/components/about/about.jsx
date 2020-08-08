@@ -16,7 +16,9 @@ const About = () => (
             </div>
             <div className='portfoliolinks'>
                 <ul>
-                    <li><LinkedInIcon /></li>
+                    <li>
+                        <a target='_blank' href="https://www.linkedin.com/in/kevinkusky/"><LinkedInIcon /></a>
+                    </li>
                     <li><GithubIcon /></li>
                     <li><EmailIcon />: KevinKusky@gmail.com</li>
                 </ul>
