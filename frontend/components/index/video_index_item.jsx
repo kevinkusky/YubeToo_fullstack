@@ -37,7 +37,6 @@ class VideoIndexItem extends React.Component {
 
                     <div className='card-text'>
                         <h4>{title}</h4>
-                        {/* check naming conventions */}
                         <p>{channel}</p>
                         <p>
                             {views} * {timestamp}

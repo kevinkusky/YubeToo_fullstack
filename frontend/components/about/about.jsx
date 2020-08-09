@@ -30,7 +30,7 @@ const About = () => (
             </div>
         </div>
         <div className='about-bottom'>
-            <p>Hello, I am a bio that will be filled out shortly with words - such very cool,
+            <p className='about-paragraph'>Hello, I am a bio that will be filled out shortly with words - such very cool,
                 awesome, persuasive words that will make you hire me.
             </p>
         </div>
