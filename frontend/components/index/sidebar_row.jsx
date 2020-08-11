@@ -17,14 +17,14 @@ class SidebarRow extends React.Component{
     // }
     render(){
         const klassName = () => {
-            if (selected) { return 'selected'; }
+            if (this.props.selected) { return 'selected'; }
             else { return ''; }
         };
         const Icon = this.props.Icon;
 
         return (
             <div 
-                className={`sidebar-row ${klassName}`}
+                className={`sidebar-row ${klassName()}`}
             >
                 <Icon className='sidebar-row-icon' />
                 <h2 className='sidebar-row-title'>{this.props.title}</h2>
