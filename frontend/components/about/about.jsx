@@ -15,18 +15,16 @@ const About = () => (
                 />
             </div>
             <div className='portfoliolinks'>
-                <ul>
-                    <li>
-                        <a target='_blank' href="https://kevinkusky.github.io/"><PortfolioIcon /></a>
-                    </li>
-                    <li>
-                        <a target='_blank' href="https://www.linkedin.com/in/kevinkusky/"><LinkedInIcon /></a>
-                    </li>
-                    <li>
-                        <a target='_blank' href="https://github.com/kevinkusky"><GithubIcon /></a>
-                    </li>
-                    <li><EmailIcon />: KevinKusky@gmail.com</li>
-                </ul>
+                <div className='about-link-item'>
+                    <a target='_blank' href="https://kevinkusky.github.io/"><PortfolioIcon className='about-icon'/></a>
+                </div>
+                <div className='about-link-item'>
+                    <a target='_blank' href="https://www.linkedin.com/in/kevinkusky/"><LinkedInIcon className='about-icon'/></a>
+                </div>
+                <div className='about-link-item'>
+                    <a target='_blank' href="https://github.com/kevinkusky"><GithubIcon className='about-icon'/></a>
+                </div>
+                <div className='about-link-item'><EmailIcon className='about-icon'/><span>: KevinKusky@gmail.com</span></div>
             </div>
         </div>
         <div className='about-bottom'>

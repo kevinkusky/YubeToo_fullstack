@@ -4,6 +4,9 @@
 
 .about-top {
     display: flex;
+    justify-content: space-between;
+    width: 58%;
+    margin-left: 60px;
 }
 
 .portfolio-image {
@@ -11,17 +14,35 @@
     height: 300px;
     border: 1px solid black;
     object-fit: cover;
-    margin-left: 40px;
 }
 
-.portfolio-links{
-    a {
-        text-decoration: none !important;
-    }
-    color: black;
-    margin-top: 15px;
+.about-link-item{
     display: flex;
-    justify-content: space-between;
+    margin: 16px;
+    align-items: center;
+
+    span {
+        display: none;
+    }
+}
+
+.portfoliolinks {
+    margin-left: -7%;
+}
+
+.about-icon {
+    color: black !important;
+    cursor: pointer;
+    height: 42px !important;
+    width: 42px !important;
+}
+
+.about-icon:hover {
+    color: rgba($color: #75b661, $alpha: 1.0) !important;
+
+    .about-link-item > span {
+        display: block;
+    }
 }
 
 .about-paragraph {

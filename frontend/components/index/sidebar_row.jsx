@@ -7,7 +7,7 @@ class SidebarRow extends React.Component{
             selected: this.props.selected
         };
 
-
+        // this.moveTrue = this.moveTrue.bind(this);
     }
 
     // moveTrue(){
