@@ -10,7 +10,7 @@ const About = () => (
         <div className='about-top'>
             <div className='portfolio-image'>
                 <img 
-                    // src={process.env.PUBLIC_URL + '/author-image.png'} 
+                    src='/app/assets/images/author-image.png'
                     alt=""
                 />
             </div>
