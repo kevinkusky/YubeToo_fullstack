@@ -18,6 +18,8 @@ class VideoIndexItem extends React.Component {
         const { title, view_count, created_at, creator, titlecardURL } = this.props.video;
 
         const viewCount = view_count || 0;
+        // const uploadDate = created_at;
+        
         return(
             <div 
                 className='index-preview' 
