@@ -15,9 +15,10 @@ class SidebarRow extends React.Component{
     //         this.setState(selected: '')
     //     }
     // }
+    
     render(){
         const klassName = () => {
-            if (this.props.selected) { return 'selected'; }
+            if (this.state.selected) { return 'selected'; }
             else { return ''; }
         };
         const Icon = this.props.Icon;
