@@ -5,18 +5,7 @@ import Avatar from '@material-ui/core/Avatar';
 class VideoIndexItem extends React.Component {
     constructor(props){
         super(props);
-        // this.state = {
-        //     image: this.props.video.titlecard,
-        //     title: this.props.video.title,
-        //     channel: this.props.video.creator,
-        //     views: this.props.video.viewCount,
-        //     timestamp: this.props.video.createdAt,
-        //     // image: 'image',
-        //     // title: 'title',
-        //     // author: 'author',
-        //     // views: 'views',
-        //     // timestamp: 'time',
-        // };
+
         this.handleClick = this.handleClick.bind(this);
     }
 
