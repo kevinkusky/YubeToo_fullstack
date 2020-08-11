@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
 
 class VideoIndexItem extends React.Component {
     constructor(props){
@@ -33,9 +34,9 @@ class VideoIndexItem extends React.Component {
                 className='index-preview' 
                 onClick={this.handleClick}
             >
-                <img src={titlecardURL} alt=""/>
+                <img className='index-pic' src={titlecardURL} alt=""/>
                 <div className='card-info'>
-
+                    <Avatar className='video-avatar'></Avatar>
                     <div className='card-text'>
                         <h4>{title}</h4>
                         <p>{creator.username}</p>

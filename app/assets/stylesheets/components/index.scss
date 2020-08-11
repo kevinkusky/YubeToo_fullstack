@@ -76,9 +76,23 @@
     .index-preview{
         height: 280px;
         width: 270px;
-        border: 1px solid black;
         margin-bottom: 40px;
         margin-left: 20px;
         cursor: pointer;
+    }
+}
+
+.index-preview {
+    width: 270px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .index-pic {
+        height: 140px;
+        width: 250px;
+    }
+
+    .card-info {
+        display: flex;
     }
 }
