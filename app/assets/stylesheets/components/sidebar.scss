@@ -1,16 +1,5 @@
 // // Entire Index Page = .index-page { display: flex;}
 
-// topNav Sidebar toggel
-
-
-.sidebar-toggle {
-    cursor: pointer;
-}
-
-.sidebar-toggle:target{
-    .side-bar{ display: none !important;}
-}
-
 // Left Sidebar - 20%
 .side-bar {
     flex: 0.2;

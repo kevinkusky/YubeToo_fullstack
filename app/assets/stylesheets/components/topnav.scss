@@ -24,6 +24,11 @@
 .nav-left{
     display: flex;
     align-items: center;
+    margin-left: -5px;
+}
+
+.sidebar-toggle {
+    cursor: pointer;
 }
     
 .site-name{
