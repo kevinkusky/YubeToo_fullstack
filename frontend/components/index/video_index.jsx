@@ -1,5 +1,4 @@
 import React from 'react';
-import SideBar from './sidebar';
 import VideoIndexItem from './video_index_item';
 
 class VideoIndex extends React.Component{
@@ -23,21 +22,16 @@ class VideoIndex extends React.Component{
     }
 
     render(){
-
         return(
-            <div className='index-page'>
-                <SideBar />
-
-                <div className='videos-index'>
-                    <h2 className='index-header'>All Recomendations</h2>
-                    <div className='videos-list'>
-                        {this.state.videos.map(video => (
-                            <VideoIndexItem
-                                video={video}
-                                key={video.id}
-                            />
-                        ))}
-                    </div>
+            <div>
+                <h2 className='index-header'>All Recomendations</h2>
+                <div className='videos-list'>
+                    {this.state.videos.map(video => (
+                        <VideoIndexItem
+                            video={video}
+                            key={video.id}
+                        />
+                    ))}
                 </div>
             </div>
         )

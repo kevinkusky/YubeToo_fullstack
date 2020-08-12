@@ -15,7 +15,7 @@ const SideBar = () => {
     // possible solution - pass Links as props and wrap the
     // SidebarRow component in Link
     return (
-        <div className='side-bar'>
+        <div>
             <SidebarRow selected={true} Icon={HomeIcon} title='Home' />
             <SidebarRow selected={false} Icon={TrendingIcon} title='Trending' />
             <SidebarRow selected={false} Icon={SubscriptionIcon} title='Subscriptions' />

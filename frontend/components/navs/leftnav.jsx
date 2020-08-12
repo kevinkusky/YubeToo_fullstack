@@ -15,10 +15,7 @@ class LeftNav extends React.Component{
     }
 
     sidebarToggle() {
-        const newState = !(this.state.barSize);
-        this.setState({
-            barSize: newState
-        });
+
     }
 
     render(){

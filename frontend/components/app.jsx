@@ -7,12 +7,14 @@ import VideoFormContainer from  './video/video_form_container';
 import IndexContainer from './index/index_container';
 import TopNav from './navs/topnav';
 import About from './about/about';
+import MainPage from './mainpage/mainpage';
 
 const App = () => (
   <div className="app">
-    <TopNav />
+    {/* <TopNav /> */}
         <Switch>
-        <Route exact path={SPLASH} component={IndexContainer} />
+        {/* <Route exact path={SPLASH} component={IndexContainer} /> */}
+        <Route exact path={SPLASH} component={MainPage} />
         <AuthRoute exact path={LAUTH} component={SigninContainer} />
         <AuthRoute exact path={SUPAUTH} component={SignupContainer} />
         <ProtectedRoute exact path={NEWVID} component={VideoFormContainer} />
