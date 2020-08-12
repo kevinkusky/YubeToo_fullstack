@@ -11,9 +11,9 @@ import ClockIcon from '@material-ui/icons/WatchLater';
 import HistoryIcon from '@material-ui/icons/HistoryOutlined';
 import LinksIcon from '@material-ui/icons/InfoOutlined';
 
-const SideBar = () => {
-    // possible solution - pass Links as props and wrap the
-    // SidebarRow component in Link
+const SideBar = ({ coverage, componentSwitch }) => {
+    // pass componentSwitch to row item
+    // utilize to render component
     return (
         <div>
             <SidebarRow selected={true} Icon={HomeIcon} title='Home' />

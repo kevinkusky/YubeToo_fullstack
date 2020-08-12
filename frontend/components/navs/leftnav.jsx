@@ -6,22 +6,12 @@ import Triangle from "@material-ui/icons/PlayArrow";
 class LeftNav extends React.Component{
     constructor(props){
         super(props);
-
-        this.state = {
-            barSize: true
-        };
-
-        this.sidebarToggle = this.sidebarToggle.bind(this);
-    }
-
-    sidebarToggle() {
-
     }
 
     render(){
         return (
           <div className='nav-left'>
-            <MenuIcon className='sidebar-toggle' onClick={this.sidebarToggle} />
+            <MenuIcon className='sidebar-toggle' onClick={this.props.sidebarToggle} />
             <Link to="/" className="header-link">
                 <div className='header-link'>
                 <Triangle className='logo' />

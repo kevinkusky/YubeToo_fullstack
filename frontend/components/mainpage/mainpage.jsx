@@ -13,6 +13,7 @@ class MainPage extends React.Component{
         };
 
         this.handleSidebarToggle = this.handleSidebarToggle.bind(this);
+        this.handleSidebarClick = this.handleSidebarClick.bind(this);
     }
 
     handleSidebarClick(komponent){
@@ -34,11 +35,14 @@ class MainPage extends React.Component{
                 <TopNav sidebarToggle={this.handleSidebarToggle}/>
                 <div className='index-page'>
                     <div className='side-bar'>
-                        <SideBar coverage={this.state.sidebarSize}/>
+                        <SideBar 
+                            coverage={this.state.sidebarSize}
+                            componentSwitch={this.handleSidebarClick}
+                        />
                     </div>
                     <div className='videos-index'>
                         <IndexContainer/>
-                    {/* <ActiveMainComponent /> */}
+                    {/* <ActiveMainComponent display={this.state.component} /> */}
                     </div>
                 </div>
             </div>
