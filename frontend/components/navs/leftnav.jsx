@@ -6,7 +6,7 @@ import Triangle from "@material-ui/icons/PlayArrow";
 const LeftNav = () => {
     return (
       <div className='nav-left'>
-          <MenuIcon />
+          <MenuIcon className='sidebar-toggle'/>
           <Link to="/" className="header-link">
               <div className='header-link'>
                 <Triangle className='logo' />
