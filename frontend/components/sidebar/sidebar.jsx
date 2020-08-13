@@ -15,25 +15,29 @@ import LinksIcon from '@material-ui/icons/InfoOutlined';
 class SideBar extends React.Component{
     constructor(props){
         super(props);
+
+        this.componentPass = this.componentPass.bind(this);
+    }
+
+    componentPass(){
+        return e => this.props.componentSwitch(e.currentTarget.title);
     }
 
     render(){
-        // const {coverage, componentSwitch } = this.props;
-
         return (
             <div>
-                <SidebarRow selected={true} Icon={HomeIcon} title='Home' />
-                <SidebarRow selected={false} Icon={TrendingIcon} title='Trending' />
-                <SidebarRow selected={false} Icon={SubscriptionIcon} title='Subscriptions' />
+                <SidebarRow selected={true} Icon={HomeIcon} title='Home' onClick={this.componentPass} />
+                <SidebarRow selected={false} Icon={TrendingIcon} title='Trending' onClick={this.componentPass} />
+                <SidebarRow selected={false} Icon={SubscriptionIcon} title='Subscriptions' onClick={this.componentPass} />
                 <hr />
-                <SidebarRow selected={false} Icon={HistoryIcon} title='History' />
-                <SidebarRow selected={false} Icon={YourVidIcon} title='Your Videos' />
-                <SidebarRow selected={false} Icon={ClockIcon} title='Watch Later' />
-                <SidebarRow selected={false} Icon={LikeIcon} title='Liked Videos' />
+                <SidebarRow selected={false} Icon={HistoryIcon} title='History' onClick={this.componentPass} />
+                <SidebarRow selected={false} Icon={YourVidIcon} title='Your Videos' onClick={this.componentPass} />
+                <SidebarRow selected={false} Icon={ClockIcon} title='Watch Later' onClick={this.componentPass} />
+                <SidebarRow selected={false} Icon={LikeIcon} title='Liked Videos' onClick={this.componentPass} />
                 <hr />
-                <Link className='link-item' to={ABOUT}>
-                    <SidebarRow selected={false} Icon={LinksIcon} title='About' />
-                </Link>
+                {/* <Link className='link-item' to={ABOUT}> */}
+                <SidebarRow selected={false} Icon={LinksIcon} title='About' onClick={this.componentPass} />
+                {/* </Link> */}
                 <hr />
             </div>
         )

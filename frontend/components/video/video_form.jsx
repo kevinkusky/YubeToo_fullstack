@@ -15,12 +15,13 @@ class VideoForm extends React.Component{
             titlecardUrl: null
         };
         this.handleFile = this.handleFile.bind(this);
+        this.handleNextFile = this.handleNextFile.bind(this);
         this.navigateToSplash = this.navigateToSplash.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleNextFile = this.handleNextFile.bind(this);
     }
 
     navigateToSplash(){
+        // refactor to profile page if/when built
         this.props.history.push('/');
     }
 
@@ -108,7 +109,6 @@ class VideoForm extends React.Component{
             </div>
         );
     }
-
 }
 
 export default withRouter(VideoForm);

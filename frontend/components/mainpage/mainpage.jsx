@@ -1,6 +1,7 @@
 import React from 'react';
 import TopNav from '../navs/topnav';
-import IndexContainer from '../index/index_container';
+// import IndexContainer from '../index/index_container';
+import ActiveComponent from './active_component';
 import SideBar from '../sidebar/sidebar';
 
 class MainPage extends React.Component{
@@ -9,7 +10,7 @@ class MainPage extends React.Component{
 
         this.state ={
             sidebarSize: true,
-            // component: 'Home'
+            component: 'Home'
         };
 
         this.handleSidebarToggle = this.handleSidebarToggle.bind(this);
@@ -41,8 +42,8 @@ class MainPage extends React.Component{
                         />
                     </div>
                     <div className='videos-index'>
-                        <IndexContainer/>
-                    {/* <ActiveMainComponent display={this.state.component} /> */}
+                        {/* <IndexContainer/> */}
+                    <ActiveComponent display={this.state.component} />
                     </div>
                 </div>
             </div>
