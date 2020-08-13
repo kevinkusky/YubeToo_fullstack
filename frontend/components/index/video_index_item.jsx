@@ -32,7 +32,7 @@ class VideoIndexItem extends React.Component {
                         <h4>{title}</h4>
                         <p>{creator.username}</p>
                         <p>
-                            {viewCount} * {created_at}
+                            {viewCount} views * {created_at}
                         </p>
                     </div>
                 </div>

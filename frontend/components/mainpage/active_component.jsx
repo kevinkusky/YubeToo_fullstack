@@ -6,10 +6,11 @@
 // class ActiveComponent extends React.Component{
 //     constructor(props){
 //         super(props);
+
 //     }
 
 //     render(){
-//         const komponent = this.props.component;
+//         const komponent = this.props.display;
 
 //         switch(komponent){
 //             case 'Home':
