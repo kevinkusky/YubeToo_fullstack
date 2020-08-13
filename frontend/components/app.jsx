@@ -11,9 +11,7 @@ import MainPage from './mainpage/mainpage';
 
 const App = () => (
   <div className="app">
-    {/* <TopNav /> */}
         <Switch>
-        {/* <Route exact path={SPLASH} component={IndexContainer} /> */}
         <Route exact path={SPLASH} component={MainPage} />
         <AuthRoute exact path={LAUTH} component={SigninContainer} />
         <AuthRoute exact path={SUPAUTH} component={SignupContainer} />
