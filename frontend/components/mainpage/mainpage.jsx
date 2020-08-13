@@ -9,7 +9,7 @@ class MainPage extends React.Component{
 
         this.state ={
             sidebarSize: true,
-            component: 'Home'
+            // component: 'Home'
         };
 
         this.handleSidebarToggle = this.handleSidebarToggle.bind(this);

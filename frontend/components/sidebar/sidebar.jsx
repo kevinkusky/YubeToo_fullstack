@@ -11,26 +11,33 @@ import ClockIcon from '@material-ui/icons/WatchLater';
 import HistoryIcon from '@material-ui/icons/HistoryOutlined';
 import LinksIcon from '@material-ui/icons/InfoOutlined';
 
-const SideBar = ({ coverage, componentSwitch }) => {
-    // pass componentSwitch to row item
-    // utilize to render component
-    return (
-        <div>
-            <SidebarRow selected={true} Icon={HomeIcon} title='Home' />
-            <SidebarRow selected={false} Icon={TrendingIcon} title='Trending' />
-            <SidebarRow selected={false} Icon={SubscriptionIcon} title='Subscriptions' />
-            <hr />
-            <SidebarRow selected={false} Icon={HistoryIcon} title='History' />
-            <SidebarRow selected={false} Icon={YourVidIcon} title='Your Videos' />
-            <SidebarRow selected={false} Icon={ClockIcon} title='Watch Later' />
-            <SidebarRow selected={false} Icon={LikeIcon} title='Liked Videos' />
-            <hr />
-            <Link className='link-item' to={ABOUT}>
-                <SidebarRow selected={false} Icon={LinksIcon} title='About' />
-            </Link>
-            <hr />
-        </div>
-    )
-};
+
+class SideBar extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        // const {coverage, componentSwitch } = this.props;
+
+        return (
+            <div>
+                <SidebarRow selected={true} Icon={HomeIcon} title='Home' />
+                <SidebarRow selected={false} Icon={TrendingIcon} title='Trending' />
+                <SidebarRow selected={false} Icon={SubscriptionIcon} title='Subscriptions' />
+                <hr />
+                <SidebarRow selected={false} Icon={HistoryIcon} title='History' />
+                <SidebarRow selected={false} Icon={YourVidIcon} title='Your Videos' />
+                <SidebarRow selected={false} Icon={ClockIcon} title='Watch Later' />
+                <SidebarRow selected={false} Icon={LikeIcon} title='Liked Videos' />
+                <hr />
+                <Link className='link-item' to={ABOUT}>
+                    <SidebarRow selected={false} Icon={LinksIcon} title='About' />
+                </Link>
+                <hr />
+            </div>
+        )
+    }
+}
 
 export default SideBar;
