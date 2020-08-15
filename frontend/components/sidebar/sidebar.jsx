@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import {ABOUT} from '../../util/route_utils';
 
-import SidebarRow from './sidebar_row';
+import SidebarRow from './full_sidebar_row';
 
 import HomeIcon from '@material-ui/icons/Home';
 import TrendingIcon from '@material-ui/icons/Whatshot';
@@ -26,6 +26,8 @@ class SideBar extends React.Component{
     }
 
     render(){
+        // impliment turnary with full and collapsed sidebar row as
+        // variable SidebarRow to DRY up return
         return (
             <div>
                 <SidebarRow selected={true} Icon={HomeIcon} title='Home' onClick={this.componentPass} />

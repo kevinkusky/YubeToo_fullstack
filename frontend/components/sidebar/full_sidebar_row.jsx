@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SidebarRow extends React.Component{
+class FullSidebarRow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -34,4 +34,4 @@ class SidebarRow extends React.Component{
     }
 }
 
-export default SidebarRow;
+export default FullSidebarRow;

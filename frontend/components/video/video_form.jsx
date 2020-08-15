@@ -1,7 +1,10 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 import Dropzone from 'react-dropzone';
+
 import TopNav from '../navs/topnav';
+
+import VideoDrop from '@material-ui/icons/PublishOutlined';
 
 class VideoForm extends React.Component{
     constructor(props){
