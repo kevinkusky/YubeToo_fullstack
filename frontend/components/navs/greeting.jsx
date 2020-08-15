@@ -18,7 +18,7 @@ const Greeting = ({ currentUser, logout }) => {
       <hgroup className="header-display">
         <div className="drop-down">
             <div className="circle-letter">
-              {currentUser.email_address[0].toUpperCase()}
+              {currentUser.username[0].toUpperCase()}
             </div>
             <div className="sub-list">
                 <ul>
