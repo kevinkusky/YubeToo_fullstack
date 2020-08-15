@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SidebarRow from './sidebar_row';
+
 import {ABOUT} from '../../util/route_utils';
+
+import SidebarRow from './sidebar_row';
+
 import HomeIcon from '@material-ui/icons/Home';
 import TrendingIcon from '@material-ui/icons/Whatshot';
 import SubscriptionIcon from '@material-ui/icons/Subscriptions';
@@ -10,7 +13,6 @@ import LikeIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ClockIcon from '@material-ui/icons/WatchLater';
 import HistoryIcon from '@material-ui/icons/HistoryOutlined';
 import LinksIcon from '@material-ui/icons/InfoOutlined';
-
 
 class SideBar extends React.Component{
     constructor(props){

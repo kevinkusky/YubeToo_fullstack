@@ -74,17 +74,12 @@
 .videos-list {
     display: flex;
     flex-wrap: wrap;
-
-    .index-preview{
-        height: 280px;
-        width: 270px;
-        margin-bottom: 40px;
-        margin-left: 20px;
-        cursor: pointer;
-    }
 }
 
 .index-preview {
+    height: 280px;
+    margin-bottom: 40px;
+    margin-left: 20px;
     width: 270px;
     display: flex;
     flex-wrap: wrap;
@@ -96,29 +91,29 @@
         object-fit: cover;
     }
 
-    .card-info {
-        display: flex;
-        margin-top: 10px;
-        padding-right: 30px;
+}
 
-        .card-text{
-            margin-left: 15px;
+.card-info {
+    display: flex;
+    margin-top: 10px;
+    padding-right: 30px;
 
-            h4 {
-                font-size: 14px;
-                margin-bottom: 5px;
-            }
+    .card-text{
+        margin-left: 15px;
 
-            p {
-                font-size: 14px;
-                color: gray;
-            }
+        h4 {
+            font-size: 14px;
+            margin-bottom: -5px;
         }
 
-        .video-avatar {
-            height: 30px !important;
-            width: 30px !important;
+        p {
+            font-size: 14px;
+            color: gray;
         }
     }
 
+    .video-avatar {
+        height: 30px !important;
+        width: 30px !important;
+    }
 }
