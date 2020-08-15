@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router';
+import Dropzone from 'react-dropzone';
 import TopNav from '../navs/topnav';
 
 class VideoForm extends React.Component{
@@ -73,6 +74,14 @@ class VideoForm extends React.Component{
         this.props.createVideo(formData);
     }
 
+    // handleDrop(videoFile){
+    //     if(videoFile){
+    //         if(this.state.errors.length !== 0){
+    //             this.setState({errors: ''});
+    //         }
+    //     }
+    // }
+
     render(){
         // refactor preview to be a title card upload
         const preview = this.state.titlecardUrl ? <img height='200px' width='200px' src={this.state.titlecardUrl}/> : null;
@@ -81,7 +90,17 @@ class VideoForm extends React.Component{
                 <TopNav />
                 <form onSubmit={this.handleSubmit}>
                     <h3>Upload Video</h3>
-                    <input type="file" onChange={this.handleFile}/>
+                    <Dropzone onDrop={this.handleFile}>
+                        {({ getRootProps, getInputProps }) => (
+                            <div {...getRootProps({className: 'drop-zone'})}>
+                                <input {...getInputProps()}/>
+                                <div className='dropzone-target'>
+                                    <p>test for drop zone</p>
+                                </div>
+                            </div>
+                        )}
+                    </Dropzone>
+                    {/* <input type="file" onChange={this.handleFile}/> */}
                     <h3>Upload Preview Image</h3>
                     <input type="file" onChange={this.handleNextFile}/>
                 <br/>
