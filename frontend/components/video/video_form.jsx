@@ -16,7 +16,7 @@ class VideoForm extends React.Component{
             titlecardUrl: null
         };
         this.handleFile = this.handleFile.bind(this);
-        this.handleNextFile = this.handleNextFile.bind(this);
+        this.handlePicFile = this.handlePicFile.bind(this);
         this.navigateToSplash = this.navigateToSplash.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -30,32 +30,19 @@ class VideoForm extends React.Component{
         return e => this.setState({ [field]: e.currentTarget.value });
     }
 
-    handleFile(e){
+    handlePicFile(e){
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
-
-        fileReader.onloadend = () => {
-            this.setState({ videoFile: file, videoUrl: fileReader.result });
-        };
-
-        if(file){
-            fileReader.readAsDataURL(file);
-        }
-    }
-
-    handleNextFile(e){
-        const file = e.currentTarget.files[0];
-        const fileReader = new FileReader();
-
+        
         fileReader.onloadend = () => {
             this.setState({ titlecardFile: file, titlecardUrl: fileReader.result });
         };
-
+        
         if(file){
             fileReader.readAsDataURL(file);
         }
     }
-
+    
     handleSubmit(e) {
         e.preventDefault();
         
@@ -70,9 +57,25 @@ class VideoForm extends React.Component{
         if(this.state.titlecardFile){
             formData.append('video[titlecard]', this.state.titlecardFile);
         }
-
+        
         this.props.createVideo(formData);
     }
+    
+    // current file handler for videos
+    handleFile(e){
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+
+        fileReader.onloadend = () => {
+            this.setState({ videoFile: file, videoUrl: fileReader.result });
+        };
+
+        if(file){
+            fileReader.readAsDataURL(file);
+        }
+    }
+
+    // dropzonehandler
 
     // handleDrop(videoFile){
     //     if(videoFile){
@@ -102,7 +105,7 @@ class VideoForm extends React.Component{
                     </Dropzone>
                     {/* <input type="file" onChange={this.handleFile}/> */}
                     <h3>Upload Preview Image</h3>
-                    <input type="file" onChange={this.handleNextFile}/>
+                    <input type="file" onChange={this.handlePicFile}/>
                 <br/>
                     <h4>Preview</h4>
                     {preview}
