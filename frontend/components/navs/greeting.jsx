@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
     const sessionLinks = () => (
-        <nav className='nav-right'>
-            <ul>
-                <li>
-                    <Link to='/signup'><button>Sign Up</button></Link>
-                </li>
-            </ul>
-        </nav>
+      <nav className="nav-right">
+        <ul>
+          <li>
+            <Link to="/signup">
+              <button className="session-button">Sign Up</button>
+            </Link>
+          </li>
+        </ul>
+      </nav>
     );
 
     const userNav = () => (

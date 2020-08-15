@@ -53,17 +53,32 @@ class SideBar extends React.Component{
 
         const LoggedoutSidebar = () => (
           <div>
-            <SidebarRow selected={true} Icon={HomeIcon} title="Home" onClick={this.componentPass} />
-            <SidebarRow selected={false} Icon={TrendingIcon} title="Trending" onClick={this.componentPass} />
+            <SidebarRow
+              selected={true}
+              Icon={HomeIcon}
+              title="Home"
+              onClick={this.componentPass}
+            />
+            <SidebarRow
+              selected={false}
+              Icon={TrendingIcon}
+              title="Trending"
+              onClick={this.componentPass}
+            />
             <hr />
-            <div> 
-                <p>
-                    Please Log In to experience more YubeToo features
-                </p>
-                <Link to={LAUTH}>Log In</Link>
+            <div>
+              <p>Please Log In to experience more YubeToo features</p>
+              <Link to={LAUTH}>
+                <button className="session-button">Log In</button>
+              </Link>
             </div>
-            <hr/>
-            <SidebarRow selected={false} Icon={LinksIcon} title="About" onClick={this.componentPass} />
+            <hr />
+            <SidebarRow
+              selected={false}
+              Icon={LinksIcon}
+              title="About"
+              onClick={this.componentPass}
+            />
             <hr />
           </div>
         );

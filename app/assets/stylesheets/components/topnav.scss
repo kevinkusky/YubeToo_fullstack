@@ -85,6 +85,20 @@
     display: inline-block;
  }
 
+.session-button {
+     text-decoration: none;
+     border: 1.3px solid rgb(58, 108, 201);
+     background-color: white;
+     color: rgb(58, 108, 201);
+     border-radius: 2px;
+     margin-right: 9px;
+     height: 32px;
+     width: 75px;
+     text-align: center;
+     font-family: 'Roboto', sans-serif;
+     font-weight: 547;
+}
+
  .nav-right li button{
      text-decoration: none;
      border: 1.3px solid rgb(58, 108, 201);
