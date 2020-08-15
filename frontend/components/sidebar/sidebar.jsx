@@ -17,15 +17,15 @@ import LinksIcon from '@material-ui/icons/InfoOutlined';
 class SideBar extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            active: 'Home'
-        };
+        // this.state = {
+        //     active: 'Home'
+        // };
         this.componentPass = this.componentPass.bind(this);
     }
 
     componentPass(){
         return e => {
-            this.setState({active: e.currentTarget.title});
+            // this.setState({active: e.currentTarget.title});
             this.props.componentSwitch(e.currentTarget.title);
         };
     }

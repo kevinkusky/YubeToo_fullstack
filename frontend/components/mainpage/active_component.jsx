@@ -9,9 +9,7 @@ class ActiveComponent extends React.Component{
     }
 
     render(){
-        let komponent = this.props.display;
-
-        switch(komponent){
+        switch(this.props.display){
             case 'Home':
                 return(<IndexContainer />);
             case 'About':

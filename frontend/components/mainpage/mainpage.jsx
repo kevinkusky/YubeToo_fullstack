@@ -18,7 +18,9 @@ class MainPage extends React.Component{
     }
 
     handleSidebarClick(komponent){
-        this.setState({ component: komponent });
+        return e => {
+            this.setState({ component: komponent });
+        };
     }
 
     handleSidebarToggle(){
@@ -39,7 +41,7 @@ class MainPage extends React.Component{
                     </div>
                     <div className='videos-index'>
                         {/* <IndexContainer/> */}
-                    <ActiveComponent display={this.state.component} />
+                        <ActiveComponent display={this.state.component} />
                     </div>
                 </div>
             </div>
