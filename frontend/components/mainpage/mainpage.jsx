@@ -1,6 +1,6 @@
 import React from 'react';
 import TopNav from '../navs/topnav';
-// import IndexContainer from '../index/index_container';
+
 import ActiveComponent from './active_component';
 import SideBar from '../sidebar/sidebar';
 
@@ -34,7 +34,7 @@ class MainPage extends React.Component{
         return(
             <div>
                 <TopNav sidebarToggle={this.handleSidebarToggle}/>
-                <div className='index-page'>
+                <div className='main-page'>
                     <div className='side-bar'>
                         <SideBar 
                             coverage={this.state.sidebarSize}
