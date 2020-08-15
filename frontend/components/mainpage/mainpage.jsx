@@ -2,7 +2,7 @@ import React from 'react';
 import TopNav from '../navs/topnav';
 
 import ActiveComponent from './active_component';
-import SideBar from '../sidebar/sidebar';
+import SideBar from '../sidebar/sidebar_container';
 
 class MainPage extends React.Component{
     constructor(props){
@@ -18,16 +18,12 @@ class MainPage extends React.Component{
     }
 
     handleSidebarClick(komponent){
-        this.setState({
-            component: komponent
-        });
+        this.setState({ component: komponent });
     }
 
     handleSidebarToggle(){
         const newState = !(this.state.sidebarSize);
-        this.setState({
-            sidebarSize: newState
-        });
+        this.setState({ sidebarSize: newState });
     }
 
     render(){

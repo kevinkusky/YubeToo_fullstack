@@ -9,7 +9,7 @@ class ActiveComponent extends React.Component{
     }
 
     render(){
-        const komponent = this.props.display;
+        let komponent = this.props.display;
 
         switch(komponent){
             case 'Home':

@@ -6,9 +6,6 @@ const Greeting = ({ currentUser, logout }) => {
         <nav className='nav-right'>
             <ul>
                 <li>
-                    <Link to='/login'><button>Log In</button></Link>
-                </li>
-                <li>
                     <Link to='/signup'><button>Sign Up</button></Link>
                 </li>
             </ul>
