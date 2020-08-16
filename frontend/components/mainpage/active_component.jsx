@@ -14,6 +14,12 @@ class ActiveComponent extends React.Component{
                 return(<IndexContainer />);
             case 'About':
                 return(<About />);
+            // case 'Your Videos':
+            //     return(<UserVideoIndex />)
+            // case 'Liked Videos':
+            //     return(<LikeIndexContainer />)
+            // case 'Subscriptions':
+            //     return(<SubscriptionIndexContainer />)
             default:
                 return(<IndexContainer />);
         }
