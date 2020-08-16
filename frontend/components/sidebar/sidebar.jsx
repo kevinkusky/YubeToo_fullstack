@@ -67,7 +67,11 @@ class SideBar extends React.Component{
             />
             <hr />
             <div>
-              <p>Please Log In to experience more YubeToo features</p>
+            <p
+                className='login-message'
+            >
+                Please Login to like videos, comment, and subscribe
+            </p>
               <Link to={LAUTH}>
                 <button className="session-button">Log In</button>
               </Link>
