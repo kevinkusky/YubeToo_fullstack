@@ -17,9 +17,9 @@ class MainPage extends React.Component{
         this.handleSidebarClick = this.handleSidebarClick.bind(this);
     }
 
-    handleSidebarClick(komponent){
+    handleSidebarClick(){
         return e => {
-            this.setState({ component: komponent });
+            this.setState({ component: e.target.currentTarget.title });
         };
     }
 
@@ -40,7 +40,6 @@ class MainPage extends React.Component{
                         />
                     </div>
                     <div className='videos-index'>
-                        {/* <IndexContainer/> */}
                         <ActiveComponent display={this.state.component} />
                     </div>
                 </div>
