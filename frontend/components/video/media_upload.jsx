@@ -2,6 +2,7 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 
 import VideoDrop from "@material-ui/icons/PublishOutlined";
+import PicDrop from "@material-ui/icons/ImageOutlined";
 
 class MediaUpload extends React.Component {
   constructor(props) {
@@ -78,8 +79,12 @@ class MediaUpload extends React.Component {
   render() {
     return (
       <div>
-        <Dropzone onDrop={null}>
+        <Dropzone onDrop={this.handleVideoDrop}>
           <VideoDrop />
+        </Dropzone>
+
+        <Dropzone onDrop={this.handlePicDrop}>
+          <PicDrop />
         </Dropzone>
       </div>
     );
