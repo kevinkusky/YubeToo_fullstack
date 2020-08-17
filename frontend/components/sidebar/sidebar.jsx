@@ -13,6 +13,7 @@ import LikeIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ClockIcon from '@material-ui/icons/WatchLater';
 import HistoryIcon from '@material-ui/icons/HistoryOutlined';
 import LinksIcon from '@material-ui/icons/InfoOutlined';
+import UserIcon from '@material-ui/icons/AccountCircle';
 
 class SideBar extends React.Component{
     constructor(props){
@@ -53,43 +54,28 @@ class SideBar extends React.Component{
 
         const LoggedoutSidebar = () => (
           <div>
-            <SidebarRow
-              selected={true}
-              Icon={HomeIcon}
-              title="Home"
-              onClick={this.componentPass}
+            <SidebarRow 
+                selected={true} Icon={HomeIcon} title="Home" onClick={this.componentPass} 
             />
             <SidebarRow
-              selected={false}
-              Icon={TrendingIcon}
-              title="Trending"
-              onClick={this.componentPass}
+              selected={false} Icon={TrendingIcon} title="Trending" onClick={this.componentPass} 
             />
             <hr />
-            <div>
-            <p
-                className='login-message'
-            >
+            <div >
+            <p className='login-message'>
                 Please Login to like videos, comment, and subscribe
             </p>
-              <Link to={LAUTH}>
-                <button className="session-button">Log In</button>
+              <Link className='session-link' to={LAUTH}>
+                <button className="session-button"><UserIcon/>Log In</button>
               </Link>
             </div>
             <hr />
             <SidebarRow
-              selected={false}
-              Icon={LinksIcon}
-              title="About"
-              onClick={this.componentPass}
+              selected={false} Icon={LinksIcon} title="About" onClick={this.componentPass}
             />
             <hr />
           </div>
         );
-
-        // let Sidebar = () => (
-        //     this.state.currentUser ? 
-        // )
 
         return (
             this.props.currentUser ? LoggedinSidebar() : LoggedoutSidebar()

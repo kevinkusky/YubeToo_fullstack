@@ -1,15 +1,17 @@
 import React from 'react';
+import UserIcon from '@material-ui/icons/AccountCircle';
+
 import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
     const sessionLinks = () => (
       <nav className="nav-right">
         <ul>
-          <li>
-            <Link to="/signup">
-              <button className="session-button">Sign Up</button>
+                <div className='session-button-container'>
+            <Link className='session-link' to="/signup">
+              <button className="session-button"><UserIcon/>Sign Up</button>
             </Link>
-          </li>
+          </div>
         </ul>
       </nav>
     );

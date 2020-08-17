@@ -85,38 +85,61 @@
     display: inline-block;
  }
 
-.session-button {
+.session-button{
      text-decoration: none;
      border: 1.3px solid rgb(58, 108, 201);
      background-color: white;
      color: rgb(58, 108, 201);
      border-radius: 2px;
      margin-right: 9px;
-     height: 32px;
-     width: 75px;
+     margin-left: 22px;
+     height: 37px;
+     width: 100px;
      text-align: center;
      font-family: 'Roboto', sans-serif;
      font-weight: 547;
+     cursor: pointer;
+     align-content: center;
 }
 
- .nav-right li button{
-     text-decoration: none;
-     border: 1.3px solid rgb(58, 108, 201);
-     background-color: white;
-     color: rgb(58, 108, 201);
-     border-radius: 2px;
-     margin-right: 9px;
-     height: 32px;
-     width: 75px;
-     text-align: center;
-     font-family: 'Roboto', sans-serif;
-     font-weight: 547;
- }
+.session-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
 
- .nav-right li button:hover{
-     cursor: pointer;
-     background-color: rgba(240, 240, 240, 0.993);
- }
+.session-button:hover{
+    background-color: rgba(240, 240, 240, 0.993);
+}
+
+.login-message {
+    width: 240px;
+    margin-left: 20px;
+}
+
+// .session-button-container{
+//     display: flex;
+//     align-content: center;
+// }
+
+//  .nav-right li button{
+//      text-decoration: none;
+//      border: 1.3px solid rgb(58, 108, 201);
+//      background-color: white;
+//      color: rgb(58, 108, 201);
+//      border-radius: 2px;
+//      margin-right: 9px;
+//      height: 32px;
+//      width: 75px;
+//      text-align: center;
+//      font-family: 'Roboto', sans-serif;
+//      font-weight: 547;
+//  }
+
+//  .nav-right li button:hover{
+//      cursor: pointer;
+//      background-color: rgba(240, 240, 240, 0.993);
+//  }
 
 
 .circle-letter{
