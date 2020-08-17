@@ -13,7 +13,7 @@ class Api::VideosController < ApplicationController
 
     def create
         @video = Video.new(video_params)
-        @video.view_count = 1
+        @video.view_count = 0
 
         if @video.save
             render json: {message: 'Upload Successful'}

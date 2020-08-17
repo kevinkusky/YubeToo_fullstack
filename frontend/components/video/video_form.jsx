@@ -14,8 +14,8 @@ class VideoForm extends React.Component {
       description: "",
       creator_id: this.props.currentUser.id,
       errors: "",
-      videoFile: null,
-      videoUrl: null,
+      videoFile: [],
+      videoUrl: [],
       titlecardFile: null,
       titlecardUrl: null,
     };
@@ -50,51 +50,64 @@ class VideoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    const formData = new FormData();
+    let formData = new FormData();
     formData.append("video[title]", this.state.title);
     formData.append("video[description]", this.state.description);
     formData.append("video[creator_id]", this.state.creator_id);
 
     if (this.state.videoFile) {
-      formData.append("video[video]", this.state.videoFile);
+      formData.append("video[video]", this.state.videoFile[0]);
     }
     if (this.state.titlecardFile) {
-      formData.append("video[titlecard]", this.state.titlecardFile);
+      formData.append("video[titlecard]", this.state.titlecardFile[0]);
     }
 
-    this.props.createVideo(formData);
+    this.props.createVideo(formData).then(res =>
+        {
+            if(res.type !== ERRORS_CREATE_VID){
+                this.setState({
+                    title: "",
+                    description: "",
+                    creator_id: this.props.currentUser.id,
+                    errors: "",
+                    videoFile: [],
+                    videoUrl: [],
+                    titlecardFile: null,
+                    titlecardUrl: null,
+                });
+            }
+        }
+    );
   }
 
   // dropzonehandler
 
-  handleVideoDrop(videoFile) {
-    //update videoFiles array as user drag videoFiles to drop zone
-    if (videoFile) {
-      //set drop zone error to empty if there is any error
-      if (this.state.errors.length !== 0) {
-        this.setState({ errors: "" });
-      }
+    handleVideoDrop(videoFile) {
+        //update videoFiles array as user drag videoFiles to drop zone
+        if (videoFile) {
+            //set drop zone error to empty if there is any error
+            if (this.state.errors.length !== 0) {
+                this.setState({ errors: "" });
+            }
 
-      let fileReader = new FileReader();
-      const videoFile = videoFiles[idx];
+            let fileReader = new FileReader();
+            const newVideoFile = videoFile[0];
 
-      fileReader.onloadend = () => {
-        if (this.state.videoFile) {
-          //update videoFiles and videoUrls in state
-          this.setState({
-            videoFile: this.state.videoFile.concat(
-              URL.createObjectURL(videoFile)
-            ),
-            videoUrl: this.state.videoUrl.concat(videoFile),
-          });
-        } else {
-          //set drop zone error in state
-          this.setState({ errors: "May only upload 1 video at a time" });
+            fileReader.onloadend = () => {
+                if (this.state.videoFile.length < 1) {
+                    //update photoFiles and photoUrls in state
+                    this.setState({
+                        videoFile: this.state.videoFile.concat(newVideoFile),
+                        videoUrl: this.state.videoUrl.concat(URL.createObjectURL(newVideoFile))
+                    });
+                } else {
+                    //set drop zone error in state
+                    this.setState({ errors: 'May only upload 1 video at a time' });
+                }
+            };
+            fileReader.readAsDataURL(newVideoFile);
         }
-      };
-      fileReader.readAsDataURL(videoFile);
     }
-  }
 
   render() {
     // refactor preview to be a title card upload

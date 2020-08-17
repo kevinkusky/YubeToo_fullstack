@@ -33,7 +33,7 @@ class SideBar extends React.Component{
 
     render(){
         // impliment turnary with full and collapsed sidebar row as
-        // variable SidebarRow to DRY up return
+        // className and control sidebar display via CSS
 
         const LoggedinSidebar = () => (
             <div>
@@ -49,7 +49,6 @@ class SideBar extends React.Component{
                 <SidebarRow selected={false} Icon={LinksIcon} title='About' onClick={this.componentPass} />
                 <hr />
             </div>
-            // this.props.coverage ? FullSidebarRow : ClosedSidebarRow
         );
 
         const LoggedoutSidebar = () => (
