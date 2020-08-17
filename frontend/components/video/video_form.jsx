@@ -13,7 +13,7 @@ class VideoForm extends React.Component {
       title: "",
       description: "",
       creator_id: this.props.currentUser.id,
-      errors: '',
+      errors: "",
       videoFile: null,
       videoUrl: null,
       titlecardFile: null,
@@ -67,34 +67,32 @@ class VideoForm extends React.Component {
 
   // dropzonehandler
 
-  handleVideoDrop(videoFiles) {
+  handleVideoDrop(videoFile) {
     //update videoFiles array as user drag videoFiles to drop zone
-    if (videoFiles) {
+    if (videoFile) {
       //set drop zone error to empty if there is any error
       if (this.state.errors.length !== 0) {
         this.setState({ errors: "" });
       }
 
-      for (let idx = 0; idx < videoFiles.length; idx++) {
-        let fileReader = new FileReader();
-        const videoFile = videoFiles[idx];
+      let fileReader = new FileReader();
+      const videoFile = videoFiles[idx];
 
-        fileReader.onloadend = () => {
-          if (this.state.videoFile) {
-            //update photoFiles and photoUrls in state
-            this.setState({
-              photoFiles: this.state.videoFile.concat(
-                URL.createObjectURL(videoFile)
-              ),
-              videoUrls: this.state.videoUrl.concat(videoFile),
-            });
-          } else {
-            //set drop zone error in state
-            this.setState({ errors: "May only upload 1 video at a time" });
-          }
-        };
-        fileReader.readAsDataURL(videoFile);
-      }
+      fileReader.onloadend = () => {
+        if (this.state.videoFile) {
+          //update videoFiles and videoUrls in state
+          this.setState({
+            videoFile: this.state.videoFile.concat(
+              URL.createObjectURL(videoFile)
+            ),
+            videoUrl: this.state.videoUrl.concat(videoFile),
+          });
+        } else {
+          //set drop zone error in state
+          this.setState({ errors: "May only upload 1 video at a time" });
+        }
+      };
+      fileReader.readAsDataURL(videoFile);
     }
   }
 
@@ -140,7 +138,7 @@ class VideoForm extends React.Component {
             onChange={this.update("description")}
           />
           <label className="upload-labels">Description</label>
-        
+
           <input type="submit" value="Submit" />
         </form>
       </div>
