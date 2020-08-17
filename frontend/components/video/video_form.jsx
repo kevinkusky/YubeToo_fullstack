@@ -19,7 +19,6 @@ class VideoForm extends React.Component {
       titlecardFile: null,
       titlecardUrl: null,
     };
-    // this.handleFile = this.handleFile.bind(this);
     this.handlePicFile = this.handlePicFile.bind(this);
     this.navigateToSplash = this.navigateToSplash.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -66,20 +65,6 @@ class VideoForm extends React.Component {
     this.props.createVideo(formData);
   }
 
-  // current file handler for videos
-//   handleFile(e) {
-//     const file = e.currentTarget.files[0];
-//     const fileReader = new FileReader();
-
-//     fileReader.onloadend = () => {
-//       this.setState({ videoFile: file, videoUrl: fileReader.result });
-//     };
-
-//     if (file) {
-//       fileReader.readAsDataURL(file);
-//     }
-//   }
-
   // dropzonehandler
 
   handleVideoDrop(videoFiles) {
@@ -121,6 +106,7 @@ class VideoForm extends React.Component {
     return (
       <div>
         <TopNav />
+
         <form onSubmit={this.handleSubmit}>
           <h3>Upload Video</h3>
           <Dropzone onDrop={this.handleVideoDrop}>
@@ -128,19 +114,18 @@ class VideoForm extends React.Component {
               <div {...getRootProps({ className: "drop-zone" })}>
                 <input {...getInputProps()} />
                 <div className="dropzone-target">
-                  <p>test for drop zone</p>
+                  {/* <p>test for drop zone</p> */}
+                  <VideoDrop />
                 </div>
               </div>
             )}
           </Dropzone>
-          {/* <input type="file" onChange={this.handleFile}/> */}
+
           <h3>Upload Preview Image</h3>
           <input type="file" onChange={this.handlePicFile} />
-          <br />
           <h4>Preview</h4>
           {preview}
-          <br />
-          <br />
+
           <input
             type="text"
             value={this.state.title}
@@ -148,14 +133,14 @@ class VideoForm extends React.Component {
             required=" "
           />
           <label className="upload-labels">Title</label>
-          <br />
+
           <input
             type="text"
             value={this.state.description}
             onChange={this.update("description")}
           />
           <label className="upload-labels">Description</label>
-          <br />
+        
           <input type="submit" value="Submit" />
         </form>
       </div>
