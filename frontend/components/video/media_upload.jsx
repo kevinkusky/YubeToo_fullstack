@@ -46,9 +46,7 @@ class MediaUpload extends React.Component {
     }
 
     handlePicDrop(titlecardFile) {
-        //update videoFiles array as user drag videoFiles to drop zone
         if (titlecardFile) {
-            //set drop zone error to empty if there is any error
             if (this.state.errors.length !== 0) {
                 this.setState({ errors: "" });
             }
@@ -58,13 +56,11 @@ class MediaUpload extends React.Component {
 
             fileReader.onloadend = () => {
                 if (this.state.titlecardFile.length < 1) {
-                    //update photoFiles and photoUrls in state
                     this.setState({
                         titlecardFile: this.state.titlecardFile.concat(photoFile),
                         titlecardUrl: this.state.titlecardUrl.concat(URL.createObjectURL(photoFile))
                     });
                 } else {
-                    //set drop zone error in state
                     this.setState({ errors: 'each video may only have 1 title image' });
                 }
             };
