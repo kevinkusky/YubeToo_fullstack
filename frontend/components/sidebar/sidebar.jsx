@@ -18,15 +18,16 @@ import UserIcon from '@material-ui/icons/AccountCircle';
 class SideBar extends React.Component{
     constructor(props){
         super(props);
-        // this.state = {
-        //     active: 'Home'
-        // };
+        this.state = {
+            active: 'Home',
+            sidebarSize: this.props.coverage
+        };
         this.componentPass = this.componentPass.bind(this);
     }
 
     componentPass(){
         return e => {
-            // this.setState({active: e.currentTarget.title});
+            this.setState({active: e.currentTarget.title});
             this.props.componentSwitch(e.currentTarget.title);
         };
     }
@@ -35,18 +36,35 @@ class SideBar extends React.Component{
         // impliment turnary with full and collapsed sidebar row as
         // className and control sidebar display via CSS
 
+        const classSizeName = this.state.sidebarSize ? 'sidebar-row' : 'closed-row';
         const LoggedinSidebar = () => (
             <div>
-                <SidebarRow selected={true} Icon={HomeIcon} title='Home' onClick={this.componentPass} />
-                <SidebarRow selected={false} Icon={TrendingIcon} title='Trending' onClick={this.componentPass} />
-                <SidebarRow selected={false} Icon={SubscriptionIcon} title='Subscriptions' onClick={this.componentPass} />
+                <SidebarRow 
+                    selected={true} Icon={HomeIcon} title='Home' onClick={this.componentPass} coverClass={classSizeName}
+                />
+                <SidebarRow 
+                    selected={false} Icon={TrendingIcon} title='Trending' onClick={this.componentPass} coverClass={classSizeName}
+                />
+                <SidebarRow 
+                    selected={false} Icon={SubscriptionIcon} title='Subscriptions' onClick={this.componentPass} coverClass={classSizeName}
+                />
                 <hr />
-                <SidebarRow selected={false} Icon={HistoryIcon} title='History' onClick={this.componentPass} />
-                <SidebarRow selected={false} Icon={YourVidIcon} title='Your Videos' onClick={this.componentPass} />
-                <SidebarRow selected={false} Icon={ClockIcon} title='Watch Later' onClick={this.componentPass} />
-                <SidebarRow selected={false} Icon={LikeIcon} title='Liked Videos' onClick={this.componentPass} />
+                <SidebarRow 
+                    selected={false} Icon={HistoryIcon} title='History' onClick={this.componentPass} coverClass={classSizeName}
+                />
+                <SidebarRow 
+                    selected={false} Icon={YourVidIcon} title='Your Videos' onClick={this.componentPass} coverClass={classSizeName}
+                />
+                <SidebarRow 
+                    selected={false} Icon={ClockIcon} title='Watch Later' onClick={this.componentPass} coverClass={classSizeName}
+                />
+                <SidebarRow 
+                    selected={false} Icon={LikeIcon} title='Liked Videos' onClick={this.componentPass} coverClass={classSizeName}
+                />
                 <hr />
-                <SidebarRow selected={false} Icon={LinksIcon} title='About' onClick={this.componentPass} />
+                <SidebarRow 
+                    selected={false} Icon={LinksIcon} title='About' onClick={this.componentPass} coverClass={classSizeName}
+                />
                 <hr />
             </div>
         );
