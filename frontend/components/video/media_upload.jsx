@@ -105,11 +105,27 @@ class MediaUpload extends React.Component {
     return (
       <div>
         <Dropzone onDrop={this.handleVideoDrop}>
-          <VideoDrop />
+            {({ getRootProps, getInputProps }) => (
+                <div {...getRootProps({ className: "drop-zone" })}>
+                    <input {...getInputProps()} />
+                    <div className="dropzone-target">
+                        {/* <p>test for drop zone</p> */}
+                        <VideoDrop />
+                    </div>
+                </div>
+            )}
         </Dropzone>
 
         <Dropzone onDrop={this.handlePicDrop}>
-          <PicDrop />
+            {({ getRootProps, getInputProps }) => (
+                <div {...getRootProps({ className: "drop-zone" })}>
+                    <input {...getInputProps()} />
+                    <div className="dropzone-target">
+                        {/* <p>test for drop zone</p> */}
+                        <PicDrop />
+                    </div>
+                </div>
+            )}
         </Dropzone>
       </div>
     );
