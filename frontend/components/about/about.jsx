@@ -10,8 +10,7 @@ const About = () => (
         <div className='about-top'>
             <div className='portfolio-image'>
                 <img 
-                    src='/app/assets/images/author-image.png'
-                    alt=""
+                    src={window.heroURL}
                 />
             </div>
             <div className='portfoliolinks'>

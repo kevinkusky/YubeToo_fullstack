@@ -17,7 +17,7 @@ class FullSidebarRow extends React.Component{
     // }
     
     render(){
-        const klassName = () => {
+        const selectedClassName = () => {
             if (this.state.selected) { return 'selected'; }
             else { return ''; }
         };
@@ -25,7 +25,7 @@ class FullSidebarRow extends React.Component{
 
         return (
             <div 
-                className={`sidebar-row ${klassName()}`}
+                className={`sidebar-row ${selectedClassName()}`}
             >
                 <Icon className='sidebar-row-icon' />
                 <h2 className='sidebar-row-title'>{this.props.title}</h2>
