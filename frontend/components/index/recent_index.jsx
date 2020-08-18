@@ -39,4 +39,4 @@ class NewIndex extends React.Component {
     }
 }
 
-export default PopularIndex;
+export default NewIndex;
