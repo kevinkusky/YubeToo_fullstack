@@ -1,3 +1,4 @@
+require 'byebug'
 
 class Api::VideosController < ApplicationController
     # before_action :ensure_logged_in, only: [:create, :destroy]
@@ -13,7 +14,9 @@ class Api::VideosController < ApplicationController
     end
 
     def create
+        
         @video = Video.new(video_params)
+        #debugger
         @video.view_count = 0
 
         if @video.save

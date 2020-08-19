@@ -43,51 +43,53 @@ class VideoForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
-  handlePicFile(e) {
+  
+  handleSubmit(e) {
+      e.preventDefault();
+      
+      let formData = new FormData();
+      formData.append("video[title]", this.state.title);
+      formData.append("video[description]", this.state.description);
+      formData.append("video[creator_id]", this.state.creator_id);
+      
+      if (this.state.videoFile) {
+          formData.append("video[video]", this.state.videoFile[0]);
+        }
+        if (this.state.titlecardFile) {
+            formData.append("video[titlecard]", this.state.titlecardFile);
+        }
+        debugger
+        this.props.createVideo(formData);
+        // .then(res =>
+        //     {
+        //         if(res.type !== ERRORS_CREATE_VID){
+        //             this.setState({
+        //                 title: "",
+        //                 description: "",
+        //                 creator_id: this.props.currentUser.id,
+        //                 errors: "",
+        //                 videoFile: [],
+        //                 videoUrl: [],
+        //             titlecardFile: null,
+        //             titlecardUrl: null,
+        //         });
+        //     }
+        // }
+        // );
+    }
+
+    handlePicFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
 
-    fileReader.onloadend = () => {
-      this.setState({ titlecardFile: file, titlecardUrl: fileReader.result });
-    };
+        fileReader.onloadend = () => {
+            this.setState({ titlecardFile: file, titlecardUrl: fileReader.result });
+        };
 
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    let formData = new FormData();
-    formData.append("video[title]", this.state.title);
-    formData.append("video[description]", this.state.description);
-    formData.append("video[creator_id]", this.state.creator_id);
-
-    if (this.state.videoFile) {
-      formData.append("video[video]", this.state.videoFile[0]);
-    }
-    if (this.state.titlecardFile) {
-      formData.append("video[titlecard]", this.state.titlecardFile[0]);
-    }
-
-    this.props.createVideo(formData).then(res =>
-        {
-            if(res.type !== ERRORS_CREATE_VID){
-                this.setState({
-                    title: "",
-                    description: "",
-                    creator_id: this.props.currentUser.id,
-                    errors: "",
-                    videoFile: [],
-                    videoUrl: [],
-                    titlecardFile: null,
-                    titlecardUrl: null,
-                });
-            }
+        if (file) {
+            fileReader.readAsDataURL(file);
         }
-    );
-  }
+    }
 
   // dropzonehandler
 

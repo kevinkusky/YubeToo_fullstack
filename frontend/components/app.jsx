@@ -9,10 +9,10 @@ import MainPage from './mainpage/mainpage';
 const App = () => (
   <div className="app">
         <Switch>
-        <Route exact path={SPLASH} component={MainPage} />
         <AuthRoute exact path={LAUTH} component={SigninContainer} />
         <AuthRoute exact path={SUPAUTH} component={SignupContainer} />
         <ProtectedRoute exact path={NEWVID} component={VideoFormContainer} />
+        <Route path={SPLASH} component={MainPage} />
         </Switch>
   </div>
 );

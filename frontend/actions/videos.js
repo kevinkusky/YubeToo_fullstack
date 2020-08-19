@@ -30,7 +30,7 @@ export const fetchVideo =  id => dispatch =>(
     )
 );
 
-export const createVideo = form => dispatch =>(
+export const createVideo = (form) => dispatch =>(
     APIUtil.createVideo(form).then(
         video => dispatch(receiveVideo(video))
     )
