@@ -58,7 +58,7 @@ class VideoForm extends React.Component {
         if (this.state.titlecardFile) {
             formData.append("video[titlecard]", this.state.titlecardFile);
         }
-        debugger
+        // debugger
         this.props.createVideo(formData);
         // .then(res =>
         //     {
