@@ -44,12 +44,12 @@ class MainPage extends React.Component{
                     <div className='videos-index'>
                         <ActiveComponent display={this.state.component} />
                         
-                        // <Switch>
+                        {/* // <Switch>
                         //     <Route exact path={SPLASH} component={VideoIndexContainer} />
                         // <Route />
                         //     <Route />
                         //     <Route />
-                        // </Switch>
+                        // </Switch> */}
                     </div>
                 </div>
             </div>
