@@ -1,4 +1,6 @@
 import React from 'react';
+
+import {Switch} from 'react-router-dom';
 import TopNav from '../navs/topnav';
 
 import ActiveComponent from './active_component';
@@ -41,6 +43,13 @@ class MainPage extends React.Component{
                     </div>
                     <div className='videos-index'>
                         <ActiveComponent display={this.state.component} />
+                        
+                        // <Switch>
+                        //     <Route exact path={SPLASH} component={VideoIndexContainer} />
+                        // <Route />
+                        //     <Route />
+                        //     <Route />
+                        // </Switch>
                     </div>
                 </div>
             </div>

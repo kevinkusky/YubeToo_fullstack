@@ -9,6 +9,7 @@ import MainPage from './mainpage/mainpage';
 
 const App = () => (
   <div className="app">
+      {/* <MainPage /> */}
         <Switch>
         <Route exact path={SPLASH} component={MainPage} />
         <AuthRoute exact path={LAUTH} component={SigninContainer} />
