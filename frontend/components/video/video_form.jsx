@@ -18,6 +18,7 @@ class VideoForm extends React.Component {
       videoUrl: [],
       titlecardFile: null,
       titlecardUrl: null,
+    //   step: 1
     };
     this.handlePicFile = this.handlePicFile.bind(this);
     this.navigateToSplash = this.navigateToSplash.bind(this);
@@ -29,6 +30,14 @@ class VideoForm extends React.Component {
     // refactor to profile page if/when built
     this.props.history.push("/");
   }
+
+    // nextStep(){
+    //   this.setState({step: this.state.step + 1});
+    // }
+
+    // prevStep(){
+    //   this.setState({step: this.state.step - 1});
+    // }
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
