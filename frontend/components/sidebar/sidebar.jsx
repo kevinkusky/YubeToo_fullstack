@@ -22,14 +22,6 @@ class SideBar extends React.Component{
             // active: 'Home',
             sidebarSize: this.props.coverage
         };
-        this.componentPass = this.componentPass.bind(this);
-    }
-
-    componentPass(){
-        return e => {
-            // this.setState({active: e.currentTarget.title});
-            this.props.componentSwitch(e.currentTarget.title);
-        };
     }
 
     render(){
@@ -39,7 +31,7 @@ class SideBar extends React.Component{
         const classSizeName = this.state.sidebarSize ? 'sidebar-row' : 'closed-row';
         const LoggedinSidebar = () => (
             <div>
-                <Link to={SPLASH}>
+                <Link className='row-link' to={SPLASH}>
                     <SidebarRow 
                         selected={true} Icon={HomeIcon} 
                         title='Home' coverClass={classSizeName}
@@ -71,7 +63,7 @@ class SideBar extends React.Component{
                     title='Liked Videos' coverClass={classSizeName}
                 />
                 <hr />
-                <Link to={ABOUT}>
+                <Link className='row-link' to={ABOUT}>
                     <SidebarRow 
                         selected={false} Icon={LinksIcon} 
                         title='About' coverClass={classSizeName}

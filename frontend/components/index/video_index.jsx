@@ -8,7 +8,6 @@ class VideoIndex extends React.Component{
         this.state = {
             videos: this.props.videos
         };
-
     }
 
     componentDidMount(){
@@ -23,7 +22,7 @@ class VideoIndex extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className='videos-index'>
                 <h2 className='index-header'>All Recomendations</h2>
                 <div className='videos-list'>
                     {this.state.videos.map(video => (

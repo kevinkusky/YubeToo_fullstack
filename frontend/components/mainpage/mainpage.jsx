@@ -11,17 +11,9 @@ class MainPage extends React.Component{
 
         this.state ={
             sidebarSize: true,
-            component: 'Home'
         };
 
         this.handleSidebarToggle = this.handleSidebarToggle.bind(this);
-        this.handleSidebarClick = this.handleSidebarClick.bind(this);
-    }
-
-    handleSidebarClick(){
-        return e => {
-            this.setState({ component: e.target.currentTarget.title });
-        };
     }
 
     handleSidebarToggle(){
@@ -40,10 +32,8 @@ class MainPage extends React.Component{
                             componentSwitch={this.handleSidebarClick}
                         />
                     </div>
-                    <div className='videos-index'>
-                        <ActiveComponent 
-                            // display={this.state.component}
-                        />
+                    <div className='active-component'>
+                        <ActiveComponent />
                     </div>
                 </div>
             </div>

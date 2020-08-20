@@ -11,21 +11,6 @@ class ActiveComponent extends React.Component{
     }
 
     render(){
-        // switch(this.props.display){
-        //     case 'Home':
-        //         return(<IndexContainer />);
-        //     case 'About':
-        //         return(<About />);
-        //     // case 'Your Videos':
-        //     //     return(<UserVideoIndex />)
-        //     // case 'Liked Videos':
-        //     //     return(<LikeIndexContainer />)
-        //     // case 'Subscriptions':
-        //     //     return(<SubscriptionIndexContainer />)
-        //     default:
-        //         return(<IndexContainer />);
-        // }
-
         return(
             <div>
                 <Switch>
