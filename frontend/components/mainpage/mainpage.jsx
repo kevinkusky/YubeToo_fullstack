@@ -29,7 +29,6 @@ class MainPage extends React.Component{
                     <div className='side-bar'>
                         <SideBar 
                             coverage={this.state.sidebarSize}
-                            componentSwitch={this.handleSidebarClick}
                         />
                     </div>
                     <div className='active-component'>

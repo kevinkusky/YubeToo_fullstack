@@ -19,7 +19,6 @@ class SideBar extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            // active: 'Home',
             sidebarSize: this.props.coverage
         };
     }
@@ -27,45 +26,44 @@ class SideBar extends React.Component{
     render(){
         // impliment turnary with full and collapsed sidebar row as
         // className and control sidebar display via CSS
-
         const classSizeName = this.state.sidebarSize ? 'sidebar-row' : 'closed-row';
         const LoggedinSidebar = () => (
             <div>
                 <Link className='row-link' to={SPLASH}>
                     <SidebarRow 
-                        selected={true} Icon={HomeIcon} 
+                        Icon={HomeIcon} linkName={SPLASH}
                         title='Home' coverClass={classSizeName}
                     />
                 </Link>
                 <SidebarRow 
-                    selected={false} Icon={TrendingIcon} 
+                    Icon={TrendingIcon} 
                     title='Trending' coverClass={classSizeName}
                 />
                 <SidebarRow 
-                    selected={false} Icon={SubscriptionIcon} 
+                    Icon={SubscriptionIcon} 
                     title='Subscriptions' coverClass={classSizeName}
                 />
                 <hr />
                 <SidebarRow 
-                    selected={false} Icon={HistoryIcon} 
+                    Icon={HistoryIcon} 
                     title='History' coverClass={classSizeName}
                 />
                 <SidebarRow 
-                    selected={false} Icon={YourVidIcon} 
+                    Icon={YourVidIcon} 
                     title='Your Videos' coverClass={classSizeName}
                 />
                 <SidebarRow 
-                    selected={false} Icon={ClockIcon} 
+                    Icon={ClockIcon} 
                     title='Watch Later' coverClass={classSizeName}
                 />
                 <SidebarRow 
-                    selected={false} Icon={LikeIcon} 
+                    Icon={LikeIcon} 
                     title='Liked Videos' coverClass={classSizeName}
                 />
                 <hr />
                 <Link className='row-link' to={ABOUT}>
                     <SidebarRow 
-                        selected={false} Icon={LinksIcon} 
+                        Icon={LinksIcon} linkName={ABOUT}
                         title='About' coverClass={classSizeName}
                     />
                 </Link>

@@ -1,20 +1,31 @@
 import React from 'react';
+import { SPLASH, ABOUT } from '../../util/route_utils';
 
 class FullSidebarRow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            selected: this.props.selected
+            selected: false
         };
-
-        // this.moveTrue = this.moveTrue.bind(this);
+        this.moveTrue = this.moveTrue.bind(this);
     }
 
-    // moveTrue(){
-    //     if selected{
-    //         this.setState(selected: '')
-    //     }
+    componentDidMount(){
+        this.moveTrue();
+    }
+
+    // componentDidUpdate(){
+    //     this.moveTrue();
     // }
+
+
+    moveTrue(){
+        const currentLocation = window.location.hash.toString().slice(1);
+    
+        if(this.props.linkName === currentLocation){
+            this.setState({selected: true});
+        }else{this.setState({selected: false});}
+    }
     
     render(){
         const selectedClassName = () => {
