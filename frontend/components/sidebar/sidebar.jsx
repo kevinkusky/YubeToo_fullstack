@@ -83,9 +83,12 @@ class SideBar extends React.Component{
 
         const LoggedoutSidebar = () => (
           <div>
-            <SidebarRow 
-                selected={true} Icon={HomeIcon} title="Home"  
-            />
+            <Link to={SPLASH}>
+                <SidebarRow
+                    selected={true} Icon={HomeIcon}
+                    title='Home' coverClass={classSizeName}
+                />
+            </Link>
             <SidebarRow
               selected={false} Icon={TrendingIcon} title="Trending"
             />
@@ -99,9 +102,12 @@ class SideBar extends React.Component{
               </Link>
             </div>
             <hr />
-            <SidebarRow
-              selected={false} Icon={LinksIcon} title="About" onClick={this.componentPass}
-            />
+                <Link to={ABOUT}>
+                    <SidebarRow
+                        selected={false} Icon={LinksIcon}
+                        title='About' coverClass={classSizeName}
+                    />
+                </Link>
             <hr />
           </div>
         );

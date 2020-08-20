@@ -3,60 +3,6 @@
     display: flex;
 }
 
-// Left Sidebar - 20%
-.side-bar {
-    flex: 0.2;
-}
-
-.side-bar > hr{
-    height: 1px;
-    border: 0;
-    background-color: lightgrey;
-    margin-top: 10px;
-    margin-bottom: 10px
-}
-
-.sidebar-row {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.sidebar-row.selected {
-    background-color: lightgrey;
-    .sidebar-row-title{
-        font-weight: bold;
-    }
-    .sidebar-row-icon {
-        color: red;
-    }
-}
-
-.sidebar-row:hover {
-    background-color: lightgrey;
-    cursor: pointer;
-    
-    .sidebar-row-icon {
-        color: red;
-    }
-    
-    .sidebar-row-title {
-        font-weight: bold;
-    }
-}
-
-.sidebar-row-icon {
-    color: #606060;
-    font-size: large !important;
-}
-
-.sidebar-row-title{
-    flex: 1;
-    margin-left: 20px;
-    font-size: 12px;
-    font-weight: 500;
-}
 
 // Right Active field - 80%
 .videos-index {
@@ -84,7 +30,7 @@
     display: flex;
     flex-wrap: wrap;
     cursor: pointer;
-
+    
     .index-pic {
         height: 140px;
         width: 250px;
@@ -96,7 +42,7 @@
     display: flex;
     margin-top: 10px;
     padding-right: 30px;
-
+    
     .video-avatar {
         height: 30px !important;
         width: 30px !important;
@@ -105,15 +51,69 @@
 
 .card-text{
     margin-left: 15px;
-
+    
     h4 {
         font-size: 14px;
         margin-bottom: 5px;
     }
-
+    
     p {
         font-size: 14px;
         color: gray;
-    }
-
+    }    
 }
+
+// Left Sidebar - 20%
+// .side-bar {
+//     flex: 0.2;
+// }
+
+// .side-bar > hr{
+//     height: 1px;
+//     border: 0;
+//     background-color: lightgrey;
+//     margin-top: 10px;
+//     margin-bottom: 10px
+// }
+
+// .sidebar-row {
+//     text-decoration: none;
+//     display: flex;
+//     align-items: center;
+//     padding: 10px 20px;
+// }
+
+// .sidebar-row.selected {
+//     background-color: lightgrey;
+//     .sidebar-row-title{
+//         font-weight: bold;
+//     }
+//     .sidebar-row-icon {
+//         color: red;
+//     }
+// }
+
+// .sidebar-row:hover {
+//     background-color: lightgrey;
+//     cursor: pointer;
+    
+//     .sidebar-row-icon {
+//         color: red;
+//     }
+    
+//     .sidebar-row-title {
+//         font-weight: bold;
+//     }
+// }
+
+// .sidebar-row-icon {
+//     color: #606060;
+//     font-size: large !important;
+// }
+
+// .sidebar-row-title{
+//     flex: 1;
+//     margin-left: 20px;
+//     font-size: 12px;
+//     font-weight: 500;
+// }
