@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { SPLASH, ABOUT, LAUTH } from '../../util/route_utils';
+
 import TopNav from '../navs/topnav';
 import ActiveComponent from './active_component';
 import SideBar from '../sidebar/sidebar_container';
@@ -22,24 +24,21 @@ class MainPage extends React.Component{
     // }
 
 
-    findActive() {
-        const currentPage = () => {
-            const currentLocation = window.location.hash.toString().slice(1);
-            let activePage;
 
-            switch (currentLocation) {
-                case ({ SPLASH }):
-                    activePage = 'Home';
-                    break;
-                case ({ ABOUT }):
-                    activePage = 'About';
-                    break;
-                default:
-                    activePage = this.state.active;
-                    break;
-            }
-        };
-        this.setState({active: activePage});
+    findActive() {
+        let currentLocation = window.location.hash.toString().slice(1);
+
+        switch (currentLocation) {
+            case ({ SPLASH }):
+                this.setState({active: 'Home'});
+                break;
+            case ({ ABOUT }):
+                this.setState({ active: 'About' });
+                break;
+            default:
+                this.setState({ active: 'Home' });
+                break;
+        }
     }
 
     render(){
@@ -56,8 +55,8 @@ class MainPage extends React.Component{
                         />
                     </div>
                     <div className='active-component'>
-                        <ActiveComponent 
-                            onChange={this.findActive}
+                        <ActiveComponent
+                            // onChange={this.findActive}
                         />
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { SPLASH ,ABOUT, LAUTH } from '../../util/route_utils';
+import { SPLASH, ABOUT } from '../../util/route_utils';
 
 import SidebarRow from './sidebar_row';
 
@@ -22,8 +22,6 @@ class SideBar extends React.Component{
             sidebarSize: this.props.coverage
         };
     }
-
-
 
     render(){
         // impliment turnary with full and collapsed sidebar row as
