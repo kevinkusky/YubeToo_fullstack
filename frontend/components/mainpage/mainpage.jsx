@@ -11,7 +11,7 @@ class MainPage extends React.Component{
         super(props);
 
         this.state = {
-            sidebarSize: true,
+            // sidebarSize: true,
             active: 'Home'
         };
         this.findActive = this.findActive.bind(this);
@@ -24,13 +24,10 @@ class MainPage extends React.Component{
     // }
 
 
-
     findActive() {
-        let currentLocation = window.location.hash.toString().slice(1);
-
-        switch (currentLocation) {
+        switch (this.state.location) {
             case ({ SPLASH }):
-                this.setState({active: 'Home'});
+                this.setState({ active: 'Home' });
                 break;
             case ({ ABOUT }):
                 this.setState({ active: 'About' });
@@ -56,7 +53,7 @@ class MainPage extends React.Component{
                     </div>
                     <div className='active-component'>
                         <ActiveComponent
-                            // onChange={this.findActive}
+                            findActive={this.findActive}
                         />
                     </div>
                 </div>

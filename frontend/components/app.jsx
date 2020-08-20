@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute, SPLASH, LAUTH, SUPAUTH, NEWVID, ABOUT } from
 import SignupContainer from './session/signup_container';
 import SigninContainer from './session/signin_container';
 import VideoFormContainer from  './video/video_form_container';
-import MainPage from './mainpage/mainpage';
+import MainPageContainer from './mainpage/mainpage_container';
 
 const App = () => (
   <div className="app">
@@ -12,7 +12,7 @@ const App = () => (
         <AuthRoute exact path={LAUTH} component={SigninContainer} />
         <AuthRoute exact path={SUPAUTH} component={SignupContainer} />
         <ProtectedRoute exact path={NEWVID} component={VideoFormContainer} />
-        <Route path={SPLASH} component={MainPage} />
+        <Route path={SPLASH} component={MainPageContainer} />
         </Switch>
   </div>
 );

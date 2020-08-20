@@ -10,6 +10,11 @@ class ActiveComponent extends React.Component{
         super(props);
     }
 
+    componentdidMount(){
+        this.props.findActive();
+    }
+
+
     render(){
         return(
             <div>

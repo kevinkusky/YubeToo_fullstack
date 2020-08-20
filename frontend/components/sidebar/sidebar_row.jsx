@@ -23,10 +23,9 @@ class FullSidebarRow extends React.Component{
     }
     
     render(){
-        const selectedClassName = () => {
-            if (this.state.selected) { return 'selected'; }
-            else { return ''; }
-        };
+        let selectedClassName = () => (
+            (this.state.selected) ? 'selected' : null
+        );
         const Icon = this.props.Icon;
 
         return (
