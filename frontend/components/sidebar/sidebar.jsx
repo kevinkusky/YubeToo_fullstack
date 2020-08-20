@@ -91,14 +91,19 @@ class SideBar extends React.Component{
 
         const LoggedoutSidebar = () => (
           <div>
-            <Link to={SPLASH}>
+            <Link className='row-link' to={SPLASH}>
                 <SidebarRow
                     Icon={HomeIcon}
-                    title='Home' coverClass={classSizeName}
+                    title='Home' 
+                    coverClass={classSizeName}
+                    activePage={this.props.activePage}
                 />
             </Link>
             <SidebarRow
-              selected={false} Icon={TrendingIcon} title="Trending"
+                Icon={TrendingIcon} 
+                title="Trending"
+                coverClass={classSizeName}
+                activePage={this.props.activePage}
             />
             <hr />
             <div >
@@ -106,14 +111,19 @@ class SideBar extends React.Component{
                 Please Login to like videos, comment, and subscribe
             </p>
               <Link className='session-link' to={LAUTH}>
-                <button className="session-button"><UserIcon/>Log In</button>
+                <button className="session-button">
+                    <UserIcon/>
+                    <span>Log In</span>
+                </button>
               </Link>
             </div>
             <hr />
-                <Link to={ABOUT}>
+                <Link className='row-link' to={ABOUT}>
                     <SidebarRow
                         Icon={LinksIcon}
-                        title='About' coverClass={classSizeName}
+                        title='About' 
+                        coverClass={classSizeName}
+                        activePage={this.props.activePage}
                     />
                 </Link>
             <hr />
