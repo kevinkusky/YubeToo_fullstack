@@ -9,30 +9,60 @@ class MainPage extends React.Component{
     constructor(props){
         super(props);
 
-        this.state ={
+        this.state = {
             sidebarSize: true,
+            active: 'Home'
         };
-
-        this.handleSidebarToggle = this.handleSidebarToggle.bind(this);
+        this.findActive = this.findActive.bind(this);
+        // this.handleSidebarToggle = this.handleSidebarToggle.bind(this);
     }
 
-    handleSidebarToggle(){
-        const newState = !(this.state.sidebarSize);
-        this.setState({ sidebarSize: newState });
+    // handleSidebarToggle(){
+    //     const newState = !(this.state.sidebarSize);
+    //     this.setState({ sidebarSize: newState });
+    // }
+
+    componentDidUpdate() {
+        this.findActive();
+    }
+
+    findActive() {
+        const currentPage = () => {
+            const currentLocation = window.location.hash.toString().slice(1);
+            let activePage;
+
+            switch (currentLocation) {
+                case ({ SPLASH }):
+                    activePage = 'Home';
+                    break;
+                case ({ ABOUT }):
+                    activePage = 'About';
+                    break;
+                default:
+                    activePage = this.state.active;
+                    break;
+            }
+        };
+        this.setState({active: activePage});
     }
 
     render(){
         return(
             <div>
-                <TopNav sidebarToggle={this.handleSidebarToggle}/>
+                <TopNav 
+                    // sidebarToggle={this.handleSidebarToggle}
+                />
                 <div className='main-page'>
                     <div className='side-bar'>
-                        <SideBar 
+                        <SideBar
+                            activePage={this.state.active} 
                             coverage={this.state.sidebarSize}
                         />
                     </div>
                     <div className='active-component'>
-                        <ActiveComponent />
+                        <ActiveComponent 
+                            // onChange={}
+                        />
                     </div>
                 </div>
             </div>

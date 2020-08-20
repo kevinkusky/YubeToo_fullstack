@@ -14,15 +14,10 @@ class FullSidebarRow extends React.Component{
         this.moveTrue();
     }
 
-    // componentDidUpdate(){
-    //     this.moveTrue();
-    // }
-
-
     moveTrue(){
-        const currentLocation = window.location.hash.toString().slice(1);
+        // const currentLocation = window.location.hash.toString().slice(1);
     
-        if(this.props.linkName === currentLocation){
+        if(this.props.activePage === this.props.title){
             this.setState({selected: true});
         }else{this.setState({selected: false});}
     }

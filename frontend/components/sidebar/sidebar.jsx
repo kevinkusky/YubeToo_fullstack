@@ -23,6 +23,8 @@ class SideBar extends React.Component{
         };
     }
 
+
+
     render(){
         // impliment turnary with full and collapsed sidebar row as
         // className and control sidebar display via CSS
@@ -31,40 +33,56 @@ class SideBar extends React.Component{
             <div>
                 <Link className='row-link' to={SPLASH}>
                     <SidebarRow 
-                        Icon={HomeIcon} linkName={SPLASH}
-                        title='Home' coverClass={classSizeName}
+                        Icon={HomeIcon}
+                        title='Home'
+                        coverClass={classSizeName}
+                        activePage={this.props.activePage}
                     />
                 </Link>
                 <SidebarRow 
                     Icon={TrendingIcon} 
-                    title='Trending' coverClass={classSizeName}
+                    title='Trending'
+                    coverClass={classSizeName}
+                    activePage={this.props.activePage}
                 />
                 <SidebarRow 
                     Icon={SubscriptionIcon} 
-                    title='Subscriptions' coverClass={classSizeName}
+                    title='Subscriptions'
+                    coverClass={classSizeName}
+                    activePage={this.props.activePage}
                 />
                 <hr />
                 <SidebarRow 
                     Icon={HistoryIcon} 
-                    title='History' coverClass={classSizeName}
+                    title='History'
+                    coverClass={classSizeName}
+                    activePage={this.props.activePage}
                 />
                 <SidebarRow 
                     Icon={YourVidIcon} 
-                    title='Your Videos' coverClass={classSizeName}
+                    title='Your Videos'
+                    coverClass={classSizeName}
+                    activePage={this.props.activePage}
                 />
                 <SidebarRow 
                     Icon={ClockIcon} 
-                    title='Watch Later' coverClass={classSizeName}
+                    title='Watch Later'
+                    coverClass={classSizeName}
+                    activePage={this.props.activePage}
                 />
                 <SidebarRow 
                     Icon={LikeIcon} 
-                    title='Liked Videos' coverClass={classSizeName}
+                    title='Liked Videos'
+                    coverClass={classSizeName}
+                    activePage={this.props.activePage}
                 />
                 <hr />
                 <Link className='row-link' to={ABOUT}>
                     <SidebarRow 
-                        Icon={LinksIcon} linkName={ABOUT}
-                        title='About' coverClass={classSizeName}
+                        Icon={LinksIcon}
+                        title='About'
+                        coverClass={classSizeName}
+                        activePage={this.props.activePage}
                     />
                 </Link>
                 <hr />
@@ -75,7 +93,7 @@ class SideBar extends React.Component{
           <div>
             <Link to={SPLASH}>
                 <SidebarRow
-                    selected={true} Icon={HomeIcon}
+                    Icon={HomeIcon}
                     title='Home' coverClass={classSizeName}
                 />
             </Link>
@@ -94,7 +112,7 @@ class SideBar extends React.Component{
             <hr />
                 <Link to={ABOUT}>
                     <SidebarRow
-                        selected={false} Icon={LinksIcon}
+                        Icon={LinksIcon}
                         title='About' coverClass={classSizeName}
                     />
                 </Link>
