@@ -1,7 +1,6 @@
 import React from 'react';
 
 import TopNav from '../navs/topnav';
-
 import ActiveComponent from './active_component';
 import SideBar from '../sidebar/sidebar_container';
 
@@ -22,9 +21,6 @@ class MainPage extends React.Component{
     //     this.setState({ sidebarSize: newState });
     // }
 
-    componentDidUpdate() {
-        this.findActive();
-    }
 
     findActive() {
         const currentPage = () => {
@@ -61,7 +57,7 @@ class MainPage extends React.Component{
                     </div>
                     <div className='active-component'>
                         <ActiveComponent 
-                            // onChange={}
+                            onChange={this.findActive}
                         />
                     </div>
                 </div>

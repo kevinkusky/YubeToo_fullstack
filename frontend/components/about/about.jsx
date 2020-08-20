@@ -9,7 +9,7 @@ const About = () => (
     <div className='about-me'>
         <div className='about-top'>
             <div className='portfolio-image'>
-                <img 
+                <img className='portfolio-image'
                     src={window.heroURL}
                 />
             </div>
