@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { SPLASH, ABOUT } from '../../util/route_utils';
+import { SPLASH, ABOUT, DUMMY } from '../../util/route_utils';
 
 import SidebarRow from './sidebar_row';
 
@@ -29,79 +29,73 @@ class SideBar extends React.Component{
         const classSizeName = this.state.sidebarSize ? 'sidebar-row' : 'closed-row';
         const LoggedinSidebar = () => (
             <div>
-                <Link className='row-link' to={SPLASH}>
-                    <SidebarRow 
-                        Icon={HomeIcon}
-                        title='Home'
-                        coverClass={classSizeName}
-                        activePage={this.props.activePage}
-                    />
-                </Link>
+                <SidebarRow 
+                    Icon={HomeIcon}
+                    title='Home'
+                    coverClass={classSizeName}
+                    pathName={SPLASH}
+                />
                 <SidebarRow 
                     Icon={TrendingIcon} 
                     title='Trending'
                     coverClass={classSizeName}
-                    activePage={this.props.activePage}
+                    pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={SubscriptionIcon} 
                     title='Subscriptions'
                     coverClass={classSizeName}
-                    activePage={this.props.activePage}
+                    pathName={DUMMY}
                 />
                 <hr />
                 <SidebarRow 
                     Icon={HistoryIcon} 
                     title='History'
                     coverClass={classSizeName}
-                    activePage={this.props.activePage}
+                    pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={YourVidIcon} 
                     title='Your Videos'
                     coverClass={classSizeName}
-                    activePage={this.props.activePage}
+                    pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={ClockIcon} 
                     title='Watch Later'
                     coverClass={classSizeName}
-                    activePage={this.props.activePage}
+                    pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={LikeIcon} 
                     title='Liked Videos'
                     coverClass={classSizeName}
-                    activePage={this.props.activePage}
+                    pathName={DUMMY}
                 />
                 <hr />
-                <Link className='row-link' to={ABOUT}>
-                    <SidebarRow 
-                        Icon={LinksIcon}
-                        title='About'
-                        coverClass={classSizeName}
-                        activePage={this.props.activePage}
-                    />
-                </Link>
+                <SidebarRow 
+                    Icon={LinksIcon}
+                    title='About'
+                    coverClass={classSizeName}
+                    pathName={ABOUT}
+                />
                 <hr />
             </div>
         );
 
         const LoggedoutSidebar = () => (
           <div>
-            <Link className='row-link' to={SPLASH}>
-                <SidebarRow
-                    Icon={HomeIcon}
-                    title='Home' 
-                    coverClass={classSizeName}
-                    activePage={this.props.activePage}
-                />
-            </Link>
+            <SidebarRow
+                Icon={HomeIcon}
+                title='Home'
+                coverClass={classSizeName}
+                pathName={SPLASH}
+            />
             <SidebarRow
                 Icon={TrendingIcon} 
                 title="Trending"
                 coverClass={classSizeName}
-                activePage={this.props.activePage}
+                // pathName={}
             />
             <hr />
             <div >
@@ -116,14 +110,12 @@ class SideBar extends React.Component{
               </Link>
             </div>
             <hr />
-                <Link className='row-link' to={ABOUT}>
-                    <SidebarRow
-                        Icon={LinksIcon}
-                        title='About' 
-                        coverClass={classSizeName}
-                        activePage={this.props.activePage}
-                    />
-                </Link>
+            <SidebarRow
+                Icon={LinksIcon}
+                title='About'
+                coverClass={classSizeName}
+                pathName={ABOUT}
+            />
             <hr />
           </div>
         );

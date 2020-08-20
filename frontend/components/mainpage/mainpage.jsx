@@ -14,7 +14,6 @@ class MainPage extends React.Component{
             // sidebarSize: true,
             active: 'Home'
         };
-        this.findActive = this.findActive.bind(this);
         // this.handleSidebarToggle = this.handleSidebarToggle.bind(this);
     }
 
@@ -22,21 +21,6 @@ class MainPage extends React.Component{
     //     const newState = !(this.state.sidebarSize);
     //     this.setState({ sidebarSize: newState });
     // }
-
-
-    findActive() {
-        switch (this.state.location) {
-            case ({ SPLASH }):
-                this.setState({ active: 'Home' });
-                break;
-            case ({ ABOUT }):
-                this.setState({ active: 'About' });
-                break;
-            default:
-                this.setState({ active: 'Home' });
-                break;
-        }
-    }
 
     render(){
         return(
@@ -47,14 +31,11 @@ class MainPage extends React.Component{
                 <div className='main-page'>
                     <div className='side-bar'>
                         <SideBar
-                            activePage={this.state.active} 
                             coverage={this.state.sidebarSize}
                         />
                     </div>
                     <div className='active-component'>
-                        <ActiveComponent
-                            findActive={this.findActive}
-                        />
+                        <ActiveComponent />
                     </div>
                 </div>
             </div>

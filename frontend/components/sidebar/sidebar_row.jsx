@@ -1,39 +1,33 @@
 import React from 'react';
-import { SPLASH, ABOUT } from '../../util/route_utils';
+import { Link, NavLink } from 'react-router-dom';
+import { SPLASH, ABOUT, DUMMY } from '../../util/route_utils';
 
 class FullSidebarRow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            selected: false
+            selectedClassName: null
         };
-        this.moveTrue = this.moveTrue.bind(this);
     }
 
-    componentDidMount(){
-        this.moveTrue();
-    }
-
-    moveTrue(){
-        // const currentLocation = window.location.hash.toString().slice(1);
-    
-        if(this.props.activePage === this.props.title){
-            this.setState({selected: true});
-        }else{this.setState({selected: false});}
-    }
-    
     render(){
-        let selectedClassName = () => (
-            (this.state.selected) ? 'selected' : null
-        );
         const Icon = this.props.Icon;
+        const barPath = () => (
+            this.props.pathName ? this.props.pathName : SPLASH
+        );
 
         return (
-            <div 
-                className={`sidebar-row ${selectedClassName()}`}
-            >
-                <Icon className='sidebar-row-icon' />
-                <h2 className='sidebar-row-title'>{this.props.title}</h2>
+            <div className={`${this.state.selectedClassName}`}>
+                <NavLink
+                    activeClassName='sidebar-row selected' 
+                    className='sidebar-row row-link' 
+                    to={barPath}
+                >
+                    <div className='sidebar-row'>
+                        <Icon className='sidebar-row-icon' />
+                        <h2 className='sidebar-row-title'>{this.props.title}</h2>
+                    </div>
+                </NavLink>
             </div>
         )
     }

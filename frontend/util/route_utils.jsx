@@ -7,6 +7,7 @@ export const LAUTH = '/login';
 export const SUPAUTH = '/signup';
 export const NEWVID = '/videos/new';
 export const ABOUT = '/aboutme';
+export const DUMMY = '/dummy';
 
 const mapStateToProps = state => ({
     //   grabbing id - stored in session slice
