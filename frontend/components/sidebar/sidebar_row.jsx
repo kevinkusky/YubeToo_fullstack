@@ -5,31 +5,24 @@ import { SPLASH, ABOUT, DUMMY } from '../../util/route_utils';
 class FullSidebarRow extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            activeClass: null
-        };
-    }
-
-    componentDidUpdate(){
-        this.selectedClassName();
-    }
-    selectedClassName(){
-        const currLocation = window.location.hash.toString().slice(1);
-        this.props.pathName === currLocation ? 
-            this.setState({activeClass: 'selected'})
-            : this.setState({activeClass: null});
     }
 
     render(){
+        // let currLocation = window.location.hash.toString().slice(1);
         const Icon = this.props.Icon;
         const barPath = () => (
             this.props.pathName ? this.props.pathName : SPLASH
         );
+        // const selectedClassName = () => (
+        //     this.props.pathName === currLocation ? 'selected' : ''
+        // );
+
 
         return (
             <div>
                 <NavLink
-                    activeClassName={this.state.activeClass} 
+                    exact
+                    activeClassName='selected' 
                     className='sidebar-row row-link' 
                     to={barPath}
                 >
