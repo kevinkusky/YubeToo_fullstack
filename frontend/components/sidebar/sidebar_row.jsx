@@ -10,6 +10,9 @@ class FullSidebarRow extends React.Component{
         };
     }
 
+    componentDidUpdate(){
+        this.selectedClassName();
+    }
     selectedClassName(){
         const currLocation = window.location.hash.toString().slice(1);
         this.props.pathName === currLocation ? 
@@ -26,7 +29,7 @@ class FullSidebarRow extends React.Component{
         return (
             <div>
                 <NavLink
-                    activeClassName={this.selectedClassName} 
+                    activeClassName={this.state.activeClass} 
                     className='sidebar-row row-link' 
                     to={barPath}
                 >
