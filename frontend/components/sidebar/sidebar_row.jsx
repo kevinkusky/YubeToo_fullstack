@@ -6,8 +6,15 @@ class FullSidebarRow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            selectedClassName: null
+            activeClass: null
         };
+    }
+
+    selectedClassName(){
+        const currLocation = window.location.hash.toString().slice(1);
+        this.props.pathName === currLocation ? 
+            this.setState({activeClass: 'selected'})
+            : this.setState({activeClass: null});
     }
 
     render(){
@@ -17,9 +24,9 @@ class FullSidebarRow extends React.Component{
         );
 
         return (
-            <div className={`${this.state.selectedClassName}`}>
+            <div>
                 <NavLink
-                    activeClassName='selected' 
+                    activeClassName={this.selectedClassName} 
                     className='sidebar-row row-link' 
                     to={barPath}
                 >
