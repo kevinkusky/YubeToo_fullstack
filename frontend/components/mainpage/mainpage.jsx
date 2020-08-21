@@ -10,10 +10,10 @@ class MainPage extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            // sidebarSize: true,
-            active: 'Home'
-        };
+        // this.state = {
+        //     sidebarSize: true,
+        //     active: 'Home'
+        // };
         // this.handleSidebarToggle = this.handleSidebarToggle.bind(this);
     }
 
@@ -31,7 +31,7 @@ class MainPage extends React.Component{
                 <div className='main-page'>
                     <div className='side-bar'>
                         <SideBar
-                            coverage={this.state.sidebarSize}
+                            // coverage={this.state.sidebarSize}
                         />
                     </div>
                     <div className='active-component'>

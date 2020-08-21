@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { SPLASH, ABOUT, DUMMY } from '../../util/route_utils';
+import { SPLASH, ABOUT, DUMMY, LAUTH } from '../../util/route_utils';
 
 import SidebarRow from './sidebar_row';
 
@@ -95,7 +95,7 @@ class SideBar extends React.Component{
                 Icon={TrendingIcon} 
                 title="Trending"
                 coverClass={classSizeName}
-                // pathName={}
+                pathName={DUMMY}
             />
             <hr />
             <div >

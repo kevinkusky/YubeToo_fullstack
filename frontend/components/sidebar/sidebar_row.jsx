@@ -19,7 +19,7 @@ class FullSidebarRow extends React.Component{
         return (
             <div className={`${this.state.selectedClassName}`}>
                 <NavLink
-                    activeClassName='sidebar-row selected' 
+                    activeClassName='selected' 
                     className='sidebar-row row-link' 
                     to={barPath}
                 >
