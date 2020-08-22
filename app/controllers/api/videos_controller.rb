@@ -16,7 +16,6 @@ class Api::VideosController < ApplicationController
     def create
         
         @video = Video.new(video_params)
-        #debugger
         @video.view_count = 0
 
         if @video.save

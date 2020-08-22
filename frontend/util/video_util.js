@@ -14,7 +14,6 @@ export const fetchVideo = id =>(
 
 export const createVideo = (form) => {
     // console.log({form});
-    // debugger
     return(
         $.ajax({
             method: 'POST',
