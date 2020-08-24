@@ -23,58 +23,58 @@ class SideBar extends React.Component{
     render(){
         // impliment turnary with full and collapsed sidebar row as
         // className and control sidebar display via CSS
-        // const classSizeName = this.state.sidebarSize ? 'sidebar-row' : 'closed-row';
-        // const classClearName = this.state.sidebarSize ? 'sidebar-row' : 'hide-row';
+        const classSizeName = this.props.sidebarSize ? 'sidebar-row' : 'closed-row';
+        const classClearName = this.props.sidebarSize ? 'sidebar-row' : 'hide-row';
         const LoggedinSidebar = () => (
             <div>
                 <SidebarRow 
                     Icon={HomeIcon}
                     title='Home'
-                    // coverClass={classSizeName}
+                    coverClass={classSizeName}
                     pathName={SPLASH}
                 />
                 <SidebarRow 
                     Icon={TrendingIcon} 
                     title='Trending'
-                    // coverClass={classSizeName}
+                    coverClass={classSizeName}
                     pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={SubscriptionIcon} 
                     title='Subscriptions'
-                    // coverClass={classSizeName}
+                    coverClass={classSizeName}
                     pathName={DUMMY}
                 />
                 <hr />
                 <SidebarRow 
                     Icon={HistoryIcon} 
                     title='History'
-                    // coverClass={classSizeName}
+                    coverClass={classSizeName}
                     pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={YourVidIcon} 
                     title='Your Videos'
-                    // coverClass={classClearName}
+                    coverClass={classClearName}
                     pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={ClockIcon} 
                     title='Watch Later'
-                    // coverClass={classClearName}
+                    coverClass={classClearName}
                     pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={LikeIcon} 
                     title='Liked Videos'
-                    // coverClass={classSizeName}
+                    coverClass={classSizeName}
                     pathName={DUMMY}
                 />
                 <hr />
                 <SidebarRow 
                     Icon={LinksIcon}
                     title='About'
-                    // coverClass={classSizeName}
+                    coverClass={classSizeName}
                     pathName={ABOUT}
                 />
                 <hr />
@@ -86,13 +86,13 @@ class SideBar extends React.Component{
             <SidebarRow
                 Icon={HomeIcon}
                 title='Home'
-                // coverClass={classSizeName}
+                coverClass={classSizeName}
                 pathName={SPLASH}
             />
             <SidebarRow
                 Icon={TrendingIcon} 
                 title="Trending"
-                // coverClass={classSizeName}
+                coverClass={classSizeName}
                 pathName={DUMMY}
             />
             <hr />
@@ -111,7 +111,7 @@ class SideBar extends React.Component{
             <SidebarRow
                 Icon={LinksIcon}
                 title='About'
-                // coverClass={classSizeName}
+                coverClass={classSizeName}
                 pathName={ABOUT}
             />
             <hr />

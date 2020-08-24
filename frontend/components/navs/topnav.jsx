@@ -17,7 +17,7 @@ class TopNav extends React.Component {
         return(
             <div className='header'>
                 <nav className='nav-bar'>
-                    <LeftNav />
+                    <LeftNav handleSidebarToggle={this.props.handleSidebarToggle}/>
                     <SearchBar />
                     <GreetingContainer />
                 </nav>
