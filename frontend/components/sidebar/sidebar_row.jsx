@@ -9,6 +9,7 @@ class FullSidebarRow extends React.Component{
 
     render(){
         const Icon = this.props.Icon;
+        const coverClass = this.props.coverClass;
         const barPath = () => (
             this.props.pathName ? this.props.pathName : SPLASH
         );
@@ -18,7 +19,7 @@ class FullSidebarRow extends React.Component{
                 <NavLink
                     exact
                     activeClassName='selected'
-                    className={`${this.props.coverClass} row-link`} 
+                    className={`${coverClass} row-link`} 
                     to={barPath}
                 >
                     <div className={this.props.coverClass}>
