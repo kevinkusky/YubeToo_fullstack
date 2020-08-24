@@ -18,65 +18,63 @@ import UserIcon from '@material-ui/icons/AccountCircle';
 class SideBar extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            sidebarSize: this.props.coverage
-        };
     }
 
     render(){
         // impliment turnary with full and collapsed sidebar row as
         // className and control sidebar display via CSS
-        const classSizeName = this.state.sidebarSize ? 'sidebar-row' : 'closed-row';
+        // const classSizeName = this.state.sidebarSize ? 'sidebar-row' : 'closed-row';
+        // const classClearName = this.state.sidebarSize ? 'sidebar-row' : 'hide-row';
         const LoggedinSidebar = () => (
             <div>
                 <SidebarRow 
                     Icon={HomeIcon}
                     title='Home'
-                    coverClass={classSizeName}
+                    // coverClass={classSizeName}
                     pathName={SPLASH}
                 />
                 <SidebarRow 
                     Icon={TrendingIcon} 
                     title='Trending'
-                    coverClass={classSizeName}
+                    // coverClass={classSizeName}
                     pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={SubscriptionIcon} 
                     title='Subscriptions'
-                    coverClass={classSizeName}
+                    // coverClass={classSizeName}
                     pathName={DUMMY}
                 />
                 <hr />
                 <SidebarRow 
                     Icon={HistoryIcon} 
                     title='History'
-                    coverClass={classSizeName}
+                    // coverClass={classSizeName}
                     pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={YourVidIcon} 
                     title='Your Videos'
-                    coverClass={classSizeName}
+                    // coverClass={classClearName}
                     pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={ClockIcon} 
                     title='Watch Later'
-                    coverClass={classSizeName}
+                    // coverClass={classClearName}
                     pathName={DUMMY}
                 />
                 <SidebarRow 
                     Icon={LikeIcon} 
                     title='Liked Videos'
-                    coverClass={classSizeName}
+                    // coverClass={classSizeName}
                     pathName={DUMMY}
                 />
                 <hr />
                 <SidebarRow 
                     Icon={LinksIcon}
                     title='About'
-                    coverClass={classSizeName}
+                    // coverClass={classSizeName}
                     pathName={ABOUT}
                 />
                 <hr />
@@ -88,32 +86,32 @@ class SideBar extends React.Component{
             <SidebarRow
                 Icon={HomeIcon}
                 title='Home'
-                coverClass={classSizeName}
+                // coverClass={classSizeName}
                 pathName={SPLASH}
             />
             <SidebarRow
                 Icon={TrendingIcon} 
                 title="Trending"
-                coverClass={classSizeName}
+                // coverClass={classSizeName}
                 pathName={DUMMY}
             />
             <hr />
             <div >
-            <p className='login-message'>
-                Please Login to like videos, comment, and subscribe
-            </p>
-              <Link className='session-link' to={LAUTH}>
-                <button className="session-button">
-                    <UserIcon/>
-                    <span>Log In</span>
-                </button>
-              </Link>
+                <p className='login-message'>
+                    Please Login to like videos, comment, and subscribe
+                </p>
+                <Link className='session-link' to={LAUTH}>
+                    <button className="session-button">
+                        <UserIcon/>
+                        <span>Log In</span>
+                    </button>
+                </Link>
             </div>
             <hr />
             <SidebarRow
                 Icon={LinksIcon}
                 title='About'
-                coverClass={classSizeName}
+                // coverClass={classSizeName}
                 pathName={ABOUT}
             />
             <hr />

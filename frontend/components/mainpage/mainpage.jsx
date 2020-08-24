@@ -10,29 +10,17 @@ class MainPage extends React.Component{
     constructor(props){
         super(props);
 
-        // this.state = {
-        //     sidebarSize: true,
-        //     active: 'Home'
-        // };
-        // this.handleSidebarToggle = this.handleSidebarToggle.bind(this);
     }
 
-    // handleSidebarToggle(){
-    //     const newState = !(this.state.sidebarSize);
-    //     this.setState({ sidebarSize: newState });
-    // }
 
     render(){
         return(
             <div>
                 <TopNav 
-                    // sidebarToggle={this.handleSidebarToggle}
                 />
                 <div className='main-page'>
                     <div className='side-bar'>
-                        <SideBar
-                            // coverage={this.state.sidebarSize}
-                        />
+                        <SideBar />
                     </div>
                     <div className='active-component'>
                         <ActiveComponent />

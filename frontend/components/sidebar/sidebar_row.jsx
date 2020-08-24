@@ -8,15 +8,10 @@ class FullSidebarRow extends React.Component{
     }
 
     render(){
-        // let currLocation = window.location.hash.toString().slice(1);
         const Icon = this.props.Icon;
         const barPath = () => (
             this.props.pathName ? this.props.pathName : SPLASH
         );
-        // const selectedClassName = () => (
-        //     this.props.pathName === currLocation ? 'selected' : ''
-        // );
-
 
         return (
             <div>
