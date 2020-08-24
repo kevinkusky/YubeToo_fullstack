@@ -18,20 +18,22 @@ class MainPage extends React.Component{
     }
 
     handleSidebarToggle() {
-        console.log('I have been clicked');
+        // console.log(`${this.state.sidebarSize}`);
         const newState = !(this.state.sidebarSize);
         this.setState({ sidebarSize: newState });
     }
 
     render(){
+        const sideClass = this.state.sidebarSize ? 'full-side-bar' : 'closed-side-bar';
+        const activeClass = this.state.sidebarSize ? 'active-component' : 'active-expand';
         return(
             <div>
                 <TopNav handleSidebarToggle={this.handleSidebarToggle}/>
                 <div className='main-page'>
-                    <div className='side-bar'>
+                    <div className={sideClass}>
                         <SideBar sidebarSize={this.state.sidebarSize}/>
                     </div>
-                    <div className='active-component'>
+                    <div className={activeClass}>
                         <ActiveComponent />
                     </div>
                 </div>

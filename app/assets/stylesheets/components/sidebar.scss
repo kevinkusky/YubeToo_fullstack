@@ -1,10 +1,18 @@
 // // Entire Index Page = .index-page { display: flex;}
 // Left Sidebar - 20%
-.side-bar {
+.full-side-bar {
     flex: 0.2;
 }
 
-.side-bar > hr{
+.closed-side-bar {
+    flex: 0.1;
+}
+
+.hide-row{
+    display: none;
+}
+
+.full-side-bar > hr{
     height: 1px;
     border: 0;
     background-color: lightgrey;

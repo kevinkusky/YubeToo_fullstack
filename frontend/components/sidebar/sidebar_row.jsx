@@ -17,11 +17,11 @@ class FullSidebarRow extends React.Component{
             <div>
                 <NavLink
                     exact
-                    activeClassName='selected' 
-                    className='sidebar-row row-link' 
+                    activeClassName='selected'
+                    className={`${this.props.coverClass} row-link`} 
                     to={barPath}
                 >
-                    <div className='sidebar-row'>
+                    <div className={this.props.coverClass}>
                         <Icon className='sidebar-row-icon' />
                         <h2 className='sidebar-row-title'>{this.props.title}</h2>
                     </div>
