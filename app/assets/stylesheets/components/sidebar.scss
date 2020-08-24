@@ -43,32 +43,33 @@
 
 .sidebar-row.selected,
 .closed-row.selected {
-    background-color: lightgrey;
+    background-color: rgb(233, 233, 233);
     .sidebar-row-title{
         font-weight: bold;
+        color: red
     }
     .sidebar-row-icon {
         color: red;
     }
 }
 
-.sidebar-row:hover
+.sidebar-row:hover,
 .closed-row:hover {
-    background-color: lightgrey;
+    background-color: rgb(233, 233, 233);
     cursor: pointer;
     
     .sidebar-row-icon {
         color: red;
     }
     
-    .sidebar-row-title {
-        font-weight: bold;
-    }
+    // .sidebar-row-title {
+    //     font-weight:;
+    // }
 }
 
 .sidebar-row-icon {
     color: #606060;
-    font-size: large !important;
+    font-size: 24px !important;
 }
 
 .full-side-bar .sidebar-row-title{
