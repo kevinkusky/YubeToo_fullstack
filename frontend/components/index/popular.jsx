@@ -1,18 +1,20 @@
 import React from 'react';
 import VideoIndexItem from './video_index_item';
 
-class PopularIndex extends React.Component {
+class TrendingIndex extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            videos: this.props.videos
+            tempVideos: this.props.videos,
+            popIndex: []
         };
 
     }
 
     componentDidMount() {
         this.props.fetchVideos();
+        this.props.indexSort();
     }
 
     componentDidUpdate(preProps, preState) {
@@ -21,13 +23,31 @@ class PopularIndex extends React.Component {
         }
     }
 
+    indexSort(videoList){
+        if (tempIndex.length < 2 ) return videoList;
+        const sort = (x, y) => (x < y ? -1 : 1);
+
+        const pivot = videoList[0];
+
+        let left = videoList.slice(1).filter((video) => 
+            sort(video.props.viewCount, pivot.props.viewCount) === -1)
+        ;
+        let right = videoList.slice(1).filter((video) =>
+            sort(video.props.viewCount, pivot.props.viewCount) !== -1)
+        ;
+
+        left = this.indexSort(left);
+        right = this.indexSort(right);
+
+        this.setState({popIndex: left.concat([pivot]).concat(right)});
+    }
+
     render() {
-        // const popVids = this.state.videos.sort
         return (
             <div>
                 <h2 className='index-header'>All Recomendations</h2>
                 <div className='videos-list'>
-                    {this.state.videos.map(video => (
+                    {this.state.popIndex.map(video => (
                         <VideoIndexItem
                             video={video}
                             key={video.id}
@@ -39,4 +59,4 @@ class PopularIndex extends React.Component {
     }
 }
 
-export default PopularIndex;
+export default TrendingIndex;
