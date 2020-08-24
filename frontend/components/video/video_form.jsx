@@ -135,7 +135,6 @@ class VideoForm extends React.Component {
               <div {...getRootProps({ className: "drop-zone" })}>
                 <input {...getInputProps()} />
                 <div className="dropzone-target">
-                  {/* <p>test for drop zone</p> */}
                   <VideoDrop />
                 </div>
               </div>

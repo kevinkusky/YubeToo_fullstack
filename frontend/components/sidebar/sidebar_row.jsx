@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { SPLASH, ABOUT, DUMMY } from '../../util/route_utils';
+import { SPLASH, ABOUT, DUMMY, TREND } from '../../util/route_utils';
 
 class FullSidebarRow extends React.Component{
     constructor(props){

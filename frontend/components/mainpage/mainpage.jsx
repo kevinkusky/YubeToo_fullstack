@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { SPLASH, ABOUT, LAUTH } from '../../util/route_utils';
-
 import TopNav from '../navs/topnav';
 import ActiveComponent from './active_component';
 import SideBar from '../sidebar/sidebar_container';

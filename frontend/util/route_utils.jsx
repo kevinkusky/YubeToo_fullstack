@@ -7,7 +7,14 @@ export const LAUTH = '/login';
 export const SUPAUTH = '/signup';
 export const NEWVID = '/videos/new';
 export const ABOUT = '/aboutme';
-export const DUMMY = '/dummy';
+export const TREND = '/trending';
+export const SUBS = '/subscriptions';
+export const HIST = '/history';
+export const QUE = '/watchlater';
+export const LIKED = '/likedvideos';
+export const DUMMY = '/yourvideos';
+
+
 
 const mapStateToProps = state => ({
     //   grabbing id - stored in session slice

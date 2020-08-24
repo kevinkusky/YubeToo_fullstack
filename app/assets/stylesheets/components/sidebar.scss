@@ -5,7 +5,7 @@
 }
 
 .closed-side-bar {
-    flex: 0.1;
+    flex: 0.055;
 }
 
 .hide-row{
@@ -39,6 +39,7 @@
     align-items: center;
     padding: 10px 20px;
     text-decoration: none;
+    margin-left: -3px;
 }
 
 .sidebar-row.selected,
@@ -62,9 +63,6 @@
         color: red;
     }
     
-    // .sidebar-row-title {
-    //     font-weight:;
-    // }
 }
 
 .sidebar-row-icon {
