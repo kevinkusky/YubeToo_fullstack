@@ -47,8 +47,14 @@ class About extends React.Component{
                     </div>
                 </div>
                 <div className='about-bottom'>
-                    <p className='about-paragraph'>Hello, I am a bio that will be filled out shortly with words - such very cool,
-                        awesome, persuasive words that will make you hire me.
+                    <p className='about-paragraph'>
+                        My Name is Kevin - I'm a Software Engineer and recent graduate of App Academy.
+                        <br />  
+                        Prior to becoming a Software Engineer, I graduated with a bachelors in Math and spent 6 years in the operations and compliance worlds of Finance.
+                        <br /> 
+                        I hope you are enjoying your visit to the clone I made, as well as the videos that have been uploaded to the site.
+                        <br /> 
+                        Please feel free to contact me or to view my portfolio.
                     </p>
                 </div>
             </div>
