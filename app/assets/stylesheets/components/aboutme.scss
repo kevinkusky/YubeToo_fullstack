@@ -4,17 +4,21 @@
 
 .about-top {
     display: flex;
-    justify-content: space-between;
-    width: 58%;
-    margin-left: 60px;
+    justify-content: space-evenly;
+    width: 64%;
+    margin-left: 20px;
 }
 
 .portfolio-image {
-    width: 260px;
-    height: 300px;
+    width: 240px;
+    height: 280px;
     border: 1.5px outset;
     object-fit: cover;
 }
+
+// .portfoliolinks {
+//     margin-left: 8px !important;
+// }
 
 .about-link-item{
     display: flex;
@@ -33,6 +37,7 @@
 .about-email{
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
+    margin-left: 3px;
     letter-spacing: 0.001em;
     color: rgba($color: #597e4d, $alpha: 1.0);
     transition: 4s !important;
@@ -42,13 +47,16 @@
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     letter-spacing: 0.001em;
+    width: 161px;
     color: rgba($color: #ca4219, $alpha: 1.0);
+    border-bottom: 1px solid rgba($color: #531c46, $alpha: 1.0);
     transition: 1.6s !important;
 }
 .copy-button{
     border: none;
     background-color: #f9f9f9;
     margin-left: -5px;
+    outline: none;
 }
 
 .about-icon {
@@ -72,4 +80,5 @@
     padding-left: 7px;
     padding-right: 20px;
     letter-spacing: 0.001em;
+    width: 650px;
 }
