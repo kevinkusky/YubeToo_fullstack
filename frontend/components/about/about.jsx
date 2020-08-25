@@ -1,4 +1,5 @@
 import React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import GithubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -8,6 +9,11 @@ import EmailIcon from '@material-ui/icons/EmailOutlined';
 class About extends React.Component{
     constructor(props){
         super(props);
+
+        this.state = {
+            value: 'kevinkusky@gmail.com',
+            copied: false
+        };
     }
 
     // componentDidMount(){ 
@@ -39,10 +45,15 @@ class About extends React.Component{
                             <a target='_blank' href="https://github.com/kevinkusky"><GithubIcon className='about-icon'/></a>
                         </div>
                         <div className='about-link-item'>
-                            <EmailIcon className='about-icon' 
-                                // onClick={this.copyText()}
-                            />
-                            <input type='text' value='KevinKusky@gmail.com' className='about-email'></input>
+                            <CopyToClipboard 
+                                text={this.state.value}
+                                onCopy={()=> this.setState({copied: true})}
+                            >
+                                <button className='copy-button'>
+                                    <EmailIcon className='about-icon' />
+                                </button>
+                            </CopyToClipboard>
+                            <input type='text' value={this.state.value} className='about-email'></input>
                         </div>
                     </div>
                 </div>

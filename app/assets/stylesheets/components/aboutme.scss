@@ -30,11 +30,25 @@
     background-color:  #f9f9f9;
 }
 
+.about-email{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.001em;
+    color: rgba($color: #597e4d, $alpha: 1.0)
+}
+
+.copy-button{
+    border: none;
+    background-color: #f9f9f9;
+    margin-left: -5px;
+}
+
 .about-icon {
-    color: black !important;
+    color: rgba($color: #531c46, $alpha: 1.0) !important;
     cursor: pointer;
     height: 42px !important;
     width: 42px !important;
+    transition: 2.5s !important;
 }
 
 .about-icon:hover {
