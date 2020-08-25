@@ -20,14 +20,14 @@
     display: flex;
     margin: 16px;
     align-items: center;
-
-    span {
-        display: none;
-    }
 }
 
-.portfoliolinks {
-    margin-left: -7%;
+.about-email, .about-email:active, .about-email:focus {
+    margin-left: 7px;
+    border: none;
+    cursor: text;
+    outline: none;
+    background-color:  #f9f9f9;
 }
 
 .about-icon {
