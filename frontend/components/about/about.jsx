@@ -28,6 +28,9 @@ class About extends React.Component{
     // }
 
     render(){
+        const emailText = () =>(
+            this.state.copied ? 'copied-email' : 'about-email'
+        );
         return(
             <div className='about-me'>
                 <div className='about-top'>
@@ -53,7 +56,7 @@ class About extends React.Component{
                                     <EmailIcon className='about-icon' />
                                 </button>
                             </CopyToClipboard>
-                            <input type='text' value={this.state.value} className='about-email'></input>
+                            <input type='text' value={this.state.value} className={emailText()}></input>
                         </div>
                     </div>
                 </div>
