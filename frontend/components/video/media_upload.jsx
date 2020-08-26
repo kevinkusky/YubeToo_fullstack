@@ -18,110 +18,84 @@ class MediaUpload extends React.Component {
     this.handleVideoDrop = this.handleVideoDrop.bind(this);
   }
 
-    handleVideoDrop(videoFile) {
-        //update videoFiles array as user drag videoFiles to drop zone
-        if (videoFile) {
+  handleVideoDrop(videoFile) {
+    //update videoFiles array as user drag videoFiles to drop zone
+    if (videoFile) {
+      //set drop zone error to empty if there is any error
+      if (this.state.errors.length !== 0) {
+        this.setState({ errors: "" });
+      }
+
+      let fileReader = new FileReader();
+      const newVideoFile = videoFile[0];
+
+      fileReader.onloadend = () => {
+        if (this.state.videoFile.length < 1) {
+          //update photoFiles and photoUrls in state
+          this.setState({
+            videoFile: this.state.videoFile.concat(newVideoFile),
+            videoUrl: this.state.videoUrl.concat(
+              URL.createObjectURL(newVideoFile)
+            ),
+          });
+        } else {
+          //set drop zone error in state
+          this.setState({ errors: "May only upload 1 video at a time" });
+        }
+      };
+      fileReader.readAsDataURL(newVideoFile);
+    }
+  }
+
+    handlePicDrop(titlecardFile) {
+        //update titlecardFiles array as user drag videoFiles to drop zone
+        if (titlecardFile) {
             //set drop zone error to empty if there is any error
             if (this.state.errors.length !== 0) {
                 this.setState({ errors: "" });
             }
 
             let fileReader = new FileReader();
-            const newVideoFile = videoFile[0];
+            const newPicFile = titlecardFile[0];
 
             fileReader.onloadend = () => {
-                if (this.state.videoFile.length < 1) {
-                    //update photoFiles and photoUrls in state
-                    this.setState({
-                        titlecardFile: this.state.videoFile.concat(newVideoFile),
-                        titlecardUrl: this.state.videoUrl.concat(URL.createObjectURL(newVideoFile))
-                    });
-                } else {
-                    //set drop zone error in state
-                    this.setState({ errors: 'May only upload 1 video at a time' });
-                }
-            };
-            fileReader.readAsDataURL(newVideoFile);
-        }
-    }
-
-    handlePicDrop(titlecardFile) {
-        if (titlecardFile) {
-            if (this.state.errors.length !== 0) {
-                this.setState({ errors: "" });
+            if (this.state.titlecardFile.length < 1) {
+                //update photoFiles and photoUrls in state
+                this.setState({
+                    titlecardFile: this.state.titlecardFile.concat(newPicFile),
+                    titlecardUrl: this.state.titlecardUrl.concat(URL.createObjectURL(newPicFile)),
+                });
+            } else {
+                //set drop zone error in state
+                this.setState({ errors: "May only upload 1 titlecard at a time" });
             }
-
-            let fileReader = new FileReader();
-            const photoFile = titlecardFile[0];
-
-            fileReader.onloadend = () => {
-                if (this.state.titlecardFile.length < 1) {
-                    this.setState({
-                        titlecardFile: this.state.titlecardFile.concat(photoFile),
-                        titlecardUrl: this.state.titlecardUrl.concat(URL.createObjectURL(photoFile))
-                    });
-                } else {
-                    this.setState({ errors: 'each video may only have 1 title image' });
-                }
             };
-            fileReader.readAsDataURL(photoFile);
+            fileReader.readAsDataURL(newPicFile);
         }
     }
-
-    // handleDrop(photoFiles) {
-    //     //update photoFiles array as user drag photoFiles to drop zone
-    //     if (photoFiles) {
-    //         //set drop zone error to empty if there is any error
-    //         if (this.state.errors.length !== 0) {
-    //             this.setState({ errors: "" })
-    //         }
-
-    //         for (let index = 0; index < photoFiles.length; index++) {
-    //             let fileReader = new FileReader();
-    //             const photoFile = photoFiles[index];
-
-    //             fileReader.onloadend = () => {
-    //                 if (this.state.photoFiles.length < 10) {
-    //                     //update photoFiles and photoUrls in state
-    //                     this.setState({
-    //                         photoFiles: this.state.photoFiles.concat(URL.createObjectURL(photoFile)),
-    //                         photoUrls: this.state.photoUrls.concat(photoFile)
-    //                     });
-    //                 } else {
-    //                     //set drop zone error in state
-    //                     this.setState({ errors: "Sorry, no more than 10" })
-    //                 }
-    //             };
-    //             fileReader.readAsDataURL(photoFile);
-    //         }
-    //     }
-    // }
 
   render() {
     return (
       <div>
         <Dropzone onDrop={this.handleVideoDrop}>
-            {({ getRootProps, getInputProps }) => (
-                <div {...getRootProps({ className: "drop-zone" })}>
-                    <input {...getInputProps()} />
-                    <div className="dropzone-target">
-                        {/* <p>test for drop zone</p> */}
-                        <VideoDrop />
-                    </div>
-                </div>
-            )}
+          {({ getRootProps, getInputProps }) => (
+            <div {...getRootProps({ className: "drop-zone" })}>
+              <input {...getInputProps()} />
+              <div className="dropzone-target">
+                <VideoDrop />
+              </div>
+            </div>
+          )}
         </Dropzone>
-
         <Dropzone onDrop={this.handlePicDrop}>
-            {({ getRootProps, getInputProps }) => (
-                <div {...getRootProps({ className: "drop-zone" })}>
-                    <input {...getInputProps()} />
-                    <div className="dropzone-target">
-                        {/* <p>test for drop zone</p> */}
-                        <PicDrop />
-                    </div>
-                </div>
-            )}
+          {({ getRootProps, getInputProps }) => (
+            <div {...getRootProps({ className: "drop-zone" })}>
+              <input {...getInputProps()} />
+              <div className="dropzone-target">
+                <PicDrop />
+              </div>
+            </div>
+          )}
         </Dropzone>
       </div>
     );
