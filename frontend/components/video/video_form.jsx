@@ -24,7 +24,7 @@ class VideoForm extends React.Component {
     //   titlecardFileName: this.state.titlecardFile ? this.state.titlecardFile[0].name : "",
       step: 1,
     };
-    this.handlePicFile = this.handlePicFile.bind(this);
+    // this.handlePicFile = this.handlePicFile.bind(this);
     this.navigateToSplash = this.navigateToSplash.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleVideoDrop = this.handleVideoDrop.bind(this);
@@ -86,18 +86,18 @@ class VideoForm extends React.Component {
     // );
   }
 
-  handlePicFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
+//   handlePicFile(e) {
+//     const file = e.currentTarget.files[0];
+//     const fileReader = new FileReader();
 
-    fileReader.onloadend = () => {
-      this.setState({ titlecardFile: file, titlecardUrl: fileReader.result });
-    };
+//     fileReader.onloadend = () => {
+//       this.setState({ titlecardFile: file, titlecardUrl: fileReader.result });
+//     };
 
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
-  }
+//     if (file) {
+//       fileReader.readAsDataURL(file);
+//     }
+//   }
 
   handlePicDrop(titlecardFile) {
     //update titlecardFiles array as user drag videoFiles to drop zone
@@ -196,10 +196,10 @@ class VideoForm extends React.Component {
     return (
       <div>
         <TopNav />
-        {componentStep()}
+        <form onSubmit={this.handleSubmit}>
+            {componentStep()}
 
-        {/* <form onSubmit={this.handleSubmit}>
-
+        {/* 
           <Dropzone onDrop={this.handleVideoDrop}>
             {({ getRootProps, getInputProps }) => (
               <div {...getRootProps({ className: "drop-zone" })}>
@@ -229,7 +229,8 @@ class VideoForm extends React.Component {
           <label className="upload-labels">Description</label>
 
           <input type="submit" value="Submit" />
-        </form> */}
+        */}
+        </form> 
       </div>
     );
   }

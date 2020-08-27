@@ -54,7 +54,14 @@
     margin-right: -8px;
 }
 
-.next-step:hover .next-icon {
+.prev-icon{
+    color: rgba(231, 231, 231, 0.938) !important;
+    margin-left: -8px;
+    margin-right: -3px;
+}
+
+.next-step:hover .next-icon,
+.prev-step:hover .prev-icon {
     color: rgb(57, 103, 189) !important;
 }
 
@@ -81,3 +88,22 @@
     background-color: rgba(240, 240, 240, 0.993);
     color: rgb(66, 117, 211);
 }
+
+.details-step {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-title {
+    position: relative;
+    margin-left: 25%;
+    margin-bottom: 16px;
+    height: 24px;
+}
+
+.upload-labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
