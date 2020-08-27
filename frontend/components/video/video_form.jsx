@@ -25,7 +25,8 @@ class VideoForm extends React.Component {
     this.navigateToSplash = this.navigateToSplash.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleVideoDrop = this.handleVideoDrop.bind(this);
-    this.componentStep = this.componentStep.bind(this);
+    // this.handlePicDrop = this.handlePicDrop.bind(this);
+    // this.componentStep = this.componentStep.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
   }
@@ -46,18 +47,20 @@ class VideoForm extends React.Component {
     }
   }
 
-  componentStep() {
-    switch (this.state.step) {
-      case 1:
-        return <MediaStep />;
-      case 2:
-        return <DetailStep />;
-      case 3:
-        return <ConfirmStep />;
-      default:
-        return <MediaStep />;
-    }
-  }
+//   componentStep() {
+//     switch (this.state.step) {
+//       case 1:
+//         return <MediaStep 
+//             handleVideoDrop={this.handleVideoDrop}
+//             handlePicDrop={this.handlePicDrop} />;
+//       case 2:
+//         return <DetailStep />;
+//       case 3:
+//         return <ConfirmStep />;
+//       default:
+//         return <MediaStep />;
+//     }
+//   }
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });

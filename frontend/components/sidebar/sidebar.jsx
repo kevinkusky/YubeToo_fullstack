@@ -25,6 +25,7 @@ class SideBar extends React.Component{
         // className and control sidebar display via CSS
         const classSizeName = this.props.sidebarSize ? 'sidebar-row' : 'closed-row';
         const classClearName = this.props.sidebarSize ? 'sidebar-row' : 'hide-row';
+        const clearLogMessage = this.props.sidebarSize ? 'login-message' : 'hide-message';
         const LoggedinSidebar = () => (
             <div>
                 <SidebarRow 
@@ -97,7 +98,7 @@ class SideBar extends React.Component{
             />
             <hr />
             <div >
-                <p className='login-message'>
+                <p className={clearLogMessage}>
                     Please Login to like videos, comment, and subscribe
                 </p>
                 <Link className='session-link' to={LAUTH}>
