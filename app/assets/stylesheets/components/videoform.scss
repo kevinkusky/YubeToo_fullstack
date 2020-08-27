@@ -1,0 +1,40 @@
+.media-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.drop-video {
+    font-size: 60px !important;
+    padding: 90px;
+    margin-top: -15px;
+    // border: 1px solid red;
+
+}
+
+.drop-image {
+    font-size: 60px !important;
+    padding: 90px;
+    margin-top: -15px;
+    // border: 1px solid red;
+}
+
+.video-upload {
+    display: flex;
+    justify-content: center;
+}
+
+.pic-upload {
+    display: flex;
+    justify-content: center;
+}
+.dropzone-target {
+    width: 220px;
+    height: 220px;
+    margin: 30px;
+    // border: 1px solid black;    
+}
+
+.step-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}

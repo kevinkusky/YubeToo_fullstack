@@ -10,34 +10,34 @@ class MediaUpload extends React.Component {
   }
 
   render() {
-    //   const picUploaded = this.state.titlecardFile ? this.state.titlecardFile[0].name : 'No Preview Image Uploaded';
-    //   const videoUploaded = this.state.videoFile ? this.state.videoFile[0].name : 'No Preview Image Uploaded';
-
     return (
-      <div>
-        <Dropzone onDrop={this.props.handleVideoDrop}>
-          {({ getRootProps, getInputProps }) => (
-            <div {...getRootProps({ className: "drop-zone" })}>
-              <input {...getInputProps()} />
-              <div className="dropzone-target">
-                <VideoDrop />
+      <div className="media-page">
+        <div className="video-upload">
+          <Dropzone onDrop={this.props.handleVideoDrop}>
+            {({ getRootProps, getInputProps }) => (
+              <div {...getRootProps({ className: "drop-zone" })}>
+                <input {...getInputProps()} />
+                <div className="dropzone-target">
+                  <VideoDrop className="drop-video" />
+                </div>
               </div>
-            </div>
-          )}
-        </Dropzone>
-        {/* <span className="dropzone-message">{videoUploaded}</span> */}
-        
-        <Dropzone onDrop={this.props.handlePicDrop}>
-          {({ getRootProps, getInputProps }) => (
-            <div {...getRootProps({ className: "drop-zone" })}>
-              <input {...getInputProps()} />
-              <div className="dropzone-target">
-                <PicDrop />
-              </div>
-            </div>
-          )}
-        </Dropzone>
-        {/* <span className="dropzone-message">{picUploaded}</span> */}
+            )}
+          </Dropzone>
+          {/* <span className="dropzone-message">{this.props.videoMessage}</span> */}
+        </div>
+        <div className="pic-upload">
+            <Dropzone onDrop={this.props.handlePicDrop}>
+            {({ getRootProps, getInputProps }) => (
+                <div {...getRootProps({ className: "drop-zone" })}>
+                <input {...getInputProps()} />
+                <div className="dropzone-target">
+                    <PicDrop className="drop-image" />
+                </div>
+                </div>
+            )}
+            </Dropzone>
+            {/* <span className="dropzone-message">{this.props.picMessage}</span> */}
+        </div>
         <div className="step-buttons">
           <div></div>
           <button className="next-step" onClick={this.props.nextStep}>

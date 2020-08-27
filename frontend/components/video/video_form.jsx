@@ -158,6 +158,8 @@ class VideoForm extends React.Component {
   }
 
   render() {
+    //   const picUploaded = this.state.titlecardFile ? this.state.titlecardFile[0].name : "";
+    //   const videoUploaded = this.state.videoFile ? this.state.videoFile[0].name : "";
       const componentStep = () => {
         switch (this.state.step) {
             case 1:
@@ -165,6 +167,8 @@ class VideoForm extends React.Component {
                     handleVideoDrop={this.handleVideoDrop}
                     handlePicDrop={this.handlePicDrop} 
                     nextStep={this.nextStep}
+                    // picMessage={picUploaded}
+                    // videoMessage={videoUploaded}
                     />;
             case 2:
             return <DetailsUpload
