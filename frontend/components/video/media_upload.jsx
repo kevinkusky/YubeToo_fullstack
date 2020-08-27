@@ -26,6 +26,7 @@ class MediaUpload extends React.Component {
           )}
         </Dropzone>
         <span className="dropzone-message">{videoUploaded}</span>
+        
         <Dropzone onDrop={this.props.handlePicDrop}>
           {({ getRootProps, getInputProps }) => (
             <div {...getRootProps({ className: "drop-zone" })}>
