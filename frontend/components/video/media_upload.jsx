@@ -10,8 +10,8 @@ class MediaUpload extends React.Component {
   }
 
   render() {
-      const picUploaded = this.state.titlecardFile ? this.state.titlecardFile[0].name : 'No Preview Image Uploaded';
-      const videoUploaded = this.state.videoFile ? this.state.videoFile[0].name : 'No Preview Image Uploaded';
+    //   const picUploaded = this.state.titlecardFile ? this.state.titlecardFile[0].name : 'No Preview Image Uploaded';
+    //   const videoUploaded = this.state.videoFile ? this.state.videoFile[0].name : 'No Preview Image Uploaded';
 
     return (
       <div>
@@ -25,7 +25,7 @@ class MediaUpload extends React.Component {
             </div>
           )}
         </Dropzone>
-        <span className="dropzone-message">{videoUploaded}</span>
+        {/* <span className="dropzone-message">{videoUploaded}</span> */}
         
         <Dropzone onDrop={this.props.handlePicDrop}>
           {({ getRootProps, getInputProps }) => (
@@ -37,7 +37,7 @@ class MediaUpload extends React.Component {
             </div>
           )}
         </Dropzone>
-        <span className="dropzone-message">{picUploaded}</span>
+        {/* <span className="dropzone-message">{picUploaded}</span> */}
         <div className="step-buttons">
           <div></div>
           <button className="next-step" onClick={this.props.nextStep}>

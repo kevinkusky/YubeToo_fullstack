@@ -27,7 +27,6 @@ class VideoForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleVideoDrop = this.handleVideoDrop.bind(this);
     this.handlePicDrop = this.handlePicDrop.bind(this);
-    // this.componentStep = this.componentStep.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
   }
@@ -47,23 +46,6 @@ class VideoForm extends React.Component {
       this.setState({ step: this.state.step - 1 });
     }
   }
-
-    // componentStep() {
-    //     switch (this.state.step) {
-    //         case 1:
-    //             return <MediaUpload 
-    //                 // handleVideoDrop={this.handleVideoDrop}
-    //                 // handlePicDrop={this.handlePicDrop} 
-    //                 // nextStep={this.nextStep}
-    //                 />;
-    //         case 2:
-    //         return (<DetailsUpload />);
-    //         // case 3:
-    //         // return <ConfirmStep />;
-    //         default:
-    //         return (<MediaStep />);
-    //     }
-    // }
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
@@ -176,12 +158,41 @@ class VideoForm extends React.Component {
   }
 
   render() {
+      const componentStep = () => {
+        switch (this.state.step) {
+            case 1:
+                return <MediaUpload 
+                    handleVideoDrop={this.handleVideoDrop}
+                    handlePicDrop={this.handlePicDrop} 
+                    nextStep={this.nextStep}
+                    />;
+            case 2:
+            return <DetailsUpload
+                update={this.update}
+                title={this.state.title}
+                description={this.state.description}
+                prevStep={this.prevStep}
+                nextStep={this.nextStep}
+              />;
+            case 3:
+            return <ConfirmStep 
+                prevStep={this.prevStep}
+                handleSubmit={this.handleSubmit}
+            />;
+            default:
+            return <MediaStep 
+                handleVideoDrop={this.handleVideoDrop}
+                handlePicDrop={this.handlePicDrop} 
+                nextStep={this.nextStep}
+            />;
+        }
+    }
     return (
       <div>
         <TopNav />
-        {/* {this.componentStep} */}
+        {componentStep()}
 
-        <form onSubmit={this.handleSubmit}>
+        {/* <form onSubmit={this.handleSubmit}>
 
           <Dropzone onDrop={this.handleVideoDrop}>
             {({ getRootProps, getInputProps }) => (
@@ -212,7 +223,7 @@ class VideoForm extends React.Component {
           <label className="upload-labels">Description</label>
 
           <input type="submit" value="Submit" />
-        </form>
+        </form> */}
       </div>
     );
   }
