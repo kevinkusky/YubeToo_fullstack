@@ -3,6 +3,7 @@ import Dropzone from 'react-dropzone';
 
 import VideoDrop from "@material-ui/icons/PublishOutlined";
 import PicDrop from "@material-ui/icons/ImageOutlined";
+import Next from '@material-ui/icons/ArrowForwardIosOutlined';
 
 class MediaUpload extends React.Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class MediaUpload extends React.Component {
           <div></div>
           <button className="next-step" onClick={this.props.nextStep}>
             Next Step
+            <Next className='next-icon'/>
           </button>
         </div>
       </div>

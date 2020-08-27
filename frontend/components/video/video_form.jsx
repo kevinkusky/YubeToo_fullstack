@@ -18,8 +18,10 @@ class VideoForm extends React.Component {
       errors: "",
       videoFile: [],
       videoUrl: [],
+    //   videoFileName: this.state.videoFile ? this.state.videoFile[0].name : "",
       titlecardFile: [],
       titlecardUrl: [],
+    //   titlecardFileName: this.state.titlecardFile ? this.state.titlecardFile[0].name : "",
       step: 1,
     };
     this.handlePicFile = this.handlePicFile.bind(this);
@@ -167,8 +169,8 @@ class VideoForm extends React.Component {
                     handleVideoDrop={this.handleVideoDrop}
                     handlePicDrop={this.handlePicDrop} 
                     nextStep={this.nextStep}
-                    // picMessage={picUploaded}
-                    // videoMessage={videoUploaded}
+                    // picMessage={this.state.titlecardFileName}
+                    // videoMessage={this.state.videoFileName}
                     />;
             case 2:
             return <DetailsUpload

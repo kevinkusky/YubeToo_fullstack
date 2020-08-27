@@ -4,18 +4,27 @@
 }
 
 .drop-video {
-    font-size: 60px !important;
-    padding: 90px;
+    font-size: 100px !important;
+    padding: 63px;
     margin-top: -15px;
-    // border: 1px solid red;
-
+    border: 1px solid red;
+    color: lightgray !important;
 }
 
 .drop-image {
-    font-size: 60px !important;
-    padding: 90px;
+    font-size: 100px !important;
+    padding: 63px;
     margin-top: -15px;
-    // border: 1px solid red;
+    border: 1px solid red;
+    color: lightgray !important;
+}
+
+.drop-video:hover {
+    color: red !important;
+}
+
+.drop-image:hover {
+    color: red !important;
 }
 
 .video-upload {
@@ -30,11 +39,45 @@
 .dropzone-target {
     width: 220px;
     height: 220px;
-    margin: 30px;
+    margin: 25px;
     // border: 1px solid black;    
 }
 
 .step-buttons {
     display: flex;
     justify-content: space-evenly;
+}
+
+.next-icon{
+    color: rgba(231, 231, 231, 0.938) !important;
+    margin-left: -3px;
+    margin-right: -8px;
+}
+
+.next-step:hover .next-icon {
+    color: rgb(57, 103, 189) !important;
+}
+
+.next-step, .prev-step {
+        display: flex;
+     text-decoration: none;
+     border: 1.3px solid rgb(58, 108, 201);
+     background-color: white;
+     color: rgb(58, 108, 201);
+     border-radius: 2px;
+     margin: 5px;
+     margin-left: 27px;
+     height: 37px;
+     width: 100px;
+     text-align: center;
+     font-family: 'Roboto', sans-serif;
+     font-weight: 547;
+     cursor: pointer;
+     align-items: center;
+     justify-content: space-evenly;
+}
+
+.next-step:hover, .prev-step:hover {
+    background-color: rgba(240, 240, 240, 0.993);
+    color: rgb(66, 117, 211);
 }
