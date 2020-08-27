@@ -47,20 +47,21 @@ class VideoForm extends React.Component {
     }
   }
 
-//   componentStep() {
-//     switch (this.state.step) {
-//       case 1:
-//         return <MediaStep 
-//             handleVideoDrop={this.handleVideoDrop}
-//             handlePicDrop={this.handlePicDrop} />;
-//       case 2:
-//         return <DetailStep />;
-//       case 3:
-//         return <ConfirmStep />;
-//       default:
-//         return <MediaStep />;
-//     }
-//   }
+    // componentStep() {
+    //     switch (this.state.step) {
+    //         case 1:
+    //         return <MediaStep 
+    //             handleVideoDrop={this.handleVideoDrop}
+    //             handlePicDrop={this.handlePicDrop} 
+    //             nextStep={this.nextStep}/>;
+    //         case 2:
+    //         return <DetailStep />;
+    //         case 3:
+    //         return <ConfirmStep />;
+    //         default:
+    //         return <MediaStep />;
+    //     }
+    // }
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
@@ -158,11 +159,11 @@ class VideoForm extends React.Component {
         if (this.state.videoFile.length < 1) {
           //update photoFiles and photoUrls in state
           this.setState({
-            videoFile: this.state.videoFile.concat(newVideoFile),
-            videoUrl: this.state.videoUrl.concat(
-              URL.createObjectURL(newVideoFile)
-            ),
-          });
+              videoFile: this.state.videoFile.concat(newVideoFile),
+              videoUrl: this.state.videoUrl.concat(
+                  URL.createObjectURL(newVideoFile)
+                  ),
+                });
         } else {
           //set drop zone error in state
           this.setState({ errors: "May only upload 1 video at a time" });
@@ -174,15 +175,13 @@ class VideoForm extends React.Component {
 
   render() {
     // refactor preview to be a title card upload
-    const preview = this.state.titlecardUrl ? (
-      <img height="200px" width="200px" src={this.state.titlecardUrl} />
-    ) : null;
     return (
       <div>
         <TopNav />
 
         <form onSubmit={this.handleSubmit}>
-          <h3>Upload Video</h3>
+            {/* {this.componentSwitch} */}
+
           <Dropzone onDrop={this.handleVideoDrop}>
             {({ getRootProps, getInputProps }) => (
               <div {...getRootProps({ className: "drop-zone" })}>
