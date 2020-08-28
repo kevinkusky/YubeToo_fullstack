@@ -5,7 +5,7 @@ import SignupContainer from './session/signup_container';
 import SigninContainer from './session/signin_container';
 import VideoFormContainer from  './video/video_form_container';
 import MainPageContainer from './mainpage/mainpage_container';
-import ShowContainer from './video/show';
+import ShowContainer from './video/show_container';
 
 const App = () => (
   <div className="app">

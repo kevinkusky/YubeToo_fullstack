@@ -5,9 +5,9 @@ import {connect} from 'react-redux';
 import {fetchVideo} from '../../actions/videos';
 import VideoShow from './show';
 
-// const mSTP = state => ({
-//     videoId: parseInt(state.ownProps.match.params.videoId)
-// });
+const mSTP = ({entities, errors}, ownProps) => ({
+    videoId: parseInt(ownProps.match.params.videoId)
+});
 
 const mDTP = dispatch => ({
     fetchVideo: id => dispatch(fetchVideo(id)),
@@ -15,4 +15,4 @@ const mDTP = dispatch => ({
 //     fetchLikes:
 });
 
-export default connect(null, mDTP)(VideoShow);
+export default connect(mSTP, mDTP)(VideoShow);
