@@ -17,11 +17,15 @@ class Comment < ApplicationRecord
         class_name: :Videos,
         foreign_key: :video_id
 
-    has_one :parent_comment,
-        foreign_key: :parent_comment_id,
-        class_name: :Comments
+    # has_one :parent_comment,
+    #     foreign_key: :parent_comment_id,
+    #     class_name: :Comments
 
-    has_many :likes,
-        as: :likeable
+    belongs_to :commenter,
+        foreign_key: :author_id,
+        class_name: :Users
+
+    # has_many :likes,
+    #     as: :likeable
 
 end

@@ -24,6 +24,12 @@ class User < ApplicationRecord
         class_name: :Videos,
         foreign_key: :creator_id
 
+    has_many :comments,
+        foreign_key: :author_id,
+        class_name: :Comments
+
+
+
     # FIGVAPER
 
     def self.find_by_credentials(email_address, password)
