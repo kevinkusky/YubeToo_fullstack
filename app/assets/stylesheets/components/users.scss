@@ -45,6 +45,13 @@
      transition: .5s;
  }
 
+ .signin-info {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     margin-top: 50px;
+ }
+
   .session-form-container .input-container input:focus,
   .session-form-container .input-container input:valid{
      top: -20px;
@@ -70,13 +77,14 @@
 
  .bottom-form{
      display: flex;
-     justify-content: space-between;
+     justify-content: space-around;
      align-items: center;
-     margin-top: 25px;
+     margin-top: 40px;
      margin-bottom: 20px;
  }
  
- .bottom-form button{
+ .demo-button {
+     display: flex;
      text-decoration: none;
      margin: 8px;
      margin-left: 20px;
@@ -87,31 +95,37 @@
      border: none;
      width: 120px;
      height: 46px;
+     align-items: center;
  }
 
- .bottom-form button:hover{
+ .demo-button:hover{
      background-color:  rgba(238, 247, 255, 0.938);
      border-radius: 9px;
      width: 120px;
      height: 46px;
  }
 
- .session-form-container input[type='submit']{
-     background: rgb(58, 108, 201);
-     color: whitesmoke;
-     border: .8px solid  rgb(58, 108, 201);
-     font-family: "Lucida Console", Courier, monospace;
-     font-size: 14px;
-     font-weight: bolder;
+ .demo-submit {
+     display: flex;
      border-radius: 3px;
-     width: 96px;
-     height: 39px;
      float: right;
      margin-right: 12%;
-     margin-top: 8%;
+     align-items: center;
+     
+     input {
+         background: rgb(58, 108, 201);
+         color: whitesmoke;
+         border: .8px solid  rgb(58, 108, 201);
+         font-family: "Lucida Console", Courier, monospace;
+         font-size: 14px;
+         font-weight: bolder;
+         width: 96px;
+         height: 39px;
+         
+    }
  }
 
- .session-form-container input[type='submit']:hover{
+ .demo-submit > input:hover{
      background: rgba(10, 22, 148, 0.877);;
  }
 

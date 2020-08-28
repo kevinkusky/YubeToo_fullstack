@@ -45,40 +45,42 @@ class Signin extends React.Component{
 
     render() {
         return (
-            <div className="session-form-container">
-                <form onSubmit={this.handleSubmit} className="session-form-box">
-                <br />
-                    <h3>Please Sign In</h3>
-                    {/* {this.renderErrors()} */}
-                    <br />
-                    <br/>
-                    <div className='input-container'>
-                        <input
-                            type="text"
-                            value={this.state.email_address}
-                            onChange={this.update("email_address")}
-                            required=' '
-                        />
-                        <label className='input-labels'>Email</label>
-                    </div>
-                    <br />
-                    <div className='input-container'>
-                        <input
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.update("password")}
-                            required=' '
-                        />
-                        <label className='input-labels'>Password</label>
-                    </div>
-                    <br />
-                    <input className="submit" type="submit" value='Sign In' />
-                </form>
-
-                <div className='bottom-form' >
-                    <button onClick={this.populateDemo}>Demo Session</button>
+          <div className="session-form-container">
+            <form onSubmit={this.handleSubmit} className="session-form-box">
+              <h3>Please Sign In</h3>
+              {/* {this.renderErrors()} */}
+              <div className='signin-info'>
+                <div className="input-container">
+                    <input
+                    type="text"
+                    value={this.state.email_address}
+                    onChange={this.update("email_address")}
+                    required=" "
+                    />
+                    <label className="input-labels">Email</label>
                 </div>
-            </div>
+                <br />
+                <div className="input-container">
+                    <input
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.update("password")}
+                    required=" "
+                    />
+                    <label className="input-labels">Password</label>
+                </div>
+              </div>
+              <br />
+              <div className="bottom-form">
+                <button className="demo-button" onClick={this.populateDemo}>
+                  Demo Session
+                </button>
+                <div className="demo-submit">
+                  <input type="submit" value="Sign In" />
+                </div>
+              </div>
+            </form>
+          </div>
         );
     }
 }
