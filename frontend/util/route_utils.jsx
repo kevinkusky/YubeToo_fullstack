@@ -6,6 +6,7 @@ export const SPLASH = '/';
 export const LAUTH = '/login';
 export const SUPAUTH = '/signup';
 export const NEWVID = '/videos/new';
+export const WATCH = '/videos/:videoId';
 export const ABOUT = '/aboutme';
 export const TREND = '/trending';
 export const SUBS = '/subscriptions';

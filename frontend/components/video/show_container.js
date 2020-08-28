@@ -6,7 +6,7 @@ import {fetchVideo} from '../../actions/videos';
 import VideoShow from './show';
 
 // const mSTP = state => ({
-    
+//     videoId: parseInt(state.ownProps.match.params.videoId)
 // });
 
 const mDTP = dispatch => ({
