@@ -11,7 +11,7 @@ class VideoIndexItem extends React.Component {
 
     handleClick(){
         const videoId = this.props.video.id;
-        this.props.history.push(`/videos/${videoId}`);
+        this.props.history.push(`/videos/show/${videoId}`);
     }
 
     render() {

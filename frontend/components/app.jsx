@@ -10,9 +10,9 @@ import ShowContainer from './video/show_container';
 const App = () => (
   <div className="app">
         <Switch>
-        <Route path={WATCH} component={ShowContainer}/>
         <AuthRoute exact path={LAUTH} component={SigninContainer} />
         <AuthRoute exact path={SUPAUTH} component={SignupContainer} />
+        <Route exact path={WATCH} component={ShowContainer}/>
         <ProtectedRoute exact path={NEWVID} component={VideoFormContainer} />
         <Route path={SPLASH} component={MainPageContainer} />
         </Switch>

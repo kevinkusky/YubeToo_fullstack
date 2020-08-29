@@ -180,11 +180,11 @@ class VideoForm extends React.Component {
                 prevStep={this.prevStep}
                 nextStep={this.nextStep}
               />;
-            case 3:
-            return <ConfirmStep 
-                prevStep={this.prevStep}
-                handleSubmit={this.handleSubmit}
-            />;
+            // case 3:
+            // return <ConfirmStep 
+            //     prevStep={this.prevStep}
+            //     handleSubmit={this.handleSubmit}
+            // />;
             default:
             return <MediaStep 
                 handleVideoDrop={this.handleVideoDrop}
