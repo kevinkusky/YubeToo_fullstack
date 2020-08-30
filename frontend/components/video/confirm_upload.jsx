@@ -11,12 +11,12 @@ class ConfrimUpload extends React.Component {
         return(
             <form onSubmit={this.props.handleSubmit} className='confirm-step'>
                 <div className='uploaded-items'>
-                    <span></span>
-                    <span></span>
+                    <span>{this.props.videoMessage}</span>
+                    <span>{this.props.picMessage}</span>
                 </div>
                 <div className='upload-details'>
-                    <span></span>
-                    <span></span>
+                    <span>{this.props.title}</span>
+                    <span>{this.props.description}</span>
                 </div>
                 <div className='step-buttons'>
                     <button className='prev-step' onClick={this.props.prevStep}>

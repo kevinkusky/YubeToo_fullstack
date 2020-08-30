@@ -16,7 +16,7 @@ class MediaUpload extends React.Component {
         <div className="video-upload">
           <Dropzone onDrop={this.props.handleVideoDrop}>
             {({ getRootProps, getInputProps }) => (
-              <div {...getRootProps({ className: "drop-zone" })}>
+                <div {...getRootProps({ className: "drop-zone" })}>
                 <input {...getInputProps()} />
                 <div className="dropzone-target">
                   <VideoDrop className="drop-video" />
@@ -24,7 +24,7 @@ class MediaUpload extends React.Component {
               </div>
             )}
           </Dropzone>
-          {/* <span className="dropzone-message">{this.props.videoMessage}</span> */}
+        <span className="dropzone-message">{this.props.videoMessage}</span>
         </div>
         <div className="pic-upload">
             <Dropzone onDrop={this.props.handlePicDrop}>
@@ -37,7 +37,7 @@ class MediaUpload extends React.Component {
                 </div>
             )}
             </Dropzone>
-            {/* <span className="dropzone-message">{this.props.picMessage}</span> */}
+            <span className="dropzone-message">{this.props.picMessage}</span>
         </div>
         <div className="step-buttons">
           <div></div>

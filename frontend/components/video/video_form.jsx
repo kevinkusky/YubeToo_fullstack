@@ -18,19 +18,19 @@ class VideoForm extends React.Component {
       errors: "",
       videoFile: [],
       videoUrl: [],
-    //   videoFileName: this.state.videoFile ? this.state.videoFile[0].name : "",
+      videoFileName: '',
       titlecardFile: [],
       titlecardUrl: [],
-    //   titlecardFileName: this.state.titlecardFile ? this.state.titlecardFile[0].name : "",
+      titlecardFileName: '',
       step: 1,
     };
-    // this.handlePicFile = this.handlePicFile.bind(this);
     this.navigateToSplash = this.navigateToSplash.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleVideoDrop = this.handleVideoDrop.bind(this);
     this.handlePicDrop = this.handlePicDrop.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
+    this.update = this.update.bind(this);
   }
 
   navigateToSplash() {
@@ -117,6 +117,7 @@ class VideoForm extends React.Component {
           //update photoFiles and photoUrls in state
           this.setState({
             titlecardFile: this.state.titlecardFile.concat(newPicFile),
+            titlecardFileName: newPicFile.name,
             titlecardUrl: this.state.titlecardUrl.concat(
               URL.createObjectURL(newPicFile)
             ),
@@ -146,6 +147,7 @@ class VideoForm extends React.Component {
           //update photoFiles and photoUrls in state
           this.setState({
               videoFile: this.state.videoFile.concat(newVideoFile),
+              videoFileName: newVideoFile.name,
               videoUrl: this.state.videoUrl.concat(
                   URL.createObjectURL(newVideoFile)
                   ),
@@ -169,8 +171,8 @@ class VideoForm extends React.Component {
                     handleVideoDrop={this.handleVideoDrop}
                     handlePicDrop={this.handlePicDrop} 
                     nextStep={this.nextStep}
-                    // picMessage={this.state.titlecardFileName}
-                    // videoMessage={this.state.videoFileName}
+                    picMessage={this.state.titlecardFileName}
+                    videoMessage={this.state.videoFileName}
                     />;
             case 2:
             return <DetailsUpload
@@ -181,16 +183,26 @@ class VideoForm extends React.Component {
                 nextStep={this.nextStep}
               />;
             case 3:
-            return <ConfirmUpload 
+            return (
+              <ConfirmUpload
                 prevStep={this.prevStep}
                 handleSubmit={this.handleSubmit}
-            />;
+                picMessage={this.state.titlecardFileName}
+                videoMessage={this.state.videoFileName}
+                title={this.state.title}
+                description={this.state.description}
+              />
+            );
             default:
-            return <MediaUpload 
+            return (
+              <MediaUpload
                 handleVideoDrop={this.handleVideoDrop}
-                handlePicDrop={this.handlePicDrop} 
+                handlePicDrop={this.handlePicDrop}
                 nextStep={this.nextStep}
-            />;
+                picMessage={this.state.titlecardFileName}
+                videoMessage={this.state.videoFileName}
+              />
+            );
         }
     }
     return (
