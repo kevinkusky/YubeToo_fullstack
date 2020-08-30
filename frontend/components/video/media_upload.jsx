@@ -39,6 +39,13 @@ class MediaUpload extends React.Component {
             </Dropzone>
             <span className="dropzone-message">{this.props.picMessage}</span>
         </div>
+        <div className='step-map'>
+            <div className='map-active-step'>1</div>
+            <hr className='not-reached'/>
+            <div className='map-inactive-step'>2</div>
+            <hr className='not-reached'/>
+            <div className='map-inactive-step'>3</div>
+        </div>
         <div className="step-buttons">
           <div></div>
           <button className="next-step" onClick={this.props.nextStep}>
