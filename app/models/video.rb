@@ -19,11 +19,11 @@ class Video < ApplicationRecord
         class_name: :User,
         foreign_key: :creator_id
 
-    has_many :comments,
-        class_name: :Comment,
-        foreign_key: :video_id
+    has_many :views,
+        foreign_key: :video_id,
+        class_name: :View
 
-    # has_many :comments, as: :commentable
+    has_many :comments, as: :commentable
     has_many :likes, as: :likeable
         
     has_one_attached :video

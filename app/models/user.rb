@@ -29,10 +29,14 @@ class User < ApplicationRecord
     has_many :comments,
         foreign_key: :author_id,
         class_name: :Comments
+    
+    has_many :video_views,
+        foreign_key: :viewer_id,
+        class_name: :View
 
-    # has_many :watched,
-    #     through: :,
-    #     class_name: :
+    has_many :viewed_videos,
+        through: :video_views,
+        class_name: :video
 
 
 
