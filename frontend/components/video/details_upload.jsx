@@ -11,28 +11,29 @@ class DetailsUpload extends React.Component{
     render(){
         return (
           <div className="details-step">
-            <div className="video-title">
+            <div className="input-container">
               <input
                 type="text"
                 value={this.props.title}
                 onChange={this.props.update("title")}
                 required=" "
               />
-              <label className="upload-labels">Title</label>
+              <label className="input-labels">Title</label>
             </div>
-            <div className="video-description">
+            <div className="input-container description">
               <input
                 type="text"
                 value={this.props.description}
                 onChange={this.props.update("description")}
+                required=' '
               />
-              <label className="upload-labels">Description</label>
+              <label className="input-labels">Description</label>
             </div>
             <div className="step-map">
               <div className="map-past-step">1</div>
-              <hr className="reached" />
+              <div className='reached'></div>
               <div className="map-active-step">2</div>
-              <hr className="not-reached" />
+              <div className="not-reached"></div>
               <div className="map-inactive-step">3</div>
             </div>
             <div className="step-buttons">

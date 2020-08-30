@@ -20,6 +20,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: -10px;
 }
 
 .dropzone-target {
@@ -89,41 +90,70 @@
 .details-step {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
-.video-title {
+.details-step .input-container {
     position: relative;
-    margin-left: 25%;
-    margin-bottom: 16px;
-    height: 24px;
+    display: flex;
+    margin-bottom: 15px;
+    height: 27px;
+    width: 200px;
 }
 
-.video-discription > input {
-    position: relative;
-    height: 150px;
-    margin-left: 25%;
+.input-container.description {
+    height: 145px;
 }
 
-.upload-labels {
+.input-labels{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 8px;
+    padding: 4px 0;
+    pointer-events: none;
+    transition: .5s;
+    font-size: 14px;
+    color: rgba(163, 163, 163, 0.815);
+    font-family: "Lucida Console", Courier, monospace;
 }
+
+  .details-step .input-container input:focus,
+  .details-step .input-container input:valid{
+     top: -20px;
+     left: 0;
+     padding-left: 3px;
+     border: 2.3px solid rgb(91, 128, 223);
+     border-radius: 6px;
+     background-color: whitesmoke;
+     font-family: "Lucida Console", Courier, monospace;
+     font-size: 15.5px;
+ }
+
+ .details-step .input-container input:focus ~label,
+  .details-step .input-container input:valid ~label{
+     top: -10px;
+     left: 2px;
+     color: rgb(5, 20, 175);
+     background: rgba(255,255,255,5);
+     font-size: 12px;
+     padding-bottom: 0;
+     padding-left: 1px;
+ }
 
 .step-map {
     display: flex;
-    align-content: center;
+    justify-content: center;
     margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 15%;
-    width: 69%;
+    margin-bottom: 27px;
+    width: 100%;
 
     .not-reached { 
         width: 170px;
-        height: 0.7px;
+        height: 1px;
         margin-top: 20px;
         border-bottom: 1px solid lightblue;
-
+        margin-left: 12px;
+        margin-right: 12px;
     }
 
     div {
@@ -144,6 +174,8 @@
         border: 1px solid red;
         height: 1px;
         margin-top: 20px;
+        margin-left: 12px;
+        margin-right: 12px;
     }
 }
 

@@ -41,9 +41,9 @@ class MediaUpload extends React.Component {
         </div>
         <div className='step-map'>
             <div className='map-active-step'>1</div>
-            <hr className='not-reached'/>
+            <div className='not-reached'></div>
             <div className='map-inactive-step'>2</div>
-            <hr className='not-reached'/>
+            <div className='not-reached'></div>
             <div className='map-inactive-step'>3</div>
         </div>
         <div className="step-buttons">
