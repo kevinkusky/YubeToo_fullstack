@@ -6,7 +6,7 @@ class Signup extends React.Component {
         super(props);
 
         this.state = {
-            email_address: '',
+            email: '',
             username: '',
             password: '',
             // checkPassword: 'Confirm Password'
@@ -52,8 +52,8 @@ class Signup extends React.Component {
                     <div className='input-container'>
                         <input
                         type="text"
-                        value={this.state.email_address}
-                        onChange={this.update("email_address")}
+                        value={this.state.email}
+                        onChange={this.update("email")}
                         required=' '
                         />
                         <label className='input-labels'>Email</label>

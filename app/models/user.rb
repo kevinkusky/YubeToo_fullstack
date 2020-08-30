@@ -4,7 +4,7 @@
 #
 #  id              :bigint           not null, primary key
 #  username        :string           not null
-#  email_address   :string           not null
+#  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -12,8 +12,10 @@
 #
 class User < ApplicationRecord
     attr_reader :password
-    validates :username, :email_address, :password_digest, :session_token, presence: true
-    validates :username, :email_address, uniqueness: true
+
+    validates :username, :email, :session_token, presence: true, uniqueness: true
+    # validates :email, email: true
+    validates :password_digest, presence: true
     validates :password, length:{ minimum: 6, allow_nil: true }
 
     after_initialize :ensure_session_token
@@ -28,12 +30,16 @@ class User < ApplicationRecord
         foreign_key: :author_id,
         class_name: :Comments
 
+    # has_many :watched,
+    #     through: :,
+    #     class_name: :
+
 
 
     # FIGVAPER
 
-    def self.find_by_credentials(email_address, password)
-        user = User.find_by(email_address: email_address)
+    def self.find_by_credentials(email, password)
+        user = User.find_by(email: email)
 
         return nil unless user
         user.is_password?(password) ? user : nil

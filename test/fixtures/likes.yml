@@ -3,11 +3,12 @@
 # Table name: likes
 #
 #  id            :bigint           not null, primary key
-#  likeable_type :string
-#  likeable_id   :bigint
+#  likeable_type :string           not null
+#  likeable_id   :bigint           not null
 #  liker_id      :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  dislike       :boolean          default(FALSE)
 #
 
 # This model initially had no columns defined. If you add columns to the

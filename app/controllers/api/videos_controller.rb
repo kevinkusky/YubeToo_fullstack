@@ -1,12 +1,9 @@
-require 'byebug'
-
 class Api::VideosController < ApplicationController
     # before_action :ensure_logged_in, only: [:create, :destroy]
     before_action :ensure_logged_in, only: [:create]
 
     def index
         @videos = Video.all
-        render :index
     end
 
     def show
@@ -14,9 +11,7 @@ class Api::VideosController < ApplicationController
     end
 
     def create
-        
         @video = Video.new(video_params)
-        @video.view_count = 0
 
         if @video.save
             render json: {message: 'Upload Successful'}

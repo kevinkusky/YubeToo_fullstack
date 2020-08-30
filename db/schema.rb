@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_025329) do
+ActiveRecord::Schema.define(version: 2020_08_30_171114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,32 +40,34 @@ ActiveRecord::Schema.define(version: 2020_07_23_025329) do
     t.string "body", null: false
     t.integer "video_id", null: false
     t.integer "author_id", null: false
-    t.integer "parent_comment_id"
+    t.integer "commentable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "commentable_type", null: false
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["body"], name: "index_comments_on_body"
-    t.index ["parent_comment_id"], name: "index_comments_on_parent_comment_id"
+    t.index ["commentable_id"], name: "index_comments_on_commentable_id"
     t.index ["video_id"], name: "index_comments_on_video_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string "likeable_type"
-    t.bigint "likeable_id"
+    t.string "likeable_type", null: false
+    t.bigint "likeable_id", null: false
     t.integer "liker_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "dislike", default: false
     t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
-    t.string "email_address", null: false
+    t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
@@ -74,14 +76,10 @@ ActiveRecord::Schema.define(version: 2020_07_23_025329) do
     t.string "title", null: false
     t.string "description"
     t.integer "creator_id", null: false
-    t.integer "view_count", null: false
-    t.integer "playlist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_videos_on_creator_id"
-    t.index ["playlist_id"], name: "index_videos_on_playlist_id"
     t.index ["title"], name: "index_videos_on_title"
-    t.index ["view_count"], name: "index_videos_on_view_count"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
