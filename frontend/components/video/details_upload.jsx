@@ -29,12 +29,6 @@ class DetailsUpload extends React.Component{
                     onChange={this.props.update('description')}
                 >
                 </textarea>
-              {/* <input
-                type=""
-                value={this.props.description}
-                onChange={this.props.update("description")}
-                required=" "
-              /> */}
               <label className="input-labels">Description</label>
             </div>
             <div className="step-map">

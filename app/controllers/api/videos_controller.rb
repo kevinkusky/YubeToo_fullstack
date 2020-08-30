@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::VideosController < ApplicationController
     # before_action :ensure_logged_in, only: [:create, :destroy]
     before_action :ensure_logged_in, only: [:create]
@@ -11,8 +13,8 @@ class Api::VideosController < ApplicationController
     end
 
     def create
+        # debugger
         @video = Video.new(video_params)
-
         if @video.save
             render json: {message: 'Upload Successful'}
         else

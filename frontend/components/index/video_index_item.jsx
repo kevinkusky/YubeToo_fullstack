@@ -15,10 +15,7 @@ class VideoIndexItem extends React.Component {
     }
 
     render() {
-        const { title, view_count, created_at, creator, titlecardURL } = this.props.video;
-
-        const viewCount = view_count || 0;
-        // const uploadDate = created_at;
+        const { title, views, uploadTime, creator, titlecardURL } = this.props.video;
         
         return(
             <div 
@@ -30,9 +27,9 @@ class VideoIndexItem extends React.Component {
                     <Avatar className='video-avatar'></Avatar>
                     <div className='card-text'>
                         <h4>{title}</h4>
-                        <p>{creator.username}</p>
+                        {/* <p>{creator.username}</p> */}
                         <p>
-                            {viewCount} Views * {created_at}
+                            {/* {views} Views * {UploadTime} */}
                         </p>
                     </div>
                 </div>

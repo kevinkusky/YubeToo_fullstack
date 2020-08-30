@@ -1,6 +1,5 @@
 import React from 'react';
 import {withRouter} from 'react-router';
-import Dropzone from 'react-dropzone';
 
 import TopNav from '../navs/topnav';
 import MediaUpload from './media_upload';
@@ -38,15 +37,11 @@ class VideoForm extends React.Component {
 //   }
 
   nextStep() {
-    if (this.state.step < 3) {
-      this.setState({ step: this.state.step + 1 });
-    }
+    if (this.state.step < 3) {this.setState({ step: this.state.step + 1 });}
   }
 
   prevStep() {
-    if (this.state.step > 1) {
-      this.setState({ step: this.state.step - 1 });
-    }
+    if (this.state.step > 1) {this.setState({ step: this.state.step - 1 });}
   }
 
   update(field) {
@@ -65,7 +60,7 @@ class VideoForm extends React.Component {
       formData.append("video[video]", this.state.videoFile[0]);
     }
     if (this.state.titlecardFile) {
-      formData.append("video[titlecard]", this.state.titlecardFile);
+      formData.append("video[titlecard]", this.state.titlecardFile[0]);
     }
     this.props.createVideo(formData);
     // .then(res =>
