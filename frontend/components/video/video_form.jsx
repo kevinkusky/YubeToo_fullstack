@@ -24,18 +24,18 @@ class VideoForm extends React.Component {
       titlecardFileName: '',
       step: 1,
     };
-    this.navigateToSplash = this.navigateToSplash.bind(this);
+    // this.navigateToSplash = this.navigateToSplash.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleVideoDrop = this.handleVideoDrop.bind(this);
     this.handlePicDrop = this.handlePicDrop.bind(this);
+    this.handleVideoDrop = this.handleVideoDrop.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
     this.update = this.update.bind(this);
   }
 
-  navigateToSplash() {
-    this.props.history.push("/");
-  }
+//   navigateToSplash() {
+//     this.props.history.push("/");
+//   }
 
   nextStep() {
     if (this.state.step < 3) {
@@ -85,19 +85,6 @@ class VideoForm extends React.Component {
     // }
     // );
   }
-
-//   handlePicFile(e) {
-//     const file = e.currentTarget.files[0];
-//     const fileReader = new FileReader();
-
-//     fileReader.onloadend = () => {
-//       this.setState({ titlecardFile: file, titlecardUrl: fileReader.result });
-//     };
-
-//     if (file) {
-//       fileReader.readAsDataURL(file);
-//     }
-//   }
 
 // dropzonehandler
 
@@ -162,8 +149,6 @@ class VideoForm extends React.Component {
   }
 
   render() {
-    //   const picUploaded = this.state.titlecardFile ? this.state.titlecardFile[0].name : "";
-    //   const videoUploaded = this.state.videoFile ? this.state.videoFile[0].name : "";
       const componentStep = () => {
         switch (this.state.step) {
             case 1:
@@ -206,43 +191,44 @@ class VideoForm extends React.Component {
         }
     }
     return (
-      <div>
+      <>
         <TopNav />
         {componentStep()}
-        {/* 
-          <Dropzone onDrop={this.handleVideoDrop}>
-            {({ getRootProps, getInputProps }) => (
-              <div {...getRootProps({ className: "drop-zone" })}>
-                <input {...getInputProps()} />
-                <div className="dropzone-target">
-                  <VideoDrop />
-                </div>
-              </div>
-            )}
-          </Dropzone>
-          <h3>Upload Preview Image</h3>
-          <input type="file" onChange={this.handlePicFile} />
-
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={this.update("title")}
-            required=" "
-          />
-          <label className="upload-labels">Title</label>
-
-          <input
-            type="text"
-            value={this.state.description}
-            onChange={this.update("description")}
-          />
-          <label className="upload-labels">Description</label>
-
-          <input type="submit" value="Submit" />
-        */}
-      </div>
+      </>
     );
-  }
+}
 }
 
 export default withRouter(VideoForm);
+
+{/* 
+  <Dropzone onDrop={this.handleVideoDrop}>
+    {({ getRootProps, getInputProps }) => (
+      <div {...getRootProps({ className: "drop-zone" })}>
+        <input {...getInputProps()} />
+        <div className="dropzone-target">
+          <VideoDrop />
+        </div>
+      </div>
+    )}
+  </Dropzone>
+  <h3>Upload Preview Image</h3>
+  <input type="file" onChange={this.handlePicFile} />
+
+  <input
+    type="text"
+    value={this.state.title}
+    onChange={this.update("title")}
+    required=" "
+  />
+  <label className="upload-labels">Title</label>
+
+  <input
+    type="text"
+    value={this.state.description}
+    onChange={this.update("description")}
+  />
+  <label className="upload-labels">Description</label>
+
+  <input type="submit" value="Submit" />
+*/}

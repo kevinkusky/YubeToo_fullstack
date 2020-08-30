@@ -24,14 +24,12 @@ class Video < ApplicationRecord
         class_name: :View
 
     has_many :comments, as: :commentable
+
     has_many :likes, as: :likeable
         
     has_one_attached :video
 
     has_one_attached :titlecard
-
-    # has_many :viewers,
-
 
     def ensure_video
         unless self.video.attached?
@@ -64,4 +62,5 @@ class Video < ApplicationRecord
             'Just now'
         end
     end
+
 end

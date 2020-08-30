@@ -21,10 +21,10 @@ class MediaUpload extends React.Component {
                 <div className="dropzone-target">
                   <VideoDrop className="drop-video" />
                 </div>
+                <span className="dropzone-message">{this.props.videoMessage}</span>
               </div>
             )}
           </Dropzone>
-        <span className="dropzone-message">{this.props.videoMessage}</span>
         </div>
         <div className="pic-upload">
             <Dropzone onDrop={this.props.handlePicDrop}>
@@ -34,10 +34,10 @@ class MediaUpload extends React.Component {
                 <div className="dropzone-target">
                     <PicDrop className="drop-image" />
                 </div>
+                <span className="dropzone-message">{this.props.picMessage}</span>
                 </div>
             )}
             </Dropzone>
-            <span className="dropzone-message">{this.props.picMessage}</span>
         </div>
         <div className='step-map'>
             <div className='map-active-step'>1</div>
