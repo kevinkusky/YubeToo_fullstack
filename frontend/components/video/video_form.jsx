@@ -5,8 +5,8 @@ import Dropzone from 'react-dropzone';
 import TopNav from '../navs/topnav';
 import MediaUpload from './media_upload';
 import DetailsUpload from './details_upload';
+import ConfirmUpload from './confirm_upload';
 
-import VideoDrop from '@material-ui/icons/PublishOutlined';
 
 class VideoForm extends React.Component {
   constructor(props) {
@@ -99,6 +99,8 @@ class VideoForm extends React.Component {
 //     }
 //   }
 
+// dropzonehandler
+
   handlePicDrop(titlecardFile) {
     //update titlecardFiles array as user drag videoFiles to drop zone
     if (titlecardFile) {
@@ -127,8 +129,6 @@ class VideoForm extends React.Component {
       fileReader.readAsDataURL(newPicFile);
     }
   }
-
-  // dropzonehandler
 
   handleVideoDrop(videoFile) {
     //update videoFiles array as user drag videoFiles to drop zone
@@ -180,13 +180,13 @@ class VideoForm extends React.Component {
                 prevStep={this.prevStep}
                 nextStep={this.nextStep}
               />;
-            // case 3:
-            // return <ConfirmStep 
-            //     prevStep={this.prevStep}
-            //     handleSubmit={this.handleSubmit}
-            // />;
+            case 3:
+            return <ConfirmUpload 
+                prevStep={this.prevStep}
+                handleSubmit={this.handleSubmit}
+            />;
             default:
-            return <MediaStep 
+            return <MediaUpload 
                 handleVideoDrop={this.handleVideoDrop}
                 handlePicDrop={this.handlePicDrop} 
                 nextStep={this.nextStep}
@@ -196,9 +196,7 @@ class VideoForm extends React.Component {
     return (
       <div>
         <TopNav />
-        <form onSubmit={this.handleSubmit}>
-            {componentStep()}
-
+        {componentStep()}
         {/* 
           <Dropzone onDrop={this.handleVideoDrop}>
             {({ getRootProps, getInputProps }) => (
@@ -230,7 +228,6 @@ class VideoForm extends React.Component {
 
           <input type="submit" value="Submit" />
         */}
-        </form> 
       </div>
     );
   }
