@@ -95,14 +95,25 @@
 
 .details-step .input-container {
     position: relative;
-    display: flex;
+    // display: flex;
     margin-bottom: 15px;
-    height: 27px;
-    width: 200px;
+
+    input {
+        height: 30px;
+        width: 200px;
+    }
 }
 
-.input-container.description {
-    height: 145px;
+.details-step .description {
+    position: relative;
+    // display: flex;
+    margin-bottom: 15px;
+    
+    input {
+        height: 145px;
+        width: 200px;
+        margin-top: 0;
+    }
 }
 
 .input-labels{
@@ -118,7 +129,9 @@
 }
 
   .details-step .input-container input:focus,
-  .details-step .input-container input:valid{
+  .details-step .input-container input:valid,
+  .details-step .description textarea:focus,
+  .details-step .description textarea:valid{
      top: -20px;
      left: 0;
      padding-left: 3px;
@@ -130,8 +143,10 @@
  }
 
  .details-step .input-container input:focus ~label,
-  .details-step .input-container input:valid ~label{
-     top: -10px;
+  .details-step .input-container input:valid ~label,
+   .details-step .description textarea:focus ~label,
+  .details-step .description textarea:valid ~label{
+     top: -15px;
      left: 2px;
      color: rgb(5, 20, 175);
      background: rgba(255,255,255,5);

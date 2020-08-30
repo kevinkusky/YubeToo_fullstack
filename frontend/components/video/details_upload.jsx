@@ -13,20 +13,28 @@ class DetailsUpload extends React.Component{
           <div className="details-step">
             <div className="input-container">
               <input
-                type="text"
+                type="textarea"
                 value={this.props.title}
                 onChange={this.props.update("title")}
                 required=" "
               />
               <label className="input-labels">Title</label>
             </div>
-            <div className="input-container description">
-              <input
-                type="text"
+            <div className="description">
+                <textarea 
+                    cols="30" 
+                    rows="10"
+                    required=" "
+                    value={this.props.description}
+                    onChange={this.props.update('description')}
+                >
+                </textarea>
+              {/* <input
+                type=""
                 value={this.props.description}
                 onChange={this.props.update("description")}
-                required=' '
-              />
+                required=" "
+              /> */}
               <label className="input-labels">Description</label>
             </div>
             <div className="step-map">
