@@ -29,3 +29,5 @@ class ConfrimUpload extends React.Component {
         )
     }
 }
+
+export default ConfrimUpload;
