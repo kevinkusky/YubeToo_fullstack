@@ -1,4 +1,8 @@
 import React from 'react';
+
+import {NEWVID} from '../../util/route_utils';
+
+import VideoIcon from '@material-ui/icons/VideoCall';
 import UserIcon from '@material-ui/icons/AccountCircle';
 
 import { Link } from 'react-router-dom';
@@ -17,26 +21,26 @@ const Greeting = ({ currentUser, logout }) => {
     );
 
     const userNav = () => (
-      <hgroup className="header-display">
-        <div className="drop-down">
-            <div className="circle-letter">
-              {currentUser.username[0].toUpperCase()}
+        <hgroup className="header-display">
+            <div className='right-nav'>
+                <Link to={NEWVID}>
+                    <VideoIcon className='video-icon'/>
+                </Link>
+                <div className="drop-down">
+                    <div className="circle-letter">
+                    {currentUser.username[0].toUpperCase()}
+                    </div>
+                    <div className="sub-list">
+                        <ul>
+                            <li>
+                                <button className="drop-button" onClick={logout}>
+                                Log Out
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div className="sub-list">
-                <ul>
-                    <li>
-                        <Link to="/videos/new">
-                        <button className="drop-button">Create New Video</button>
-                        </Link>
-                    </li>
-                    <li>
-                        <button className="drop-button" onClick={logout}>
-                        Log Out
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
       </hgroup>
     );
 
