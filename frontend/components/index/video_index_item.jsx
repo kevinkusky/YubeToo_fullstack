@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+
 import Avatar from '@material-ui/core/Avatar';
 
 class VideoIndexItem extends React.Component {
@@ -14,22 +14,22 @@ class VideoIndexItem extends React.Component {
         this.props.history.push(`/videos/show/${videoId}`);
     }
 
-    render() {
-        const { title, views, uploadTime, creator, titlecardURL } = this.props.video;
-        
+    render() {        
+        const video = this.props.video;
         return(
-            <div 
+            <div
+                key={this.props.key} 
                 className='index-preview' 
                 onClick={this.handleClick}
             >
-                <img className='index-pic' src={titlecardURL} alt=""/>
+                <img className='index-pic' src={video.titlecardUrl} alt=""/>
                 <div className='card-info'>
                     <Avatar className='video-avatar'></Avatar>
                     <div className='card-text'>
-                        <h4>{title}</h4>
-                        {/* <p>{creator.username}</p> */}
+                        <h4>{video.title}</h4>
+                        <p>{video.creator.username}</p>
                         <p>
-                            {/* {views} Views * {UploadTime} */}
+                            {video.views} Views * {video.uploadTime}
                         </p>
                     </div>
                 </div>
@@ -38,4 +38,4 @@ class VideoIndexItem extends React.Component {
     }
 }
 
-export default withRouter(VideoIndexItem);
+export default VideoIndexItem;

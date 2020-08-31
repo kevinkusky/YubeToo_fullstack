@@ -38,3 +38,11 @@ export const deleteVideo = id => (
         url: `api/videos/${id}`
     })
 );
+
+export const createView = view => (
+    $.ajac({
+        method: 'POST',
+        url: 'api/views',
+        data: {view}
+    })
+)
