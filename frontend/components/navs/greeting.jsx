@@ -35,8 +35,8 @@ const Greeting = ({ currentUser, logout }) => {
                         <div className='sublist-header'>
                             <UserIcon />
                             <div className='currentuser-info'>
-                                <span>{currentUser.username}</span>
-                                <span>{currentUser.email}</span>
+                                <div>{currentUser.username}</div>
+                                <div>{currentUser.email}</div>
                             </div>
                         </div>
                         <div>

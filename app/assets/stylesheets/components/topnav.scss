@@ -117,55 +117,6 @@
     background-color: rgba(240, 240, 240, 0.993);
 }
 
-.circle-letter{
-     display: flex;
-     background-color:  rgb(58, 108, 201);
-     justify-content: center;
-     color: whitesmoke;
-     border-radius: 50%;
-     font-size: 20px;
-     align-items: center;
-     width: 35px;
-     height: 35px;
-     cursor: pointer;
-     margin-right: 67px;
-     font-weight: bolder;
- }
-
-.sub-list{
-     list-style: none;
-     display: none;
-}
-    
-.drop-down{   
-    position: relative;
- }
-
-.sub-list button{
-    text-decoration: none;
-     border: 1.3px solid rgb(58, 108, 201);
-     background-color: white;
-     color: rgb(58, 108, 201);
-     border-radius: 2px;
-     height: 38px;
-     width: 102px;
-     text-align: center;
-     font-family: 'Roboto', sans-serif;
-     font-weight: 547;
-     cursor: pointer;
- }
-
- .drop-down:hover .sub-list{
-     display: block;
-     position: absolute;
-     margin-left: -37px;
-     margin-top: -5px;
-}
-
-.drop-down:hover .sub-list button:hover{
-    background-color: rgba(238, 247, 255, 0.938);
-}
-
 .right-nav {
     display: flex;
     align-items: center;
@@ -181,3 +132,72 @@
 .video-icon:hover {
     color: rgba(146, 151, 145, 0.938) !important;
 }
+
+.circle-letter{
+     display: flex;
+     background-color:  rgb(58, 108, 201);
+     justify-content: center;
+     color: whitesmoke;
+     border-radius: 50%;
+     font-size: 20px;
+     align-items: center;
+     width: 35px;
+     height: 35px;
+     cursor: pointer;
+     margin-right: 67px;
+     font-weight: bolder;
+ }
+ 
+ .sub-list{
+      list-style: none;
+      display: none;
+ }
+     
+ .drop-down{   
+     position: relative;
+  }
+
+.sublist-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 9px;
+    margin-top: 13px;
+
+    .currentuser-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+}
+
+
+.sub-list button{
+    text-decoration: none;
+     border: 1.3px solid rgb(58, 108, 201);
+     background-color: white;
+     color: rgb(58, 108, 201);
+     border-radius: 2px;
+     height: 38px;
+     width: 102px;
+     text-align: center;
+     font-family: 'Roboto', sans-serif;
+     font-weight: 547;
+     cursor: pointer;
+     margin-left: 15px;
+     margin: 10px
+ }
+
+ .drop-down:hover .sub-list{
+     display: block;
+     position: absolute;
+     width: 250px;
+     border: 1px solid orange;
+     margin-left: -260px;
+     margin-top: -27px;
+}
+
+.drop-down:hover .sub-list button:hover{
+    background-color: rgba(238, 247, 255, 0.938);
+}
+
+
