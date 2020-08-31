@@ -7,7 +7,6 @@
     font-size: 100px !important;
     padding: 63px;
     margin-top: -15px;
-    // border: 1px solid red;
     color: lightgray !important;
 }
 
@@ -63,7 +62,7 @@
     color: rgb(57, 103, 189) !important;
 }
 
-.next-step, .prev-step {
+.next-step, .prev-step, .video-button {
     display: flex;
      text-decoration: none;
      border: 1.3px solid rgb(58, 108, 201);
@@ -82,7 +81,7 @@
      justify-content: space-evenly;
 }
 
-.next-step:hover, .prev-step:hover {
+.next-step:hover, .prev-step:hover, .video-button:hover {
     background-color: rgba(240, 240, 240, 0.993);
     color: rgb(66, 117, 211);
 }
@@ -90,40 +89,37 @@
 .details-step {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .details-step .input-container {
     position: relative;
-    // display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    margin-top: 25px;
 
     input {
-        height: 30px;
+        height: 28px;
         width: 200px;
     }
 }
 
 .details-step .description {
     position: relative;
-    // display: flex;
-    margin-bottom: 15px;
-    
-    input {
-        height: 145px;
-        width: 200px;
-        margin-top: 0;
-    }
+    margin-bottom: 30px;
+    border-radius: 6px;
+    margin-top: 25px;
 }
 
 .input-labels{
     position: absolute;
-    top: 0;
+    top: 2px;
     left: 8px;
     padding: 4px 0;
     pointer-events: none;
     transition: .5s;
-    font-size: 14px;
+    font-size: 18px;
     color: rgba(163, 163, 163, 0.815);
     font-family: "Lucida Console", Courier, monospace;
 }
@@ -146,7 +142,7 @@
   .details-step .input-container input:valid ~label,
    .details-step .description textarea:focus ~label,
   .details-step .description textarea:valid ~label{
-     top: -15px;
+     top: -12px;
      left: 2px;
      color: rgb(5, 20, 175);
      background: rgba(255,255,255,5);
@@ -158,7 +154,7 @@
 .step-map {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 27px;
     width: 100%;
 
