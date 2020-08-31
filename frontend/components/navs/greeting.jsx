@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {NEWVID} from '../../util/route_utils';
+import {NEWVID, SUPAUTH} from '../../util/route_utils';
 
 import VideoIcon from '@material-ui/icons/VideoCall';
 import UserIcon from '@material-ui/icons/AccountCircle';
@@ -8,14 +8,15 @@ import UserIcon from '@material-ui/icons/AccountCircle';
 import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
+
     const sessionLinks = () => (
       <nav className="nav-right">
         <ul>
-                <div className='session-button-container'>
-            <Link className='session-link' to="/signup">
-              <button className="session-button"><UserIcon/>Sign Up</button>
-            </Link>
-          </div>
+            <div className='session-button-container'>
+                <Link className='session-link' to={SUPAUTH}>
+                    <button className="session-button"><UserIcon/>Sign Up</button>
+                </Link>
+            </div>
         </ul>
       </nav>
     );
@@ -31,17 +32,22 @@ const Greeting = ({ currentUser, logout }) => {
                     {currentUser.username[0].toUpperCase()}
                     </div>
                     <div className="sub-list">
-                        <ul>
-                            <li>
-                                <button className="drop-button" onClick={logout}>
-                                Log Out
-                                </button>
-                            </li>
-                        </ul>
+                        <div className='sublist-header'>
+                            <UserIcon />
+                            <div className='currentuser-info'>
+                                <span>{currentUser.username}</span>
+                                <span>{currentUser.email}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button className="drop-button" onClick={logout}>
+                            Sign Out
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-      </hgroup>
+        </hgroup>
     );
 
     return currentUser ? userNav() : sessionLinks();

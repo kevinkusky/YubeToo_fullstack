@@ -62,7 +62,11 @@
     color: rgb(57, 103, 189) !important;
 }
 
-.next-step, .prev-step, .video-button {
+.sign-link {
+    text-decoration: none;
+}
+
+.next-step, .prev-step, .video-button, .signup-button {
     display: flex;
      text-decoration: none;
      border: 1.3px solid rgb(58, 108, 201);
@@ -81,7 +85,7 @@
      justify-content: space-evenly;
 }
 
-.next-step:hover, .prev-step:hover, .video-button:hover {
+.next-step:hover, .prev-step:hover, .video-button:hover, .signup-button:hover {
     background-color: rgba(240, 240, 240, 0.993);
     color: rgb(66, 117, 211);
 }
