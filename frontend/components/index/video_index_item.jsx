@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from "react-router-dom";
 
 import Avatar from '@material-ui/core/Avatar';
 
@@ -38,4 +39,4 @@ class VideoIndexItem extends React.Component {
     }
 }
 
-export default VideoIndexItem;
+export default withRouter(VideoIndexItem);
