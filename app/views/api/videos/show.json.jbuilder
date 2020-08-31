@@ -1,1 +1,1 @@
-json.partail! 'api/videos/video', video: @video
+json.partial! 'api/videos/video', video: @video
