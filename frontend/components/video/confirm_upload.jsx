@@ -11,17 +11,30 @@ class ConfrimUpload extends React.Component {
         return (
           <form onSubmit={this.props.handleSubmit} className="confirm-step">
             <div className="uploaded-items">
-              <span>{this.props.videoMessage}</span>
-              <span>{this.props.picMessage}</span>
+              <div className="confirm-style">
+                <span>Video File:</span>
+                <span>{this.props.videoMessage}</span>
+              </div>
+              <div className="confirm-style">
+                <span>Titlecard File:</span>
+                <span>{this.props.picMessage}</span>
+              </div>
             </div>
             <div className="upload-details">
-              <span>{this.props.title}</span>
-              <span>{this.props.description}</span>
+              <div className="confirm-style">
+                <span>Video Title:</span>
+                <span>{this.props.title}</span>
+              </div>
+              <div className="confirm-style">
+                <span>Video Discription:</span>
+                <span>{this.props.description}</span>
+              </div>
+
             </div>
             <div className="step-map">
               <div className="map-past-step">1</div>
               <div className="reached"></div>
-              <div className='map-past-step'>2</div>
+              <div className="map-past-step">2</div>
               <div className="reached"></div>
               <div className="map-active-step">3</div>
             </div>
