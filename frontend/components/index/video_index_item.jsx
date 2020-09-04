@@ -30,7 +30,7 @@ class VideoIndexItem extends React.Component {
                         <h4>{video.title}</h4>
                         <p>{video.creator.username}</p>
                         <p>
-                            {video.views} Views * {video.uploadTime}
+                            {video.views} Views • {video.uploadTime}
                         </p>
                     </div>
                 </div>

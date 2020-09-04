@@ -10,10 +10,17 @@ class VideoShow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            video: this.props.video
+            video: this.props.video,
+            runtime: ''
         };
+
+        // this.videoTime = this.videoTime.bind(this);
     }
 
+
+    // componentDidMount(){
+    //     this.videoTime();
+    // }
     // componentDidUpdate(){
     //     if(this.state.video === null){
     //         this.props.fetchVideo(this.props.videoId).then(
@@ -22,7 +29,21 @@ class VideoShow extends React.Component{
     //     }
     // }
 
+    // videoTime(){
+    //     const { getVideoDurationInSeconds } = require('get-video-duration');
+    //     const fs = require('fs');
+    //     const stream = fs.createReadStream(`${this.state.video}`);
+    //     getVideoDurationInSeconds(stream).then(
+    //         duration => this.setState({runtime: duration})
+    //     );
+    // }
+
+    // timeFormat(time){
+    //     switch(time)
+    // }
+
     render(){
+        // debugger
         // console.log(this.state);
         const {views, uploadDate, title } = this.state.video;
         // debugger
