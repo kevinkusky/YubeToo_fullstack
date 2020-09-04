@@ -20,6 +20,7 @@ class VideoIndexItem extends React.Component {
 
     render() {        
         const video = this.props.video;
+        const views = video.views !== 1 ? `${video.views} Views` : '1 View';
         return(
             <div
                 key={this.props.key} 
@@ -33,7 +34,7 @@ class VideoIndexItem extends React.Component {
                         <h4>{video.title}</h4>
                         <p>{video.creator.username}</p>
                         <p>
-                            {video.views} Views • {video.uploadTime}
+                            {views} • {video.uploadTime}
                         </p>
                     </div>
                 </div>
