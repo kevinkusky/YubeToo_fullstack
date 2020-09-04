@@ -21,7 +21,8 @@ class VideoShow extends React.Component{
     }
 
     render(){
-        console.log(this);
+        console.log(this.state.video);
+        // const {views, uploadDate, title } = this.state.video;
         return(
             <div>
                 <TopNav />
@@ -31,7 +32,12 @@ class VideoShow extends React.Component{
                         {/* <ReactPlayer /> */}
                     </div>
                     <div className='video-details'>
-                        {/* <LikeContainer /> */}
+                        {/* {title} */}
+                        <div className='video-stats'>
+                            {/* {views}
+                            {uploadDate} */}
+                            {/* <LikeContainer /> */}
+                        </div>
                     </div>
                     <div className='comments'>
                         {/* <CommentIndex /> */}
