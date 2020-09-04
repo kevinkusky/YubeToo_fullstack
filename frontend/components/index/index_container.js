@@ -4,8 +4,8 @@ import{videosAsArray} from '../../reducers/selectors';
 import { fetchVideos } from '../../actions/videos';
 
 const mSTP = state => ({
+    currentUser: state.session.currentUser.id,
     videos: videosAsArray(state.entities),
-    // videos: Object.values(Object.values(entities.videos))
 });
 
 const mDTP = dispatch => ({

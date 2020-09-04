@@ -1,4 +1,4 @@
-class Api::ViewController < ApplicationController
+class Api::ViewsController < ApplicationController
 
     def create
         @view = View.create(view_params)

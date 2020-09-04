@@ -13,8 +13,6 @@ class Video < ApplicationRecord
     validates :title, :creator_id, presence: true
     validate :ensure_video
 
-    attr_reader :view_count
-
     belongs_to :creator,
         class_name: :User,
         foreign_key: :creator_id

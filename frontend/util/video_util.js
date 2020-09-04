@@ -40,9 +40,9 @@ export const deleteVideo = id => (
 );
 
 export const createView = view => (
-    $.ajac({
+    $.ajax({
         method: 'POST',
         url: 'api/views',
         data: {view}
     })
-)
+);

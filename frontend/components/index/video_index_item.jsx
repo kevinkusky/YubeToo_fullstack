@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from "react-router-dom";
 
 import Avatar from '@material-ui/core/Avatar';
+import { createView } from '../../util/video_util';
 
 class VideoIndexItem extends React.Component {
     constructor(props){
@@ -12,6 +13,8 @@ class VideoIndexItem extends React.Component {
 
     handleClick(){
         const videoId = this.props.video.id;
+        const currentUser = this.props.user;
+        createView({video_id: videoId, viewer_id: currentUser});
         this.props.history.push(`/videos/show/${videoId}`);
     }
 

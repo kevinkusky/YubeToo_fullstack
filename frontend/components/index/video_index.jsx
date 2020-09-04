@@ -30,6 +30,7 @@ class VideoIndex extends React.Component{
                         <VideoIndexItem
                             video={video}
                             key={video.id}
+                            user={this.props.currentUser}
                         />
                     ))}
                 </div>

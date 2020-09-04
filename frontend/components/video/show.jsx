@@ -43,9 +43,9 @@ class VideoShow extends React.Component{
     // }
 
     render(){
+        console.log(this.state);
         // debugger
-        // console.log(this.state);
-        const {views, uploadDate, title } = this.state.video;
+        const {views, uploadDate, title, videoUrl } = this.state.video;
         // debugger
         return(
             <div>
@@ -53,6 +53,7 @@ class VideoShow extends React.Component{
                 <div className='video-show'>
                     <span>I am video {this.props.videoId}</span>
                     <div className='video'>
+                        <video src={videoUrl}></video>
                         {/* <ReactPlayer /> */}
                     </div>
                     <div className='video-details'>
