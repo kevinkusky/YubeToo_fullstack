@@ -5,8 +5,10 @@ import {connect} from 'react-redux';
 import {fetchVideo} from '../../actions/videos';
 import VideoShow from './show';
 
-const mSTP = ({entities, errors}, ownProps) => ({
-    videoId: parseInt(ownProps.match.params.videoId)
+const mSTP = (state, ownProps) => ({
+    // currentUser: state.entities.session.currentUser,
+    videoId: parseInt(ownProps.match.params.videoId),
+    video: state.entities.videos[ownProps.match.params.videoId]
 });
 
 const mDTP = dispatch => ({

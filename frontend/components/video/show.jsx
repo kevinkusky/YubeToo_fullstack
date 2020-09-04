@@ -10,19 +10,22 @@ class VideoShow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            video: null
+            video: this.props.video
         };
     }
 
-    componentDidMount(){
-        this.props.fetchVideo(this.props.videoId).then(
-            res => this.setState({video: res})
-        );
-    }
+    // componentDidUpdate(){
+    //     if(this.state.video === null){
+    //         this.props.fetchVideo(this.props.videoId).then(
+    //             res => this.setState({video: res})
+    //         );
+    //     }
+    // }
 
     render(){
-        console.log(this.state.video);
-        // const {views, uploadDate, title } = this.state.video;
+        // console.log(this.state);
+        const {views, uploadDate, title } = this.state.video;
+        // debugger
         return(
             <div>
                 <TopNav />
@@ -32,10 +35,10 @@ class VideoShow extends React.Component{
                         {/* <ReactPlayer /> */}
                     </div>
                     <div className='video-details'>
-                        {/* {title} */}
+                        {title}
                         <div className='video-stats'>
-                            {/* {views}
-                            {uploadDate} */}
+                            {views}
+                            {uploadDate}
                             {/* <LikeContainer /> */}
                         </div>
                     </div>
@@ -43,7 +46,6 @@ class VideoShow extends React.Component{
                         {/* <CommentIndex /> */}
                     </div>
                 </div>
-
             </div>
         )
     }
