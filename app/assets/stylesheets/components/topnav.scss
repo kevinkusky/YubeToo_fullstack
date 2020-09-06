@@ -43,12 +43,12 @@
 .logo{
     color: whitesmoke;
     background-color: rgba(28, 104, 25, 0.904);
-    width: 47px !important;
-    height: 30px !important;
+    width: 38px !important;
+    height: 26px !important;
     margin-left: 30px;
     border: 1px solid whitesmoke;
     border-radius: 12px;
-    margin-top: 9px;
+    margin-top: 15px;
 }
 
 
@@ -124,7 +124,7 @@
 
 .video-icon {
     font-size: 45px !important;
-    margin-right: 18px;
+    margin-right: 27px;
     color: lightgray !important;
     cursor: pointer;
 }
@@ -175,6 +175,7 @@
 .drop-header-icon {
     font-size: 44px !important;
     margin-left: 8px;
+    color: rgb(91, 128, 223);
 }
 
 .detail-item {
@@ -187,9 +188,14 @@
     justify-content: flex-start;
     align-items: center;
     color: rgba(141, 141, 140, 0.938) !important;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    height: 38px;
     cursor: pointer;
+}
+
+.signout-button:hover {
+    background-color: rgb(185, 185, 185);
 }
 
 .signout-icon {

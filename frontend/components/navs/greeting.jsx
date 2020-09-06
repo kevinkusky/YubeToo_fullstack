@@ -45,6 +45,10 @@ const Greeting = ({ currentUser, logout }) => {
                 <SignoutIcon className='signout-icon'/>
                 <span>Sign Out</span>
               </div>
+              {/* <div className='signout-button' onClick={logout}>
+                <SignoutIcon className='signout-icon'/>
+                <span>Sign Out</span>
+              </div> */}
             </div>
           </div>
         </div>
