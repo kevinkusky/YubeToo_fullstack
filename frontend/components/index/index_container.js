@@ -4,7 +4,7 @@ import{videosAsArray} from '../../reducers/selectors';
 import { fetchVideos } from '../../actions/videos';
 
 const mSTP = state => ({
-    currentUser: state.session.currentUser.id,
+    currentUser: state.session.currentUser ? state.session.currentUser.id : null,
     videos: videosAsArray(state.entities),
 });
 
