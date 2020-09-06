@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
 
 import TopNav from '../navs/topnav';
 // import Likes from './likes';
@@ -54,7 +53,6 @@ class VideoShow extends React.Component{
                     <span>I am video {this.props.videoId}</span>
                     <div className='video'>
                         <video src={videoUrl}></video>
-                        {/* <ReactPlayer /> */}
                     </div>
                     <div className='video-details'>
                         {title}

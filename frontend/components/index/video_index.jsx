@@ -21,7 +21,6 @@ class VideoIndex extends React.Component{
     }
 
     render(){
-        // debugger;
         return(
             <div className='videos-index'>
                 <h2 className='index-header'>All Recomendations</h2>
