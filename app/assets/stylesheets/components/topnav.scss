@@ -173,9 +173,14 @@
 }
 
 .drop-header-icon {
-    font-size: 32px !important;
+    font-size: 44px !important;
+    margin-left: 8px;
 }
 
+.detail-item {
+    margin-top: 6px;
+    margin-bottom: 2px;
+}
 
 .signout-button {
     display: flex;
@@ -188,8 +193,8 @@
 }
 
 .signout-icon {
-    margin-right: 30px;
-    margin-left: 7px;
+    margin-right: 26px;
+    margin-left: 20px;
 }
 
 .drop-down:hover .sub-list{
