@@ -23,7 +23,7 @@ class User < ApplicationRecord
     #Associations
 
     has_many :videos,
-        class_name: :Videos,
+        class_name: :Video,
         foreign_key: :creator_id
 
     has_many :comments,
@@ -36,9 +36,15 @@ class User < ApplicationRecord
 
     has_many :viewed_videos,
         through: :video_views,
-        class_name: :video
+        source: :video
 
+    has_many :likes,
+        class_name: :Like,
+        foreign_key: :liker_id
 
+    has_many :liked_videos,
+        through: :likes,
+        source: :video
 
     # FIGVAPER
 
