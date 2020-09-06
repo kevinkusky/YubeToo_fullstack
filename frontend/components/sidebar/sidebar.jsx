@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { SPLASH, ABOUT, DUMMY, LAUTH, TREND } from '../../util/route_utils';
+import { SPLASH, ABOUT, DUMMY, LAUTH, TREND, USERVID } from '../../util/route_utils';
 
 import SidebarRow from './sidebar_row';
 
@@ -58,7 +58,7 @@ class SideBar extends React.Component{
                     Icon={YourVidIcon} 
                     title='Your Videos'
                     coverClass={classClearName}
-                    pathName={DUMMY}
+                    pathName={USERVID}
                 />
                 <SidebarRow 
                     Icon={ClockIcon} 

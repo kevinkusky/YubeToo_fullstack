@@ -13,7 +13,8 @@ export const SUBS = '/subscriptions';
 export const HIST = '/history';
 export const QUE = '/watchlater';
 export const LIKED = '/likedvideos';
-export const DUMMY = '/yourvideos';
+export const USERVID = '/yourvideos';
+export const DUMMY = '/dummyspot';
 
 
 

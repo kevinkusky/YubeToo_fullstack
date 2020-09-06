@@ -18,9 +18,11 @@ class VideoIndexItem extends React.Component {
         this.props.history.push(`/videos/show/${videoId}`);
     }
 
-    render() {        
+    render() {
+        // debugger        
         const video = this.props.video;
         const views = video.views !== 1 ? `${video.views} Views` : '1 View';
+        const creator = this.props.creator ? this.props.creator : video.creator.username;
         return(
             <div
                 key={this.props.key} 
@@ -32,7 +34,7 @@ class VideoIndexItem extends React.Component {
                     <Avatar className='video-avatar'></Avatar>
                     <div className='card-text'>
                         <h4>{video.title}</h4>
-                        <p>{video.creator.username}</p>
+                        <p>{creator}</p>
                         <p>
                             {views} • {video.uploadTime}
                         </p>
