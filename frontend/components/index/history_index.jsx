@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { videosAsArray } from "../../reducers/selectors";
 import VideoIndexItem from "./video_index_item";
 
-class UserIndex extends React.Component {
+class HistoryIndex extends React.Component {
   constructor(props) {
     super(props);
 
@@ -21,14 +21,14 @@ class UserIndex extends React.Component {
   render() {
     return (
       <div className="videos-index">
-        <h2 className="index-header">My Videos</h2>
+        <h2 className="index-header">{`${this.props.currentUser}'s Watched videos`}</h2>
         <div className="videos-list">
           {this.state.videos.map((video) => (
             <VideoIndexItem
               video={video}
               key={video.id}
-              user={this.props.currentUser}
-              creator={this.props.creator}
+              user={this.props.currentUserId}
+              creator={video.creator.username}
             />
           ))}
         </div>
@@ -38,9 +38,9 @@ class UserIndex extends React.Component {
 }
 
 const mSTP = (state) => ({
-  currentUser: state.session.currentUser ? state.session.currentUser.id : null,
-  creator: state.session.currentUser.username,
+  currentUserId: state.session.currentUser ? state.session.currentUser.id : null,
+  currentUser: state.session.currentUser.username,
   videos: videosAsArray(state.session.currentUser.videosViewed),
 });
 
-export default connect(mSTP)(UserIndex);
+export default connect(mSTP)(HistoryIndex);

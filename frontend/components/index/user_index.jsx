@@ -29,7 +29,7 @@ class UserIndex extends React.Component {
               video={video}
               key={video.id}
               user={this.props.currentUser}
-              creator={this.props.creator}
+              creator={video.creator.username}
             />
           ))}
         </div>
@@ -40,7 +40,6 @@ class UserIndex extends React.Component {
 
 const mSTP = (state) => ({
   currentUser: state.session.currentUser ? state.session.currentUser.id : null,
-  creator: state.session.currentUser.username,
   videos: videosAsArray(state.session.currentUser.userVideos),
 });
 
