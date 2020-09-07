@@ -21,7 +21,7 @@ class VideoIndexItem extends React.Component {
     render() {
         // debugger        
         const video = this.props.video;
-        const views = video.views !== 1 ? `${video.views} Views` : '1 View';
+        const views = video.views !== 1 ? `${video.views} views` : '1 view';
         const creator = this.props.creator ? this.props.creator : video.creator.username;
         return(
             <div

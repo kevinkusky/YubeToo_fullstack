@@ -4,13 +4,12 @@ import TopNav from '../navs/topnav';
 // import Likes from './likes';
 // import Comments from './comments';
 
-
 class VideoShow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             video: this.props.video,
-            runtime: ''
+            // runtime: ''
         };
 
         // this.videoTime = this.videoTime.bind(this);
