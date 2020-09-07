@@ -13,10 +13,6 @@ class UserIndex extends React.Component {
     };
   }
 
-//   componentDidMount() {
-//     this.props.fetchVideos();
-//   }
-
   componentDidUpdate(preProps, preState) {
     if (preProps.videos.length !== this.props.videos.length) {
       this.setState({ videos: this.props.videos });
@@ -47,9 +43,5 @@ const mSTP = (state) => ({
   creator: state.session.currentUser.username,
   videos: videosAsArray(state.session.currentUser.userVideos),
 });
-
-// const mDTP = (dispatch) => ({
-//   fetchVideos: () => dispatch(fetchVideos()),
-// });
-
+ß
 export default connect(mSTP)(UserIndex);

@@ -14,14 +14,12 @@ class User < ApplicationRecord
     attr_reader :password
 
     validates :username, :email, :session_token, presence: true, uniqueness: true
-    # validates :email, email: true
     validates :password_digest, presence: true
     validates :password, length:{ minimum: 6, allow_nil: true }
 
     after_initialize :ensure_session_token
 
     #Associations
-
     has_many :videos,
         class_name: :Video,
         foreign_key: :creator_id
@@ -47,7 +45,6 @@ class User < ApplicationRecord
         source: :video
 
     # FIGVAPER
-
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
 

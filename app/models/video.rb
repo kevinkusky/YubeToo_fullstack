@@ -60,5 +60,4 @@ class Video < ApplicationRecord
             'Just now'
         end
     end
-
 end
