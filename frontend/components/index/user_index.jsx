@@ -43,5 +43,5 @@ const mSTP = (state) => ({
   creator: state.session.currentUser.username,
   videos: videosAsArray(state.session.currentUser.userVideos),
 });
-ß
+
 export default connect(mSTP)(UserIndex);
