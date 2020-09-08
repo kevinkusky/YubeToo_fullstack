@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+
 class Video < ApplicationRecord
     validates :title, :creator_id, presence: true
     validate :ensure_video

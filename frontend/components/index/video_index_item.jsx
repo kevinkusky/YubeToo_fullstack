@@ -18,6 +18,8 @@ class VideoIndexItem extends React.Component {
         this.props.history.push(`/videos/show/${videoId}`);
     }
 
+    
+
     render() {
         // debugger        
         const video = this.props.video;

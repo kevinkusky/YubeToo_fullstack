@@ -4,4 +4,6 @@ json.views video.views.length
 json.uploadDate video.created_at.strftime('%b, %d %Y')
 json.uploadTime video.time_since_upload
 json.videoUrl video.video.attached? ? url_for(video.video) : ''
+# json.runtime video.duration
+# json.runtime video.video.attached? ? url_for(video.video).duration : ''
 json.titlecardUrl video.titlecard.attached? ? url_for(video.titlecard) : ''
