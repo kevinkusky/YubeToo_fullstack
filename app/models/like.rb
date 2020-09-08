@@ -14,6 +14,7 @@
 class Like < ApplicationRecord
     validates :liker_id, :likeable_type, :likeable_id, presence: true
     validates :dislike, inclusion: { in: [true, false] }
+    validates :liker_id, uniqueness: { scope: [:likeable_id, :likeable_type] }
 
     belongs_to :likeable,
         polymorphic: true
@@ -27,7 +28,7 @@ class Like < ApplicationRecord
             likeable_type: type, likeable_id: id, dislike: false
         )
     end
-    
+
     def self.filter_dislikes(type, id)
         Like.where(
             likeable_type: type, likeable_id: id, dislike: true

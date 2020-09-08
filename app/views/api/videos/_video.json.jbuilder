@@ -7,3 +7,7 @@ json.videoUrl video.video.attached? ? url_for(video.video) : ''
 # json.runtime video.duration
 # json.runtime video.video.attached? ? url_for(video.video).duration : ''
 json.titlecardUrl video.titlecard.attached? ? url_for(video.titlecard) : ''
+json.likes Like.filter_likes('video', :id)
+json.dislikes Like.filter_dislikes('video', :id)
+json.comments video.comments
+json.totalComments video.comment_sum

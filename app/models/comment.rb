@@ -21,13 +21,14 @@ class Comment < ApplicationRecord
         as: :commentable
     
     has_many :likes,
-        as: :likeable
+        as: :likeable,
+        dependent: :destroy
 
     belongs_to :commenter,
         foreign_key: :author_id,
         class_name: :User
 
-    def time_since_upload
+    def time_since_post
         time_difference = Time.now - Time.parse(self.created_at.to_s)
         years_since = (time_difference / 1.year).to_i
         months_since = (time_difference / 1.month).to_i
