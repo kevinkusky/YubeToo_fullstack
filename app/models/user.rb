@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
     has_many :comments,
         foreign_key: :author_id,
-        class_name: :Comments
+        class_name: :Comment
     
     has_many :video_views,
         foreign_key: :viewer_id,

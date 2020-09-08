@@ -61,4 +61,10 @@ class Video < ApplicationRecord
             'Just now'
         end
     end
+
+    def comment_sum
+        comment_tot = self.comments.length
+        self.comments.each{ |comment| comment_tot += comment.comments.length }
+        comment_tot
+    end
 end

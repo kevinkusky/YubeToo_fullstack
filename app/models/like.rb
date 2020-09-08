@@ -21,4 +21,16 @@ class Like < ApplicationRecord
     belongs_to :liker,
         foreign_key: :liker_id,
         class_name: :Users
+
+    def self.filter_likes(type, id)
+        Like.where(
+            likeable_type: type, likeable_id: id, dislike: false
+        )
+    end
+    
+    def self.filter_dislikes(type, id)
+        Like.where(
+            likeable_type: type, likeable_id: id, dislike: true
+        )
+    end
 end
