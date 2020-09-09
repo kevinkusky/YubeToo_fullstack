@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import users from './users';
-import videos from './videos';
-import comments from './comments';
-import likes from './likes';
+import users from './entities/users';
+import videos from './entities/videos';
+import comments from './entities/comments';
+import likes from './entities/likes';
 import errors from './errors';
 
 export default combineReducers({
