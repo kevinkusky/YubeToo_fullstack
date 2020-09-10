@@ -47,7 +47,7 @@ class MediaUpload extends React.Component {
             <div className='map-inactive-step'>3</div>
         </div>
         <div className="step-buttons">
-          <div></div>
+          <div className='placehold-step'></div>
           <button className="next-step" onClick={this.props.nextStep}>
             Next Step
             <Next className='next-icon'/>

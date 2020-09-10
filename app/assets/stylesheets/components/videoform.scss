@@ -43,6 +43,8 @@
 .step-buttons {
     display: flex;
     justify-content: space-evenly;
+    // width: 69%;
+    // align-self: center;
 }
 
 .next-icon{
@@ -64,6 +66,12 @@
 
 .sign-link {
     text-decoration: none;
+}
+
+.placeholder-step {
+    width: 100px;
+    margin-left: 27px;
+    margin: 5px;
 }
 
 .next-step, .prev-step, .video-button, .signup-button {
@@ -93,8 +101,16 @@
 .details-step {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.details-field {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-top: 40px;
+    margin-bottom: 100px;
 }
 
 .details-step .input-container {
@@ -155,10 +171,19 @@
      padding-left: 1px;
  }
 
+ .confirm-step {
+     display: flex;
+     flex-direction: column;
+    //  justify-content: space-evenly;
+     height: 100%;
+ }
+
+
 .confirm-style {
     display: flex;
     justify-content: space-evenly;
 }
+
 
 .step-map {
     display: flex;
@@ -200,13 +225,13 @@
 }
 
 .step-map .map-active-step{
-  background-color: rgba($color: #313899, $alpha: 1.0);
+  background-color: rgba($color: #417240, $alpha: 1.0);
   color: whitesmoke;
   font-weight: bolder;  
 }
 
 .step-map .map-past-step {
-    background-color: rgba($color: #417240, $alpha: 1.0);
+    background-color: rgba($color: #313899, $alpha: 1.0);
   color: whitesmoke;
   font-weight: bolder; 
 }
