@@ -9,7 +9,8 @@ class TrendingIndex extends React.Component {
         super(props);
 
         // this.state = {
-        //     popIndex: this.indexSort(this.props.videos)
+        //     popIndex: this.indexSort(this.props.videos),
+        //     tempArr: []
         // };
         // this.indexSort = this.indexSort.bind(this);
     }

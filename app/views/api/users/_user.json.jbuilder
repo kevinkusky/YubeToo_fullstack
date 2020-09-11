@@ -27,4 +27,3 @@ json.userVideos user.videos.reverse() do |video|
     json.uploadDate video.created_at.strftime('%b, %d %Y')
     json.uploadTime video.time_since_upload
 end
-#json.likedVideos user.liked_videos
