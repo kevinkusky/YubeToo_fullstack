@@ -31,7 +31,7 @@ class VideoIndexItem extends React.Component {
                 className='index-preview' 
                 onClick={this.handleClick}
             >
-                <img className='index-pic' src={video.titlecardUrl} alt=""/>
+                <img className='index-pic' src={video.titlecardUrl} alt="titlecard image"/>
                 <div className='card-info'>
                     <Avatar className='video-avatar'></Avatar>
                     <div className='card-text'>
