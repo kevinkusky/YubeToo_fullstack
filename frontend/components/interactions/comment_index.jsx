@@ -5,18 +5,7 @@ import CommentIndexItem from './comment_item';
 class CommentIndex extends React.Component {
     constructor(props){
         super(props);
-
-        this.state = {
-            // video: this.props.video,
-            comments: []
-        };
     }
-
-    // componentDidMount(){
-    //     this.props.fetchComments().then(
-    //         res => this.setState({comments: this.state.comments.concat(res)})
-    //     );
-    // }
 
     render(){
         return(
@@ -24,7 +13,7 @@ class CommentIndex extends React.Component {
                 {/* <NewCommentForm /> */}
 
                 <div className='comment-list'>
-                    {this.state.comments.map(comment => (
+                    {this.props.comments.map(comment => (
                         <CommentIndexItem
                             comment={comment}
                             key={comment.id}
