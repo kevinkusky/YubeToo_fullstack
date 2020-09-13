@@ -13,7 +13,7 @@ class CommentIndexItem extends React.Component {
                     {/* {this.props.comment.body} */}
                 </div>
                 <div className='comment-interaction'>
-                    {/* <button onClick={this.props.subCommentForm}>Reply</button> */}
+                    {/* <button onClick={this.props.commentForm(sub)}>Reply</button> */}
                     {/* <LikeComponent /> */}
                 </div>
             </div>

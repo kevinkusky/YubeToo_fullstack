@@ -13,9 +13,9 @@ class VideoShow extends React.Component{
     }
 
     render(){
-        console.log(this.state);
+        // console.log(this.state);
         // debugger
-        const {views, uploadDate, title, videoUrl, comments } = this.state.video;
+        const {views, uploadDate, title, videoUrl, comments, likes } = this.state.video;
         // debugger
         return (
           <div>
@@ -23,14 +23,14 @@ class VideoShow extends React.Component{
             <div className="video-show">
               <span>I am video {this.props.videoId}</span>
               <div className="video">
-                <video src={videoUrl}></video>
+                <video src={videoUrl} controls></video>
               </div>
               <div className="video-details">
                 {title}
                 <div className="video-stats">
                   {views}
                   {uploadDate}
-                  {/* <LikeContainer /> */}
+                  {/* <LikeContainer likes={likes}/> */}
                 </div>
               </div>
               <div className="comments">
