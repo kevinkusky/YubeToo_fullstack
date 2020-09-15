@@ -1,8 +1,8 @@
 const path = require('path');
-// const webpack = require('webpack');
-// const fs = require('fs');
-// const os = require('os');
-// const child_process = require('child_process');
+const webpack = require('webpack');
+const fs = require('fs');
+const os = require('os');
+const child_process = require('child_process');
 
 module.exports = {
     context: __dirname,
@@ -16,6 +16,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
+                // exclude: [/node_modules/, /ffmpeg/],
                 use: {
                     loader: 'babel-loader',
                     query: {
@@ -29,14 +30,14 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx", "*"],
     },
-    // externals: {
-	//   child_process: child_process,
-	//   fs: fs,
-    //   os: os,
-    // },
-    // plugins: [
-    //     new webpack.DefinePlugin({
-    //         'process.env.FLUENTFFMPEG_COV': false
-    //     })
-    // ]
+    externals: {
+	  child_process: child_process,
+	  fs: fs,
+      os: os,
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.FLUENTFFMPEG_COV': false
+        })
+    ]
 };

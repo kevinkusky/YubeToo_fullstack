@@ -1,9 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 
-// import ffmpeg from 'fluent-ffmpeg';
-// import ffprobe from 'ffprobe';
-
 import TopNav from '../navs/topnav';
 import MediaUpload from './media_upload';
 import DetailsUpload from './details_upload';
@@ -129,15 +126,15 @@ class VideoForm extends React.Component {
 
       let fileReader = new FileReader();
       const newVideoFile = videoFile[0];
- 
+      let newVideoURL = URL.createObjectURL(newVideoFile);
+      
       fileReader.onloadend = () => {
-        if (this.state.videoFile.length < 1) {
-            let newVideoURL = URL.createObjectURL(newVideoFile);
-
-            // ffprobe(newVideoURL, function(err, metadata){
-            //     let newVidDuration = metadata.format.duration;
-            //     console.log(newVidDuration);
-            // });
+          const ffmpeg = require('fluent-ffmpeg');
+          if (this.state.videoFile.length < 1) {
+            ffmpeg.ffprobe(newVideoURL, function(err, metadata){
+                // let newVidDuration = metadata.format.duration;
+                console.log(newVidDuration);
+            });
           this.setState({
               videoFile: this.state.videoFile.concat(newVideoFile),
               videoFileName: newVideoFile.name,
