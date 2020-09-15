@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TopNav from '../navs/topnav';
+import CommentForm from '../interactions/comment_form';
 // import Likes from './likes';
 // import CommentIndex from './comment_index';
 
@@ -34,7 +35,7 @@ class VideoShow extends React.Component{
                 </div>
               </div>
               <div className="comments">
-                {/* <NewCommentForm /> */}
+                <CommentForm formType='create'/>
                 {/* <CommentIndex comments={comments} /> */}
               </div>
             </div>

@@ -10,6 +10,8 @@ class CommentIndex extends React.Component {
     render(){
         return(
             <div className='comment-index'>
+
+                <h4>Comments</h4>
                 {/* <NewCommentForm /> */}
 
                 <div className='comment-list'>

@@ -1,11 +1,12 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 
+import {SPLASH} from '../../util/route_utils';
+
 import TopNav from '../navs/topnav';
 import MediaUpload from './media_upload';
 import DetailsUpload from './details_upload';
 import ConfirmUpload from './confirm_upload';
-
 
 class VideoForm extends React.Component {
   constructor(props) {
@@ -34,32 +35,40 @@ class VideoForm extends React.Component {
   }
 
   navigateToSplash() {
-    this.props.history.push("/");
+    this.props.history.push(SPLASH);
   }
 
   nextStep() {
-    if (this.state.step < 3) {this.setState({ step: this.state.step + 1 });}
-  }
-
-  prevStep() {
-    if (this.state.step > 1) {this.setState({ step: this.state.step - 1 });}
-  }
-
-  update(field) {
-    return (e) => this.setState({ [field]: e.currentTarget.value });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    let formData = new FormData();
-    formData.append("video[title]", this.state.title);
-    formData.append("video[description]", this.state.description);
-    formData.append("video[creator_id]", this.state.creator_id);
+      if (this.state.step < 3) {this.setState({ step: this.state.step + 1 });}
+    }
     
-    if (this.state.videoFile) {
-        formData.append("video[video]", this.state.videoFile[0]);
-        // formData.append("video[duration", this.state.duration);
+    prevStep() {
+        if (this.state.step > 1) {this.setState({ step: this.state.step - 1 });}
+    }
+    
+    update(field) {
+        return (e) => this.setState({ [field]: e.currentTarget.value });
+    }
+    
+    handleSubmit(e) {
+        e.preventDefault();
+        
+        let formData = new FormData();
+        formData.append("video[title]", this.state.title);
+        formData.append("video[description]", this.state.description);
+        formData.append("video[creator_id]", this.state.creator_id);
+
+        // for test purposes until ffmpeg is resolved
+        formData.append("video[duration]", '2:10');
+        
+        if (this.state.videoFile) {
+            formData.append("video[video]", this.state.videoFile[0]);
+            // const ffmpeg = require('fluent-ffmpeg');
+            // ffmpeg.ffprobe(newVideoURL, function(err, metadata){
+                // let newVidDuration = metadata.format.duration;
+                // console.log(newVidDuration);
+            // });
+            // formData.append("video[duration", this.state.duration);
     }
     if (this.state.titlecardFile) {
       formData.append("video[titlecard]", this.state.titlecardFile[0]);
@@ -84,8 +93,7 @@ class VideoForm extends React.Component {
     this.navigateToSplash();
   }
 
-// dropzonehandler
-
+    // dropzonehandler
   handlePicDrop(titlecardFile) {
     //update titlecardFiles array as user drag videoFiles to drop zone
     if (titlecardFile) {
@@ -129,18 +137,13 @@ class VideoForm extends React.Component {
       let newVideoURL = URL.createObjectURL(newVideoFile);
       
       fileReader.onloadend = () => {
-          const ffmpeg = require('fluent-ffmpeg');
           if (this.state.videoFile.length < 1) {
-            ffmpeg.ffprobe(newVideoURL, function(err, metadata){
-                // let newVidDuration = metadata.format.duration;
-                console.log(newVidDuration);
-            });
           this.setState({
               videoFile: this.state.videoFile.concat(newVideoFile),
               videoFileName: newVideoFile.name,
               videoUrl: this.state.videoUrl.concat(newVideoURL),
                 // duration: 
-                });
+            });
         } else {
           //set drop zone error in state
           this.setState({ errors: "May only upload 1 video at a time" });
@@ -150,87 +153,59 @@ class VideoForm extends React.Component {
     }
   }
 
-  render() {
-      const componentStep = () => {
-        switch (this.state.step) {
-            case 1:
-                return <MediaUpload 
-                    handleVideoDrop={this.handleVideoDrop}
-                    handlePicDrop={this.handlePicDrop} 
-                    nextStep={this.nextStep}
-                    picMessage={this.state.titlecardFileName}
-                    videoMessage={this.state.videoFileName}
-                    />;
-            case 2:
-            return <DetailsUpload
-                update={this.update}
-                title={this.state.title}
-                description={this.state.description}
-                prevStep={this.prevStep}
-                nextStep={this.nextStep}
-              />;
-            case 3:
-            return (
-              <ConfirmUpload
-                prevStep={this.prevStep}
-                handleSubmit={this.handleSubmit}
-                picMessage={this.state.titlecardFileName}
-                videoMessage={this.state.videoFileName}
-                title={this.state.title}
-                description={this.state.description}
-              />
-            );
-            default:
-            return (
-              <MediaUpload
-                handleVideoDrop={this.handleVideoDrop}
-                handlePicDrop={this.handlePicDrop}
-                nextStep={this.nextStep}
-                picMessage={this.state.titlecardFileName}
-                videoMessage={this.state.videoFileName}
-              />
-            );
+    render() {
+        const componentStep = () => {
+            switch (this.state.step) {
+                case 1:
+                    return (
+                        <MediaUpload 
+                            handleVideoDrop={this.handleVideoDrop}
+                            handlePicDrop={this.handlePicDrop} 
+                            nextStep={this.nextStep}
+                            picMessage={this.state.titlecardFileName}
+                            videoMessage={this.state.videoFileName}
+                        />
+                    );
+                case 2:
+                return (
+                    <DetailsUpload
+                        update={this.update}
+                        title={this.state.title}
+                        description={this.state.description}
+                        prevStep={this.prevStep}
+                        nextStep={this.nextStep}
+                    />
+                );
+                case 3:
+                return (
+                    <ConfirmUpload
+                        prevStep={this.prevStep}
+                        handleSubmit={this.handleSubmit}
+                        picMessage={this.state.titlecardFileName}
+                        videoMessage={this.state.videoFileName}
+                        title={this.state.title}
+                        description={this.state.description}
+                    />
+                );
+                default:
+                return (
+                    <MediaUpload
+                        handleVideoDrop={this.handleVideoDrop}
+                        handlePicDrop={this.handlePicDrop}
+                        nextStep={this.nextStep}
+                        picMessage={this.state.titlecardFileName}
+                        videoMessage={this.state.videoFileName}
+                    />
+                );
+            }
         }
+        return (
+            <>
+                <TopNav />
+                {componentStep()}
+            </>
+        );
     }
-    return (
-      <>
-        <TopNav />
-        {componentStep()}
-      </>
-    );
-}
 }
 
 export default withRouter(VideoForm);
-
-{/* 
-  <Dropzone onDrop={this.handleVideoDrop}>
-    {({ getRootProps, getInputProps }) => (
-      <div {...getRootProps({ className: "drop-zone" })}>
-        <input {...getInputProps()} />
-        <div className="dropzone-target">
-          <VideoDrop />
-        </div>
-      </div>
-    )}
-  </Dropzone>
-  <h3>Upload Preview Image</h3>
-  <input type="file" onChange={this.handlePicFile} />
-
-  <input
-    type="text"
-    value={this.state.title}
-    onChange={this.update("title")}
-    required=" "
-  />
-  <label className="upload-labels">Title</label>
-
-  <input
-    type="text"
-    value={this.state.description}
-    onChange={this.update("description")}
-  />
-  <label className="upload-labels">Description</label>
-
-  <input type="submit" value="Submit" />
-*/}
