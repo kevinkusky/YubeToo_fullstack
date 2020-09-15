@@ -8,10 +8,11 @@
 #  creator_id  :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  duration    :string           not null
 #
 
 class Video < ApplicationRecord
-    validates :title, :creator_id, presence: true
+    validates :title, :creator_id, :duration, presence: true
     validate :ensure_video
 
     belongs_to :creator,

@@ -1,6 +1,9 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 
+// import ffmpeg from 'fluent-ffmpeg';
+// import ffprobe from 'ffprobe';
+
 import TopNav from '../navs/topnav';
 import MediaUpload from './media_upload';
 import DetailsUpload from './details_upload';
@@ -21,9 +24,10 @@ class VideoForm extends React.Component {
       titlecardFile: [],
       titlecardUrl: [],
       titlecardFileName: '',
+      duration: '',
       step: 1,
     };
-    // this.navigateToSplash = this.navigateToSplash.bind(this);
+    this.navigateToSplash = this.navigateToSplash.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePicDrop = this.handlePicDrop.bind(this);
     this.handleVideoDrop = this.handleVideoDrop.bind(this);
@@ -32,9 +36,9 @@ class VideoForm extends React.Component {
     this.update = this.update.bind(this);
   }
 
-//   navigateToSplash() {
-//     this.props.history.push("/");
-//   }
+  navigateToSplash() {
+    this.props.history.push("/");
+  }
 
   nextStep() {
     if (this.state.step < 3) {this.setState({ step: this.state.step + 1 });}
@@ -55,9 +59,10 @@ class VideoForm extends React.Component {
     formData.append("video[title]", this.state.title);
     formData.append("video[description]", this.state.description);
     formData.append("video[creator_id]", this.state.creator_id);
-
+    
     if (this.state.videoFile) {
-      formData.append("video[video]", this.state.videoFile[0]);
+        formData.append("video[video]", this.state.videoFile[0]);
+        // formData.append("video[duration", this.state.duration);
     }
     if (this.state.titlecardFile) {
       formData.append("video[titlecard]", this.state.titlecardFile[0]);
@@ -79,6 +84,7 @@ class VideoForm extends React.Component {
     //     }
     // }
     // );
+    this.navigateToSplash();
   }
 
 // dropzonehandler
@@ -123,16 +129,20 @@ class VideoForm extends React.Component {
 
       let fileReader = new FileReader();
       const newVideoFile = videoFile[0];
-
+ 
       fileReader.onloadend = () => {
         if (this.state.videoFile.length < 1) {
-          //update photoFiles and photoUrls in state
+            let newVideoURL = URL.createObjectURL(newVideoFile);
+
+            // ffprobe(newVideoURL, function(err, metadata){
+            //     let newVidDuration = metadata.format.duration;
+            //     console.log(newVidDuration);
+            // });
           this.setState({
               videoFile: this.state.videoFile.concat(newVideoFile),
               videoFileName: newVideoFile.name,
-              videoUrl: this.state.videoUrl.concat(
-                  URL.createObjectURL(newVideoFile)
-                  ),
+              videoUrl: this.state.videoUrl.concat(newVideoURL),
+                // duration: 
                 });
         } else {
           //set drop zone error in state
