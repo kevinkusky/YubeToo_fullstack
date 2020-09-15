@@ -2,4 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.video {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+}
+.body-feild {
+    display: flex;
+    justify-content: center;
+}

@@ -9,20 +9,26 @@ class VideoShow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            video: this.props.video,
+            videoId: this.props.videoId,
+            video: this.props.videos[this.props.videoId]
         };
     }
 
+    // componentDidMount(){
+    //     this.props.fetchVideo(this.state.videoId).then(
+    //         res => this.setState({video: res})
+    //     );
+    // }
+
     render(){
-        // console.log(this.state);
-        // debugger
+        console.log(`I am video ${this.props.videoId}`);
+        // debugger;
         const {views, uploadDate, title, videoUrl, comments, likes } = this.state.video;
         // debugger
         return (
           <div>
             <TopNav />
             <div className="video-show">
-              <span>I am video {this.props.videoId}</span>
               <div className="video">
                 <video src={videoUrl} controls></video>
               </div>
