@@ -1,3 +1,30 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.body-field {
+    height: 35px auto;
+    border: none;
+    resize: none;
+    outline: none;
+    width: 80%;
+    border-bottom: 1px solid rgb(123, 121, 121);;
+    margin-left: 13px;
+    margin-top: 5px;
+    // align-content: center;
+    align-items: center;
+}
+
+.comment-form-buttons {
+    display: none;
+}
+
+.body-field:focus {
+    border-bottom: 2.25px solid black;
+
+}
+
+.body-field:focus .comment-form-buttons {
+    display: block;
+}

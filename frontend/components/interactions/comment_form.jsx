@@ -32,31 +32,33 @@ class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    if (!this.state.author_id) {
-      this.routeToSession();
-    } else {
-      let formData = new FormData();
-      formData.append("comment[body]", this.state.body);
-      formData.append("comment[video_id]", this.state.video_id);
-      formData.append("comment[author_id]", this.state.author_id);
-      formData.append("comment[commentable_type]", this.state.commentable_type);
+    console.log(this.state.body);
 
-      switch (this.state.formType) {
-        case "create":
-          formData.append("comment[commentable_type]", "video");
-          formData.append("comment[commentable_id]", this.state.video_id);
-          break;
-        case "reply":
-          formData.append("comment[commentable_type]", "comment");
-          formData.append("comment[commentable_id]", this.state.parentCommentId);
-          break;
-        default:
-          formData.append("comment[commentable_type]", "video");
-          formData.append("comment[commentable_id]", this.state.video_id);
-          break;
-      }
-      this.props.createComment(formData);
-    }
+    // if (!this.state.author_id) {
+    //   this.routeToSession();
+    // } else {
+    //   let formData = new FormData();
+    //   formData.append("comment[body]", this.state.body);
+    //   formData.append("comment[video_id]", this.state.video_id);
+    //   formData.append("comment[author_id]", this.state.author_id);
+    //   formData.append("comment[commentable_type]", this.state.commentable_type);
+
+    //   switch (this.state.formType) {
+    //     case "create":
+    //       formData.append("comment[commentable_type]", "video");
+    //       formData.append("comment[commentable_id]", this.state.video_id);
+    //       break;
+    //     case "reply":
+    //       formData.append("comment[commentable_type]", "comment");
+    //       formData.append("comment[commentable_id]", this.state.parentCommentId);
+    //       break;
+    //     default:
+    //       formData.append("comment[commentable_type]", "video");
+    //       formData.append("comment[commentable_id]", this.state.video_id);
+    //       break;
+    //   }
+    //   this.props.createComment(formData);
+    // }
   }
 
   render() {
@@ -64,11 +66,18 @@ class CommentForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           {/* add resize:none in css for textarea */}
-          <textarea 
-            onChange={this.update('body')} className="body-feild" placeholder='Add your comment...'
+          {/* <textarea 
+            onChange={this.update('body')} className="body-field" placeholder='Add your comment...'
+            // name='text'
+            // oninput='this.style.height = "20px";this.style.height = this.scrollHeight + "px"'
             id="" cols="30" rows="10"
           >    
-          </textarea>
+          </textarea> */}
+
+          <div 
+            contentEditable={true} data-text='Add your comment...'
+            onChange={this.update('body')} className='body-field'
+          ></div>
 
           <div className='comment-form-buttons'>
             {/* <button onClick={}>Cancel</button> */}
