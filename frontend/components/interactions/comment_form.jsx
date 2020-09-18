@@ -28,16 +28,17 @@ class CommentForm extends React.Component {
     }
   }
 
-  toggleForm() {
-      this.setState({ formOpen: !this.state.formOpen });
-      if (this.state.formOpen === false) { this.setState({body: ""}); }
+  toggleForm(bool) {
+      if (bool === false) {
+        this.setState({ formOpen: bool });
+        this.setState({ body: "" });
+    } else {
+        this.setState({ formOpen: bool });
+      }
   }
 
   update(field) {
-    return (e) => () => {
-        this.setState({ [field]: e.currentTarget.value });
-        // this.setState({ textHeight: `${e.currentTarget.scrollHeight}px` });
-    };
+    return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
   handleSubmit() {
@@ -73,7 +74,9 @@ class CommentForm extends React.Component {
   }
 
   render() {
-      const buttonClassName = this.state.formOpen ? "comment-form-buttons" : "hide-comment-buttons";
+      const buttonsClassName = () =>( this.state.formOpen ? "comment-form-buttons" : "hide-comment-buttons");
+      const commentClassName = () => ( this.state.body.length > 0 ? 'active-comment-button' : 'inactive-comment-button')
+      const typeValue = () => ( this.state.body.length > 0 ? 'submit' : 'button');
     //   const heightStyle = `height: ${this.state.heightStyle}`;
     return (
       <div>
@@ -92,13 +95,14 @@ class CommentForm extends React.Component {
                 // style={heightStyle}
                 onChange={this.update('body')} className="body-field"
                 placeholder='Add your comment...' 
-                onFocus={() => this.toggleForm()}
+                onFocus={() => this.toggleForm(true)}
+                value={this.state.body}
               >
               </textarea>
           </div>
-          <div className={buttonClassName}>
-            <button onClick={() => this.toggleForm()}>Cancel</button>
-            <input type="submit" value="Comment" value="Comment" />
+          <div className={buttonsClassName()}>
+            <button className='cancel-button' onClick={() => this.toggleForm(false)}>CANCEL</button>
+            <input className={commentClassName()} type={typeValue()} value="Comment" value="COMMENT" />
           </div>
         </form>
       </div>

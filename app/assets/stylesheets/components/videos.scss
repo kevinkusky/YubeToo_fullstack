@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .video-show {
-    margin-left: 37px;
+    padding-left: 37px;
+    background-color: #f9f9f9;
+    padding-top: 20px;
 }
 
 .video {
@@ -22,11 +24,15 @@
     justify-content: center;
 }
 
+.video-details {
+    margin: -15px 0;
+}
+
 .video-stats {
     display: flex;
     justify-content: space-between;
-    margin-top: -10px;
     margin-bottom: 15px;
+    margin-top: -10px;
     align-items: center;
     width: 77%;
 }
@@ -34,6 +40,7 @@
 .left-stats {
     color: rgb(97, 97, 97);
     font-size: 15px;
+    margin-bottom: 13px;
 }
 
 .right-stats{
@@ -48,7 +55,7 @@
     justify-content: space-between;
     color: rgb(97, 97, 97) !important;
     border: none;
-    background-color: white;
+    background-color: #f9f9f9;
     width: 94px;
     cursor: pointer;
 }
@@ -81,10 +88,12 @@
     border-bottom: 1px solid rgb(187, 180, 180);
     border-top: 1px solid rgb(187, 180, 180);
     width: 69%;
-    margin-top: -12px;
+    margin-top: -14px;
 }
 
 .description {
+    margin-top: -9px;
     margin-left: 75px;
     margin-bottom: 9px;
+
 }
