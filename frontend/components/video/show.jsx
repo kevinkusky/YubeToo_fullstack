@@ -8,6 +8,7 @@ import CommentForm from '../interactions/comment_form';
 import Likes from '../interactions/likes';
 // import CommentIndex from './comment_index';
 
+import UserIcon from "@material-ui/icons/AccountCircle";
 import ShareIcon from "@material-ui/icons/Redo";
 
 class VideoShow extends React.Component{
@@ -50,36 +51,35 @@ class VideoShow extends React.Component{
                 <video src={videoUrl} controls></video>
               </div>
               <div className="video-details">
-                <h2>{title}   </h2>
+                <h2>{title} </h2>
                 <div className="video-stats">
                   <div className="left-stats">
                     {`${views} views`} • {uploadDate}
                   </div>
-                  <div className='right-stats'>
+                  <div className="right-stats">
                     <Likes />
                     <CopyToClipboard
-                        text={shareURL}
-                        onCopy={ () => this.setState({copied: true})}
+                      text={shareURL}
+                      onCopy={() => this.setState({ copied: true })}
                     >
-                        <button className='share-button'>
-                            <ShareIcon className='share-icon' />
-                            <span className='share-text'>SHARE</span>
-                        </button>
+                      <button className="share-button">
+                        <ShareIcon className="share-icon" />
+                        <span className="share-text">SHARE</span>
+                      </button>
                     </CopyToClipboard>
                   </div>
                 </div>
               </div>
-              <div className='uploader-details'>
-                  <div className='top-info'>
-                    <div className='name-n-number'>
-                        <h4>{creator.username}</h4>
-                        {/* <span>{subCount}</span> */}
-                    </div>
-                    {/* <button>SUBSCRIBE</button> */}
+              <div className="uploader-details">
+                <div className="top-info">
+                  <UserIcon className="drop-header-icon" />
+                  <div className="name-n-number">
+                    <h4>{creator.username}</h4>
+                    {/* <span>{subCount}</span> */}
                   </div>
-                  <div className='description'>
-                      {description}
-                  </div>
+                  {/* <button>SUBSCRIBE</button> */}
+                </div>
+                <div className="description">{description}</div>
               </div>
               <div className="comments">
                 <CommentForm formType="create" />

@@ -34,7 +34,7 @@
     margin-bottom: 15px;
     margin-top: -10px;
     align-items: center;
-    width: 77%;
+    width: 800px;
 }
 
 .left-stats {
@@ -87,13 +87,21 @@
 .uploader-details {
     border-bottom: 1px solid rgb(187, 180, 180);
     border-top: 1px solid rgb(187, 180, 180);
-    width: 69%;
+    width: 760px;
     margin-top: -14px;
+}
+
+.top-info {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    height: 79px;
+
+    .drop-header-icon { margin-right: 20px;}
 }
 
 .description {
     margin-top: -9px;
     margin-left: 75px;
     margin-bottom: 9px;
-
 }
