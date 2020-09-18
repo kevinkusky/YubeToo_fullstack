@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 
 import TopNav from '../navs/topnav';
 import CommentForm from '../interactions/comment_form';
-// import Likes from './likes';
+import Likes from '../interactions/likes';
 // import CommentIndex from './comment_index';
 
 import ShareIcon from "@material-ui/icons/Redo";
@@ -39,6 +39,7 @@ class VideoShow extends React.Component{
         if (!this.state.video){return null;}
 
         const {views, uploadDate, title, videoUrl, comments, likes} = this.state.video;
+        
         const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${this.state.video.id}`;
         // debugger
         return (
@@ -49,13 +50,13 @@ class VideoShow extends React.Component{
                 <video src={videoUrl} controls></video>
               </div>
               <div className="video-details">
-                {title}
+                <h2>{title}   </h2>
                 <div className="video-stats">
                   <div className="left-stats">
-                    {views} • {uploadDate}
+                    {`${views} views`} • {uploadDate}
                   </div>
                   <div className='right-stats'>
-                    {/* <LikeContainer likes={likes}/> */}
+                    <Likes />
                     <CopyToClipboard
                         text={shareURL}
                         onCopy={ () => this.setState({copied: true})}
@@ -67,6 +68,9 @@ class VideoShow extends React.Component{
                     </CopyToClipboard>
                   </div>
                 </div>
+              </div>
+              <div className='uploader-details'>
+
               </div>
               <div className="comments">
                 <CommentForm formType="create" />

@@ -2,9 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.video-show {
+    margin-left: 19px;
+}
+
 .video {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     height: 500px;
 }
 
@@ -16,8 +20,20 @@
 .video-stats {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
-    margin: 10px 10px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.left-stats {
+    color: rgb(97, 97, 97);
+    font-size: 15px;
+}
+
+.right-stats{
+    display: flex;
+    justify-content: space-evenly;
+    flex: 0.75
 }
 
 .share-button {
@@ -27,6 +43,30 @@
     color: rgb(97, 97, 97) !important;
     border: none;
     background-color: white;
-    width: 110%;
+    width: 94px;
     cursor: pointer;
+}
+
+.like-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    width: 90px;
+    
+    span {
+        font-size: 15px;
+        margin-left: 3px;
+    }
+}
+
+.like-container {
+    display: flex;
+    justify-content: space-between;
+    width: 110px;
+    color: rgb(97, 97, 97) !important;
+    cursor: pointer;
+}
+
+.share-icon {
+     cursor: pointer;
 }
