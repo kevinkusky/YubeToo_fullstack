@@ -9,12 +9,15 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      formOpen: false,
       body: "",
       video_id: this.props.videoId,
       author_id: this.props.authorId,
       formType: this.props.formType,
-      parentCommentId: this.props.commentId ? this.props.commentId : null
+      parentCommentId: this.props.commentId ? this.props.commentId : null,
+    //   textHeight: '',
     };
+    this.toggleForm = this.toggleForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
@@ -25,12 +28,20 @@ class CommentForm extends React.Component {
     }
   }
 
-  update(field) {
-    return (e) => this.setState({ [field]: e.currentTarget.value });
+  toggleForm() {
+      this.setState({ formOpen: !this.state.formOpen });
+      if (this.state.formOpen === false) { this.setState({body: ""}); }
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  update(field) {
+    return (e) => () => {
+        this.setState({ [field]: e.currentTarget.value });
+        // this.setState({ textHeight: `${e.currentTarget.scrollHeight}px` });
+    };
+  }
+
+  handleSubmit() {
+    // e.preventDefault();
 
     console.log(this.state.body);
 
@@ -62,6 +73,8 @@ class CommentForm extends React.Component {
   }
 
   render() {
+      const buttonClassName = this.state.formOpen ? "comment-form-buttons" : "hide-comment-buttons";
+    //   const heightStyle = `height: ${this.state.heightStyle}`;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -74,13 +87,17 @@ class CommentForm extends React.Component {
           >    
           </textarea> */}
 
-          <div 
-            contentEditable={true} data-text='Add your comment...'
-            onChange={this.update('body')} className='body-field'
-          ></div>
-
-          <div className='comment-form-buttons'>
-            {/* <button onClick={}>Cancel</button> */}
+          <div className='body-field-container'>
+              <textarea 
+                // style={heightStyle}
+                onChange={this.update('body')} className="body-field"
+                placeholder='Add your comment...' 
+                onFocus={() => this.toggleForm()}
+              >
+              </textarea>
+          </div>
+          <div className={buttonClassName}>
+            <button onClick={() => this.toggleForm()}>Cancel</button>
             <input type="submit" value="Comment" value="Comment" />
           </div>
         </form>

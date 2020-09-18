@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {withRouter} from 'react-router-dom';
+
 import TopNav from '../navs/topnav';
 import CommentForm from '../interactions/comment_form';
 // import Likes from './likes';
@@ -8,21 +10,30 @@ import CommentForm from '../interactions/comment_form';
 class VideoShow extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            videoId: this.props.videoId,
-            video: this.props.videos[this.props.videoId]
+        this.state={
+            video: this.props.video ? this.props.video : null,
         };
     }
 
-    // componentDidMount(){
-    //     this.props.fetchVideo(this.state.videoId).then(
-    //         res => this.setState({video: res})
+    componentDidMount(){
+        this.props.fetchVideo(this.props.videoId).then(
+            res => this.setState({video: res.video})
+        );
+    }
+
+    // componentDidUpdate(){
+    //     this.props.video ? null : () => (
+    //         this.props.fetchVideo(this.props.videoId).then(
+    //             res => this.setState({video: res})
+    //         );
     //     );
     // }
 
     render(){
-        console.log(`I am video ${this.props.videoId}`);
+        console.log(this.state.video);
         // debugger;
+        if (!this.state.video){return null;}
+
         const {views, uploadDate, title, videoUrl, comments, likes } = this.state.video;
         // debugger
         return (
@@ -50,4 +61,4 @@ class VideoShow extends React.Component{
     }
 }
 
-export default VideoShow;
+export default withRouter(VideoShow);

@@ -8,7 +8,9 @@ import VideoShow from './show';
 const mSTP = (state, ownProps) => ({
     // currentUser: state.entities.session.currentUser,
     videoId: parseInt(ownProps.match.params.videoId),
-    videos: state.entities.videos
+    video: state.entities.videos[parseInt(ownProps.match.params.videoId)],
+    // videos: state.entities.videos
+    // video: state.entities.videos[videoId]
 });
 
 const mDTP = dispatch => ({

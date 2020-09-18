@@ -3,28 +3,43 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.body-field {
-    height: 35px auto;
-    border: none;
-    resize: none;
-    outline: none;
+.body-field-container {
+    height: auto;
+    // min-height: 35px;
+    // min-height: 100% !important;
     width: 80%;
     border-bottom: 1px solid rgb(123, 121, 121);;
     margin-left: 13px;
     margin-top: 5px;
-    // align-content: center;
     align-items: center;
+    outline: none;
+    // overflow-y: hidden;
+    overflow: hidden;
 }
 
-.comment-form-buttons {
+.body-field {
+    border: none;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    // overflow: hidden;
+    width: 100%;
+    font-size: 13px;
+}
+
+.hide-comment-buttons {
     display: none;
 }
 
-.body-field:focus {
+.comment-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.body-field:focus .body-field-container {
     border-bottom: 2.25px solid black;
-
 }
 
-.body-field:focus .comment-form-buttons {
-    display: block;
-}
+// .body-field:focus .comment-form-buttons {
+//     display: block;
+// }
