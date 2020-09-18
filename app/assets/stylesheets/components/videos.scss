@@ -3,13 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .video-show {
-    margin-left: 19px;
+    margin-left: 37px;
 }
 
 .video {
     display: flex;
-    // justify-content: center;
-    height: 500px;
+    margin-left: -8px;
+    video {
+        height: 479px;
+        width: 754px;
+        object-fit: cover;
+        padding:10px;
+    }
 }
 
 .body-feild {
@@ -23,6 +28,7 @@
     margin-top: -10px;
     margin-bottom: 15px;
     align-items: center;
+    width: 77%;
 }
 
 .left-stats {
@@ -69,4 +75,16 @@
 
 .share-icon {
      cursor: pointer;
+}
+
+.uploader-details {
+    border-bottom: 1px solid rgb(187, 180, 180);
+    border-top: 1px solid rgb(187, 180, 180);
+    width: 69%;
+    margin-top: -12px;
+}
+
+.description {
+    margin-left: 75px;
+    margin-bottom: 9px;
 }

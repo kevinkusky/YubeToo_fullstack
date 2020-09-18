@@ -38,7 +38,7 @@ class VideoShow extends React.Component{
         // debugger;
         if (!this.state.video){return null;}
 
-        const {views, uploadDate, title, videoUrl, comments, likes} = this.state.video;
+        const {views, uploadDate, title, videoUrl, comments, likes, creator, description} = this.state.video;
         
         const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${this.state.video.id}`;
         // debugger
@@ -70,7 +70,16 @@ class VideoShow extends React.Component{
                 </div>
               </div>
               <div className='uploader-details'>
-
+                  <div className='top-info'>
+                    <div className='name-n-number'>
+                        <h4>{creator.username}</h4>
+                        {/* <span>{subCount}</span> */}
+                    </div>
+                    {/* <button>SUBSCRIBE</button> */}
+                  </div>
+                  <div className='description'>
+                      {description}
+                  </div>
               </div>
               <div className="comments">
                 <CommentForm formType="create" />
