@@ -7,7 +7,26 @@
     justify-content: center;
     height: 500px;
 }
+
 .body-feild {
     display: flex;
     justify-content: center;
+}
+
+.video-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin: 10px 10px;
+}
+
+.share-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(97, 97, 97) !important;
+    border: none;
+    background-color: white;
+    width: 110%;
+    cursor: pointer;
 }
