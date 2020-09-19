@@ -15,7 +15,6 @@ class CommentForm extends React.Component {
       author_id: this.props.authorId,
       formType: this.props.formType,
       parentCommentId: this.props.commentId ? this.props.commentId : null,
-    //   textHeight: '',
     };
     this.toggleForm = this.toggleForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,27 +28,30 @@ class CommentForm extends React.Component {
   }
 
   toggleForm(bool) {
-      if (bool === false) {
+    if (bool === false) {
         this.setState({ formOpen: bool });
         this.setState({ body: "" });
+
+        // Only one element with classname - toggles the autoresize to default height
+        document.getElementsByClassName('body-field')[0].style.height = '22px';
     } else {
         this.setState({ formOpen: bool });
-      }
+    }
   }
 
   update(field) {
     return (e) => {
         this.setState({ [field]: e.currentTarget.value });
-        e.target.style.height = '27px';
-        e.target.style.height = `${e.currentTarget.scrollHeight}px`;
+
+        // handles auto resize of textarea
+        e.currentTarget.style.height = '22px';
+        e.currentTarget.style.height = `${e.target.scrollHeight}px`;
     };
   }
 
   handleSubmit() {
     // e.preventDefault();
-
     console.log(this.state.body);
-
     // if (!this.state.author_id) {
     //   this.routeToSession();
     // } else {
@@ -78,31 +80,23 @@ class CommentForm extends React.Component {
   }
 
   render() {
-      const buttonsClassName = () =>( this.state.formOpen ? "comment-form-buttons" : "hide-comment-buttons");
-      const commentClassName = () => ( this.state.body.length > 0 ? 'active-comment-button' : 'inactive-comment-button')
-      const typeValue = () => ( this.state.body.length > 0 ? 'submit' : 'button');
-    //   const heightStyle = `height: ${this.state.heightStyle}`;
+    // helps style conditionally
+    const buttonsClassName = () =>( this.state.formOpen ? "comment-form-buttons" : "hide-comment-buttons");
+    const commentClassName = () => ( this.state.body.length > 0 ? 'active-comment-button' : 'inactive-comment-button');
+    const typeValue = () => ( this.state.body.length > 0 ? 'submit' : 'button');
+
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          {/* add resize:none in css for textarea */}
-          {/* <textarea 
-            onChange={this.update('body')} className="body-field" placeholder='Add your comment...'
-            // name='text'
-            // oninput='this.style.height = "20px";this.style.height = this.scrollHeight + "px"'
-            id="" cols="30" rows="10"
-          >    
-          </textarea> */}
-
           <div className='body-field-container'>
-              <textarea 
-                // style={heightStyle}
-                onChange={this.update('body')} className="body-field"
-                placeholder='Add your comment...' 
-                onFocus={() => this.toggleForm(true)}
+            <textarea 
+                className="body-field"
+                placeholder='Add your comment...'
                 value={this.state.body}
-              >
-              </textarea>
+                onChange={this.update('body')}
+                onFocus={() => this.toggleForm(true)}
+            >
+            </textarea>
           </div>
           <div className={buttonsClassName()}>
             <button className='cancel-button' onClick={() => this.toggleForm(false)}>CANCEL</button>

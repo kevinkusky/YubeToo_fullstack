@@ -1,5 +1,5 @@
 class Api::LikesController < ApplicationController
-    before_action :ensure_logged_in, only: [:create, :update, :destroy]
+    before_action :ensure_logged_in, only: [:create, :destroy]
 
     def create
         @like = Like.create(like_params)

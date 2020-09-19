@@ -12,13 +12,14 @@ export const fetchLike = (id) =>
   }
 );
 
-export const createLike = form =>
+export const createLike = (form) =>
   $.ajax({
-    method: 'POST',
-    url: 'api/likes',
-    data: {form}
-  }
-);
+    method: "POST",
+    url: "api/likes",
+    data: form,
+    contentType: false,
+    processData: false,
+  });
 
 export const editLike = like =>
   $.ajax({

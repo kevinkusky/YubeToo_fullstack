@@ -32,16 +32,18 @@ class VideoShow extends React.Component{
         // debugger;
         if (!this.state.video){return null;}
 
-        const {views, uploadDate, title, videoUrl, comments, likes, dislikes, creatorName, description} = this.state.video;
+        const {views, uploadDate, title, videoUrl, comments, likes, dislikes, creatorName, description, totalComments} = this.state.video;
 
         // packages likes to pass as singular prop for consistancy with displayed comment likes
         const likeObject = {
             likes: likes,
             dislikes: dislikes
         };
-
+        
         // constant creates sharable url for user to share video
         const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${this.state.video.id}`;
+
+        const formatTotalComments = totalComments === 1 ? '1 Comment' : `${totalComments} Comments`; 
 
         return (
           <div>
@@ -59,7 +61,11 @@ class VideoShow extends React.Component{
                     <span>{uploadDate}</span>
                   </div>
                   <div className="right-stats">
-                    <Likes allLikes={likeObject}/>
+                    <Likes 
+                        allLikes={likeObject}
+                        contentType='video'
+                        contentId={this.props.videoId}
+                    />
                     <CopyToClipboard
                       text={shareURL}
                       onCopy={() => this.setState({ copied: true })}
@@ -84,7 +90,7 @@ class VideoShow extends React.Component{
                 <div className="description">{description}</div>
               </div>
               <div className="comments">
-                <h4>{`${comments.length} Comments`}</h4>
+                <h4>{formatTotalComments}</h4>
                 <CommentForm formType="create" />
                 {/* <CommentIndex comments={comments} /> */}
               </div>
