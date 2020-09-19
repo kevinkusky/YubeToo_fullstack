@@ -1,5 +1,5 @@
 json.extract! video, :id, :title, :description, :duration, :creator_id
-json.creator video.creator
+json.creatorName video.creator.username
 json.views video.views.length
 json.uploadDate video.created_at.strftime('%b, %d %Y')
 json.uploadTime video.time_since_upload

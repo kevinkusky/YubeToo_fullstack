@@ -21,45 +21,45 @@ class VideoShow extends React.Component{
     }
 
     componentDidMount(){
+        // ensures reloading on refresh
         this.props.fetchVideo(this.props.videoId).then(
             res => this.setState({video: res.video})
         );
     }
-
-    // componentDidUpdate(){
-    //     this.props.video ? null : () => (
-    //         this.props.fetchVideo(this.props.videoId).then(
-    //             res => this.setState({video: res})
-    //         );
-    //     );
-    // }
 
     render(){
         console.log(this.state.video);
         // debugger;
         if (!this.state.video){return null;}
 
-        const {views, uploadDate, title, videoUrl, comments, likes, creator, description} = this.state.video;
-        
+        const {views, uploadDate, title, videoUrl, comments, likes, dislikes, creatorName, description} = this.state.video;
+
+        // packages likes to pass as singular prop for consistancy with displayed comment likes
+        const likeObject = {
+            likes: likes,
+            dislikes: dislikes
+        };
+
+        // constant creates sharable url for user to share video
         const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${this.state.video.id}`;
-        // debugger
+
         return (
           <div>
             <TopNav />
             <div className="video-show">
               <div className="video">
-                <video src={videoUrl} controls></video>
+                <video src={videoUrl} controls alt={`video is ${title}`}></video>
               </div>
               <div className="video-details">
                 <h2>{title} </h2>
                 <div className="video-stats">
                   <div className="left-stats">
                     <span>{`${views} views`}</span>
-                    <span>• </span>
+                    <span>•</span>
                     <span>{uploadDate}</span>
                   </div>
                   <div className="right-stats">
-                    <Likes />
+                    <Likes allLikes={likeObject}/>
                     <CopyToClipboard
                       text={shareURL}
                       onCopy={() => this.setState({ copied: true })}
@@ -76,7 +76,7 @@ class VideoShow extends React.Component{
                 <div className="top-info">
                   <UserIcon className="drop-header-icon" />
                   <div className="name-n-number">
-                    <h4>{creator.username}</h4>
+                    <h4>{creatorName}</h4>
                     {/* <span>{subCount}</span> */}
                   </div>
                   {/* <button>SUBSCRIBE</button> */}

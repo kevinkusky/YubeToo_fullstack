@@ -38,7 +38,11 @@ class CommentForm extends React.Component {
   }
 
   update(field) {
-    return (e) => this.setState({ [field]: e.currentTarget.value });
+    return (e) => {
+        this.setState({ [field]: e.currentTarget.value });
+        e.target.style.height = '27px';
+        e.target.style.height = `${e.currentTarget.scrollHeight}px`;
+    };
   }
 
   handleSubmit() {
