@@ -54,7 +54,9 @@ class VideoShow extends React.Component{
                 <h2>{title} </h2>
                 <div className="video-stats">
                   <div className="left-stats">
-                    {`${views} views`} • {uploadDate}
+                    <span>{`${views} views`}</span>
+                    <span>• </span>
+                    <span>{uploadDate}</span>
                   </div>
                   <div className="right-stats">
                     <Likes />
@@ -82,6 +84,7 @@ class VideoShow extends React.Component{
                 <div className="description">{description}</div>
               </div>
               <div className="comments">
+                <h4>{`${comments.length} Comments`}</h4>
                 <CommentForm formType="create" />
                 {/* <CommentIndex comments={comments} /> */}
               </div>

@@ -43,10 +43,13 @@
     margin-bottom: 13px;
 }
 
+.left-stats span { padding-right: 5px;}
+
 .right-stats{
     display: flex;
     justify-content: space-evenly;
-    flex: 0.75
+    flex: 0.7;
+    margin-bottom: 13px
 }
 
 .share-button {
@@ -88,20 +91,22 @@
     border-bottom: 1px solid rgb(187, 180, 180);
     border-top: 1px solid rgb(187, 180, 180);
     width: 760px;
-    margin-top: -14px;
 }
 
 .top-info {
-    margin-top: 5px;
     display: flex;
     align-items: center;
     height: 79px;
 
-    .drop-header-icon { margin-right: 20px;}
+    .drop-header-icon { margin-right: 20px; margin-top: -15px;}
+
+    .name-n-number {
+        margin-top: -17px;
+    }
 }
 
 .description {
-    margin-top: -9px;
+    margin-top: -12px;
     margin-left: 75px;
     margin-bottom: 9px;
 }
