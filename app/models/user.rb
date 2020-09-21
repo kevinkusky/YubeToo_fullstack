@@ -40,9 +40,9 @@ class User < ApplicationRecord
         class_name: :Like,
         foreign_key: :liker_id
 
-    has_many :liked_videos,
-        through: :likes,
-        source: :video
+    #has_many :liked_videos,
+    #    through: :likes,
+    #    source: :likeable, as: :Video
 
     # FIGVAPER
     def self.find_by_credentials(email, password)

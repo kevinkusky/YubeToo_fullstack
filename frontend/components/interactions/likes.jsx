@@ -15,28 +15,36 @@ class Likes extends React.Component {
     }
 
     handleClick(type){
-        if(!this.props.currentUser){return false;}
-        let formData = new FormData();
-        formData.append("like[liker_id]", this.props.currentUser.id);
-        formData.append("like[likeable_type]", this.props.contentType);
-        formData.append("like[likeable_id]", this.props.contentId);
+        if(!this.props.currentUser){return null;}
 
-        let dislikeStatus;
-        if(type === "like"){ 
-            // dislikeStatus = {dislike: false};
-            formData.append("like[dislike]", false); 
-            // formData.append("like[dislike]", JSON.stringify(dislikeStatus[dislike]));
-        } else { 
-            // dislikeStatus = {dislike: true};
-            formData.append("like[dislike]", true);
-            // formData.append("like[dislike]", JSON.stringify(dislikeStatus[dislike]));
-        }
+        let newLike = {
+          liker_id: this.props.currentUser.id,
+          likeable_type: this.props.contentType,
+          likeable_id: this.props.contentId,
+          dislike: type === "like" ? false : true,
+        };
 
-        // this.props.createLike(formData);
+        // let formData = new FormData();
+        // formData.append("like[liker_id]", this.props.currentUser.id);
+        // formData.append("like[likeable_type]", this.props.contentType);
+        // formData.append("like[likeable_id]", this.props.contentId);
+
+        // let dislikeStatus;
+        // if(type === "like"){ 
+        //     // dislikeStatus = {dislike: false};
+        //     formData.append("like[dislike]", false); 
+        //     // formData.append("like[dislike]", JSON.stringify(dislikeStatus[dislike]));
+        // } else { 
+        //     // dislikeStatus = {dislike: true};
+        //     formData.append("like[dislike]", true);
+        //     // formData.append("like[dislike]", JSON.stringify(dislikeStatus[dislike]));
+        // }
+
+        this.props.createLike(newLike);
         // reads formData in console for testing
-        for (var pair of formData.entries()) {
-          console.log(pair[0] + ", " + pair[1]);
-        }
+        // for (var pair of formData.entries()) {
+        //   console.log(pair[0] + ", " + pair[1]);
+        // }
     }
 
     render() {

@@ -1,30 +1,28 @@
 export const fetchLikes = () =>
   $.ajax({
     method: 'GET',
-    url: 'api/likes',
+    url: '/api/likes',
   }
 );
 
 export const fetchLike = (id) =>
   $.ajax({
     method: 'GET',
-    url: `api/likes/${id}`,
+    url: `/api/likes/${id}`,
   }
 );
 
-export const createLike = (form) =>
+export const createLike = like =>
   $.ajax({
     method: "POST",
-    url: "api/likes",
-    data: form,
-    contentType: false,
-    processData: false,
+    url: "/api/likes",
+    data: { like }
   });
 
 export const editLike = like =>
   $.ajax({
     method: 'PATCH',
-    url: `api/likes/${like.id}`,
+    url: `/api/likes/${like.id}`,
     data: {like}
   }
 );
@@ -32,6 +30,6 @@ export const editLike = like =>
 export const removeLike = id =>
   $.ajax({
     method: 'DELETE',
-    url: `api/likes/${id}`
+    url: `/api/likes/${id}`
   }
 );

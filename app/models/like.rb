@@ -13,15 +13,15 @@
 
 class Like < ApplicationRecord
     validates :liker_id, :likeable_type, :likeable_id, presence: true
+    validates :likeable_type, inclusion: { in: ['Video', 'Comment'] }
     validates :dislike, inclusion: { in: [true, false] }
-    validates :liker_id, uniqueness: { scope: [:likeable_id, :likeable_type] }
 
     belongs_to :likeable,
         polymorphic: true
 
     belongs_to :liker,
         foreign_key: :liker_id,
-        class_name: :Users
+        class_name: :User
 
     def self.filter_likes(type, id)
         Like.where(

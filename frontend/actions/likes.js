@@ -30,8 +30,8 @@ export const fetchLike = id => dispatch => (
     )
 );
 
-export const createLike = form => dispatch => (
-    APIUtil.createLike(form).then(
+export const createLike = like => dispatch => (
+    APIUtil.createLike(like).then(
         like => dispatch(receiveLike(like))
     )
 );

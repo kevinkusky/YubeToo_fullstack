@@ -39,7 +39,7 @@ class VideoShow extends React.Component{
             likes: likes,
             dislikes: dislikes
         };
-        
+
         // constant creates sharable url for user to share video
         const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${this.state.video.id}`;
 
@@ -63,7 +63,7 @@ class VideoShow extends React.Component{
                   <div className="right-stats">
                     <Likes 
                         allLikes={likeObject}
-                        contentType='video'
+                        contentType='Video'
                         contentId={this.props.videoId}
                     />
                     <CopyToClipboard
