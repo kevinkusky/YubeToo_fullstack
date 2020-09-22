@@ -47,20 +47,31 @@ class Likes extends React.Component {
                 this.setState({userStatus: true});
                 this.props.createLike(newLike);
                 break;
-            // case(true):
-            //     if (this.state.likeStatus && !newLike.dislike) {
-            //         this.setState({ likeStatus: false});
-            //         this.props.deleteLike();
-            //     } else if ( this.state.dislikeStatus && newLike.dislike) {
-            //         this.setState({ dislikeStatus: false});
-            //         this.props.deleteLike();
-            //     } else {
-            //         newLike.dislike ? 
-            //         this.setState({ dislikeStatus: true, likeStatus: false }) : 
-            //         this.setState({ likeStatus: true, dislikeStatus: false });
-            //         this.props.editLike(newLike);
-            //     }
-            //     break;
+            case(true):
+                const existingLike = this.state.likeStatus ? 
+                    this.state.likes.filter(like => like.liker_id === this.props.currentUser.id) :
+                    this.state.dislikes.filter(like => like.liker_id === this.props.currentUser.id);
+        
+                    // console.log(existingLike[0].id);
+                    // console.log(existingLike[0].dislike);
+                    // console.log(existingLike[0]);
+            
+                if (this.state.likeStatus && !newLike.dislike) {
+                    this.setState({ likeStatus: false});
+                    this.props.deleteLike(existingLike.id);
+                } else if ( this.state.dislikeStatus && newLike.dislike) {
+                    this.setState({ dislikeStatus: false});
+                    this.props.deleteLike(existingLike.id);
+                } else {
+                    newLike.dislike ? 
+                        this.setState({ dislikeStatus: true, likeStatus: false }) : 
+                        this.setState({ likeStatus: true, dislikeStatus: false })
+                    ;
+                    
+                    newLike.id = existingLike[0].id;
+                    this.props.editLike(newLike);
+                }
+                break;
             default: 
                 return null;
         }
@@ -95,6 +106,7 @@ class Likes extends React.Component {
 
 const mSTP = (state) => ({
   currentUser: state.session.currentUser ? state.session.currentUser : null,
+  userLikes: state.session.currentUser.userLikes
 });
 
 const mDTP = dispatch => ({

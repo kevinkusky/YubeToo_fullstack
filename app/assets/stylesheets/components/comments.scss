@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .body-field-container {
     width: 80%;
     margin-top: 5px;
@@ -66,5 +65,22 @@
     border: none;
     margin-right: 2px;
     cursor: pointer;
+}
+
+.comment-index-item{
+    margin-top: 15px;
+}
+
+.comment-interaction {
+    display: flex;
+    margin-top: 8px;
+
+    .comment-reply {
+        border: none;
+        outline: none;
+        background-color: #f9f9f9;
+        cursor: pointer;
+        color: rgb(97, 97, 97);
+    }
 }
 

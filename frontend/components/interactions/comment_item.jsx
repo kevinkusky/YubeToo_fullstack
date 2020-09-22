@@ -1,5 +1,11 @@
 import React from 'react';
 
+import Likes from './likes';
+import CommentForm from './comment_form';
+
+import CommentControls from "@material-ui/icons/MoreVert";
+
+
 class CommentIndexItem extends React.Component {
     constructor(props){
         super(props);
@@ -8,13 +14,19 @@ class CommentIndexItem extends React.Component {
     render() {
 
         return(
-            <div>
+            <div className='comment-index-item'>
                 <div>
                     {/* {this.props.comment.body} */}
+                    I am a test comment - hear me rawr
                 </div>
                 <div className='comment-interaction'>
-                    {/* <button onClick={this.props.commentForm(sub)}>Reply</button> */}
-                    {/* <LikeComponent /> */}
+                    <Likes 
+                        likes={[]}
+                        dislikes={[]}
+                        contentType='Comment'
+                        contentId={1}
+                    />
+                    <button className='comment-reply'>REPLY</button>
                 </div>
             </div>
         )
