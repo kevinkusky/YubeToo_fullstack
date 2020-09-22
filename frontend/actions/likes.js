@@ -43,7 +43,7 @@ export const editLike = like => dispatch => (
 );
 
 export const deleteLike = id => dispatch => (
-    APIUtil.removeLike().then(
+    APIUtil.removeLike(id).then(
         () => dispatch(removeLike())
     )
 );

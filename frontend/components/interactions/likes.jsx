@@ -51,17 +51,18 @@ class Likes extends React.Component {
                 const existingLike = this.state.likeStatus ? 
                     this.state.likes.filter(like => like.liker_id === this.props.currentUser.id) :
                     this.state.dislikes.filter(like => like.liker_id === this.props.currentUser.id);
-        
-                    // console.log(existingLike[0].id);
+                    
+                    console.log(existingLike);
+                    console.log(existingLike[0]);
+                    console.log(existingLike[0].id);
                     // console.log(existingLike[0].dislike);
-                    // console.log(existingLike[0]);
             
                 if (this.state.likeStatus && !newLike.dislike) {
                     this.setState({ likeStatus: false});
-                    this.props.deleteLike(existingLike.id);
+                    this.props.deleteLike(existingLike[0].id);
                 } else if ( this.state.dislikeStatus && newLike.dislike) {
                     this.setState({ dislikeStatus: false});
-                    this.props.deleteLike(existingLike.id);
+                    this.props.deleteLike(existingLike[0].id);
                 } else {
                     newLike.dislike ? 
                         this.setState({ dislikeStatus: true, likeStatus: false }) : 
