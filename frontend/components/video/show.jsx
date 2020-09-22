@@ -34,12 +34,6 @@ class VideoShow extends React.Component{
 
         const {views, uploadDate, title, videoUrl, comments, likes, dislikes, creatorName, description, totalComments} = this.state.video;
 
-        // packages likes to pass as singular prop for consistancy with displayed comment likes
-        const likeObject = {
-            likes: likes,
-            dislikes: dislikes
-        };
-
         // constant creates sharable url for user to share video
         const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${this.state.video.id}`;
 
@@ -62,7 +56,8 @@ class VideoShow extends React.Component{
                   </div>
                   <div className="right-stats">
                     <Likes 
-                        allLikes={likeObject}
+                        likes={likes}
+                        dislikes={dislikes}
                         contentType='Video'
                         contentId={this.props.videoId}
                     />

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import {editLike, createLike} from '../../actions/likes';
+import {editLike, createLike, deleteLike} from '../../actions/likes';
 
 import UpIcon from "@material-ui/icons/ThumbUpAlt";
 import DownIcon from "@material-ui/icons/ThumbDownAlt";
@@ -11,7 +11,25 @@ class Likes extends React.Component {
     constructor(props){
         super(props);
 
+        this.state = {
+            likes: this.props.likes,
+            dislikes: this.props.dislikes,
+            likeStatus: this.props.likes.filter(
+                like => like.liker_id === this.props.currentUser.id
+            ).length > 0,
+            dislikeStatus: this.props.dislikes.filter(
+                like => like.liker_id === this.props.currentUser.id
+            ).length > 0,
+            userStatus: false,
+        };
+
         this.handleClick = this.handleClick.bind(this);
+    }
+
+    componentDidMount(){
+        if (this.state.likeStatus || this.state.dislikeStatus) {
+            this.setState({ userStatus: true });
+        }
     }
 
     handleClick(type){
@@ -24,27 +42,35 @@ class Likes extends React.Component {
           dislike: type === "like" ? false : true,
         };
 
-        this.props.createLike(newLike);
+        switch(this.state.userStatus){
+            case(false):
+                this.setState({userStatus: true});
+                this.props.createLike(newLike);
+                break;
+            // case(true):
+            //     if (this.state.likeStatus && !newLike.dislike) {
+            //         this.setState({ likeStatus: false});
+            //         this.props.deleteLike();
+            //     } else if ( this.state.dislikeStatus && newLike.dislike) {
+            //         this.setState({ dislikeStatus: false});
+            //         this.props.deleteLike();
+            //     } else {
+            //         newLike.dislike ? 
+            //         this.setState({ dislikeStatus: true, likeStatus: false }) : 
+            //         this.setState({ likeStatus: true, dislikeStatus: false });
+            //         this.props.editLike(newLike);
+            //     }
+            //     break;
+            default: 
+                return null;
+        }
     }
 
     render() {
-        const {likes, dislikes} = this.props.allLikes;
-        // console.log(likes[0]);
-        // console.log(this.props.currentUser.id);
-        // console.log(dislikes.filter(
-        //     like => like.liker_id === this.props.currentUser.id
-        // ));
-        let dislikeStatus = dislikes.filter(
-          (dislike) => dislike.liker_id === this.props.currentUser.id
-        );
+        console.log(this.state);
 
-        let likeStatus = likes.filter(
-            (like) => like.liker_id === this.props.currentUser.id
-        );
-
-        const activeLikeClass = likeStatus.length > 0 ? 'active-like' : 'inactive-like';
-
-        const activeDislikeClass = dislikeStatus.length === 1 ? 'active-like' : 'inactive-like';
+        const activeLikeClass = this.state.likeStatus ? 'active-like' : 'inactive-like';
+        const activeDislikeClass = this.state.dislikeStatus ? 'active-like' : 'inactive-like';
     
         return (
           <div className="like-container">
@@ -53,14 +79,14 @@ class Likes extends React.Component {
                 className='like-icon'
                 onClick={() => this.handleClick("like")}
               />
-              <span>{likes.length}</span>
+              <span>{this.state.likes.length}</span>
             </div>
             <div className={`like-item ${activeDislikeClass}`}>
               <DownIcon
                 className='like-icon'
                 onClick={() => this.handleClick("dislike")}
               />
-              <span>{dislikes.length}</span>
+              <span>{this.state.dislikes.length}</span>
             </div>
           </div>
         );
@@ -72,9 +98,9 @@ const mSTP = (state) => ({
 });
 
 const mDTP = dispatch => ({
-    createLike: form => dispatch(createLike(form)),
-    editLike: form => dispatch(editLike(form)),
+    createLike: like => dispatch(createLike(like)),
+    editLike: like => dispatch(editLike(like)),
+    deleteLike: id => dispatch(deleteLike(id)),
 });
 
 export default withRouter(connect(mSTP, mDTP)(Likes));
-// export default withRouter(Likes);
