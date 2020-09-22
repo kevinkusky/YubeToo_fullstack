@@ -3,6 +3,7 @@ json.extract! user, :id, :email, :username
 #     json.set! video.id do
 #         json.partial! '/api/videos/video', video: video
 #     end
+json.userLikes user.likes
 json.videosViewed user.viewed_videos.uniq.reverse() do |video|
     json.id video.id
     json.title video.title

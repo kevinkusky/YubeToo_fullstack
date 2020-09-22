@@ -1,3 +1,31 @@
 // Place all the styles related to the Likes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.like-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    width: 90px;
+    
+    span {
+        font-size: 15px;
+        margin-left: 3px;
+    }
+}
+
+
+.like-container {
+    display: flex;
+    justify-content: space-between;
+    width: 110px;
+    cursor: pointer;
+    
+    .active-like {
+        color: rgba($color: #2f35d3, $alpha: 1.0) !important;
+    }
+    
+    .inactive-like {
+        color: rgb(97, 97, 97) !important;
+    }
+}

@@ -24,44 +24,41 @@ class Likes extends React.Component {
           dislike: type === "like" ? false : true,
         };
 
-        // let formData = new FormData();
-        // formData.append("like[liker_id]", this.props.currentUser.id);
-        // formData.append("like[likeable_type]", this.props.contentType);
-        // formData.append("like[likeable_id]", this.props.contentId);
-
-        // let dislikeStatus;
-        // if(type === "like"){ 
-        //     // dislikeStatus = {dislike: false};
-        //     formData.append("like[dislike]", false); 
-        //     // formData.append("like[dislike]", JSON.stringify(dislikeStatus[dislike]));
-        // } else { 
-        //     // dislikeStatus = {dislike: true};
-        //     formData.append("like[dislike]", true);
-        //     // formData.append("like[dislike]", JSON.stringify(dislikeStatus[dislike]));
-        // }
-
         this.props.createLike(newLike);
-        // reads formData in console for testing
-        // for (var pair of formData.entries()) {
-        //   console.log(pair[0] + ", " + pair[1]);
-        // }
     }
 
     render() {
         const {likes, dislikes} = this.props.allLikes;
+        // console.log(likes[0]);
+        // console.log(this.props.currentUser.id);
+        // console.log(dislikes.filter(
+        //     like => like.liker_id === this.props.currentUser.id
+        // ));
+        let dislikeStatus = dislikes.filter(
+          (dislike) => dislike.liker_id === this.props.currentUser.id
+        );
+
+        let likeStatus = likes.filter(
+            (like) => like.liker_id === this.props.currentUser.id
+        );
+
+        const activeLikeClass = likeStatus.length > 0 ? 'active-like' : 'inactive-like';
+
+        const activeDislikeClass = dislikeStatus.length === 1 ? 'active-like' : 'inactive-like';
+    
         return (
           <div className="like-container">
-            <div className="like-item">
+            <div className={`like-item ${activeLikeClass}`}>
               <UpIcon
-                className="like-icon"
-                onClick={() => this.handleClick('like')}
+                className='like-icon'
+                onClick={() => this.handleClick("like")}
               />
               <span>{likes.length}</span>
             </div>
-            <div className="like-item">
+            <div className={`like-item ${activeDislikeClass}`}>
               <DownIcon
-                className="like-icon"
-                onClick={() => this.handleClick('dislike')}
+                className='like-icon'
+                onClick={() => this.handleClick("dislike")}
               />
               <span>{dislikes.length}</span>
             </div>

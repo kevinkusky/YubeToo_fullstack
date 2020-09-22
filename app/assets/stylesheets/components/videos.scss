@@ -63,26 +63,6 @@
     cursor: pointer;
 }
 
-.like-item {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    width: 90px;
-    
-    span {
-        font-size: 15px;
-        margin-left: 3px;
-    }
-}
-
-.like-container {
-    display: flex;
-    justify-content: space-between;
-    width: 110px;
-    color: rgb(97, 97, 97) !important;
-    cursor: pointer;
-}
-
 .share-icon {
      cursor: pointer;
 }
