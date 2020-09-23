@@ -14,7 +14,8 @@
 #               api_comment PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           PUT    /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           DELETE /api/comments/:id(.:format)                                                              api/comments#destroy {:format=>:json}
-#                 api_likes POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
+#                 api_likes GET    /api/likes(.:format)                                                                     api/likes#index {:format=>:json}
+#                           POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
 #                  api_like PATCH  /api/likes/:id(.:format)                                                                 api/likes#update {:format=>:json}
 #                           PUT    /api/likes/:id(.:format)                                                                 api/likes#update {:format=>:json}
 #                           DELETE /api/likes/:id(.:format)                                                                 api/likes#destroy {:format=>:json}
@@ -35,8 +36,14 @@ Rails.application.routes.draw do
     namespace :api, defaults:{ format: :json } do
         resources :users, only: [:create]
         resources :videos, only: [:create, :destroy, :show, :index, :update]
-        resources :comments, only: [:create, :destroy, :index, :update]
-        resources :likes, only: [:create, :update, :destroy]
+        #resources :videos do
+        #    resources :likes, only: [:index]
+        #end
+        #resources :comments do
+        #    resources :like, only: [:index]
+        #end
+        resources :comments, only: [:create, :destroy, :update, :index]
+        resources :likes, only: [:index, :create, :update, :destroy]
         resources :views, only: [:create]
         resource :session, only: [:new, :create, :destroy]
     end

@@ -14,8 +14,9 @@ const receiveLike = like => ({
     like
 });
 
-const removeLike = () => ({
-    type: REMOVE_LIKE
+const removeLike = likeable => ({
+    type: REMOVE_LIKE,
+    likeable
 });
 
 export const fetchLikes = () => dispatch => (
@@ -44,6 +45,6 @@ export const editLike = like => dispatch => (
 
 export const deleteLike = id => dispatch => (
     APIUtil.removeLike(id).then(
-        () => dispatch(removeLike())
+        (likeable) => dispatch(removeLike(likeable))
     )
 );

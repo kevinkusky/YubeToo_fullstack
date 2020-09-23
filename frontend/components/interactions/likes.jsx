@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import {editLike, createLike, deleteLike} from '../../actions/likes';
+import {editLike, createLike, deleteLike, fetchLikes} from '../../actions/likes';
 
 import UpIcon from "@material-ui/icons/ThumbUpAlt";
 import DownIcon from "@material-ui/icons/ThumbDownAlt";
@@ -26,6 +26,15 @@ class Likes extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    componentDidUpdate(){
+        this.props.fetchLikes();
+        // .then(
+        //     res => this.setState({
+        //         likes: res.Object.values(like => like.dislike === false),
+        //         dislikes: res.Object.values(like => like.dislike === true)
+        //     }) 
+        // );
+    }
     componentDidMount(){
         if (this.state.likeStatus || this.state.dislikeStatus) {
             this.setState({ userStatus: true });
@@ -52,16 +61,16 @@ class Likes extends React.Component {
                     this.state.likes.filter(like => like.liker_id === this.props.currentUser.id) :
                     this.state.dislikes.filter(like => like.liker_id === this.props.currentUser.id);
                     
-                    console.log(existingLike);
-                    console.log(existingLike[0]);
-                    console.log(existingLike[0].id);
+                    // console.log(existingLike);
+                    // console.log(existingLike[0]);
+                    // console.log(existingLike[0].id);
                     // console.log(existingLike[0].dislike);
             
                 if (this.state.likeStatus && !newLike.dislike) {
-                    this.setState({ likeStatus: false});
+                    this.setState({ likeStatus: false, userStatus: false});
                     this.props.deleteLike(existingLike[0].id);
                 } else if ( this.state.dislikeStatus && newLike.dislike) {
-                    this.setState({ dislikeStatus: false});
+                    this.setState({ dislikeStatus: false, userStatus: false});
                     this.props.deleteLike(existingLike[0].id);
                 } else {
                     newLike.dislike ? 
@@ -111,6 +120,7 @@ const mSTP = (state) => ({
 });
 
 const mDTP = dispatch => ({
+    fetchLikes: () => dispatch(fetchLikes()),
     createLike: like => dispatch(createLike(like)),
     editLike: like => dispatch(editLike(like)),
     deleteLike: id => dispatch(deleteLike(id)),
