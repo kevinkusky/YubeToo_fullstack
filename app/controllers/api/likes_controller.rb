@@ -15,6 +15,10 @@ class Api::LikesController < ApplicationController
         end
     end
 
+    def show
+        @like = Like.find(params[:id])
+    end
+
     def update
         # debugger
         @like = Like.find_by(id: like_params[:id])

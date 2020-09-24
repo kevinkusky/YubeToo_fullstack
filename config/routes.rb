@@ -16,7 +16,8 @@
 #                           DELETE /api/comments/:id(.:format)                                                              api/comments#destroy {:format=>:json}
 #                 api_likes GET    /api/likes(.:format)                                                                     api/likes#index {:format=>:json}
 #                           POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
-#                  api_like PATCH  /api/likes/:id(.:format)                                                                 api/likes#update {:format=>:json}
+#                  api_like GET    /api/likes/:id(.:format)                                                                 api/likes#show {:format=>:json}
+#                           PATCH  /api/likes/:id(.:format)                                                                 api/likes#update {:format=>:json}
 #                           PUT    /api/likes/:id(.:format)                                                                 api/likes#update {:format=>:json}
 #                           DELETE /api/likes/:id(.:format)                                                                 api/likes#destroy {:format=>:json}
 #                 api_views POST   /api/views(.:format)                                                                     api/views#create {:format=>:json}
@@ -43,7 +44,7 @@ Rails.application.routes.draw do
         #    resources :like, only: [:index]
         #end
         resources :comments, only: [:create, :destroy, :update, :index]
-        resources :likes, only: [:index, :create, :update, :destroy]
+        resources :likes, only: [:index, :show, :create, :update, :destroy]
         resources :views, only: [:create]
         resource :session, only: [:new, :create, :destroy]
     end

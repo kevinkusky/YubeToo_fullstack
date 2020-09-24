@@ -19,11 +19,16 @@ const removeLike = likeable => ({
     likeable
 });
 
-export const fetchLikes = () => dispatch => (
+export const fetchLikes = () => dispatch => {
     APIUtil.fetchLikes().then(
-        likes => dispatch(receiveLikes(likes))
-    )
-);
+        likes => {
+            debugger
+            return(
+                dispatch(receiveLikes(likes))
+            );
+        }
+    );
+};
 
 export const fetchLike = id => dispatch => (
     APIUtil.fetchLike(id).then(
