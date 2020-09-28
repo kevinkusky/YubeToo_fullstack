@@ -9,13 +9,30 @@
 #                           PATCH  /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
 #                           PUT    /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
 #                           DELETE /api/videos/:id(.:format)                                                                api/videos#destroy {:format=>:json}
+#           api_video_likes GET    /api/videos/:video_id/likes(.:format)                                                    api/likes#index {:format=>:json}
+#                           GET    /api/videos(.:format)                                                                    api/videos#index {:format=>:json}
+#                           POST   /api/videos(.:format)                                                                    api/videos#create {:format=>:json}
+#             new_api_video GET    /api/videos/new(.:format)                                                                api/videos#new {:format=>:json}
+#            edit_api_video GET    /api/videos/:id/edit(.:format)                                                           api/videos#edit {:format=>:json}
+#                           GET    /api/videos/:id(.:format)                                                                api/videos#show {:format=>:json}
+#                           PATCH  /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
+#                           PUT    /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
+#                           DELETE /api/videos/:id(.:format)                                                                api/videos#destroy {:format=>:json}
+#         api_comment_likes GET    /api/comments/:comment_id/likes(.:format)                                                api/likes#index {:format=>:json}
 #              api_comments GET    /api/comments(.:format)                                                                  api/comments#index {:format=>:json}
 #                           POST   /api/comments(.:format)                                                                  api/comments#create {:format=>:json}
-#               api_comment PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
+#           new_api_comment GET    /api/comments/new(.:format)                                                              api/comments#new {:format=>:json}
+#          edit_api_comment GET    /api/comments/:id/edit(.:format)                                                         api/comments#edit {:format=>:json}
+#               api_comment GET    /api/comments/:id(.:format)                                                              api/comments#show {:format=>:json}
+#                           PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           PUT    /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           DELETE /api/comments/:id(.:format)                                                              api/comments#destroy {:format=>:json}
-#                 api_likes GET    /api/likes(.:format)                                                                     api/likes#index {:format=>:json}
-#                           POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
+#                           GET    /api/comments(.:format)                                                                  api/comments#index {:format=>:json}
+#                           POST   /api/comments(.:format)                                                                  api/comments#create {:format=>:json}
+#                           PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
+#                           PUT    /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
+#                           DELETE /api/comments/:id(.:format)                                                              api/comments#destroy {:format=>:json}
+#                 api_likes POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
 #                  api_like GET    /api/likes/:id(.:format)                                                                 api/likes#show {:format=>:json}
 #                           PATCH  /api/likes/:id(.:format)                                                                 api/likes#update {:format=>:json}
 #                           PUT    /api/likes/:id(.:format)                                                                 api/likes#update {:format=>:json}
@@ -37,14 +54,14 @@ Rails.application.routes.draw do
     namespace :api, defaults:{ format: :json } do
         resources :users, only: [:create]
         resources :videos, only: [:create, :destroy, :show, :index, :update]
-        #resources :videos do
-        #    resources :likes, only: [:index]
-        #end
-        #resources :comments do
-        #    resources :like, only: [:index]
-        #end
+        resources :videos do
+            resources :likes, only: [:index]
+        end
+        resources :comments do
+            resources :likes, only: [:index]
+        end
         resources :comments, only: [:create, :destroy, :update, :index]
-        resources :likes, only: [:index, :show, :create, :update, :destroy]
+        resources :likes, only: [ :show, :create, :update, :destroy]
         resources :views, only: [:create]
         resource :session, only: [:new, :create, :destroy]
     end

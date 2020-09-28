@@ -21,7 +21,7 @@ class Api::LikesController < ApplicationController
 
     def update
         # debugger
-        @like = Like.find_by(id: like_params[:id])
+        @like = Like.find(params[:id])
         if @like.update_attributes(like_params)
             render :show
         else

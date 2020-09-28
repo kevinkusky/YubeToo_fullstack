@@ -1,7 +1,14 @@
-export const fetchLikes = () =>
+export const fetchVideoLikes = (videoId) =>
   $.ajax({
     method: 'GET',
-    url: '/api/likes',
+    url: `/api/videos/${videoId}/likes`,
+  }
+);
+
+export const fetchCommentLikes = (commentId) =>
+  $.ajax({
+    method: 'GET',
+    url: `/api/comments/${commentId}/likes`,
   }
 );
 

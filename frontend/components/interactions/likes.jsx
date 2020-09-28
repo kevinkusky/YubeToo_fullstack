@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import {editLike, createLike, deleteLike, fetchLikes} from '../../actions/likes';
+import {editLike, createLike, deleteLike, fetchCommentLikes, fetchVideoLikes} from '../../actions/likes';
 
 import UpIcon from "@material-ui/icons/ThumbUpAlt";
 import DownIcon from "@material-ui/icons/ThumbDownAlt";
@@ -12,6 +12,8 @@ class Likes extends React.Component {
         super(props);
 
         this.state = {
+            likeType: this.props.contentType,
+            contentId: this.props.contentId,
             likes: this.props.likes,
             dislikes: this.props.dislikes,
             likeStatus: this.props.likes.filter(
@@ -27,7 +29,9 @@ class Likes extends React.Component {
     }
 
     componentDidUpdate(){
-        this.props.fetchLikes();
+        this.state.likeType === "Video" ? 
+            this.props.fetchVideoLikes(this.state.contentId) : 
+            this.props.fetchCommentLikes(this.state.contentId);
         // .then(
         //     res => this.setState({
         //         likes: res.Object.values(like => like.dislike === false),
@@ -36,6 +40,11 @@ class Likes extends React.Component {
         // );
     }
     componentDidMount(){
+        // debugger
+        this.state.likeType === 'Video' ?
+            this.props.fetchVideoLikes(this.state.contentId) :
+            this.props.fetchCommentLikes(this.state.contentId);
+
         if (this.state.likeStatus || this.state.dislikeStatus) {
             this.setState({ userStatus: true });
         }
@@ -88,7 +97,7 @@ class Likes extends React.Component {
     }
 
     render() {
-        console.log(this.state);
+        // console.log(this.state);
 
         const activeLikeClass = this.state.likeStatus ? 'active-like' : 'inactive-like';
         const activeDislikeClass = this.state.dislikeStatus ? 'active-like' : 'inactive-like';
@@ -120,7 +129,8 @@ const mSTP = (state) => ({
 });
 
 const mDTP = dispatch => ({
-    fetchLikes: () => dispatch(fetchLikes()),
+    fetchVideoLikes: videoId => dispatch(fetchVideoLikes(videoId)),
+    fetchCommentLikes: commentId => dispatch(fetchCommentLikes(commentId)),
     createLike: like => dispatch(createLike(like)),
     editLike: like => dispatch(editLike(like)),
     deleteLike: id => dispatch(deleteLike(id)),
