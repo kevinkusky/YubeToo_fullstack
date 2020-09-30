@@ -9,7 +9,7 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formOpen: false,
+      formOpen: this.props.formType === 'create' ? false : true,
       body: "",
       video_id: this.props.videoId,
       author_id: this.props.authorId,
@@ -28,6 +28,9 @@ class CommentForm extends React.Component {
   }
 
   toggleForm(bool) {
+      if (this.state.formType === 'reply'){
+          this.props.replyHandle();
+        }
     if (bool === false) {
         this.setState({ formOpen: bool });
         this.setState({ body: "" });
