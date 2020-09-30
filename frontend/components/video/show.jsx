@@ -6,8 +6,8 @@ import {withRouter} from 'react-router-dom';
 import TopNav from '../navs/topnav';
 import CommentForm from '../interactions/comment_form';
 import Likes from '../interactions/likes';
-// import CommentIndex from './comment_index';]
-import CommentIndexItem from '../interactions/comment_item';
+import CommentIndex from '../interactions/comment_index';
+// import CommentIndexItem from '../interactions/comment_item';
 
 import UserIcon from "@material-ui/icons/AccountCircle";
 import ShareIcon from "@material-ui/icons/Redo";
@@ -88,8 +88,8 @@ class VideoShow extends React.Component{
               <div className="comments">
                 <h4>{formatTotalComments}</h4>
                 <CommentForm formType="create" />
-                {/* <CommentIndex comments={comments} /> */}
-                <CommentIndexItem />
+                <CommentIndex comments={comments} />
+                {/* <CommentIndexItem /> */}
               </div>
             </div>
           </div>

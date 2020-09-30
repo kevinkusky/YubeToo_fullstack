@@ -4,7 +4,6 @@
 #
 #  id               :bigint           not null, primary key
 #  body             :string           not null
-#  video_id         :integer          not null
 #  author_id        :integer          not null
 #  commentable_id   :integer          not null
 #  created_at       :datetime         not null
@@ -12,13 +11,14 @@
 #  commentable_type :string           not null
 #
 class Comment < ApplicationRecord
-    validates :body, :video_id, :author_id, presence: true
+    validates :body, :author_id, presence: true
 
     belongs_to :commentable,
         polymorphic: true
 
     has_many :comments,
-        as: :commentable
+        as: :commentable,
+        dependent: :destroy
     
     has_many :likes,
         as: :likeable,
@@ -29,7 +29,7 @@ class Comment < ApplicationRecord
         class_name: :User
 
     def time_since_post
-        time_difference = Time.now - Time.parse(self.created_at.to_s)
+        time_difference = Time.now - Time.parse(self.updated_at.to_s)
         years_since = (time_difference / 1.year).to_i
         months_since = (time_difference / 1.month).to_i
         weeks_since = (time_difference / 1.week).to_i

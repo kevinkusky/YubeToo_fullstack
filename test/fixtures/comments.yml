@@ -4,7 +4,6 @@
 #
 #  id               :bigint           not null, primary key
 #  body             :string           not null
-#  video_id         :integer          not null
 #  author_id        :integer          not null
 #  commentable_id   :integer          not null
 #  created_at       :datetime         not null

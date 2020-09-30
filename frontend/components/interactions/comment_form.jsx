@@ -51,34 +51,44 @@ class CommentForm extends React.Component {
     };
   }
 
-  handleSubmit() {
-    // e.preventDefault();
-    console.log(this.state.body);
-    // if (!this.state.author_id) {
-    //   this.routeToSession();
-    // } else {
+  handleSubmit(e) {
+    e.preventDefault();
+    // console.log(this.state.body);
+    if (!this.state.author_id) {
+      this.routeToSession();
+    } else {
+        const baseComment = {
+            body: this.state.body,
+            author_id: this.state.author_id
+        };
     //   let formData = new FormData();
     //   formData.append("comment[body]", this.state.body);
     //   formData.append("comment[video_id]", this.state.video_id);
     //   formData.append("comment[author_id]", this.state.author_id);
     //   formData.append("comment[commentable_type]", this.state.commentable_type);
-
-    //   switch (this.state.formType) {
-    //     case "create":
-    //       formData.append("comment[commentable_type]", "video");
-    //       formData.append("comment[commentable_id]", this.state.video_id);
-    //       break;
-    //     case "reply":
-    //       formData.append("comment[commentable_type]", "comment");
-    //       formData.append("comment[commentable_id]", this.state.parentCommentId);
-    //       break;
-    //     default:
-    //       formData.append("comment[commentable_type]", "video");
-    //       formData.append("comment[commentable_id]", this.state.video_id);
-    //       break;
-    //   }
-    //   this.props.createComment(formData);
-    // }
+        let commentItem = {};
+        switch (this.state.formType) {
+            case "create":
+                commentItem = Object.assign({}, baseComment,{
+                    commentable_type: 'Video',
+                    commentable_id: this.state.video_id
+                });
+            break;
+            case "reply":
+                commentItem = Object.assign({}, baseComment, {
+                    commentable_type: "Comment",
+                    commentable_id: this.state.parentCommentId,
+                });
+            break;
+            default:
+                commentItem = Object.assign({}, baseComment,{
+                    commentable_type: 'Video',
+                    commentable_id: this.state.video_id
+                });
+            break;
+        }
+      this.props.createComment(commentItem);
+    }
   }
 
   render() {

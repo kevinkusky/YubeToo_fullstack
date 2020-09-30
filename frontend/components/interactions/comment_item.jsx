@@ -42,7 +42,9 @@ class CommentIndexItem extends React.Component {
                     <button onClick={this.replyHandle} className='comment-reply'>REPLY</button>
                 </div>
                 <div className={replyClass()}>
-                    <CommentForm formType='reply' replyHandle={this.replyHandle}/>
+                    <CommentForm formType='reply' replyHandle={this.replyHandle}
+                        // parentId={this.props.comment.id}
+                    />
                 </div>
             </div>
         )

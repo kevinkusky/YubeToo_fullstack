@@ -12,11 +12,11 @@ export const fetchComment = id => (
     })
 );
 
-export const createComment = form => (
+export const createComment = comment => (
     $.ajax({
         method: 'POST',
         url: 'api/comments',
-        data: {form}
+        data: {comment}
     })
 );
 
