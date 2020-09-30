@@ -28,16 +28,15 @@ class CommentForm extends React.Component {
   }
 
   toggleForm(bool) {
-      if (this.state.formType === 'reply'){
+      if (this.state.formType === 'reply' && bool === false){
           this.props.replyHandle();
-        }
-    if (bool === false) {
+        } else if (bool === false) {
         this.setState({ formOpen: bool });
         this.setState({ body: "" });
 
         // Only one element with classname - toggles the autoresize to default height
         document.getElementsByClassName('body-field')[0].style.height = '22px';
-    } else {
+    } else if (bool === true){
         this.setState({ formOpen: bool });
     }
   }

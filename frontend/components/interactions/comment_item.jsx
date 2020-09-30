@@ -22,11 +22,13 @@ class CommentIndexItem extends React.Component {
     }
 
     render() {
-        const replyOpen = this.state.replyOpen ? 'active-reply' : 'close-reply';
+        const replyClass = () =>(
+            this.state.replyOpen ? 'active-reply' : 'close-reply'
+        ); 
 
         return(
             <div className='comment-index-item'>
-                <div>
+                <div className='comment-body'>
                     {/* {this.props.comment.body} */}
                     I am a test comment - hear me rawr
                 </div>
@@ -39,7 +41,7 @@ class CommentIndexItem extends React.Component {
                     />
                     <button onClick={this.replyHandle} className='comment-reply'>REPLY</button>
                 </div>
-                <div className={replyOpen}>
+                <div className={replyClass()}>
                     <CommentForm formType='reply' replyHandle={this.replyHandle}/>
                 </div>
             </div>

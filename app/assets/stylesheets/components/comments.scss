@@ -4,7 +4,7 @@
 
 .body-field-container {
     width: 80%;
-    margin-top: 5px;
+    margin-top: 10px;
     align-items: center;
     outline: none;
     overflow: hidden;
@@ -69,6 +69,10 @@
 
 .comment-index-item{
     margin-top: 15px;
+}
+
+.comment-body {
+    margin-bottom: 15px;
 }
 
 .comment-interaction {
