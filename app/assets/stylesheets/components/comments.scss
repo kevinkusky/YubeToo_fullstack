@@ -91,3 +91,16 @@
 .close-reply {
     display: none;
 }
+
+.comment-controls {
+    position: absolute;
+    top: 0;
+    right: 90px;
+    // margin-right: 90px;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.comment-control-button {
+    color: rgb(97, 97, 97);
+}

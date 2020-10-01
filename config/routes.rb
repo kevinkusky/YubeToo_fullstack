@@ -3,33 +3,18 @@
 #                    Prefix Verb   URI Pattern                                                                              Controller#Action
 #                      root GET    /                                                                                        static_pages#root
 #                 api_users POST   /api/users(.:format)                                                                     api/users#create {:format=>:json}
+#           api_video_likes GET    /api/videos/:video_id/likes(.:format)                                                    api/likes#index {:format=>:json}
+#        api_video_comments GET    /api/videos/:video_id/comments(.:format)                                                 api/comments#index {:format=>:json}
 #                api_videos GET    /api/videos(.:format)                                                                    api/videos#index {:format=>:json}
 #                           POST   /api/videos(.:format)                                                                    api/videos#create {:format=>:json}
 #                 api_video GET    /api/videos/:id(.:format)                                                                api/videos#show {:format=>:json}
 #                           PATCH  /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
 #                           PUT    /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
 #                           DELETE /api/videos/:id(.:format)                                                                api/videos#destroy {:format=>:json}
-#           api_video_likes GET    /api/videos/:video_id/likes(.:format)                                                    api/likes#index {:format=>:json}
-#        api_video_comments GET    /api/videos/:video_id/comments(.:format)                                                 api/comments#index {:format=>:json}
-#                           GET    /api/videos(.:format)                                                                    api/videos#index {:format=>:json}
-#                           POST   /api/videos(.:format)                                                                    api/videos#create {:format=>:json}
-#             new_api_video GET    /api/videos/new(.:format)                                                                api/videos#new {:format=>:json}
-#            edit_api_video GET    /api/videos/:id/edit(.:format)                                                           api/videos#edit {:format=>:json}
-#                           GET    /api/videos/:id(.:format)                                                                api/videos#show {:format=>:json}
-#                           PATCH  /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
-#                           PUT    /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
-#                           DELETE /api/videos/:id(.:format)                                                                api/videos#destroy {:format=>:json}
 #         api_comment_likes GET    /api/comments/:comment_id/likes(.:format)                                                api/likes#index {:format=>:json}
-#              api_comments GET    /api/comments(.:format)                                                                  api/comments#index {:format=>:json}
-#                           POST   /api/comments(.:format)                                                                  api/comments#create {:format=>:json}
-#           new_api_comment GET    /api/comments/new(.:format)                                                              api/comments#new {:format=>:json}
-#          edit_api_comment GET    /api/comments/:id/edit(.:format)                                                         api/comments#edit {:format=>:json}
-#               api_comment GET    /api/comments/:id(.:format)                                                              api/comments#show {:format=>:json}
-#                           PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
-#                           PUT    /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
-#                           DELETE /api/comments/:id(.:format)                                                              api/comments#destroy {:format=>:json}
-#                           POST   /api/comments(.:format)                                                                  api/comments#create {:format=>:json}
-#                           PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
+#      api_comment_comments GET    /api/comments/:comment_id/comments(.:format)                                             api/comments#index {:format=>:json}
+#              api_comments POST   /api/comments(.:format)                                                                  api/comments#create {:format=>:json}
+#               api_comment PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           PUT    /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           DELETE /api/comments/:id(.:format)                                                              api/comments#destroy {:format=>:json}
 #                 api_likes POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
@@ -53,15 +38,14 @@ Rails.application.routes.draw do
   
     namespace :api, defaults:{ format: :json } do
         resources :users, only: [:create]
-        resources :videos, only: [:create, :destroy, :show, :index, :update]
-        resources :videos do
+        resources :videos, only: [:create, :destroy, :show, :index, :update] do
             resources :likes, only: [:index]
             resources :comments, only: [:index]
         end
-        resources :comments do
+        resources :comments, only: [:create, :destroy, :update] do
             resources :likes, only: [:index]
+            resources :comments, only: [:index]
         end
-        resources :comments, only: [:create, :destroy, :update]
         resources :likes, only: [ :show, :create, :update, :destroy]
         resources :views, only: [:create]
         resource :session, only: [:new, :create, :destroy]
