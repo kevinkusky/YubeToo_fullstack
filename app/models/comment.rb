@@ -11,11 +11,15 @@
 #  commentable_type :string           not null
 #
 class Comment < ApplicationRecord
-    validates :body, :author_id, presence: true
-
+    validates :body, :commentable_type, :commentable_id, :author_id, presence: true
+    
+    belongs_to :commenter,
+        foreign_key: :author_id,
+        class_name: :User
+        
     belongs_to :commentable,
         polymorphic: true
-
+        
     has_many :comments,
         as: :commentable,
         dependent: :destroy
@@ -24,9 +28,6 @@ class Comment < ApplicationRecord
         as: :likeable,
         dependent: :destroy
 
-    belongs_to :commenter,
-        foreign_key: :author_id,
-        class_name: :User
 
     def time_since_post
         time_difference = Time.now - Time.parse(self.updated_at.to_s)

@@ -26,24 +26,32 @@ class CommentIndexItem extends React.Component {
             this.state.replyOpen ? 'active-reply' : 'close-reply'
         ); 
 
+        const comment = this.props.comment;
+        // debugger
         return(
             <div className='comment-index-item'>
+                <div className='comment-header'>
+                    <span>{comment.author}</span>
+                </div>
                 <div className='comment-body'>
-                    {/* {this.props.comment.body} */}
-                    I am a test comment - hear me rawr
+                    {comment.body}
                 </div>
                 <div className='comment-interaction'>
                     <Likes 
+                        // likes={comment.likes}
+                        // dislikes={comment.dislikes}
                         likes={[]}
                         dislikes={[]}
                         contentType='Comment'
-                        contentId={1}
+                        contentId={comment.id}
                     />
                     <button onClick={this.replyHandle} className='comment-reply'>REPLY</button>
                 </div>
                 <div className={replyClass()}>
-                    <CommentForm formType='reply' replyHandle={this.replyHandle}
-                        // parentId={this.props.comment.id}
+                    <CommentForm 
+                        formType='reply'
+                        replyHandle={this.replyHandle}
+                        parentId={comment.id}
                     />
                 </div>
             </div>

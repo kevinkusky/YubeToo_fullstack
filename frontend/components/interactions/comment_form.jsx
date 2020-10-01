@@ -14,7 +14,7 @@ class CommentForm extends React.Component {
       video_id: this.props.videoId,
       author_id: this.props.authorId,
       formType: this.props.formType,
-      parentCommentId: this.props.commentId ? this.props.commentId : null,
+      parentCommentId: this.props.parentId ? this.props.parentId : null,
     };
     this.toggleForm = this.toggleForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,17 +22,14 @@ class CommentForm extends React.Component {
   }
 
   routeToSession() {
-    if (!this.props.authorId) {
       this.props.history.push(SUPAUTH);
-    }
   }
 
   toggleForm(bool) {
       if (this.state.formType === 'reply' && bool === false){
           this.props.replyHandle();
         } else if (bool === false) {
-        this.setState({ formOpen: bool });
-        this.setState({ body: "" });
+        this.setState({ formOpen: bool, body: "" });
 
         // Only one element with classname - toggles the autoresize to default height
         document.getElementsByClassName('body-field')[0].style.height = '22px';
@@ -61,12 +58,9 @@ class CommentForm extends React.Component {
             body: this.state.body,
             author_id: this.state.author_id
         };
-    //   let formData = new FormData();
-    //   formData.append("comment[body]", this.state.body);
-    //   formData.append("comment[video_id]", this.state.video_id);
-    //   formData.append("comment[author_id]", this.state.author_id);
-    //   formData.append("comment[commentable_type]", this.state.commentable_type);
+
         let commentItem = {};
+
         switch (this.state.formType) {
             case "create":
                 commentItem = Object.assign({}, baseComment,{

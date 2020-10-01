@@ -5,16 +5,18 @@ import CommentIndexItem from './comment_item';
 class CommentIndex extends React.Component {
     constructor(props){
         super(props);
+
+        this.state = {
+            comments: this.props.comments
+        };
     }
 
     render(){
-        const comments = this.props.comments;
-
         return(
             <div className='comment-index'>
-                {comments.length > 0 ?
+                {this.state.comments.length > 0 ?
                     <div className='comment-list'>
-                        {this.props.comments.map(comment => (
+                        {this.state.comments.map(comment => (
                             <CommentIndexItem
                                 comment={comment}
                                 key={comment.id}

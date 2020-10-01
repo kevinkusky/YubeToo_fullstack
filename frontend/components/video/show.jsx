@@ -89,7 +89,6 @@ class VideoShow extends React.Component{
                 <h4>{formatTotalComments}</h4>
                 <CommentForm formType="create" />
                 <CommentIndex comments={comments} />
-                {/* <CommentIndexItem /> */}
               </div>
             </div>
           </div>
