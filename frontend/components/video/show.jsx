@@ -88,7 +88,10 @@ class VideoShow extends React.Component{
               <div className="comments">
                 <h4>{formatTotalComments}</h4>
                 <CommentForm formType="create" />
-                <CommentIndex comments={comments} />
+                <CommentIndex 
+                    comments={comments}
+                    videoId={this.props.videoId} 
+                />
               </div>
             </div>
           </div>

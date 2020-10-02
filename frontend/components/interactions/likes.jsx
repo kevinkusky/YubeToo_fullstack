@@ -32,13 +32,8 @@ class Likes extends React.Component {
         this.state.likeType === "Video" ? 
             this.props.fetchVideoLikes(this.state.contentId) : 
             this.props.fetchCommentLikes(this.state.contentId);
-        // .then(
-        //     res => this.setState({
-        //         likes: res.Object.values(like => like.dislike === false),
-        //         dislikes: res.Object.values(like => like.dislike === true)
-        //     }) 
-        // );
     }
+    
     componentDidMount(){
         // debugger
         this.state.likeType === 'Video' ?
@@ -98,7 +93,6 @@ class Likes extends React.Component {
 
     render() {
         // console.log(this.state);
-
         const activeLikeClass = this.state.likeStatus ? 'active-like' : 'inactive-like';
         const activeDislikeClass = this.state.dislikeStatus ? 'active-like' : 'inactive-like';
     

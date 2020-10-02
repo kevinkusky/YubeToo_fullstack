@@ -1,7 +1,14 @@
-export const fetchComments = () => (
+export const fetchComments = videoId => (
     $.ajax({
         method: 'GET',
-        url: 'api/comments'
+        url: `api/videos/${videoId}/comments`
+    })
+);
+
+export const fetchReplies = commentId => (
+    $.ajax({
+        method: 'GET',
+        url: `api/comments/${commentId}/comments`
     })
 );
 
