@@ -120,7 +120,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = dispatch => ({
-    createComment: form => dispatch(createComment(form))
+    createComment: comment => dispatch(createComment(comment))
 })
 
 export default withRouter(connect(mSTP, mDTP)(CommentForm));

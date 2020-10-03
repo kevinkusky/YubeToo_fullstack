@@ -10,9 +10,7 @@ class FullSidebarRow extends React.Component{
     render(){
         const Icon = this.props.Icon;
         const coverClass = this.props.coverClass;
-        const barPath = () => (
-            this.props.pathName ? this.props.pathName : SPLASH
-        );
+        const barPath = () => (this.props.pathName ? this.props.pathName : SPLASH);
 
         return (
             <div>

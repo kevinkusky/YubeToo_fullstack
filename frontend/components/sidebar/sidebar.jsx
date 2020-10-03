@@ -76,10 +76,10 @@ class SideBar extends React.Component{
             <div>
                 <a 
                     href="https://kevinkusky.github.io/"
-                    className="sidebar-row row-link"
+                    className={`${classSizeName} row-link`}
                     target='_blank'
                 >
-                    <div className='sidebar-row'>
+                    <div className={classSizeName}>
                         <LinksIcon className="sidebar-row-icon" />
                         <h2 className="sidebar-row-title">Portfolio</h2>
                     </div>
@@ -117,16 +117,16 @@ class SideBar extends React.Component{
             </div>
             <hr />
             <div>
-                <a
-                    href="https://kevinkusky.github.io/"
-                    className="closed-row row-link"
-                    target="_blank"
-                >
-                    <div className='clsoed-row'>
-                        <LinksIcon className="sidebar-row-icon" />
-                        <h2 className="sidebar-row-title">Portfolio</h2>
-                    </div>
-                </a>
+              <a
+                href="https://kevinkusky.github.io/"
+                className={`${classSizeName} row-link`}
+                target="_blank"
+              >
+                <div className={classSizeName}>
+                  <LinksIcon className="sidebar-row-icon" />
+                  <h2 className="sidebar-row-title">Portfolio</h2>
+                </div>
+              </a>
             </div>
             <hr />
           </div>
