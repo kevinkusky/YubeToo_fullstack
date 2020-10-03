@@ -28,94 +28,106 @@ class SideBar extends React.Component{
         const clearLogMessage = this.props.sidebarSize ? 'login-message' : 'hide-message';
         const classLogButton = this.props.sidebarSize ? 'button-width' : '';
         const LoggedinSidebar = () => (
+          <div>
+            <SidebarRow
+              Icon={HomeIcon}
+              title="Home"
+              coverClass={classSizeName}
+              pathName={SPLASH}
+            />
+            <SidebarRow
+              Icon={TrendingIcon}
+              title="Trending"
+              coverClass={classSizeName}
+              pathName={TREND}
+            />
+            <SidebarRow
+              Icon={SubscriptionIcon}
+              title="Subscriptions"
+              coverClass={classSizeName}
+              pathName={DUMMY}
+            />
+            <hr />
+            <SidebarRow
+              Icon={HistoryIcon}
+              title="History"
+              coverClass={classSizeName}
+              pathName={HIST}
+            />
+            <SidebarRow
+              Icon={YourVidIcon}
+              title="Your Videos"
+              coverClass={classClearName}
+              pathName={USERVID}
+            />
+            <SidebarRow
+              Icon={ClockIcon}
+              title="Watch Later"
+              coverClass={classClearName}
+              pathName={DUMMY}
+            />
+            <SidebarRow
+              Icon={LikeIcon}
+              title="Liked Videos"
+              coverClass={classSizeName}
+              pathName={DUMMY}
+            />
+            <hr />
             <div>
-                <SidebarRow 
-                    Icon={HomeIcon}
-                    title='Home'
-                    coverClass={classSizeName}
-                    pathName={SPLASH}
-                />
-                <SidebarRow 
-                    Icon={TrendingIcon} 
-                    title='Trending'
-                    coverClass={classSizeName}
-                    pathName={TREND}
-                />
-                <SidebarRow 
-                    Icon={SubscriptionIcon} 
-                    title='Subscriptions'
-                    coverClass={classSizeName}
-                    pathName={DUMMY}
-                />
-                <hr />
-                <SidebarRow 
-                    Icon={HistoryIcon} 
-                    title='History'
-                    coverClass={classSizeName}
-                    pathName={HIST}
-                />
-                <SidebarRow 
-                    Icon={YourVidIcon} 
-                    title='Your Videos'
-                    coverClass={classClearName}
-                    pathName={USERVID}
-                />
-                <SidebarRow 
-                    Icon={ClockIcon} 
-                    title='Watch Later'
-                    coverClass={classClearName}
-                    pathName={DUMMY}
-                />
-                <SidebarRow 
-                    Icon={LikeIcon} 
-                    title='Liked Videos'
-                    coverClass={classSizeName}
-                    pathName={DUMMY}
-                />
-                <hr />
-                <SidebarRow 
-                    Icon={LinksIcon}
-                    title='About'
-                    coverClass={classSizeName}
-                    pathName={ABOUT}
-                />
-                <hr />
+                <a 
+                    href="https://kevinkusky.github.io/"
+                    className="sidebar-row row-link"
+                    target='_blank'
+                >
+                    <div className='sidebar-row'>
+                        <LinksIcon className="sidebar-row-icon" />
+                        <h2 className="sidebar-row-title">Portfolio</h2>
+                    </div>
+                </a>
             </div>
+            <hr />
+          </div>
         );
 
         const LoggedoutSidebar = () => (
           <div>
             <SidebarRow
-                Icon={HomeIcon}
-                title='Home'
-                coverClass={classSizeName}
-                pathName={SPLASH}
+              Icon={HomeIcon}
+              title="Home"
+              coverClass={classSizeName}
+              pathName={SPLASH}
             />
             <SidebarRow
-                Icon={TrendingIcon} 
-                title="Trending"
-                coverClass={classSizeName}
-                pathName={DUMMY}
+              Icon={TrendingIcon}
+              title="Trending"
+              coverClass={classSizeName}
+              pathName={DUMMY}
             />
             <hr />
-            <div >
-                <p className={clearLogMessage}>
-                    Please Login to like videos, comment, and subscribe
-                </p>
-                <Link className={`session-link ${classLogButton}`} to={LAUTH}>
-                    <button className='session-button'>
-                        <UserIcon/>
-                        <span>Log In</span>
-                    </button>
-                </Link>
+            <div>
+              <p className={clearLogMessage}>
+                Please Login to like videos, comment, and subscribe
+              </p>
+              <Link className={`session-link ${classLogButton}`} to={LAUTH}>
+                <button className="session-button">
+                  <UserIcon />
+                  <span>Log In</span>
+                </button>
+              </Link>
             </div>
             <hr />
-            <SidebarRow
-                Icon={LinksIcon}
-                title='About'
-                coverClass={classSizeName}
-                pathName={ABOUT}
-            />
+            <div>
+                <a
+                    href="https://kevinkusky.github.io/"
+                    className="closed-row row-link"
+                    target="_blank"
+                >
+                    <div className='clsoed-row'>
+                        <LinksIcon className="sidebar-row-icon" />
+                        <h2 className="sidebar-row-title">Portfolio</h2>
+                    </div>
+                </a>
+            </div>
             <hr />
           </div>
         );

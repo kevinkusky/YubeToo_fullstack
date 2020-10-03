@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
-import { AuthRoute, ProtectedRoute, ABOUT, SPLASH, TREND, DUMMY, USERVID, HIST } from "../../util/route_utils";
+import { AuthRoute, ProtectedRoute, SPLASH, TREND, DUMMY, USERVID, HIST } from "../../util/route_utils";
 import IndexContainer from '../index/video_index';
 import UserIndex from '../index/user_index';
 import About from '../about/about';
@@ -23,7 +23,6 @@ class ActiveComponent extends React.Component{
         return(
             <div>
                 <Switch>
-                    <Route exact path={ABOUT} component={About}/>
                     <Route exact path={SPLASH} component={IndexContainer}/>
                     <Route exact path={DUMMY} component={Dummy}/>
                     <Route exact path={TREND} component={TrendingIndex}/>

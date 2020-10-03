@@ -7,7 +7,6 @@ export const LAUTH = '/login';
 export const SUPAUTH = '/signup';
 export const NEWVID = '/videos/new';
 export const WATCH = '/videos/show/:videoId';
-export const ABOUT = '/aboutme';
 export const TREND = '/trending';
 export const SUBS = '/subscriptions';
 export const HIST = '/history';
