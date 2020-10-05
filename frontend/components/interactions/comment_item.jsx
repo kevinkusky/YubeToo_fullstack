@@ -40,10 +40,10 @@ class CommentIndexItem extends React.Component {
               </div>
               <div className="comment-interaction">
                 <Likes
-                  // likes={comment.likes}
-                  // dislikes={comment.dislikes}
-                  likes={[]}
-                  dislikes={[]}
+                  likes={comment.likes}
+                  dislikes={comment.dislikes}
+                //   likes={[]}
+                //   dislikes={[]}
                   contentType="Comment"
                   contentId={comment.id}
                 />

@@ -33,7 +33,7 @@ class VideoShow extends React.Component{
         // debugger;
         if (!this.state.video){return null;}
 
-        const {views, uploadDate, title, videoUrl, comments, likes, dislikes, creatorName, description, totalComments} = this.state.video;
+        const {views, uploadDate, title, videoUrl, likes, dislikes, creatorName, description, totalComments} = this.state.video;
 
         // constant creates sharable url for user to share video
         const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${this.state.video.id}`;
@@ -89,7 +89,6 @@ class VideoShow extends React.Component{
                 <h4>{formatTotalComments}</h4>
                 <CommentForm formType="create" />
                 <CommentIndex 
-                    comments={comments}
                     videoId={this.props.videoId} 
                 />
               </div>

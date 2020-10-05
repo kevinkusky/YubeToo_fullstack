@@ -4,7 +4,6 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute, SPLASH, TREND, DUMMY, USERVID, HIST } from "../../util/route_utils";
 import IndexContainer from '../index/video_index';
 import UserIndex from '../index/user_index';
-import About from '../about/about';
 import TrendingIndex from '../index/trending_index';
 import HistoryIndex from '../index/history_index';
 import Dummy from '../index/dummy';

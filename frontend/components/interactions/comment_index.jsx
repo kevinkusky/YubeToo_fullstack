@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 
 import { fetchVideoComments } from '../../actions/comments';
+import { commentsAsArray } from '../../reducers/selectors';
 import CommentIndexItem from './comment_item';
 
 class CommentIndex extends React.Component {
@@ -9,25 +10,19 @@ class CommentIndex extends React.Component {
         super(props);
 
         this.state = {
-            comments: []
+            comments: this.props.comments
         };
     }
 
     componentDidMount(){
-        this.props.fetchComments(this.props.videoId).then(
-            commentObject => this.setState({comments: commentObject.comments})
-        );
+        this.props.fetchComments(this.props.videoId);
     }
-
-    // componentDidUpdate(preProps, preState){
-    //     if(preProps.comments.length !== this.props.comments.length){
-    //         this.setState({comments: this.props.comments});
-    //     }
-    // }
-
-    // componentDidUpdate(){
-    //     this.props.fetchComments(this.props.videoId);
-    // }
+    
+    componentDidUpdate(preProps, preState){        
+        if(Object.values(preProps.comments).length !== Object.values(this.props.comments).length){
+            this.setState({comments: this.props.comments});
+        }
+    }
 
     render(){
         console.log(this.props);
@@ -51,12 +46,12 @@ class CommentIndex extends React.Component {
 }
 
 const mSTP = ({ entities: { comments }}, ownProps) => ({
-    comments: comments,
+    videoId: parseInt(ownProps.videoId),
+    comments: commentsAsArray(comments)
 });
 
 const mDTP = dispatch => ({
     fetchComments: videoId => dispatch(fetchVideoComments(videoId))
 });
 
-// export default connect(null, mDTP)(CommentIndex);
 export default connect(mSTP, mDTP)(CommentIndex);
