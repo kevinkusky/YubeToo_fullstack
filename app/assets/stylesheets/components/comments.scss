@@ -92,15 +92,34 @@
     display: none;
 }
 
-.comment-controls {
-    position: absolute;
-    top: 0;
-    right: 90px;
-    // margin-right: 90px;
+.comment-control-button {
+    padding-right: 90px;
     cursor: pointer;
-    margin-bottom: 0;
+    color: rgb(97, 97, 97);
 }
 
-.comment-control-button {
-    color: rgb(97, 97, 97);
+.comment-header{ 
+    margin-bottom: 7px;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+
+    .comment-author {
+        font-weight: bold;
+    }
+    
+    .comment-time {
+        color: rgb(97, 97, 97);
+        margin-left: 6px;
+    }
+}
+
+.cindex-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    color: rgb(74, 105, 204) !important;
+    background-color: #f9f9f9;
+    margin-top: 6px;
 }

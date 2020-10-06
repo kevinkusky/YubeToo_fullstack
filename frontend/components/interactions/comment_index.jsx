@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 
 import { fetchVideoComments } from '../../actions/comments';
-import { commentsAsArray } from '../../reducers/selectors';
+import { entityAsArray } from '../../reducers/selectors';
 import CommentIndexItem from './comment_item';
 
 class CommentIndex extends React.Component {
@@ -47,7 +47,7 @@ class CommentIndex extends React.Component {
 
 const mSTP = ({ entities: { comments }}, ownProps) => ({
     videoId: parseInt(ownProps.videoId),
-    comments: commentsAsArray(comments)
+    comments: entityAsArray(comments)
 });
 
 const mDTP = dispatch => ({
