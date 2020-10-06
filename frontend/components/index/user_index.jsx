@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { videosAsArray } from "../../reducers/selectors";
+import { entityAsArray } from "../../reducers/selectors";
 import { fetchVideos } from "../../actions/videos";
 import VideoIndexItem from "./video_index_item";
 
@@ -40,7 +40,7 @@ class UserIndex extends React.Component {
 
 const mSTP = (state) => ({
   currentUser: state.session.currentUser ? state.session.currentUser.id : null,
-  videos: videosAsArray(state.session.currentUser.userVideos),
+  videos: entityAsArray(state.session.currentUser.userVideos),
 });
 
 export default connect(mSTP)(UserIndex);

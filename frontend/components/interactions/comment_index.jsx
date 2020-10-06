@@ -25,8 +25,6 @@ class CommentIndex extends React.Component {
     }
 
     render(){
-        console.log(this.props);
-        console.log(this.state);
         return(
             <div className='comment-index'>
                 {this.state.comments.length > 0 ?

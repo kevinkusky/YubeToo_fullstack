@@ -3,13 +3,29 @@ class Api::LikesController < ApplicationController
     before_action :ensure_logged_in, only: [:create, :destroy]
 
     def index
-        @likes = Like.all
+        @likes = []
+        if params[:comment_id]
+            comment = Comment.find(params[:comment_id])
+            @likes = comment.likes
+        elsif params[:video_id]
+            video = Video.find(params[:video_id])
+            @likes = video.likes
+        else
+            @likes = Like.all
+        end
+        render :index
     end
 
     def create
         @like = Like.new(like_params)
         if @like.save
-            render json: {message: 'Like Created'}
+            if @like.likeable_type == 'Video'
+                @video = @like.likeable
+                render '/api/videos/show'
+            elsif @like.likeable_type == 'Comment'
+                @comment = @like.likeable
+                render '/api/comments/show'
+            end
         else
             render json: @like.errors.full_messages, status: 422
         end
@@ -20,7 +36,6 @@ class Api::LikesController < ApplicationController
     end
 
     def update
-        # debugger
         @like = Like.find(params[:id])
         if @like.update_attributes(like_params)
             render :show
@@ -36,6 +51,9 @@ class Api::LikesController < ApplicationController
             if @like.likeable_type == 'Video'
                 @video = @like.likeable
                 render '/api/videos/show'
+            elsif @like.likeable_type == 'Comment'
+                @comment = @like.likeable
+                render '/api/comments/show'
             end
         end
 

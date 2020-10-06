@@ -37,10 +37,10 @@ class HistoryIndex extends React.Component {
   }
 }
 
-const mSTP = (state) => ({
-  currentUserId: state.session.currentUser ? state.session.currentUser.id : null,
-  currentUser: state.session.currentUser.username,
-  videos: videosAsArray(state.session.currentUser.videosViewed),
+const mSTP = ({ session }) => ({
+  currentUserId: session.currentUser ? session.currentUser.id : null,
+  currentUser: session.currentUser.username,
+  videos: entityAsArray(session.currentUser.videosViewed),
 });
 
 export default connect(mSTP)(HistoryIndex);

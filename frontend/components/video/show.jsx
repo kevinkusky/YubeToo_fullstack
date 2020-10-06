@@ -1,13 +1,11 @@
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-
 import {withRouter} from 'react-router-dom';
 
 import TopNav from '../navs/topnav';
 import CommentForm from '../interactions/comment_form';
 import Likes from '../interactions/likes';
 import CommentIndex from '../interactions/comment_index';
-// import CommentIndexItem from '../interactions/comment_item';
 
 import UserIcon from "@material-ui/icons/AccountCircle";
 import ShareIcon from "@material-ui/icons/Redo";
@@ -17,23 +15,37 @@ class VideoShow extends React.Component{
         super(props);
         this.state={
             video: this.props.video ? this.props.video : null,
-            copied: false
+            copied: false,
+            videoLikes: this.props.videoLikes,
+            videoDislikes: this.props.videoDislikes
         };
     }
 
     componentDidMount(){
         // ensures reloading on refresh
         this.props.fetchVideo(this.props.videoId).then(
-            res => this.setState({video: res.video})
+            res => this.setState({ video: res.video })
         );
+        this.props.fetchVideoLikes(this.props.videoId);
+    }
+
+    componentDidUpdate(preProps, preState){
+        if (
+          preProps.videoLikes.length !== this.props.videoLikes.length ||
+          preProps.videoLikes.length !== this.props.videoLikes.length
+        ) {
+            this.setState({
+                videoLikes: this.props.videoLikes,
+                videoDislikes: this.props.videoDislikes
+            });
+        }
     }
 
     render(){
-        console.log(this.state.video);
         // debugger;
         if (!this.state.video){return null;}
 
-        const {views, uploadDate, title, videoUrl, likes, dislikes, creatorName, description, totalComments} = this.state.video;
+        const {views, uploadDate, title, videoUrl, creatorName, description, totalComments} = this.state.video;
 
         // constant creates sharable url for user to share video
         const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${this.state.video.id}`;
@@ -45,7 +57,7 @@ class VideoShow extends React.Component{
             <TopNav />
             <div className="video-show">
               <div className="video">
-                <video src={videoUrl} controls alt={`video is ${title}`}></video>
+                <video src={videoUrl} controls alt={`video name is ${title}`}></video>
               </div>
               <div className="video-details">
                 <h2>{title} </h2>
@@ -56,9 +68,9 @@ class VideoShow extends React.Component{
                     <span>{uploadDate}</span>
                   </div>
                   <div className="right-stats">
-                    <Likes 
-                        likes={likes}
-                        dislikes={dislikes}
+                    <Likes
+                        likes={this.state.videoLikes}
+                        dislikes={this.state.videoDislikes} 
                         contentType='Video'
                         contentId={this.props.videoId}
                     />
@@ -88,9 +100,7 @@ class VideoShow extends React.Component{
               <div className="comments">
                 <h4>{formatTotalComments}</h4>
                 <CommentForm formType="create" />
-                <CommentIndex 
-                    videoId={this.props.videoId} 
-                />
+                <CommentIndex videoId={this.props.videoId} />
               </div>
             </div>
           </div>

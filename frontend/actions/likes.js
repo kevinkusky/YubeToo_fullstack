@@ -9,9 +9,9 @@ const receiveLikes = likes => ({
     likes
 });
 
-const receiveLike = like => ({
+const receiveLike = likeable => ({
     type: RECEIVE_LIKE,
-    like
+    likeable
 });
 
 const removeLike = likeable => ({

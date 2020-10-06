@@ -80,6 +80,7 @@ class CommentIndexItem extends React.Component {
                   parentId={comment.id}
                 />
               </div>
+              {comment.replies.length > 0 ?
                 <div>
                     <button className='cindex-button' onClick={this.toggleReplyIndex}>
                         {this.state.replyIndexOpen ?
@@ -97,7 +98,9 @@ class CommentIndexItem extends React.Component {
                         <CommentIndex comments={comment.replies}/> :
                         <div></div>
                     } */}
-                </div>
+                </div> :
+                <div></div>
+              }
             </div>
           </>
         );
