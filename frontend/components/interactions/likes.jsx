@@ -27,10 +27,13 @@ class Likes extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.state);
+    console.log(this.props);
       this.state.likeType === 'Video' ?
         this.props.fetchVideoLikes(this.state.contentId) :
         this.props.fetchCommentLikes(this.state.contentId);
-    
+    console.log(this.state);
+    console.log(this.props);
     if (this.state.currentLike.length > 0) { this.setState({ userStatus: true }); }
   }
 
@@ -55,19 +58,19 @@ class Likes extends React.Component {
   }
 
   handleClick(type) {
-    if (!this.props.currentUser) { return null; }
+    if (!this.props.currentUserId) { return null; }
 
     let newLike = {
-      liker_id: this.props.currentUser.id,
+      liker_id: this.props.currentUserId,
       likeable_type: this.props.contentType,
       likeable_id: this.props.contentId,
       dislike: type === "like" ? false : true,
     };
-    debugger
+    // debugger
     switch (this.state.userStatus) {
       case false:
           this.props.createLike(newLike);
-          this.setState({ userStatus: true });
+          this.setState({ userStatus: true, currentLike: newLike });
         break;
       case true:
         // if deleting existing like
@@ -129,11 +132,11 @@ class Likes extends React.Component {
 const mSTP = ({ entities: { likes }, session: { currentUser } }) => ({
   currentUserId: currentUser ? currentUser.id : null,
   allLikes: {
-      likes: entityAsArray(likes).filter(
-          like => like.dislike === false
+      likes: Object.values(likes).filter(
+        like => like.dislike === false
       ),
-      dislikes: entityAsArray(likes).filter(
-          like => like.dislike === true
+      dislikes: Object.values(likes).filter(
+        like => like.dislike === true
       ),
   }
 });

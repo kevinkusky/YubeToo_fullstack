@@ -6,4 +6,3 @@ end
 json.likes comment.likes.where(dislike: false)
 json.dislikes comment.likes.where(dislike: true)
 json.commentTime comment.time_since_post
-json.parentAuthor comment.parent_author ? comment.parent_author : ''

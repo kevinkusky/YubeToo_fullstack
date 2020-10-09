@@ -55,8 +55,8 @@ class Comment < ApplicationRecord
         end
     end
 
-    def parent_author
-        Comment.find(self.commentable_id).commenter
+    def parent_comment
+        self.commentable_id
     end
 
     def video_comment_sum

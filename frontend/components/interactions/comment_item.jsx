@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import Likes from './likes';
 import CommentForm from './comment_form';
+// import ReplyIndex from './reply_index';
 
 import { fetchComment } from '../../actions/comments';
 import { fetchCommentLikes } from '../../actions/likes';
@@ -19,11 +20,9 @@ class CommentIndexItem extends React.Component {
     this.state = {
       comment: this.props.comment,
       replyOpen: false,
-    //   replyIndexOpen: false,
     };
 
     this.replyHandle = this.replyHandle.bind(this);
-    // this.toggleReplyIndex = this.toggleReplyIndex.bind(this);
   }
 
 //   componentDidMount() {
@@ -39,10 +38,6 @@ class CommentIndexItem extends React.Component {
   replyHandle() {
     this.setState({ replyOpen: !this.state.replyOpen });
   }
-
-//   toggleReplyIndex() {
-//     this.setState({ replyIndexOpen: !this.state.replyIndexOpen });
-//   }
 
   render() {
     const replyClass = () =>
@@ -91,29 +86,6 @@ class CommentIndexItem extends React.Component {
               parentId={comment.id}
             />
           </div>
-          {comment.replies.length > 0 ? (
-            <div>
-              <button className="cindex-button" onClick={this.toggleReplyIndex}>
-                {this.state.replyIndexOpen ? (
-                  <div className="cindex-button active-index-button">
-                    <ToCloseReplyIndex />
-                    <span>Hide {comment.replies.length} replies</span>
-                  </div>
-                ) : (
-                  <div className="cindex-button inactive-index-button">
-                    <ToOpenReplyIndex />
-                    <span>View {comment.replies.length} replies</span>
-                  </div>
-                )}
-              </button>
-              {/* {this.state.replyIndexOpen ?
-                        <ReplyIndex replies={comment.replies}/> :
-                        <div></div>
-                    } */}
-            </div>
-          ) : (
-            <div></div>
-          )}
         </div>
       </>
     );
