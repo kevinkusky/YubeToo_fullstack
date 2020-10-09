@@ -18,7 +18,7 @@ class Api::LikesController < ApplicationController
 
     def create
         @like = Like.new(like_params)
-        if @like.save
+        if @like.save!
             if @like.likeable_type == 'Video'
                 @video = @like.likeable
                 render '/api/videos/show'

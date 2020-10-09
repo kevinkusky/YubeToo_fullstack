@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from "react-redux";
 
 import { fetchVideoComments } from '../../actions/comments';
-import { entityAsArray } from '../../reducers/selectors';
+import { entityAsArray } from "../../reducers/selectors";
+
 import CommentIndexItem from './comment_item';
 
 class CommentIndex extends React.Component {
@@ -29,16 +30,44 @@ class CommentIndex extends React.Component {
             <div className='comment-index'>
                 {this.state.comments.length > 0 ?
                     <div className='comment-list'>
-                        {this.state.comments.map(comment => (
-                            <CommentIndexItem
-                                comment={comment}
-                                key={comment.id}
-                            />
-                        ))}
-                    </div> :
+                    {this.state.comments.map(comment => (
+                        <CommentIndexItem
+                            comment={comment}
+                            commentId={comment.id}
+                            key={comment.id}
+                        />
+                    ))}
+                    </div>:
                     <div></div>
                 }
             </div>
+
+            //             <div className='comment-index'>
+            //     {this.state.comments.length > 0 ?
+            //         {this.state.comments.map(comment => (
+            //             <div className='comment-list'>
+            //                 <CommentIndexItem
+            //                     type='comment'
+            //                     comment={comment}
+            //                     commentId={comment.id}
+            //                     key={comment.id}
+            //                 />
+            //                 {comment.replies.length > 0 ?
+            //                     {comment.replies.map(reply => (
+            //                         <CommentIndexItem 
+            //                             type='reply'
+            //                             comment={reply}
+            //                             commentId={reply.id}
+            //                             key={reply.id}
+            //                         />
+            //                     ))} :
+            //                     <div></div>
+            //                 }
+            //             </div>
+            //         ))} :
+            //         <div></div>
+            //     }
+            // </div>
         )
     }
 }
@@ -49,7 +78,8 @@ const mSTP = ({ entities: { comments }}, ownProps) => ({
 });
 
 const mDTP = dispatch => ({
-    fetchComments: videoId => dispatch(fetchVideoComments(videoId))
+    fetchComments: videoId => dispatch(fetchVideoComments(videoId)),
+    
 });
 
 export default connect(mSTP, mDTP)(CommentIndex);

@@ -16,8 +16,6 @@ class VideoShow extends React.Component{
         this.state={
             video: this.props.video ? this.props.video : null,
             copied: false,
-            videoLikes: this.props.videoLikes,
-            videoDislikes: this.props.videoDislikes
         };
     }
 
@@ -26,29 +24,26 @@ class VideoShow extends React.Component{
         this.props.fetchVideo(this.props.videoId).then(
             res => this.setState({ video: res.video })
         );
-        this.props.fetchVideoLikes(this.props.videoId);
     }
 
-    componentDidUpdate(preProps, preState){
-        if (
-          preProps.videoLikes.length !== this.props.videoLikes.length ||
-          preProps.videoLikes.length !== this.props.videoLikes.length
-        ) {
-            this.setState({
-                videoLikes: this.props.videoLikes,
-                videoDislikes: this.props.videoDislikes
-            });
-        }
-    }
+    // componentDidUpdate(preProps, preState){
+    //     if (
+    //       preProps.videoLikes.length !== this.props.videoLikes.length ||
+    //       preProps.videoDislikes.length !== this.props.videoDislikes.length
+    //     ) {
+    //         console.log(this.props);
+
+    //     }
+    // }
 
     render(){
         // debugger;
         if (!this.state.video){return null;}
 
-        const {views, uploadDate, title, videoUrl, creatorName, description, totalComments} = this.state.video;
+        const {views, uploadDate, title, videoUrl, creatorName, description, totalComments, id} = this.state.video;
 
         // constant creates sharable url for user to share video
-        const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${this.state.video.id}`;
+        const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${id}`;
 
         const formatTotalComments = totalComments === 1 ? '1 Comment' : `${totalComments} Comments`; 
 
@@ -69,8 +64,6 @@ class VideoShow extends React.Component{
                   </div>
                   <div className="right-stats">
                     <Likes
-                        likes={this.state.videoLikes}
-                        dislikes={this.state.videoDislikes} 
                         contentType='Video'
                         contentId={this.props.videoId}
                     />

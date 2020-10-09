@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import {SUPAUTH} from '../../util/route_utils';
 import {createComment, editComment} from '../../actions/comments';
+import { Contactless } from '@material-ui/icons';
 
 class CommentForm extends React.Component {
   constructor(props) {
@@ -26,9 +27,13 @@ class CommentForm extends React.Component {
   }
 
   toggleForm(bool) {
-      if (this.state.formType === 'reply' && bool === false){
-          this.props.replyHandle();
-        } else if (bool === false) {
+      console.log('cancel form');
+    if (this.state.formType === 'reply' && bool === false){
+        this.setState({ formOpen: bool, body: "" });
+        this.props.replyHandle();
+    }
+        
+    if (bool === false) {
         this.setState({ formOpen: bool, body: "" });
 
         // Only one element with classname - toggles the autoresize to default height
@@ -50,7 +55,8 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // console.log(this.state.body);
+
+    consel.log('submit button');
     if (!this.state.author_id) {
       this.routeToSession();
     } else {
@@ -87,9 +93,9 @@ class CommentForm extends React.Component {
 
   render() {
     // helps style conditionally
-    const buttonsClassName = () =>( this.state.formOpen ? "comment-form-buttons" : "hide-comment-buttons");
-    const commentClassName = () => ( this.state.body.length > 0 ? 'active-comment-button' : 'inactive-comment-button');
-    const typeValue = () => ( this.state.body.length > 0 ? 'submit' : 'button');
+    const buttonsClassName = this.state.formOpen ? "comment-form-buttons" : "hide-comment-buttons";
+    const commentClassName = this.state.body.length > 0 ? 'active-comment-button' : 'inactive-comment-button';
+    const typeValue = this.state.body.length > 0 ? 'submit' : 'button';
 
     return (
       <div>
@@ -104,9 +110,17 @@ class CommentForm extends React.Component {
             >
             </textarea>
           </div>
-          <div className={buttonsClassName()}>
-            <button className='cancel-button' onClick={() => this.toggleForm(false)}>CANCEL</button>
-            <input className={commentClassName()} type={typeValue()} value="Comment" value="COMMENT" />
+          <div className={buttonsClassName}>
+                <button 
+                    className='cancel-button' 
+                    onClick={() => this.toggleForm(false)} >CANCEL
+                </button>
+              <div>
+                <input 
+                    className={commentClassName} type={typeValue} 
+                    value="Comment" value="COMMENT" 
+                />
+              </div>
           </div>
         </form>
       </div>

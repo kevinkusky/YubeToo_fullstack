@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {NEWVID, SUPAUTH} from '../../util/route_utils';
 
@@ -6,7 +7,6 @@ import VideoIcon from '@material-ui/icons/VideoCall';
 import UserIcon from '@material-ui/icons/AccountCircle';
 import SignoutIcon from '@material-ui/icons/ExitToAppOutlined';
 
-import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
 
@@ -45,10 +45,6 @@ const Greeting = ({ currentUser, logout }) => {
                 <SignoutIcon className='signout-icon'/>
                 <span>Sign Out</span>
               </div>
-              {/* <div className='signout-button' onClick={logout}>
-                <SignoutIcon className='signout-icon'/>
-                <span>Sign Out</span>
-              </div> */}
             </div>
           </div>
         </div>

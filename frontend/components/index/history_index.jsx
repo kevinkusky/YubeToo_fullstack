@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { videosAsArray } from "../../reducers/selectors";
+import { entityAsArray } from "../../reducers/selectors";
 import VideoIndexItem from "./video_index_item";
 
 class HistoryIndex extends React.Component {
