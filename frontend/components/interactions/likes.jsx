@@ -27,13 +27,13 @@ class Likes extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.state);
-    console.log(this.props);
+    // console.log(this.state);
+    // console.log(this.props);
       this.state.likeType === 'Video' ?
         this.props.fetchVideoLikes(this.state.contentId) :
         this.props.fetchCommentLikes(this.state.contentId);
-    console.log(this.state);
-    console.log(this.props);
+    // console.log(this.state);
+    // console.log(this.props);
     if (this.state.currentLike.length > 0) { this.setState({ userStatus: true }); }
   }
 

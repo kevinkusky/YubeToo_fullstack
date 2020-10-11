@@ -8,8 +8,7 @@ import { fetchComment } from '../../actions/comments';
 // import { fetchCommentLikes } from '../../actions/likes';
 
 import CommentControls from "@material-ui/icons/MoreVert";
-// import ToCloseReplyIndex from '@material-ui/icons/ArrowDropUp';
-// import ToOpenReplyIndex from '@material-ui/icons/ArrowDropDown';
+
 
 
 class CommentIndexItem extends React.Component {
@@ -17,35 +16,44 @@ class CommentIndexItem extends React.Component {
     super(props);
 
     this.state = {
-      comment: this.props.comment,
       replyOpen: false,
+      comment: this.props.comment
     };
 
     this.replyHandle = this.replyHandle.bind(this);
   }
 
-//   componentDidMount() {
-//   }
+  componentDidMount() {
+      this.props.fetchComment(this.props.commentId);
+  }
 
-//   componentDidUpdate(preProps, preState) {
-//     if (preProps.comment.body !== this.props.comment.body) {
-//           this.setState({ comment: this.props.comment });
-//         } 
-//     }
-//   }
+  componentDidUpdate(preProps, preState) {
+    if (preProps.comment.body !== this.props.comment.body) {
+        this.setState({ comment: this.props.comment }); 
+    }
+  }
 
   replyHandle() {
     this.setState({ replyOpen: !this.state.replyOpen });
   }
 
   render() {
+    const { comment, replyParentId, type, replyIndexClass } = this.props;
+    const itemClass = type === 'comment' ? 'comment-index-item' : replyIndexClass;
     const replyClass = this.state.replyOpen ? "active-reply" : "close-reply";
-    const comment = this.state.comment;
-    // console.log(comment.replies);
+
+    // console.log(this.props);
+
+    if(this.props.type === 'reply'){
+        console.log(this.props);
+        return(
+            <div></div>
+        )
+    }
     // debugger
     return (
       <>
-        <div className="comment-index-item">
+        <div className={itemClass}>
           <div className="comment-details">
             <div className="comment-header">
               <div>
@@ -77,7 +85,7 @@ class CommentIndexItem extends React.Component {
             <CommentForm
               formType="reply"
               replyHandle={this.replyHandle}
-              parentId={comment.id}
+              parentId={replyParentId}
             />
           </div>
         </div>
@@ -89,7 +97,7 @@ class CommentIndexItem extends React.Component {
 const mSTP = ({ entities: { comments } }, ownProps) => ({
   // currentUser: state.entities.session.currentUser,
   commentId: parseInt(ownProps.commentId),
-  comment: comments[parseInt(ownProps.commentId)],
+//   comment: comments[parseInt(ownProps.commentId)],
 });
 
 const mDTP = (dispatch) => ({

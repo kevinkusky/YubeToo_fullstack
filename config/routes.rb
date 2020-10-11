@@ -14,7 +14,8 @@
 #         api_comment_likes GET    /api/comments/:comment_id/likes(.:format)                                                api/likes#index {:format=>:json}
 #      api_comment_comments GET    /api/comments/:comment_id/comments(.:format)                                             api/comments#index {:format=>:json}
 #              api_comments POST   /api/comments(.:format)                                                                  api/comments#create {:format=>:json}
-#               api_comment PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
+#               api_comment GET    /api/comments/:id(.:format)                                                              api/comments#show {:format=>:json}
+#                           PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           PUT    /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           DELETE /api/comments/:id(.:format)                                                              api/comments#destroy {:format=>:json}
 #                 api_likes POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
             resources :likes, only: [:index]
             resources :comments, only: [:index]
         end
-        resources :comments, only: [:create, :destroy, :update] do
+        resources :comments, only: [:create, :destroy, :update, :show] do
             resources :likes, only: [:index]
             resources :comments, only: [:index]
         end
