@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import { entityAsArray } from "../../reducers/selectors";
+// import { entityAsArray } from "../../reducers/selectors";
 import {editLike, createLike, deleteLike, fetchCommentLikes, fetchVideoLikes} from '../../actions/likes';
 
 import UpIcon from "@material-ui/icons/ThumbUpAlt";

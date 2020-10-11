@@ -46,53 +46,60 @@ class CommentIndex extends React.Component {
       <div className="comment-index">
         {this.state.comments.length > 0 ? (
           <div className="comment-list">
-            {this.state.comments.map((comment) => (
-                <CommentIndexItem
-                  type="comment"
-                  comment={comment}
-                  commentId={comment.id}
-                  key={comment.id}
-                />
-                /* {comment.replies.length > 0 ? (
-                  <>
-                    <div>
-                      <button
-                        className="cindex-button"
-                        onClick={this.toggleReplyIndex}
-                      >
-                        {this.state.indexOpen ? (
-                          <div className="cindex-button active-index-button">
-                            <ToCloseReplyIndex />
-                            <span>
-                              Hide {comment.replies.length} replies
-                            </span>
-                          </div>
-                        ) : (
-                          <div className="cindex-button inactive-index-button">
-                            <ToOpenReplyIndex />
-                            <span>
-                              View {comment.replies.length} replies
-                            </span>
-                          </div>
-                        )}
-                      </button>
-                    </div>
-                    <div className={replyClass}>
-                      {comment.replies.map((reply) => (
+            {this.state.comments.map((comment) => {
+                if (comment.replies.length === 0){
+                    return(
                         <CommentIndexItem
-                          type="reply"
-                          comment={reply}
-                          commentId={reply.id}
-                          key={reply.id}
-                          replyParent={comment.id}
+                          type="comment"
+                          comment={comment}
+                          commentId={comment.id}
+                          key={comment.id}
                         />
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <div></div>
-                )} */
-            ))}
+                    )
+                    } else {
+                        return(
+                        <>
+                            <CommentIndexItem
+                                type="comment"
+                                comment={comment}
+                                commentId={comment.id}
+                                key={comment.id}
+                            />
+                            <div>
+                            <button
+                                className="cindex-button"
+                                onClick={this.toggleReplyIndex}
+                            >
+                            {this.state.indexOpen ? (
+                            <div className="cindex-button active-index-button">
+                                <ToCloseReplyIndex />
+                                <span>
+                                    Hide {comment.replies.length} replies
+                                </span>
+                            </div>
+                            ) : (
+                            <div className="cindex-button inactive-index-button">
+                                <ToOpenReplyIndex />
+                                <span>
+                                    View {comment.replies.length} replies
+                                </span>
+                            </div> 
+                            )}
+                            </button>
+                            </div>
+                            {/* <div className={replyClass}>
+                            {comment.replies.map((reply) => (
+                                        <CommentIndexItem
+                                        type="reply"
+                                        comment={reply}
+                                        commentId={reply.id}
+                                        key={reply.id}
+                                        replyParent={comment.id}
+                                        />
+                                    ))}
+                                    </div> */}
+                        </>
+                )}})}
           </div>
         ) : (
           <div></div>

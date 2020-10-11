@@ -3,14 +3,13 @@ import { connect } from "react-redux";
 
 import Likes from './likes';
 import CommentForm from './comment_form';
-// import ReplyIndex from './reply_index';
 
 import { fetchComment } from '../../actions/comments';
-import { fetchCommentLikes } from '../../actions/likes';
+// import { fetchCommentLikes } from '../../actions/likes';
 
 import CommentControls from "@material-ui/icons/MoreVert";
-import ToCloseReplyIndex from '@material-ui/icons/ArrowDropUp';
-import ToOpenReplyIndex from '@material-ui/icons/ArrowDropDown';
+// import ToCloseReplyIndex from '@material-ui/icons/ArrowDropUp';
+// import ToOpenReplyIndex from '@material-ui/icons/ArrowDropDown';
 
 
 class CommentIndexItem extends React.Component {
@@ -40,12 +39,7 @@ class CommentIndexItem extends React.Component {
   }
 
   render() {
-    const replyClass = () =>
-      this.state.replyOpen ? "active-reply" : "close-reply";
-
-    const replyIndexClass = () =>
-      this.state.replyIndexOpen ? "active-index" : "close-index";
-
+    const replyClass = this.state.replyOpen ? "active-reply" : "close-reply";
     const comment = this.state.comment;
     // console.log(comment.replies);
     // debugger
@@ -79,7 +73,7 @@ class CommentIndexItem extends React.Component {
               REPLY
             </button>
           </div>
-          <div className={replyClass()}>
+          <div className={replyClass}>
             <CommentForm
               formType="reply"
               replyHandle={this.replyHandle}
