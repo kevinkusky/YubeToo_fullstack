@@ -44,12 +44,12 @@ class CommentIndexItem extends React.Component {
 
     // console.log(this.props);
 
-    if(this.props.type === 'reply'){
-        console.log(this.props);
-        return(
-            <div></div>
-        )
-    }
+    // if(this.props.type === 'reply'){
+    //     console.log(this.props);
+    //     return(
+    //         <div></div>
+    //     )
+    // }
     // debugger
     return (
       <>

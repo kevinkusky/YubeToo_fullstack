@@ -14,7 +14,9 @@ class CommentIndex extends React.Component {
     super(props);
 
     this.state = {
-      comments: this.props.comments,
+      comments: this.props.comments.filter(
+          comment => comment.commentable_type === 'Video'
+      ),
       indexOpen: false,
     };
     this.toggleReplyIndex = this.toggleReplyIndex.bind(this);
@@ -34,7 +36,9 @@ class CommentIndex extends React.Component {
       Object.values(preProps.comments).length !==
       Object.values(this.props.comments).length
     ) {
-      this.setState({ comments: this.props.comments });
+      this.setState({ comments: this.props.comments.filter(
+          comment => comment.commentable_type === 'Video'
+      ) });
     }
   }
 
@@ -56,7 +60,8 @@ class CommentIndex extends React.Component {
                         key={comment.id}
                         replyIndexClass={''}
                       />
-                    );} else {
+                    );
+                } else {
                     return(
                     <>
                         <CommentIndexItem
@@ -88,10 +93,8 @@ class CommentIndex extends React.Component {
                         )}
                         </button>
                         </div>
-                        {/* reply should have author attribute but does not */}
                         <div className={replyClass}>
                         {comment.replies.map((reply) => (
-                            // console.log(reply)
                             <CommentIndexItem
                                 type="reply"
                                 comment={reply}

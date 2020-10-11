@@ -56,7 +56,7 @@ class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    consel.log('submit button');
+    // console.log('submit button');
     if (!this.state.author_id) {
       this.routeToSession();
     } else {
