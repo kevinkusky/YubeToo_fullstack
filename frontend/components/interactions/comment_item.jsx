@@ -9,6 +9,7 @@ import { fetchComment } from '../../actions/comments';
 import { fetchCommentLikes } from '../../actions/likes';
 
 import CommentControls from "@material-ui/icons/MoreVert";
+import DeleteIcon from '@material-ui/icons/DeleteForever';
 
 
 
@@ -65,22 +66,28 @@ class CommentIndexItem extends React.Component {
                 />
                 <div className="comment-details">
                     <div className="comment-header">
-                    <div>
-                        <span className="comment-author">{comment.author}</span>
-                        <span className="comment-time">{comment.commentTime}</span>
+                        <div>
+                            <span className="comment-author">{comment.author}</span>
+                            <span className="comment-time">{comment.commentTime}</span>
+                        </div>
                     </div>
+                    <div className="comment-body">{comment.body}</div>
+                </div>
+                <div>
                     <CommentControls
                         className="comment-control-button"
                         onClick={this.commentActionHandle}
                         onBlur={this.commentActionHandle}
                     />
-                    <ul className={actionClass}>
-                            <li className='comment-action-item'>Edit</li>
-                            <li className='comment-action-item'>Delete</li>
-                    </ul>
+                    <div className={actionClass}>
+                        {/* <li className='comment-action-item'>
+                            <span>Edit</span>
+                        </li>  */}
+                        <div className='comment-action-item'>
+                            <DeleteIcon className='action-icon'/>
+                            <span>Delete</span>
+                        </div>
                     </div>
-                    <div className="comment-body">{comment.body}</div>
-                    <div className="comment-controls"></div>
                 </div>
             </div>
           <div className="comment-interaction">

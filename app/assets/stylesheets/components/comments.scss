@@ -110,13 +110,32 @@
     display: none;
 }
 
-.comment-control-button .action-menu {
+.action-menu {
     display: block;
     position: absolute;
     list-style: none;
-    // justify-self: flex-end;
-    // flex-direction: column;
-    // width: 100%;
+    background-color: rgb(243, 243, 243);
+    z-index: 10;
+    margin-left: 155px;
+    width: 220px;
+    padding: 10px;
+}
+
+.comment-action-item {
+    display: flex;
+    align-self: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.action-icon {
+    color: rgb(107, 107, 107) !important;
+}
+
+.comment-action-item:hover {
+    background-color: rgb(177, 173, 173);
+    cursor: pointer;
 }
 
 .comment-control-button { display: none !important;}
@@ -124,11 +143,12 @@
 .comment-index-item:hover, .reply-index-item:hover {
     
     .comment-control-button{
-        padding-right: 90px;
         cursor: pointer;
         color: rgb(97, 97, 97);
-        display: inline-block !important;
+        display: flex !important;
         position: relative;
+        justify-content: flex-end;
+        width: 100%;
     }
 }
 
