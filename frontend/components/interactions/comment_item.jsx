@@ -17,10 +17,12 @@ class CommentIndexItem extends React.Component {
 
     this.state = {
       replyOpen: false,
-      comment: this.props.comment
+      comment: this.props.comment,
+      actionMenu: false
     };
 
     this.replyHandle = this.replyHandle.bind(this);
+    this.commentActionHandle = this.commentActionHandle.bind(this);
   }
 
   componentDidMount() {
@@ -37,19 +39,17 @@ class CommentIndexItem extends React.Component {
     this.setState({ replyOpen: !this.state.replyOpen });
   }
 
+  commentActionHandle() {
+    this.setState({ actionMenu: !this.state.actionMenu});
+  }
+
   render() {
-    const { comment, replyParentId, type, replyIndexClass } = this.props;
-    const itemClass = type === 'comment' ? 'comment-index-item' : replyIndexClass;
+    const { comment, replyParentId, type, replyItmClass } = this.props;
+    const itemClass = type === 'comment' ? 'comment-index-item' : replyItmClass;
     const replyClass = this.state.replyOpen ? "active-reply" : "close-reply";
+    const actionClass = this.state.actionMenu ? "action-menu" : "close-reply";
 
     // console.log(this.props);
-
-    // if(this.props.type === 'reply'){
-    //     console.log(this.props);
-    //     return(
-    //         <div></div>
-    //     )
-    // }
     // debugger
     return (
       <>
@@ -62,12 +62,13 @@ class CommentIndexItem extends React.Component {
               </div>
               <CommentControls
                 className="comment-control-button"
-                // onClick={}
+                onClick={this.commentActionHandle}
+                onBlur={this.commentActionHandle}
               />
-              {/* <ul className='comment-edit-list'>
-                    <li>Edit</li>
-                    <li>Delete</li>
-                </ul> */}
+              <ul className={actionClass}>
+                    <li className='comment-action-item'>Edit</li>
+                    <li className='comment-action-item'>Delete</li>
+              </ul>
             </div>
             <div className="comment-body">{comment.body}</div>
             <div className="comment-controls"></div>

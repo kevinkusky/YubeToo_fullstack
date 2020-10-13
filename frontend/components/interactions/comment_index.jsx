@@ -5,9 +5,7 @@ import { fetchVideoComments } from '../../actions/comments';
 import { entityAsArray } from "../../reducers/selectors";
 
 import CommentIndexItem from './comment_item';
-
-import ToCloseReplyIndex from "@material-ui/icons/ArrowDropUp";
-import ToOpenReplyIndex from "@material-ui/icons/ArrowDropDown";
+import ReplyIndex from './reply_index';
 
 class CommentIndex extends React.Component {
   constructor(props) {
@@ -17,14 +15,8 @@ class CommentIndex extends React.Component {
       comments: this.props.comments.filter(
           comment => comment.commentable_type === 'Video'
       ),
-      indexOpen: false,
     };
-    this.toggleReplyIndex = this.toggleReplyIndex.bind(this);
 
-  }
-
-  toggleReplyIndex() {
-    this.setState({ indexOpen: !this.state.indexOpen });
   }
 
   componentDidMount() {
@@ -42,9 +34,8 @@ class CommentIndex extends React.Component {
     }
   }
 
-  render() {
-    // console.log(this.state.comments[0].replies);
-    const replyClass = this.state.indexOpen ? "reply-index" : "hide-replies";
+  render() {const replyIdxClass = this.state.indexOpen ? "reply-index" : "hide-replies";
+  const replyItmClass = this.state.indexOpen ? "reply-index-item" : "";
 
     return (
       <div className="comment-index">
@@ -58,55 +49,28 @@ class CommentIndex extends React.Component {
                         comment={comment}
                         commentId={comment.id}
                         key={comment.id}
-                        replyIndexClass={''}
+                        replyIndexClass={""}
+                        replyParentId={comment.id}
                       />
                     );
                 } else {
-                    return(
-                    <>
+                    return (
+                      <>
                         <CommentIndexItem
-                            type="comment"
-                            comment={comment}
-                            commentId={comment.id}
-                            replyParentId={comment.id}
-                            key={comment.id}
+                          type="comment"
+                          comment={comment}
+                          commentId={comment.id}
+                          replyParentId={comment.id}
+                          key={comment.id}
+                          replyIndexClass={""}
                         />
-                        <div>
-                        <button
-                            className="cindex-button"
-                            onClick={this.toggleReplyIndex}
-                        >
-                        {this.state.indexOpen ? (
-                            <div className="cindex-button active-index-button">
-                                <ToCloseReplyIndex />
-                                <span>
-                                    Hide {comment.replies.length} replies
-                                </span>
-                            </div>
-                            ) : (
-                            <div className="cindex-button inactive-index-button">
-                                <ToOpenReplyIndex />
-                                <span>
-                                    View {comment.replies.length} replies
-                                </span>
-                            </div> 
-                        )}
-                        </button>
-                        </div>
-                        <div className={replyClass}>
-                        {comment.replies.map((reply) => (
-                            <CommentIndexItem
-                                type="reply"
-                                comment={reply}
-                                commentId={reply.id}
-                                key={reply.id}
-                                replyParentId={comment.id}
-                                replyIndexClass={replyClass}
-                            />
-                        ))}
-                        </div>
-                    </>
-            )}})}
+                        <ReplyIndex
+                            replies={comment.replies}
+                            parentCommentId={comment.id} 
+                        />
+                      </>
+                    );
+                }})}
           </div>
         ) : (
           <div></div>
