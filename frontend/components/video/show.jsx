@@ -2,12 +2,12 @@ import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {withRouter} from 'react-router-dom';
 
+import CurrentUserIcon from "../session/currentuser_icon";
 import TopNav from '../navs/topnav';
 import CommentForm from '../interactions/comment_form';
 import Likes from '../interactions/likes';
 import CommentIndex from '../interactions/comment_index';
 
-import UserIcon from "@material-ui/icons/AccountCircle";
 import ShareIcon from "@material-ui/icons/Redo";
 
 class VideoShow extends React.Component{
@@ -52,7 +52,11 @@ class VideoShow extends React.Component{
             <TopNav />
             <div className="video-show">
               <div className="video">
-                <video src={videoUrl} controls alt={`video name is ${title}`}></video>
+                <video
+                  src={videoUrl}
+                  controls
+                  alt={`video name is ${title}`}
+                ></video>
               </div>
               <div className="video-details">
                 <h2>{title} </h2>
@@ -63,10 +67,7 @@ class VideoShow extends React.Component{
                     <span>{uploadDate}</span>
                   </div>
                   <div className="right-stats">
-                    <Likes
-                        contentType='Video'
-                        contentId={this.props.videoId}
-                    />
+                    <Likes contentType="Video" contentId={this.props.videoId} />
                     <CopyToClipboard
                       text={shareURL}
                       onCopy={() => this.setState({ copied: true })}
@@ -81,7 +82,10 @@ class VideoShow extends React.Component{
               </div>
               <div className="uploader-details">
                 <div className="top-info">
-                  <UserIcon className="drop-header-icon" />
+                  <CurrentUserIcon
+                    addClass="drop-header-icon"
+                    username={creatorName}
+                  />
                   <div className="name-n-number">
                     <h4>{creatorName}</h4>
                     {/* <span>{subCount}</span> */}

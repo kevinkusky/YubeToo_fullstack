@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import CurrentUserIcon from '../session/currentuser_icon';
+
 import {NEWVID, SUPAUTH} from '../../util/route_utils';
 
 import VideoIcon from '@material-ui/icons/VideoCall';
@@ -29,20 +31,18 @@ const Greeting = ({ currentUser, logout }) => {
             <VideoIcon className="video-icon" />
           </Link>
           <div className="drop-down">
-            <div className="circle-letter">
-              {currentUser.username[0].toUpperCase()}
-            </div>
+            <CurrentUserIcon username={currentUser.username} />
             <div className="sub-list">
               <div className="sublist-header">
-                <UserIcon className="drop-header-icon" />
+                <CurrentUserIcon addClass='drop-header-icon' username={currentUser.username} />
                 <div className="currentuser-info">
-                  <div className='detail-item'>{currentUser.username}</div>
-                  <div className='detail-item'>{currentUser.email}</div>
+                  <div className="detail-item">{currentUser.username}</div>
+                  <div className="detail-item">{currentUser.email}</div>
                 </div>
               </div>
-              <hr/>
-              <div className='signout-button' onClick={logout}>
-                <SignoutIcon className='signout-icon'/>
+              <hr />
+              <div className="signout-button" onClick={logout}>
+                <SignoutIcon className="signout-icon" />
                 <span>Sign Out</span>
               </div>
             </div>
