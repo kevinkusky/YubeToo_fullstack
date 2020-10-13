@@ -34,8 +34,7 @@ class CommentIndex extends React.Component {
     }
   }
 
-  render() {const replyIdxClass = this.state.indexOpen ? "reply-index" : "hide-replies";
-  const replyItmClass = this.state.indexOpen ? "reply-index-item" : "";
+  render() {
 
     return (
       <div className="comment-index">
@@ -49,7 +48,6 @@ class CommentIndex extends React.Component {
                         comment={comment}
                         commentId={comment.id}
                         key={comment.id}
-                        replyIndexClass={""}
                         replyParentId={comment.id}
                       />
                     );
@@ -62,7 +60,6 @@ class CommentIndex extends React.Component {
                           commentId={comment.id}
                           replyParentId={comment.id}
                           key={comment.id}
-                          replyIndexClass={""}
                         />
                         <ReplyIndex
                             replies={comment.replies}
@@ -70,7 +67,7 @@ class CommentIndex extends React.Component {
                         />
                       </>
                     );
-                }})}
+            }})}
           </div>
         ) : (
           <div></div>

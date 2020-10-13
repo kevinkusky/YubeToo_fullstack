@@ -26,6 +26,7 @@ class ReplyIndex extends React.Component {
 
   render() {
     const replies = this.state.replies;
+    const replyButtonText = replies.length === 1 ? '1 reply' : `${replies.length} replies`;
     const replyIdxClass = this.state.replyIndexOpen ? "reply-index" : "hide-replies";
     const replyItmClass = this.state.replyIndexOpen ? "reply-index-item" : "";
 
@@ -40,14 +41,14 @@ class ReplyIndex extends React.Component {
                 <div className="cindex-button active-index-button">
                     <ToCloseReplyIndex />
                     <span>
-                        Hide {replies.length} replies
+                        Hide {replyButtonText}
                     </span>
                 </div>
             ) : (
                 <div className="cindex-button inactive-index-button">
                     <ToOpenReplyIndex />
                     <span>
-                        View {replies.length} replies
+                        View {replyButtonText}
                     </span>
                 </div>
             )}
