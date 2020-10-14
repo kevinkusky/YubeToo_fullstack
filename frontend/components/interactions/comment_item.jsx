@@ -10,6 +10,7 @@ import { fetchCommentLikes } from '../../actions/likes';
 
 import CommentControls from "@material-ui/icons/MoreVert";
 import DeleteIcon from '@material-ui/icons/DeleteForever';
+import { entityAsArray } from '../../reducers/selectors';
 
 
 
@@ -21,8 +22,15 @@ class CommentIndexItem extends React.Component {
       replyOpen: false,
       comment: this.props.comment,
       actionMenu: false,
-    //   commentLikes: this.props.comment.likes,
-    //   commentDislikes: this.props.comment.dislikes
+      commentLikes: this.props.allCommentLikes.filter(
+          like => like.dislike === false
+      ),
+      commentDislikes: this.props.allCommentLikes.filter(
+          like => like.dislike === true
+      ),
+      activeLike: this.props.allCommentLikes.filter(
+            like => like.liker_id === this.props.currentUserId
+      ),
     };
 
     this.replyHandle = this.replyHandle.bind(this);
@@ -31,13 +39,30 @@ class CommentIndexItem extends React.Component {
 
   componentDidMount() {
       this.props.fetchComment(this.props.commentId);
-    //   this.props.fetchCommentLikes(this.props.commentId);
+      this.props.fetchCommentLikes(this.props.commentId);
   }
 
   componentDidUpdate(preProps, preState) {
-    if (preProps.comment.body !== this.props.comment.body) {
-        this.setState({ comment: this.props.comment }); 
-    }
+      if (this.props.allCommentLikes.length === 0) {
+          return null;
+      } else if (
+          (preProps.allCommentLikes[preProps.allCommentLikes.length - 1]) !==
+          (this.props.allCommentLikes[this.props.allCommentLikes.length - 1])
+        ) {
+            this.setState({
+                commentLikes: this.props.allCommentLikes.filter(
+                    (like) => like.dislike === false
+                ),
+                commentDislikes: this.props.allCommentLikes.filter(
+                    (like) => like.dislike === true
+                ),
+                activeLike: this.props.allCommentLikes.filter(
+                    (like) => like.liker_id === this.props.currentUserId
+                ),
+            });
+      } else if (preProps.comment.body !== this.props.comment.body) {
+            this.setState({ comment: this.props.comment }); 
+      } 
   }
 
   replyHandle() {
@@ -94,8 +119,9 @@ class CommentIndexItem extends React.Component {
             <Likes
               contentType="Comment"
               contentId={comment.id}
-            //   likes={}
-            //   dislikes={}
+              likes={this.state.commentLikes}
+              dislikes={this.state.commentDislikes}
+              activeLike={this.state.activeLike}
             />
             <button onClick={this.replyHandle} className="comment-reply">
               REPLY
@@ -114,14 +140,19 @@ class CommentIndexItem extends React.Component {
   }
 }
 
-const mSTP = ({ entities: { comments } }, ownProps) => ({
-  // currentUser: state.entities.session.currentUser,
+const mSTP = ({ session, entities: { comments, likes } }, ownProps) => ({
+  currentUserId: session.currentUser.id,
   commentId: parseInt(ownProps.commentId),
-//   comment: comments[parseInt(ownProps.commentId)],
+  allCommentLikes: Object.values(likes).filter(
+      like => (
+          (like.likeable_type === 'Comment') && (like.likeable_id === parseInt(ownProps.commentId))
+      )
+  )
 });
 
-const mDTP = (dispatch) => ({
+const mDTP = dispatch => ({
   fetchComment: commentId => dispatch(fetchComment(commentId)),
+  fetchCommentLikes: commentId => dispatch(fetchCommentLikes(commentId))
 });
 
 export default connect(mSTP, mDTP)(CommentIndexItem);

@@ -13,9 +13,19 @@ import ShareIcon from "@material-ui/icons/Redo";
 class VideoShow extends React.Component{
     constructor(props){
         super(props);
-        this.state={
-            video: this.props.video ? this.props.video : null,
-            copied: false,
+        this.state = {
+          video: this.props.video ? this.props.video : null,
+          copied: false,
+          videoLikes: this.props.allVideoLikes.filter(
+            (like) => like.dislike === false 
+          ),
+          videoDislikes: this.props.allVideoLikes.filter(
+            (like) => like.dislike === true 
+          ),
+          activeLike: this.props.allVideoLikes.filter(
+            (like) =>
+              like.liker_id === this.props.currentUserId
+          ),
         };
     }
 
@@ -24,17 +34,30 @@ class VideoShow extends React.Component{
         this.props.fetchVideo(this.props.videoId).then(
             res => this.setState({ video: res.video })
         );
+        this.props.fetchVideoLikes(this.props.videoId);
     }
 
-    // componentDidUpdate(preProps, preState){
-    //     if (
-    //       preProps.videoLikes.length !== this.props.videoLikes.length ||
-    //       preProps.videoDislikes.length !== this.props.videoDislikes.length
-    //     ) {
-    //         console.log(this.props);
-
-    //     }
-    // }
+    componentDidUpdate(preProps, preState){
+        // debugger
+        if (this.props.allVideoLikes.length === 0) {
+          return null;
+        } else if (
+          (preProps.allVideoLikes[preProps.allVideoLikes.length - 1]) !==
+          (this.props.allVideoLikes[this.props.allVideoLikes.length - 1])
+        ) {
+          this.setState({
+            videoLikes: this.props.allVideoLikes.filter(
+              (like) => like.dislike === false
+            ),
+            videoDislikes: this.props.allVideoLikes.filter(
+              (like) => like.dislike === true
+            ),
+            activeLike: this.props.allVideoLikes.filter(
+              (like) => like.liker_id === this.props.currentUserId
+            ),
+          });
+        }
+    }
 
     render(){
         // debugger;
@@ -67,7 +90,13 @@ class VideoShow extends React.Component{
                     <span>{uploadDate}</span>
                   </div>
                   <div className="right-stats">
-                    <Likes contentType="Video" contentId={this.props.videoId} />
+                    <Likes 
+                        contentType="Video"
+                        contentId={this.props.videoId}
+                        likes={this.state.videoLikes}
+                        dislikes={this.state.videoDislikes}
+                        activeLike={this.state.activeLike} 
+                    />
                     <CopyToClipboard
                       text={shareURL}
                       onCopy={() => this.setState({ copied: true })}
