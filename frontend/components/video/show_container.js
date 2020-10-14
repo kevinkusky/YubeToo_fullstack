@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 
 import {fetchVideo} from '../../actions/videos';
 import {fetchVideoLikes} from '../../actions/likes';
-import { entityAsArray } from '../../reducers/selectors';
 import VideoShow from './show';
 
 const mSTP = ({ session, entities: { videos, likes } }, ownProps) => ({

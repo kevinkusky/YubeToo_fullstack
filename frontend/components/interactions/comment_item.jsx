@@ -5,7 +5,7 @@ import CurrentUserIcon from '../session/currentuser_icon';
 import Likes from './likes';
 import CommentForm from './comment_form';
 
-import { fetchComment } from '../../actions/comments';
+import { fetchComment, deleteComment } from '../../actions/comments';
 import { fetchCommentLikes } from '../../actions/likes';
 
 import CommentControls from "@material-ui/icons/MoreVert";
@@ -35,6 +35,7 @@ class CommentIndexItem extends React.Component {
 
     this.replyHandle = this.replyHandle.bind(this);
     this.commentActionHandle = this.commentActionHandle.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -65,12 +66,12 @@ class CommentIndexItem extends React.Component {
       } 
   }
 
-  replyHandle() {
-    this.setState({ replyOpen: !this.state.replyOpen });
-  }
+  replyHandle() { this.setState({ replyOpen: !this.state.replyOpen }); }
 
-  commentActionHandle() {
-    this.setState({ actionMenu: !this.state.actionMenu});
+  commentActionHandle() { this.setState({ actionMenu: !this.state.actionMenu}); }
+
+  handleDelete() {
+      this.props.deleteComment(this.props.commentId);
   }
 
   render() {
@@ -79,7 +80,6 @@ class CommentIndexItem extends React.Component {
     const replyClass = this.state.replyOpen ? "active-reply" : "close-reply";
     const actionClass = this.state.actionMenu ? "action-menu" : "close-reply";
 
-    // console.log(this.props);
     // debugger
     return (
       <>
@@ -105,10 +105,10 @@ class CommentIndexItem extends React.Component {
                         onBlur={this.commentActionHandle}
                     />
                     <div className={actionClass}>
-                        {/* <li className='comment-action-item'>
-                            <span>Edit</span>
-                        </li>  */}
-                        <div className='comment-action-item'>
+                        <div 
+                            className='comment-action-item'
+                            onClick={this.handleDelete}
+                        >
                             <DeleteIcon className='action-icon'/>
                             <span>Delete</span>
                         </div>
@@ -152,7 +152,8 @@ const mSTP = ({ session, entities: { comments, likes } }, ownProps) => ({
 
 const mDTP = dispatch => ({
   fetchComment: commentId => dispatch(fetchComment(commentId)),
-  fetchCommentLikes: commentId => dispatch(fetchCommentLikes(commentId))
+  fetchCommentLikes: commentId => dispatch(fetchCommentLikes(commentId)),
+  deleteComment: commentId => dispatch(deleteComment(commentId))
 });
 
 export default connect(mSTP, mDTP)(CommentIndexItem);

@@ -2,7 +2,6 @@ import * as APIUtil from '../util/comments_util';
 
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
-// export const RECEIVE_REPLY = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 const receiveComments = comments => ({
@@ -14,11 +13,6 @@ const receiveComment = comment => ({
     type: RECEIVE_COMMENT,
     comment
 });
-
-// const receiveReply = comment => ({
-//     type: RECEIVE_REPLY,
-//     comment
-// });
 
 const removeComment = () => ({
     type: REMOVE_COMMENT,
@@ -42,12 +36,6 @@ export const createComment = comment => dispatch => (
     )
 );
 
-// export const createReply = comment => dispatch => (
-//     APIUtil.createComment(comment).then(
-//         comment => dispatch(receiveReply(comment))
-//     )
-// );
-
 export const editComment = comment => dispatch => (
     APIUtil.editComment(comment).then(
         comment => dispatch(receiveComment(comment))
@@ -55,7 +43,7 @@ export const editComment = comment => dispatch => (
 );
 
 export const deleteComment = id => dispatch => (
-    APIUtil.removeComment().then(
+    APIUtil.removeComment(id).then(
         () => dispatch(removeComment())
     )
 );

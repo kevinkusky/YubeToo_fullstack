@@ -12,11 +12,9 @@ class Likes extends React.Component {
     super(props);
 
     this.state = {
-    //   likeType: this.props.contentType,
-    //   contentId: this.props.contentId,
-    //   likes: this.props.likes,
-    //   dislikes: this.props.dislikes,
-    //   activeLike: this.props.activeLike,
+        // likeCount: this.props.likes.length,
+        // dislikeCount: this.props.dislikes.length,
+        // activeLike: this.props.activeLike
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -30,11 +28,10 @@ class Likes extends React.Component {
 //     if (this.state.activeLike.length > 0) { this.setState({ userStatus: true }); }
 //   }
 
-//   componentDidUpdate(preProps, preState) {
-//       if (this.state.activeLike.length > 0) { 
-//         this.setState({ userStatus: true });
-//       }
-
+//   componentDidUpdate() {
+//         this.props.contentType === 'Video' ?
+//         this.props.fetchVideoLikes(this.props.contentId) :
+//         this.props.fetchCommentLikes(this.props.contentId);
 //   }
 
   handleClick(type) {
@@ -95,6 +92,7 @@ class Likes extends React.Component {
         >
           <UpIcon className="like-icon" />
           <span>{this.props.likes.length}</span>
+          {/* <span>{this.state.likeCount}</span> */}
         </div>
         <div 
             className={`like-item ${activeDislikeClass}`}
@@ -102,6 +100,7 @@ class Likes extends React.Component {
         >
           <DownIcon className="like-icon" />
           <span>{this.props.dislikes.length}</span>
+          {/* <span>{this.state.dislikeCount}</span> */}
         </div>
 
       </div>
@@ -114,8 +113,8 @@ const mSTP = ({ session }) => ({
 });
 
 const mDTP = dispatch => ({
-    // fetchVideoLikes: videoId => dispatch(fetchVideoLikes(videoId)),
-    // fetchCommentLikes: commentId => dispatch(fetchCommentLikes(commentId)),
+    fetchVideoLikes: videoId => dispatch(fetchVideoLikes(videoId)),
+    fetchCommentLikes: commentId => dispatch(fetchCommentLikes(commentId)),
     createLike: like => dispatch(createLike(like)),
     editLike: like => dispatch(editLike(like)),
     deleteLike: id => dispatch(deleteLike(id)),

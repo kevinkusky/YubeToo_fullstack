@@ -87,7 +87,9 @@ class CommentForm extends React.Component {
                 });
             break;
         }
-      this.props.createComment(commentItem);
+      this.props.createComment(commentItem).then(
+          this.setState({ body: ''})
+      );
     }
   }
 
