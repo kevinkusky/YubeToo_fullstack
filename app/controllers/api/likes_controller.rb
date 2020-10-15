@@ -38,7 +38,17 @@ class Api::LikesController < ApplicationController
     def update
         @like = Like.find(params[:id])
         if @like.update_attributes(like_params)
-            render :show
+            @likes = []
+            if params[:comment_id]
+                comment = Comment.find(params[:comment_id])
+                @likes = comment.likes
+            elsif params[:video_id]
+                video = Video.find(params[:video_id])
+                @likes = video.likes
+            else
+                @likes = Like.all
+            end
+            render :index
         else
             render json: @like.errors.full_messages, status: 422
         end

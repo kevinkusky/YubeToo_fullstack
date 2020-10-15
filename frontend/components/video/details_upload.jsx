@@ -23,8 +23,6 @@ class DetailsUpload extends React.Component{
                 </div>
                 <div className="description">
                     <textarea 
-                        cols="30" 
-                        rows="10"
                         required=" "
                         value={this.props.description}
                         onChange={this.props.update('description')}

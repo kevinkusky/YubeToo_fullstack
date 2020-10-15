@@ -40,9 +40,21 @@ class User < ApplicationRecord
         class_name: :Like,
         foreign_key: :liker_id
 
-    #has_many :liked_videos,
+    # has_many :liked_videos,
     #    through: :likes,
-    #    source: :likeable, as: :Video
+    #    source: :likeable,
+    #    source_type: 'Video'
+
+    def filter_likes
+        likes = self.likes.where(dislike: false, likeable_type: 'Video')
+        liked_videos = []
+        
+        likes.each do |like|
+            liked_videos.push(like.likeable)
+        end
+
+        return liked_videos
+    end
 
     # FIGVAPER
     def self.find_by_credentials(email, password)

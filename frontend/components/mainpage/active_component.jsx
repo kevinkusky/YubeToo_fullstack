@@ -1,9 +1,10 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
-import { AuthRoute, ProtectedRoute, SPLASH, TREND, DUMMY, USERVID, HIST } from "../../util/route_utils";
+import { AuthRoute, ProtectedRoute, LIKED, SPLASH, TREND, DUMMY, USERVID, HIST } from "../../util/route_utils";
 import IndexContainer from '../index/video_index';
 import UserIndex from '../index/user_index';
+import LikedIndex from '../index/liked_index';
 import TrendingIndex from '../index/trending_index';
 import HistoryIndex from '../index/history_index';
 import Dummy from '../index/dummy';
@@ -27,7 +28,7 @@ class ActiveComponent extends React.Component{
                     <Route exact path={TREND} component={TrendingIndex}/>
                     <Route exact path={USERVID} component={UserIndex} />
                     <Route exact path={HIST} component={HistoryIndex} />
-                    {/* <Route exact path={LIKED} component={LikedIndex} /> */}
+                    <Route exact path={LIKED} component={LikedIndex} />
                 </Switch>
             </div>
         )

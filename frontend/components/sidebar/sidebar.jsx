@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { SPLASH, ABOUT, DUMMY, LAUTH, TREND, USERVID, HIST } from '../../util/route_utils';
+import { SPLASH, LIKED, DUMMY, LAUTH, TREND, USERVID, HIST } from '../../util/route_utils';
 
 import SidebarRow from './sidebar_row';
 
@@ -70,7 +70,7 @@ class SideBar extends React.Component{
               Icon={LikeIcon}
               title="Liked Videos"
               coverClass={classSizeName}
-              pathName={DUMMY}
+              pathName={LIKED}
             />
             <hr />
             <div>

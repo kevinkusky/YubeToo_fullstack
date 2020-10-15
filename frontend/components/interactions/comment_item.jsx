@@ -78,7 +78,8 @@ class CommentIndexItem extends React.Component {
     const { comment, replyParentId, type, replyItmClass } = this.props;
     const itemClass = type === 'comment' ? 'comment-index-item' : replyItmClass;
     const replyClass = this.state.replyOpen ? "active-reply" : "close-reply";
-    const actionClass = this.state.actionMenu ? "action-menu" : "close-reply";
+    const dropdownIconClass = this.state.actionMenu ? 'active-menu-button' : 'comment-control-button';
+    const actionClass = this.state.actionMenu ? "action-menu" : "no-menu";
 
     // debugger
     return (
@@ -100,7 +101,7 @@ class CommentIndexItem extends React.Component {
                 </div>
                 <div>
                     <CommentControls
-                        className="comment-control-button"
+                        className={dropdownIconClass}
                         onClick={this.commentActionHandle}
                         onBlur={this.commentActionHandle}
                     />
