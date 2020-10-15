@@ -16,7 +16,6 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
-                // exclude: [/node_modules/, /ffmpeg/],
                 use: {
                     loader: 'babel-loader',
                     query: {
@@ -26,21 +25,8 @@ module.exports = {
             }
         ]
     },
-    // devServer: {
-    //     historyApiFallback: true
-    // },
     devtool: 'inline-source-map',
     resolve: {
         extensions: [".js", ".jsx", "*"],
     },
-    // externals: {
-	//   child_process: child_process,
-	//   fs: fs,
-    //   os: os,
-    // },
-    // plugins: [
-    //     new webpack.DefinePlugin({
-    //         'process.env.FLUENTFFMPEG_COV': false
-    //     })
-    // ]
 };
