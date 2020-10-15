@@ -5,6 +5,5 @@ import errors from './errors';
 
 export default combineReducers({
     session,
-    entities,
-    errors
+    entities
 });

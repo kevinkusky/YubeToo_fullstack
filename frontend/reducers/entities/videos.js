@@ -13,12 +13,6 @@ const videosReducer = (state = {}, action) => {
         const newState = Object.assign({}, state);
         delete newState[action.id];
         return newState;
-      case RECEIVE_LIKE:
-      case REMOVE_LIKE:
-          if (action.likeable.videoUrl){
-              return Object.assign({}, state, { [action.likeable.id]: action.likeable });
-          }
-          return state;
       default:
         return state;
     }

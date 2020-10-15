@@ -41,8 +41,16 @@
 }
 
 .step-buttons {
+    margin-top: 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.confirm-step .step-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .next-icon{
@@ -91,7 +99,8 @@
      justify-content: space-evenly;
 }
 
-.next-step:hover, .prev-step:hover, .video-button:hover, .signup-button:hover {
+.next-step:hover, .prev-step:hover, 
+.video-button:hover, .signup-button:hover {
     background-color: rgba(240, 240, 240, 0.993);
     color: rgb(66, 117, 211);
 }
@@ -119,7 +128,6 @@
     margin-top: 25px;
     display: flex;
     justify-content: center;
-    // width: 100%;
 
     input {
         height: 28px;
@@ -204,7 +212,7 @@
  .step-map {
      display: flex;
      justify-content: center;
-     margin-top: 20px;
+     margin-top: 56px;
      margin-bottom: 27px;
      width: 100%;
      
@@ -287,6 +295,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 620px;
+    width: 100%;
 }
 

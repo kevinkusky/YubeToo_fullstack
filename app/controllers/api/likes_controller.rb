@@ -19,13 +19,7 @@ class Api::LikesController < ApplicationController
     def create
         @like = Like.new(like_params)
         if @like.save!
-            if @like.likeable_type == 'Video'
-                @video = @like.likeable
-                render '/api/videos/show'
-            elsif @like.likeable_type == 'Comment'
-                @comment = @like.likeable
-                render '/api/comments/show'
-            end
+            render :show
         else
             render json: @like.errors.full_messages, status: 422
         end
@@ -38,17 +32,7 @@ class Api::LikesController < ApplicationController
     def update
         @like = Like.find(params[:id])
         if @like.update_attributes(like_params)
-            @likes = []
-            if params[:comment_id]
-                comment = Comment.find(params[:comment_id])
-                @likes = comment.likes
-            elsif params[:video_id]
-                video = Video.find(params[:video_id])
-                @likes = video.likes
-            else
-                @likes = Like.all
-            end
-            render :index
+            render :show
         else
             render json: @like.errors.full_messages, status: 422
         end

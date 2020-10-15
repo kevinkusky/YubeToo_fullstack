@@ -1,35 +1,64 @@
 import * as APIUtil from '../util/likes_util';
 
-export const RECEIVE_LIKES = 'RECEIVE_LIKES';
 export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 export const REMOVE_LIKE = 'REMOVE_LIKE';
+export const RECEIVE_VIDEO_LIKES = "RECEIVE_LIKES";
+export const RECEIVE_COMMENT_LIKES = "RECEIVE_LIKES";
 
-const receiveLikes = likes => ({
-    type: RECEIVE_LIKES,
-    likes
+const receiveVideoLikes = (likes) => {
+    // debugger
+    return({
+        type: RECEIVE_VIDEO_LIKES,
+        likes,
+    });
+};
+
+const receiveCommentLikes = (likes) => {
+    // debugger
+    return({
+        type: RECEIVE_COMMENT_LIKES,
+        likes,
+    });
+};
+
+// const receiveLikes = likes => ({
+//     type: RECEIVE_LIKES,
+//     likes
+// });
+
+const receiveLike = (like) => {
+    // debugger
+    return({
+        type: RECEIVE_LIKE,
+        like
+    });
+};
+
+const removeLike = () => ({
+    type: REMOVE_LIKE
 });
 
-const receiveLike = likeable => ({
-    type: RECEIVE_LIKE,
-    likeable
-});
+export const fetchVideoLikes = (videoId) => (dispatch) =>
+  APIUtil.fetchVideoLikes(videoId).then((likes) =>
+    dispatch(receiveVideoLikes(likes))
+  );
 
-const removeLike = likeable => ({
-    type: REMOVE_LIKE,
-    likeable
-});
+export const fetchCommentLikes = (commentId) => (dispatch) =>
+  APIUtil.fetchCommentLikes(commentId).then((likes) =>
+    dispatch(receiveCommentLikes(likes))
+  );
 
-export const fetchVideoLikes = videoId => dispatch => (
-    APIUtil.fetchVideoLikes(videoId).then(
-        likes => (dispatch(receiveLikes(likes)))
-    )
-);
+// export const fetchVideoLikes = videoId => dispatch => (
+//     APIUtil.fetchVideoLikes(videoId).then(
+//         likes => (dispatch(receiveLikes(likes)))
+//     )
+// );
 
-export const fetchCommentLikes = commentId => dispatch => (
-    APIUtil.fetchCommentLikes(commentId).then(
-        likes => (dispatch(receiveLikes(likes)))
-    )
-);
+// export const fetchCommentLikes = commentId => dispatch => (
+//     APIUtil.fetchCommentLikes(commentId).then(
+//         likes => (dispatch(receiveLikes(likes)))
+//     )
+// );
 
 export const fetchLike = id => dispatch => (
     APIUtil.fetchLike(id).then(
@@ -51,6 +80,6 @@ export const editLike = like => dispatch => (
 
 export const deleteLike = id => dispatch => (
     APIUtil.removeLike(id).then(
-        (likeable) => dispatch(removeLike(likeable))
+        () => dispatch(removeLike())
     )
 );

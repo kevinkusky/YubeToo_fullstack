@@ -12,27 +12,64 @@ class Likes extends React.Component {
     super(props);
 
     this.state = {
-        // likeCount: this.props.likes.length,
-        // dislikeCount: this.props.dislikes.length,
-        // activeLike: this.props.activeLike
+        likes: this.props.likes,
+        dislikes: this.props.dislikes,
+        activeLike: this.props.activeLike
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.likeActionDirector = this.likeActionDirector.bind(this);
   }
 
-//   componentDidMount() {
-//       this.state.likeType === 'Video' ?
-//         this.props.fetchVideoLikes(this.state.contentId) :
-//         this.props.fetchCommentLikes(this.state.contentId);
+  componentDidUpdate(preProps, preState) {
+      if(this.props.activeLike.length === 0){
+          return null;
+      }else if(preProps.likes.length !== this.props.likes.length || 
+        preProps.dislikes.length !== this.props.dislikes.length){
+            this.setState({ likes: this.props.likes, dislikes: this.props.dislikes});
+      }else if(preProps.activeLike.length !== this.props.activeLike.length){
+            this.setState({ activeLike: this.props.activeLike });
+        } else if(preProps.activeLike[0].dislike !== this.props.activeLike[0].dislike){
+            this.setState({ activeLike: this.props.activeLike });
+        }
+  }
 
-//     if (this.state.activeLike.length > 0) { this.setState({ userStatus: true }); }
-//   }
+  createLike(like){
+      this.props.createLike(like);
+      this.setState({ activeLike: [like] });
+  }
 
-//   componentDidUpdate() {
-//         this.props.contentType === 'Video' ?
-//         this.props.fetchVideoLikes(this.props.contentId) :
-//         this.props.fetchCommentLikes(this.props.contentId);
-//   }
+  deleteLike(){
+      this.props.createLike(this.props.activeLike[0].id);
+      this.setState({ activeLike: [] });
+  }
+
+  editLike(like){
+    like.id = this.props.activeLike[0].id;
+    this.props.editLike(like);
+    this.setState({ activeLike: [like] });
+  }
+
+  likeActionDirector(like){
+    switch (this.props.activeLike.length === 1) {
+        case false:
+            this.createLike(like);
+            break;
+        case true:
+            // if deleting existing like/dislike
+            if (!this.props.activeLike[0].dislike && !like.dislike ||
+              this.props.activeLike[0].dislike && like.dislike) {
+                this.deleteLike();
+            }
+            // if changing between like and dislike
+            else {
+                this.editLike(like);
+            }
+            break;
+        default:
+            return null;
+        }
+  }
 
   handleClick(type) {
     if (!this.props.currentUserId) { return null; }
@@ -43,35 +80,8 @@ class Likes extends React.Component {
       likeable_id: this.props.contentId,
       dislike: type === "like" ? false : true,
     };
-
     // debugger
-
-    switch (this.props.activeLike.length === 1) {
-      case false:
-          this.props.createLike(newLike);
-        //   this.setState({ activeLike: [newLike] });
-        break;
-      case true:
-        // if deleting existing like
-        if (!this.props.activeLike[0].dislike && !newLike.dislike) {
-          this.props.deleteLike(this.props.activeLike[0].id);
-        //   this.setState({ activeLike: [] });
-        } 
-        // if deleting existing dislike
-        else if (this.props.activeLike[0].dislike && newLike.dislike) {
-          this.props.deleteLike(this.props.activeLike[0].id);
-          this.setState({ activeLike: [] });
-        }
-        // if changing between like and dislike
-        else {
-            newLike.id = this.props.activeLike[0].id;
-            this.props.editLike(newLike);
-            // this.setState({ activeLike: [newLike] });
-        }
-        break;
-      default:
-        return null;
-    }
+    this.likeActionDirector(newLike);
   }
 
   render() {
@@ -91,16 +101,14 @@ class Likes extends React.Component {
             onClick={() => this.handleClick("like")}
         >
           <UpIcon className="like-icon" />
-          <span>{this.props.likes.length}</span>
-          {/* <span>{this.state.likeCount}</span> */}
+          <span>{this.state.likes.length}</span>
         </div>
         <div 
             className={`like-item ${activeDislikeClass}`}
             onClick={() => this.handleClick("dislike")}
         >
           <DownIcon className="like-icon" />
-          <span>{this.props.dislikes.length}</span>
-          {/* <span>{this.state.dislikeCount}</span> */}
+          <span>{this.state.dislikes.length}</span>
         </div>
 
       </div>
