@@ -19,19 +19,22 @@ class Likes extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.likeActionDirector = this.likeActionDirector.bind(this);
+    this.createLike = this.createLike.bind(this);
+    this.deleteLike = this.deleteLike.bind(this);
+    this.editLike = this.editLike.bind(this);
   }
 
   componentDidUpdate(preProps, preState) {
       if(this.props.activeLike.length === 0){
           return null;
-      }else if(preProps.likes.length !== this.props.likes.length || 
-        preProps.dislikes.length !== this.props.dislikes.length){
+      }else if((preProps.likes.length !== this.props.likes.length) || 
+        (preProps.dislikes.length !== this.props.dislikes.length)){
             this.setState({ likes: this.props.likes, dislikes: this.props.dislikes});
       }else if(preProps.activeLike.length !== this.props.activeLike.length){
             this.setState({ activeLike: this.props.activeLike });
-        } else if(preProps.activeLike[0].dislike !== this.props.activeLike[0].dislike){
+      } else if(preProps.activeLike[0].dislike !== this.props.activeLike[0].dislike){
             this.setState({ activeLike: this.props.activeLike });
-        }
+      }
   }
 
   createLike(like){
@@ -57,8 +60,8 @@ class Likes extends React.Component {
             break;
         case true:
             // if deleting existing like/dislike
-            if (!this.props.activeLike[0].dislike && !like.dislike ||
-              this.props.activeLike[0].dislike && like.dislike) {
+            if ((!this.props.activeLike[0].dislike && !like.dislike) ||
+              (this.props.activeLike[0].dislike && like.dislike)) {
                 this.deleteLike();
             }
             // if changing between like and dislike

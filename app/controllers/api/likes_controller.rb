@@ -36,6 +36,10 @@ class Api::LikesController < ApplicationController
         else
             render json: @like.errors.full_messages, status: 422
         end
+
+        # unless @like.update
+        #     render json: @like.errors.full_messages, status: 422
+        # end
     end
 
 
