@@ -27,7 +27,7 @@ class CommentForm extends React.Component {
   }
 
   toggleForm(bool) {
-      console.log('cancel form');
+    //   console.log('cancel form');
     if (this.state.formType === 'reply' && bool === false){
         this.setState({ formOpen: bool, body: "" });
         this.props.replyHandle();
