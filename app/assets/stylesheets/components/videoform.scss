@@ -119,7 +119,7 @@
     margin-top: 25px;
     display: flex;
     justify-content: center;
-    width: 100%;
+    // width: 100%;
 
     input {
         height: 28px;
@@ -145,14 +145,22 @@
 
 .input-labels{
     position: absolute;
-    top: 2px;
-    left: 1px;
     padding: 4px 0;
     pointer-events: none;
     transition: .5s;
     font-size: 18px;
     color: rgba(163, 163, 163, 0.815);
     font-family: "Lucida Console", Courier, monospace;
+}
+
+.input-labels.description-box {
+    top: 2px;
+    left: 4px;
+}
+
+.input-labels.title {
+    top: 2px;
+    left: 100px;
 }
 
   .details-step .input-container input:focus,
@@ -170,7 +178,16 @@
  }
 
  .details-step .input-container input:focus ~label,
-  .details-step .input-container input:valid ~label,
+  .details-step .input-container input:valid ~label{
+      top: -12px;
+      left: 96px;
+      color: rgb(5, 20, 175);
+      background: rgba(255,255,255,5);
+      font-size: 12px;
+      padding-bottom: 0;
+      padding-left: 1px;
+  }
+
    .details-step .description textarea:focus ~label,
   .details-step .description textarea:valid ~label{
      top: -12px;
@@ -182,57 +199,57 @@
      padding-left: 1px;
  }
 
- .confirm-step {
+ 
+ 
+ .step-map {
      display: flex;
-     flex-direction: column;
-    //  justify-content: space-evenly;
-     height: 100%;
- }
-
+     justify-content: center;
+     margin-top: 20px;
+     margin-bottom: 27px;
+     width: 100%;
+     
+     .not-reached { 
+         width: 170px;
+         height: 1px;
+         margin-top: 20px;
+         border-bottom: 1px solid lightblue;
+         margin-left: 12px;
+         margin-right: 12px;
+        }
+        
+        div {
+            display: flex;
+            height: 45px;
+            width:45px;
+            border-radius: 50%;
+            border: 1px solid black;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba($color: #8a8b94, $alpha: 1.0);
+            color: whitesmoke;
+            font-weight: bolder;
+        }
+        
+        .reached {
+            width: 170px;
+            border: 1px solid red;
+            height: 1px;
+            margin-top: 20px;
+            margin-left: 12px;
+            margin-right: 12px;
+        }
+    }
+    
+.confirm-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
 
 .confirm-style {
     display: flex;
     justify-content: space-evenly;
-}
-
-
-.step-map {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 27px;
-    width: 100%;
-
-    .not-reached { 
-        width: 170px;
-        height: 1px;
-        margin-top: 20px;
-        border-bottom: 1px solid lightblue;
-        margin-left: 12px;
-        margin-right: 12px;
-    }
-
-    div {
-        display: flex;
-        height: 45px;
-        width:45px;
-        border-radius: 50%;
-        border: 1px solid black;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba($color: #8a8b94, $alpha: 1.0);
-        color: whitesmoke;
-        font-weight: bolder;
-    }
-
-    .reached {
-        width: 170px;
-        border: 1px solid red;
-        height: 1px;
-        margin-top: 20px;
-        margin-left: 12px;
-        margin-right: 12px;
-    }
 }
 
 .step-map .map-active-step{
@@ -242,8 +259,34 @@
 }
 
 .step-map .map-past-step {
-    background-color: rgba($color: #313899, $alpha: 1.0);
+  background-color: rgba($color: #313899, $alpha: 1.0);
   color: whitesmoke;
   font-weight: bolder; 
+}
+.confirm-step .all-details {
+    height: 282px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    justify-content: center;
+    align-self: center;
+}
+
+.uploaded-items, .upload-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.confirm-style {
+    margin: 12px 0;
+    padding: 3px;
+    border: 3px solid rgb(5, 20, 175);
+    border-radius: 22px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 620px;
 }
 

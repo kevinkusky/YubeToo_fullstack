@@ -19,7 +19,7 @@ class DetailsUpload extends React.Component{
                     onChange={this.props.update("title")}
                     required=" "
                 />
-                <label className="input-labels">Title</label>
+                <label className="input-labels title">Title</label>
                 </div>
                 <div className="description">
                     <textarea 
@@ -28,7 +28,7 @@ class DetailsUpload extends React.Component{
                         onChange={this.props.update('description')}
                     >
                     </textarea>
-                <label className="input-labels">Description</label>
+                <label className="input-labels description-box">Description</label>
                 </div>
               </div>
             <div className="step-map">

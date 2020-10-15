@@ -11,6 +11,7 @@ class ConfrimUpload extends React.Component {
         return (
             <div className="confirm-step">
           <form onSubmit={this.props.handleSubmit}>
+              <div className='all-details'>
                 <div className="uploaded-items">
                     <div className="confirm-style">
                         <span className='field-header'>Video File:</span>
@@ -31,6 +32,7 @@ class ConfrimUpload extends React.Component {
                         <span className='field-result'>{this.props.description}</span>
                     </div>
                 </div>
+              </div>
                 <div className="step-map">
                     <div className="map-past-step">1</div>
                         <div className="reached"></div>

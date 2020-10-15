@@ -41,12 +41,12 @@ class SideBar extends React.Component{
               coverClass={classSizeName}
               pathName={TREND}
             />
-            <SidebarRow
+            {/* <SidebarRow
               Icon={SubscriptionIcon}
               title="Subscriptions"
               coverClass={classSizeName}
               pathName={DUMMY}
-            />
+            /> */}
             <hr />
             <SidebarRow
               Icon={HistoryIcon}
