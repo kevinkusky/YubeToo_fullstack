@@ -10,9 +10,6 @@ import { fetchCommentLikes } from '../../actions/likes';
 
 import CommentControls from "@material-ui/icons/MoreVert";
 import DeleteIcon from '@material-ui/icons/DeleteForever';
-import { entityAsArray } from '../../reducers/selectors';
-
-
 
 class CommentIndexItem extends React.Component {
   constructor(props) {
@@ -36,10 +33,14 @@ class CommentIndexItem extends React.Component {
     this.replyHandle = this.replyHandle.bind(this);
     this.commentActionHandle = this.commentActionHandle.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleLikeDelete = this.handleLikeDelete.bind(this);
   }
 
+//   handleLikeDelete(){
+//       this.setState({ activeLike: [] });
+//   }
+
   componentDidMount() {
-    //   this.props.fetchComment(this.props.commentId);
       this.props.fetchCommentLikes(this.props.commentId);
   }
 
@@ -98,37 +99,37 @@ class CommentIndexItem extends React.Component {
     return (
       <>
         <div className={itemClass}>
-            <div className='all-comment-items'>
-                <CurrentUserIcon 
-                    username={comment.author}
-                    addClass='drop-header-icon'
-                />
-                <div className="comment-details">
-                    <div className="comment-header">
-                        <div>
-                            <span className="comment-author">{comment.author}</span>
-                            <span className="comment-time">{comment.commentTime}</span>
-                        </div>
-                    </div>
-                    <div className="comment-body">{comment.body}</div>
-                </div>
+          <div className="all-comment-items">
+            <CurrentUserIcon
+              username={comment.author}
+              addClass="drop-header-icon"
+            />
+            <div className="comment-details">
+              <div className="comment-header">
                 <div>
-                    <CommentControls
-                        className={dropdownIconClass}
-                        onClick={this.commentActionHandle}
-                        onBlur={this.commentActionHandle}
-                    />
-                    <div className={actionClass}>
-                        <div 
-                            className='comment-action-item'
-                            onClick={this.handleDelete}
-                        >
-                            <DeleteIcon className='action-icon'/>
-                            <span>Delete</span>
-                        </div>
-                    </div>
+                  <span className="comment-author">{comment.author}</span>
+                  <span className="comment-time">{comment.commentTime}</span>
                 </div>
+              </div>
+              <div className="comment-body">{comment.body}</div>
             </div>
+            <div>
+              <CommentControls
+                className={dropdownIconClass}
+                onClick={this.commentActionHandle}
+                onBlur={this.commentActionHandle}
+              />
+              <div className={actionClass}>
+                <div
+                  className="comment-action-item"
+                  onClick={this.handleDelete}
+                >
+                  <DeleteIcon className="action-icon" />
+                  <span>Delete</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="comment-interaction">
             <Likes
               contentType="Comment"
@@ -136,6 +137,7 @@ class CommentIndexItem extends React.Component {
               likes={this.state.commentLikes}
               dislikes={this.state.commentDislikes}
               activeLike={this.state.activeLike}
+            //   handleLikeDelete={this.handleLikeDelete}
             />
             <button onClick={this.replyHandle} className="comment-reply">
               REPLY

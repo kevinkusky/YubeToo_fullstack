@@ -21,11 +21,6 @@ const receiveCommentLikes = (likes) => {
     });
 };
 
-// const receiveLikes = likes => ({
-//     type: RECEIVE_LIKES,
-//     likes
-// });
-
 const receiveLike = (like) => {
     // debugger
     return({
@@ -47,18 +42,6 @@ export const fetchCommentLikes = (commentId) => (dispatch) =>
   APIUtil.fetchCommentLikes(commentId).then((likes) =>
     dispatch(receiveCommentLikes(likes))
   );
-
-// export const fetchVideoLikes = videoId => dispatch => (
-//     APIUtil.fetchVideoLikes(videoId).then(
-//         likes => (dispatch(receiveLikes(likes)))
-//     )
-// );
-
-// export const fetchCommentLikes = commentId => dispatch => (
-//     APIUtil.fetchCommentLikes(commentId).then(
-//         likes => (dispatch(receiveLikes(likes)))
-//     )
-// );
 
 export const fetchLike = id => dispatch => (
     APIUtil.fetchLike(id).then(

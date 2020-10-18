@@ -42,9 +42,23 @@ class Likes extends React.Component {
       this.setState({ activeLike: [like] });
   }
 
-  deleteLike(){
-      this.props.createLike(this.props.activeLike[0].id);
-      this.setState({ activeLike: [] });
+  deleteLike(like){
+      this.props.deleteLike(this.props.activeLike[0].id);
+    //   this.props.handleLikeDelete();
+
+      !like.dislike ?
+      this.setState({ 
+          activeLike: [],
+          likes: this.state.likes.filter(
+              like => like.id !== this.props.activeLike[0].id
+              )
+        }) :
+        this.setState({ 
+            activeLike: [],
+            likes: this.state.dislikes.filter(
+                like => like.id !== this.props.activeLike[0].id
+                )
+        })
   }
 
   editLike(like){
@@ -54,7 +68,7 @@ class Likes extends React.Component {
   }
 
   likeActionDirector(like){
-    switch (this.props.activeLike.length === 1) {
+    switch (this.state.activeLike.length === 1) {
         case false:
             this.createLike(like);
             break;
@@ -62,7 +76,7 @@ class Likes extends React.Component {
             // if deleting existing like/dislike
             if ((!this.props.activeLike[0].dislike && !like.dislike) ||
               (this.props.activeLike[0].dislike && like.dislike)) {
-                this.deleteLike();
+                this.deleteLike(like);
             }
             // if changing between like and dislike
             else {
