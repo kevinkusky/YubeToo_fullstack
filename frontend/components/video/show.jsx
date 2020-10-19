@@ -26,12 +26,6 @@ class VideoShow extends React.Component {
         (like) => like.liker_id === this.props.currentUserId
       ),
     };
-
-    this.handleLikeDelete = this.handleLikeDelete.bind(this);
-  }
-
-  handleLikeDelete() {
-    this.setState({ activeLike: [] });
   }
 
   componentDidMount() {
@@ -113,7 +107,6 @@ class VideoShow extends React.Component {
                   likes={this.state.videoLikes}
                   dislikes={this.state.videoDislikes}
                   activeLike={this.state.activeLike}
-                  handleLikeDelete={this.handleLikeDelete}
                 />
                 <CopyToClipboard
                   text={shareURL}

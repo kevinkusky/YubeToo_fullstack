@@ -4,18 +4,13 @@ import { Link } from 'react-router-dom';
 import { createNewUser } from '../../actions/session';
 import Signup from './signup';
 
-const mSTP = ({ errors }) =>(
-    {
-        errors: errors.session,
-        navLink: <Link to="/login">Already a Member, Please Sign In</Link>
-    }
-);
+const mSTP = ( { entities: { errors } } ) =>({
+    // errors: errors.session,
+    navLink: <Link to="/login">Already a Member, Please Sign In</Link>
+});
 
-const mDTP = dispatch =>(
-    // dispatched with same name
-    {
+const mDTP = dispatch =>({
         createNewUser: user => dispatch(createNewUser(user))
-    }
-);
+});
 
 export default connect(mSTP, mDTP)(Signup);

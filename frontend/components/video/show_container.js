@@ -6,7 +6,7 @@ import {fetchVideoLikes} from '../../actions/likes';
 import VideoShow from './show';
 
 const mSTP = ({ session, entities: { videos, likes } }, ownProps) => ({
-  currentUserId: session.currentUser.id,
+  currentUserId: session.currentUser ? session.currentUser.id : null,
   videoId: parseInt(ownProps.match.params.videoId),
   video: videos[parseInt(ownProps.match.params.videoId)],
   allVideoLikes: Object.values(likes).filter(

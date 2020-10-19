@@ -35,8 +35,6 @@ class CommentIndexItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-
-
   componentDidMount() {
       this.props.fetchCommentLikes(this.props.commentId);
   }
@@ -45,21 +43,9 @@ class CommentIndexItem extends React.Component {
     //   debugger
       if (this.props.allCommentLikes.length === 0) {
           return null;
-      } else if (preProps.allCommentLikes.length !== this.props.allCommentLikes.length){
-          this.setState({
-              commentLikes: this.props.allCommentLikes.filter(
-                  (like) => like.dislike === false
-              ),
-              commentDislikes: this.props.allCommentLikes.filter(
-                  (like) => like.dislike === true
-              ),
-              activeLike: this.props.allCommentLikes.filter(
-                  (like) => like.liker_id === this.props.currentUserId
-              ),
-          });
-      }else if(
-          (preProps.allCommentLikes[preProps.allCommentLikes.length - 1].id) !==
-          (this.props.allCommentLikes[this.props.allCommentLikes.length - 1].id)
+      } else if(
+          (preProps.allCommentLikes[preProps.allCommentLikes.length - 1]) !==
+          (this.props.allCommentLikes[this.props.allCommentLikes.length - 1])
         ) {
             this.setState({
                 commentLikes: this.props.allCommentLikes.filter(
@@ -72,8 +58,6 @@ class CommentIndexItem extends React.Component {
                     (like) => like.liker_id === this.props.currentUserId
                 ),
             });
-      } else if (preProps.comment.body !== this.props.comment.body) {
-            this.setState({ comment: this.props.comment }); 
       } 
   }
 
@@ -134,7 +118,6 @@ class CommentIndexItem extends React.Component {
               likes={this.state.commentLikes}
               dislikes={this.state.commentDislikes}
               activeLike={this.state.activeLike}
-            //   handleLikeDelete={this.handleLikeDelete}
             />
             <button onClick={this.replyHandle} className="comment-reply">
               REPLY
@@ -154,7 +137,7 @@ class CommentIndexItem extends React.Component {
 }
 
 const mSTP = ({ session, entities: { comments, likes } }, ownProps) => ({
-  currentUserId: session.currentUser.id,
+  currentUserId: session.currentUser ? session.currentUser.id : null,
   commentId: parseInt(ownProps.commentId),
   allCommentLikes: Object.values(likes).filter(
       like => (

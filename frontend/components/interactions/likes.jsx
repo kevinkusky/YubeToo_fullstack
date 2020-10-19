@@ -24,14 +24,24 @@ class Likes extends React.Component {
     this.editLike = this.editLike.bind(this);
   }
 
+  componentDidMount(){
+      let allLikes = this.props.likes.concat(this.props.dislikes);
+
+      this.setState({
+          activeLike: allLikes.filter(
+              like => like.liker_id === this.props.currentUserId
+          )
+      });
+  }
+
   componentDidUpdate(preProps, preState) {
       if(this.props.activeLike.length === 0){
           return null;
+      }else if(preProps.activeLike.length !== this.props.activeLike.length){
+            this.setState({ activeLike: this.props.activeLike });
       }else if((preProps.likes.length !== this.props.likes.length) || 
         (preProps.dislikes.length !== this.props.dislikes.length)){
             this.setState({ likes: this.props.likes, dislikes: this.props.dislikes});
-      }else if(preProps.activeLike.length !== this.props.activeLike.length){
-            this.setState({ activeLike: this.props.activeLike });
       } else if(preProps.activeLike[0].dislike !== this.props.activeLike[0].dislike){
             this.setState({ activeLike: this.props.activeLike });
       }
@@ -39,7 +49,15 @@ class Likes extends React.Component {
 
   createLike(like){
       this.props.createLike(like);
-      this.setState({ activeLike: [like] });
+      (!like.dislike && this.props.activeLike.length === 0) ?
+        this.setState({ 
+            activeLike: [like],
+            likes: this.props.likes.push(like) 
+        }) :
+        this.setState({
+             activeLike: [like],
+             dislikes: this.props.dislikes.push(like) 
+        });
   }
 
   deleteLike(like){
@@ -48,13 +66,13 @@ class Likes extends React.Component {
       !like.dislike ?
       this.setState({ 
           activeLike: [],
-          likes: this.state.likes.filter(
+          likes: this.props.likes.filter(
               like => like.id !== this.props.activeLike[0].id
               )
         }) :
         this.setState({ 
             activeLike: [],
-            likes: this.state.dislikes.filter(
+            dislikes: this.props.dislikes.filter(
                 like => like.id !== this.props.activeLike[0].id
                 )
         })
@@ -63,15 +81,29 @@ class Likes extends React.Component {
   editLike(like){
     like.id = this.props.activeLike[0].id;
     this.props.editLike(like);
-    this.setState({ activeLike: [like] });
+    !like.dislike ?
+        this.setState({ 
+            activeLike: [like],
+            likes: this.props.likes.push(like),
+            dislikes: this.props.dislikes.filter(
+                like => like.id !== this.props.activeLike[0].id
+            )
+        }) :
+        this.setState({
+             activeLike: [like],
+             dislikes: this.props.dislikes.push(like),
+             likes: this.props.likes.filter(
+                like => like.id !== this.props.activeLike[0].id
+            ) 
+        });
   }
 
   likeActionDirector(like){
-    switch (this.state.activeLike.length === 1) {
-        case false:
+    switch (this.state.activeLike.length === 0) {
+        case true:
             this.createLike(like);
             break;
-        case true:
+        case false:
             // if deleting existing like/dislike
             if ((!this.props.activeLike[0].dislike && !like.dislike) ||
               (this.props.activeLike[0].dislike && like.dislike)) {
@@ -90,7 +122,7 @@ class Likes extends React.Component {
   handleClick(type) {
     if (!this.props.currentUserId) { return null; }
 
-    let newLike = {
+    const newLike = {
       liker_id: this.props.currentUserId,
       likeable_type: this.props.contentType,
       likeable_id: this.props.contentId,
@@ -103,12 +135,24 @@ class Likes extends React.Component {
   render() {
     // console.log(this.state);
     const activeLikeClass = (
-        this.props.activeLike.length > 0 && !this.props.activeLike[0].dislike
+        this.state.activeLike.length > 0 && !this.state.activeLike[0].dislike
     ) ? "active-like" : "inactive-like";
 
     const activeDislikeClass = (
-        this.props.activeLike.length > 0 && this.props.activeLike[0].dislike
+        this.state.activeLike.length > 0 && this.state.activeLike[0].dislike
     ) ? "active-like" : "inactive-like";
+
+    let likeCount = () => {
+        if(this.props.likes.length > this.state.likes.length){
+            return this.props.likes.length;
+        }else return this.state.likes.length;
+    };
+
+    let dislikeCount = () => {
+        if(this.props.dislikes.length > this.state.dislikes.length){
+            return this.props.dislikes.length;
+        }else return this.state.dislikes.length;
+    };
 
     return(
       <div className="like-container">
@@ -117,14 +161,14 @@ class Likes extends React.Component {
             onClick={() => this.handleClick("like")}
         >
           <UpIcon className="like-icon" />
-          <span>{this.state.likes.length}</span>
+          <span>{likeCount()}</span>
         </div>
         <div 
             className={`like-item ${activeDislikeClass}`}
             onClick={() => this.handleClick("dislike")}
         >
           <DownIcon className="like-icon" />
-          <span>{this.state.dislikes.length}</span>
+          <span>{dislikeCount()}</span>
         </div>
 
       </div>
@@ -133,7 +177,7 @@ class Likes extends React.Component {
 }
 
 const mSTP = ({ session }) => ({
-    currentUserId: session.currentUser.id
+    currentUserId: session.currentUser ? session.currentUser.id : null,
 });
 
 const mDTP = dispatch => ({
