@@ -44,7 +44,6 @@ class Likes extends React.Component {
 
   deleteLike(like){
       this.props.deleteLike(this.props.activeLike[0].id);
-    //   this.props.handleLikeDelete();
 
       !like.dislike ?
       this.setState({ 

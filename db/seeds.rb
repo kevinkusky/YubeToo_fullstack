@@ -38,6 +38,16 @@ ActiveRecord::Base.transaction do
         email: 'qnawan@gmail.com',
         password: 'bassking5',
     })
+    userFour = User.create({ 
+        username: 'emosonglyric5',
+        email: 'anotherfakeemail@gmail.com',
+        password: 'marvinsroom12',
+    })
+    userFive = User.create({ 
+        username: 'Joanne',
+        email: 'yojo57@gmail.com',
+        password: 'codyboy2',
+    })
     videoOne = Video.new({
         title: 'My First Video',
         description: 'Hope yall like it',
@@ -83,64 +93,131 @@ ActiveRecord::Base.transaction do
         io: videoThreeTitleCard, filename: 'videothreetitle.png'
     })
     videoThree.save
-    videoCommentOne.create({
+    videoCommentOne = Comment.create({
         body: 'Nice hair cut, can I get your barbers name?',
         author_id: userTwo.id,
         commentable_type: 'Video',
         commentable_id: videoOne.id
     })
-    videoCommentTwo.create({
+    videoCommentTwo = Comment.create({
         body: 'What tuning is this in? So nice!',
         author_id: demoUser.id,
         commentable_type: 'Video',
         commentable_id: videoOne.id
     })
-    videoCommentThree.create({
+    videoCommentThree = Comment.create({
         body: 'I can fix it, watch my page to see how',
         author_id: userOne.id,
         commentable_type: 'Video',
         commentable_id: videoOne.id
     })
-    videoCommentFour.create({
+    videoCommentFour = Comment.create({
         body: 'Now try that while playing bass!',
         author_id: userThree.id,
         commentable_type: 'Video',
         commentable_id: videoTwo.id
     })
-    videoCommentFive.create({
+    videoCommentFive = Comment.create({
         body: 'Who wears the fisherman logo in 2020!?',
         author_id: demoUser.id,
         commentable_type: 'Video',
         commentable_id: videoThree.id
     })
-    replyOne.create({
+    replyOne = Comment.create({
         body: 'Not the tuning for FREEBIRD!  Play FREEBIRD',
         author_id: userOne.id,
         commentable_type: 'Comment',
         commentable_id: videoCommentTwo.id
     })
-    replyTwo.create({
+    replyTwo = Comment.create({
         body: 'It is in open G Minor tuning!  Glad you enjoyed',
         author_id: userTwo.id,
         commentable_type: 'Comment',
         commentable_id: videoCommentTwo.id
     })
-    replyThree.create({
+    replyThree = Comment.create({
         body: 'I can fix it, watch my page to see how',
         author_id: userOne.id,
         commentable_type: 'Comment',
         commentable_id: videoCommentOne.id
     })
-    replyFour.create({
+    replyFour = Comment.create({
         body: 'I can fix it, watch my page to see how',
         author_id: userOne.id,
         commentable_type: 'Comment',
         commentable_id: videoCommentFour.id
     })
-    replyFive.create({
+    replyFive = Comment.create({
         body: 'Hey - at least we made it to the ECF!!!',
         author_id: userThree.id,
         commentable_type: 'Comment',
         commentable_id: videoCommentFive
+    })
+    videoLikeOne = Like.create({
+        liker_id: userFive.id,
+        likeable_type: 'Video',
+        likeable_id: videoTwo.id,
+        dislike: true
+    })
+    videoLikeTwo = Like.create({
+        liker_id: userOne.id,
+        likeable_type: 'Video',
+        likeable_id: videoOne.id,
+        dislike: false
+    })
+    videoLikeThree = Like.create({
+        liker_id: userThree.id,
+        likeable_type: 'Video',
+        likeable_id: videoThree.id,
+        dislike: false
+    })
+    commentLikeOne = Like.create({
+        liker_id: userFour.id,
+        likeable_type: 'Comment',
+        likeable_id: videoCommentOne.id,
+        dislike: false
+    })
+    commentLikeTwo = Like.create({
+        liker_id: userTwo.id,
+        likeable_type: 'Comment',
+        likeable_id: videoCommentTwo.id,
+        dislike: true
+    })
+    commentLikeThree = Like.create({
+        liker_id: userTwo.id,
+        likeable_type: 'Comment',
+        likeable_id: videoCommentThree.id,
+        dislike: true
+    })
+    commentLikeFour = Like.create({
+        liker_id: userThree.id,
+        likeable_type: 'Comment',
+        likeable_id: videoCommentFour.id,
+        dislike: false
+    })
+
+    replyLikeOne = Like.create({
+        liker_id: userFive.id,
+        likeable_type: 'Comment',
+        likeable_id:,
+        dislike: true
+    })
+    replyLikeTwo = Like.create({
+        liker_id: userTwo.id,
+        likeable_type: 'Comment',
+        likeable_id: replyTwo.id,
+        dislike: false
+    })
+    replyLikeThree = Like.create({
+        liker_id: userOne.id,
+        likeable_type: 'Comment',
+        likeable_id: replyFour.id,
+        dislike: true
+    })
+    replyLikeFour = Like.create({
+        liker_id: userFour.id,
+        likeable_type: 'Comment',
+        likeable_id: replyFive.id,
+        dislike: false
     })
 end

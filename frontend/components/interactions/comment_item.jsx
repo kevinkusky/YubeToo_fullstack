@@ -33,12 +33,9 @@ class CommentIndexItem extends React.Component {
     this.replyHandle = this.replyHandle.bind(this);
     this.commentActionHandle = this.commentActionHandle.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleLikeDelete = this.handleLikeDelete.bind(this);
   }
 
-//   handleLikeDelete(){
-//       this.setState({ activeLike: [] });
-//   }
+
 
   componentDidMount() {
       this.props.fetchCommentLikes(this.props.commentId);
