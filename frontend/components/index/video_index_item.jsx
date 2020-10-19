@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
 
+import CurrentUserIcon from '../session/currentuser_icon';
+
 import Avatar from '@material-ui/core/Avatar';
 import { createView } from '../../util/video_util';
 
@@ -33,7 +35,11 @@ class VideoIndexItem extends React.Component {
             >
                 <img className='index-pic' src={video.titlecardUrl} alt="titlecard image"/>
                 <div className='card-info'>
-                    <Avatar className='video-avatar'></Avatar>
+                    <CurrentUserIcon
+                        username={creator}
+                        addClass="video-avatar"
+                    />
+                    {/* <Avatar className='video-avatar'></Avatar> */}
                     <div className='card-text'>
                         <h4>{video.title}</h4>
                         <p>{creator}</p>
