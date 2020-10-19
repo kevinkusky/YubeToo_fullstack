@@ -199,7 +199,7 @@ ActiveRecord::Base.transaction do
     replyLikeOne = Like.create({
         liker_id: userFive.id,
         likeable_type: 'Comment',
-        likeable_id:,
+        likeable_id: replyFive.id,
         dislike: true
     })
     replyLikeTwo = Like.create({
