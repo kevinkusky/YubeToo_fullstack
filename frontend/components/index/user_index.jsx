@@ -23,16 +23,20 @@ class UserIndex extends React.Component {
     return (
       <div className="videos-index">
         <h2 className="index-header">My Videos</h2>
-        <div className="videos-list">
-          {this.state.videos.map((video) => (
-            <VideoIndexItem
-              video={video}
-              key={video.id}
-              user={this.props.currentUser}
-              creator={video.creator.username}
-            />
-          ))}
-        </div>
+        {this.state.videos.length > 0 ?
+            <div className="videos-list">
+            {this.state.videos.map((video) => (
+                <VideoIndexItem
+                video={video}
+                key={video.id}
+                user={this.props.currentUser}
+                creator={video.creator.username}
+                />
+            ))}
+            </div> :
+            <span>You have yet to upload any videos.  Please feel free to share your content</span>
+
+        }
       </div>
     );
   }
