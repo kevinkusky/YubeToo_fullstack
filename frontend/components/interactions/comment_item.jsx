@@ -66,7 +66,9 @@ class CommentIndexItem extends React.Component {
   commentActionHandle() { this.setState({ actionMenu: !this.state.actionMenu}); }
 
   handleDelete() {
-      this.props.deleteComment(this.props.commentId);
+      if(this.state.comment.author_id === this.props.currentUserId){
+          this.props.deleteComment(this.props.commentId);
+      }
   }
 
   render() {

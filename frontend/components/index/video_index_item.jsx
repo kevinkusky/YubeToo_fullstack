@@ -21,9 +21,7 @@ class VideoIndexItem extends React.Component {
     }
 
     
-
     render() {
-        // debugger        
         const video = this.props.video;
         const views = video.views !== 1 ? `${video.views} views` : '1 view';
         const creator = this.props.creator ? this.props.creator : video.creatorName;
@@ -39,7 +37,6 @@ class VideoIndexItem extends React.Component {
                         username={creator}
                         addClass="video-avatar"
                     />
-                    {/* <Avatar className='video-avatar'></Avatar> */}
                     <div className='card-text'>
                         <h4>{video.title}</h4>
                         <p>{creator}</p>

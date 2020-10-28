@@ -48,6 +48,11 @@ ActiveRecord::Base.transaction do
         email: 'yojo57@gmail.com',
         password: 'codyboy2',
     })
+    userSix = User.create({ 
+        username: 'Morgan',
+        email: 'movementgirl4@gmail.com',
+        password: 'mistermistermister',
+    })
     videoOne = Video.new({
         title: 'My First Video',
         description: 'Hope yall like it',
@@ -93,6 +98,36 @@ ActiveRecord::Base.transaction do
         io: videoThreeTitleCard, filename: 'videothreetitle.png'
     })
     videoThree.save
+    videoFour = Video.new({
+        title: 'Dont stop me now',
+        description: 'Dont mind the cute dog',
+        creator_id: userFive.id,
+        duration: '1:10'
+    })
+    videoFourFile = open('https://yubetoo-seed.s3.amazonaws.com/videofour.mov')
+    videoFour.video.attach({
+        io: videoFourFile, filename: 'videofour.png'
+    })
+    videoFourTitleCard = open('https://yubetoo-seed.s3.amazonaws.com/videofourtitle.png')
+    videoFour.titlecard.attach({
+        io: videoFourTitleCard, filename: 'videofourtitle.png'
+    })
+    videoFour.save
+    videoFive = Video.new({
+        title: 'More Cake',
+        description: ' =) ',
+        creator_id: userSix.id,
+        duration: '1:10'
+    })
+    videoFiveFile = open('https://yubetoo-seed.s3.amazonaws.com/videofive.mov')
+    videoFive.video.attach({
+        io: videoFiveFile, filename: 'videofour.png'
+    })
+    videoFiveTitleCard = open('https://yubetoo-seed.s3.amazonaws.com/videofivetitle.png')
+    videoFive.titlecard.attach({
+        io: videoFiveTitleCard, filename: 'videofourtitle.png'
+    })
+    videoFive.save
     videoCommentOne = Comment.create({
         body: 'Nice hair cut, can I get your barbers name?',
         author_id: userTwo.id,
