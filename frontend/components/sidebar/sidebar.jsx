@@ -7,10 +7,10 @@ import SidebarRow from './sidebar_row';
 
 import HomeIcon from '@material-ui/icons/Home';
 import TrendingIcon from '@material-ui/icons/Whatshot';
-import SubscriptionIcon from '@material-ui/icons/Subscriptions';
+// import SubscriptionIcon from '@material-ui/icons/Subscriptions';
 import YourVidIcon from '@material-ui/icons/OndemandVideo';
 import LikeIcon from '@material-ui/icons/ThumbUpAltOutlined';
-import ClockIcon from '@material-ui/icons/WatchLater';
+// import ClockIcon from '@material-ui/icons/WatchLater';
 import HistoryIcon from '@material-ui/icons/HistoryOutlined';
 import LinksIcon from '@material-ui/icons/InfoOutlined';
 import UserIcon from '@material-ui/icons/AccountCircle';
@@ -60,12 +60,12 @@ class SideBar extends React.Component{
               coverClass={classClearName}
               pathName={USERVID}
             />
-            <SidebarRow
+            {/* <SidebarRow
               Icon={ClockIcon}
               title="Watch Later"
               coverClass={classClearName}
               pathName={DUMMY}
-            />
+            /> */}
             <SidebarRow
               Icon={LikeIcon}
               title="Liked Videos"
@@ -101,7 +101,7 @@ class SideBar extends React.Component{
               Icon={TrendingIcon}
               title="Trending"
               coverClass={classSizeName}
-              pathName={DUMMY}
+              pathName={TREND}
             />
             <hr />
             <div>

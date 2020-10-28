@@ -39,7 +39,7 @@ ActiveRecord::Base.transaction do
         password: 'bassking5',
     })
     userFour = User.create({ 
-        username: 'emosonglyric5',
+        username: 'marvin',
         email: 'anotherfakeemail@gmail.com',
         password: 'marvinsroom12',
     })
@@ -106,7 +106,7 @@ ActiveRecord::Base.transaction do
     })
     videoFourFile = open('https://yubetoo-seed.s3.amazonaws.com/videofour.mov')
     videoFour.video.attach({
-        io: videoFourFile, filename: 'videofour.png'
+        io: videoFourFile, filename: 'videofour.mov'
     })
     videoFourTitleCard = open('https://yubetoo-seed.s3.amazonaws.com/videofourtitle.png')
     videoFour.titlecard.attach({
@@ -121,13 +121,73 @@ ActiveRecord::Base.transaction do
     })
     videoFiveFile = open('https://yubetoo-seed.s3.amazonaws.com/videofive.mov')
     videoFive.video.attach({
-        io: videoFiveFile, filename: 'videofour.png'
+        io: videoFiveFile, filename: 'videofive.mov'
     })
     videoFiveTitleCard = open('https://yubetoo-seed.s3.amazonaws.com/videofivetitle.png')
     videoFive.titlecard.attach({
         io: videoFiveTitleCard, filename: 'videofourtitle.png'
     })
     videoFive.save
+    videoSix = Video.new({
+        title: 'These Eyes',
+        description: ' Do I look like Jimmys Brother? ',
+        creator_id: userFour.id,
+        duration: '1:10'
+    })
+    videoSixFile = open('https://yubetoo-seed.s3.amazonaws.com/videosix.mp4')
+    videoSix.video.attach({
+        io: videoSixFile, filename: 'videosix.mp4'
+    })
+    videoSixTitleCard = open('https://yubetoo-seed.s3.amazonaws.com/videosixtitle.png')
+    videoSix.titlecard.attach({
+        io: videoSixTitleCard, filename: 'videosixtitle.png'
+    })
+    videoSix.save
+    videoSeven = Video.new({
+        title: 'Nikita Needs Attention',
+        description: 'RIP - Nikita 1997-2020 ',
+        creator_id: userFive.id,
+        duration: '1:10'
+    })
+    videoSevenFile = open('https://yubetoo-seed.s3.amazonaws.com/videoseven.mp4')
+    videoSeven.video.attach({
+        io: videoSevenFile, filename: 'videoseven.mp4'
+    })
+    videoSevenTitleCard = open('https://yubetoo-seed.s3.amazonaws.com/videoseventitle.png')
+    videoSeven.titlecard.attach({
+        io: videoSevenTitleCard, filename: 'videoseventitle.png'
+    })
+    videoSeven.save
+    videoEight = Video.new({
+        title: 'Dance Hall Crashers',
+        description: 'ska is not dead?',
+        creator_id: userFour.id,
+        duration: '1:10'
+    })
+    videoEightFile = open('https://yubetoo-seed.s3.amazonaws.com/videoeight.mp4')
+    videoEight.video.attach({
+        io: videoEightFile, filename: 'videoeight.mp4'
+    })
+    videoEightTitleCard = open('https://yubetoo-seed.s3.amazonaws.com/videoeighttitle.png')
+    videoEight.titlecard.attach({
+        io: videoEightTitleCard, filename: 'videoseighttitle.png'
+    })
+    videoEight.save
+    videoNine = Video.new({
+        title: 'First Time On Stage',
+        description: 'Repetitive improv blues',
+        creator_id: userOne.id,
+        duration: '1:10'
+    })
+    videoNineFile = open('https://yubetoo-seed.s3.amazonaws.com/videonine.mp4')
+    videoNine.video.attach({
+        io: videoNineFile, filename: 'videonine.mp4'
+    })
+    videoNineTitleCard = open('https://yubetoo-seed.s3.amazonaws.com/videoninetitle.png')
+    videoNine.titlecard.attach({
+        io: videoNineTitleCard, filename: 'videosninetitle.png'
+    })
+    videoNine.save
     videoCommentOne = Comment.create({
         body: 'Nice hair cut, can I get your barbers name?',
         author_id: userTwo.id,

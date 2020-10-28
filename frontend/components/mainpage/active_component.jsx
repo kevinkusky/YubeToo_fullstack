@@ -7,7 +7,7 @@ import UserIndex from '../index/user_index';
 import LikedIndex from '../index/liked_index';
 import TrendingIndex from '../index/trending_index';
 import HistoryIndex from '../index/history_index';
-import Dummy from '../index/dummy';
+// import Dummy from '../index/dummy';
 
 class ActiveComponent extends React.Component{
     constructor(props){
@@ -20,11 +20,12 @@ class ActiveComponent extends React.Component{
 
 
     render(){
+        // placeholder route for unbuilt indexes
         return(
             <div>
                 <Switch>
                     <Route exact path={SPLASH} component={IndexContainer}/>
-                    <Route exact path={DUMMY} component={Dummy}/>
+                    {/* <Route exact path={DUMMY} component={Dummy}/> */}
                     <Route exact path={TREND} component={TrendingIndex}/>
                     <Route exact path={USERVID} component={UserIndex} />
                     <Route exact path={HIST} component={HistoryIndex} />

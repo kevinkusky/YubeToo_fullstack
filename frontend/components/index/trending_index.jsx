@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { entityAsArray } from "../../reducers/selectors";
-import { fetchVideos } from "../../actions/videos";
 import VideoIndexItem from './video_index_item';
 
 class TrendingIndex extends React.Component {
