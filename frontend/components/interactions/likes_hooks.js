@@ -8,7 +8,7 @@ import DownIcon from "@material-ui/icons/ThumbDownAlt";
 
 const Likes = ({ currentUserId, contentType, contentId, likes, dislikes, activeLike, editLike, createLike, deleteLike }) => {
 
-    const [activeLikeCont, setActiveLike] = useState([]);
+    const [activeLikeCont, setActiveLike] = useState([activeLike]);
     const [allLikes, setAllLikes] = useState([...likes]);
     const [allDislikes, setAllDislikes] = useState([...dislikes]);
 
@@ -23,6 +23,10 @@ const Likes = ({ currentUserId, contentType, contentId, likes, dislikes, activeL
     const editALike = editedLike => {
         editedLike.id = activeLikeCont[0].id;
 
+        console.log(activeLike);
+        console.log(editedLike);
+
+        // edited id undefined, patch request fails
         editLike(editedLike);
 
         !like.dislike ?

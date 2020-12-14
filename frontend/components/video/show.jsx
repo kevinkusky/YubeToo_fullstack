@@ -5,9 +5,8 @@ import {withRouter} from 'react-router-dom';
 import CurrentUserIcon from "../session/currentuser_icon";
 import TopNav from '../navs/topnav';
 import CommentForm from '../interactions/comment_form';
-import Likes from '../interactions/likes';
-// import Likes from '../interactions/likes_hooks';
-
+// import Likes from '../interactions/likes';
+import Likes from '../interactions/likes_hooks';
 import CommentIndex from '../interactions/comment_index';
 
 import ShareIcon from "@material-ui/icons/Redo";
@@ -103,6 +102,7 @@ class VideoShow extends React.Component {
               <div className="right-stats">
                 <Likes
                   contentType="Video"
+                  currentUserId={this.props.currentUserId}
                   contentId={this.props.videoId}
                   likes={this.state.videoLikes}
                   dislikes={this.state.videoDislikes}
