@@ -67,13 +67,13 @@ class Likes extends React.Component {
           activeLike: [],
           likes: this.props.likes.filter(
               like => like.id !== this.props.activeLike[0].id
-              )
+            )
         }) :
         this.setState({ 
             activeLike: [],
             dislikes: this.props.dislikes.filter(
                 like => like.id !== this.props.activeLike[0].id
-                )
+            )
         })
   }
 
@@ -115,7 +115,7 @@ class Likes extends React.Component {
             break;
         default:
             return null;
-        }
+    }
   }
 
   handleClick(type) {
