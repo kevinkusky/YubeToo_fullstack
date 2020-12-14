@@ -6,6 +6,8 @@ import CurrentUserIcon from "../session/currentuser_icon";
 import TopNav from '../navs/topnav';
 import CommentForm from '../interactions/comment_form';
 import Likes from '../interactions/likes';
+// import Likes from '../interactions/likes_hooks';
+
 import CommentIndex from '../interactions/comment_index';
 
 import ShareIcon from "@material-ui/icons/Redo";
@@ -77,9 +79,7 @@ class VideoShow extends React.Component {
 
     // constant creates sharable url for user to share video
     const shareURL = `yubetoo-aa.herokuapp.com/#/videos/show/${id}`;
-
-    const formatTotalComments =
-      totalComments === 1 ? "1 Comment" : `${totalComments} Comments`;
+    const formatTotalComments = totalComments === 1 ? "1 Comment" : `${totalComments} Comments`;
 
     return (
       <div>

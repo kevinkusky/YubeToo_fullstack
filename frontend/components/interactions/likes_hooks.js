@@ -6,47 +6,46 @@ import { editLike, createLike, deleteLike, fetchCommentLikes, fetchVideoLikes } 
 import UpIcon from "@material-ui/icons/ThumbUpAlt";
 import DownIcon from "@material-ui/icons/ThumbDownAlt";
 
-const Likes = ({ currentUserId, contentType, contentId, 
-    likes, dislikes, activeLike, editLike, createLike, deleteLike }) => {
+const Likes = ({ currentUserId, contentType, contentId, likes, dislikes, activeLike, editLike, createLike, deleteLike }) => {
 
-    const [activeLike, setActiveLike] = useState([]);
-    const [likes, setAllLikes] = useState([...likes]);
-    const [dislikes, setAllDislikes] = useState([...dislikes]);
+    const [activeLikeCont, setActiveLike] = useState([]);
+    const [allLikes, setAllLikes] = useState([...likes]);
+    const [allDislikes, setAllDislikes] = useState([...dislikes]);
 
-    const createLike = newLike =>{
+    const createALike = newLike =>{
         createLike(newLike);
 
         setActiveLike([newLike]);
 
-        !newLike.dislike ? setAllLikes([...likes, newLike]) : setAllDislikes([...dislikes, newLike]);
+        !newLike.dislike ? setAllLikes([...allLikes, newLike]) : setAllDislikes([...allDislikes, newLike]);
     };
 
-    const editLike = editedLike => {
-        editedLike.id = activeLike[0].id;
+    const editALike = editedLike => {
+        editedLike.id = activeLikeCont[0].id;
 
         editLike(editedLike);
 
         !like.dislike ?
             setActiveLike([editedLike]) && 
-            setAllLikes([...likes, editedLike]) &&
-            setAllDislikes(dislikes.filter(
+            setAllLikes([...allLikes, editedLike]) &&
+            setAllDislikes(allDislikes.filter(
                 like => like.id !== editedLike.id
             )) :
             setActiveLike([editedLike]) && 
-            setAllDislikes([...dislikes, editedLike]) &&
-            setAllLikes(likes.filter(
+            setAllDislikes([...allDislikes, editedLike]) &&
+            setAllLikes(allLikes.filter(
                 like => like.id !== editedLike.id
             )); 
     };
 
-    const deleteLike = deletedLike => {
-        deleteLike(activeLike[0].id);
+    const deleteALike = deletedLike => {
+        deleteLike(activeLikeCont[0].id);
 
         !deletedLike.dislike ?
-            setAllLikes(likes.filter(
+            setAllLikes(allLikes.filter(
                 like => like.id !== activeLike[0].id
             )) :
-            setAllDislikes(dislikes.filter(
+            setAllDislikes(allDislikes.filter(
                 like => like.id !== activeLike[0].id
             ));
 
@@ -54,16 +53,16 @@ const Likes = ({ currentUserId, contentType, contentId,
     };
 
     const likeActionDirector = like => {
-        switch(activeLike.length === 0) {
+        switch(activeLikeCont.length === 0) {
             case true:
-                createLike(like);
+                createALike(like);
                 break;
             case false:
-                if((!activeLike[0].dislike && !like.dislike) ||
-                (activeLike[0].dislike && like.dislike)){
-                    deleteLike(like);
+                if((!activeLikeCont[0].dislike && !like.dislike) ||
+                (activeLikeCont[0].dislike && like.dislike)){
+                    deleteALike(like);
                 } else {
-                    editLike(like);
+                    editALike(like);
                 }
                 break;
             default:
@@ -85,11 +84,11 @@ const Likes = ({ currentUserId, contentType, contentId,
     };
 
     const activeLikeClass = (
-        activeLike.length > 0 && !activeLike[0].dislike
+        activeLikeCont.length > 0 && !activeLikeCont[0].dislike
     ) ? "active-like" : "inactive-like";
 
     const activeDislikeClass = (
-        activeLike.length > 0 && activeLike[0].dislike
+        activeLikeCont.length > 0 && activeLikeCont[0].dislike
     ) ? "active-like" : "inactive-like";
 
     return(
@@ -99,14 +98,14 @@ const Likes = ({ currentUserId, contentType, contentId,
                 onClick={() => handleClick("like")}
             >
                 <UpIcon className="like-icon" />
-                <span>{likes.length}</span>
+                <span>{allLikes.length}</span>
             </div>
             <div
                 className={`like-item ${activeDislikeClass}`}
                 onClick={() => handleClick("dislike")}
             >
                 <DownIcon className="like-icon" />
-                <span>{dislikes.length}</span>
+                <span>{allDislikes.length}</span>
             </div>
 
         </div>
