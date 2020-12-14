@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 
 import {editLike, createLike, deleteLike, fetchCommentLikes, fetchVideoLikes} from '../../actions/likes';
 
