@@ -6,13 +6,15 @@ import { editLike, createLike, deleteLike, fetchCommentLikes, fetchVideoLikes } 
 import UpIcon from "@material-ui/icons/ThumbUpAlt";
 import DownIcon from "@material-ui/icons/ThumbDownAlt";
 
-const Likes = ({ currentUserId, contentType, contentId, likes, dislikes, activeLike, editLike, createLike, deleteLike }) => {
+const Likes = ({ currentUserId, contentType, contentId, 
+            likes, dislikes, activeLike, 
+            editLike, createLike, deleteLike }) => {
 
     const [activeLikeCont, setActiveLike] = useState([activeLike]);
     const [allLikes, setAllLikes] = useState([...likes]);
     const [allDislikes, setAllDislikes] = useState([...dislikes]);
 
-    const createALike = newLike =>{
+    const createALike = newLike => {
         createLike(newLike);
 
         setActiveLike([newLike]);
@@ -21,10 +23,11 @@ const Likes = ({ currentUserId, contentType, contentId, likes, dislikes, activeL
     };
 
     const editALike = editedLike => {
+        // let likeObject = {...editedLike, id: activeLikeCont[0].id}
         editedLike.id = activeLikeCont[0].id;
 
         console.log(activeLike);
-        console.log(editedLike);
+        console.log(likeObject);
 
         // edited id undefined, patch request fails
         editLike(editedLike);
@@ -63,7 +66,7 @@ const Likes = ({ currentUserId, contentType, contentId, likes, dislikes, activeL
                 break;
             case false:
                 if((!activeLikeCont[0].dislike && !like.dislike) ||
-                (activeLikeCont[0].dislike && like.dislike)){
+                   (activeLikeCont[0].dislike && like.dislike)) {
                     deleteALike(like);
                 } else {
                     editALike(like);
@@ -111,7 +114,6 @@ const Likes = ({ currentUserId, contentType, contentId, likes, dislikes, activeL
                 <DownIcon className="like-icon" />
                 <span>{allDislikes.length}</span>
             </div>
-
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import CurrentUserIcon from "../session/currentuser_icon";
 import TopNav from '../navs/topnav';
@@ -60,10 +60,7 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    // debugger;
-    if (!this.state.video) {
-      return null;
-    }
+    if (!this.state.video) return null;
 
     const {
       views,
