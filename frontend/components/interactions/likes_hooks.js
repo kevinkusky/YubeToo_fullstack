@@ -10,9 +10,17 @@ const Likes = ({ currentUserId, contentType, contentId,
             likes, dislikes, activeLike, 
             editLike, createLike, deleteLike }) => {
 
-    const [activeLikeCont, setActiveLike] = useState([activeLike]);
-    const [allLikes, setAllLikes] = useState([...likes]);
-    const [allDislikes, setAllDislikes] = useState([...dislikes]);
+    const [activeLikeCont, setActiveLike] = useState([]);
+    const [allLikes, setAllLikes] = useState([]);
+    const [allDislikes, setAllDislikes] = useState([]);
+    // const [activeLikeCont, setActiveLike] = useState([activeLike]);
+    // const [allLikes, setAllLikes] = useState([...likes]);
+    // const [allDislikes, setAllDislikes] = useState([...dislikes]);
+
+    useEffect(() => {
+        // contentType === 'video' ? fetchVideoLikes() : fetchCommentLikes();
+        
+    }, [allLikes, allDislikes, activeLikeCont]);
 
     const createALike = newLike => {
         createLike(newLike);
