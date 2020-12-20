@@ -4,7 +4,7 @@ import {LAUTH} from '../../util/route_utils';
 import {Link} from 'react-router-dom';
 
 import ShowPassword from '@material-ui/icons/Visibility';
-import HidePassword from '@material-ui/icons/Visibility';
+import HidePassword from '@material-ui/icons/VisibilityOff';
 
 class Signup extends React.Component {
   constructor(props) {
