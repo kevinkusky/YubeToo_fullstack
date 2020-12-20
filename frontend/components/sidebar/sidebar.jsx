@@ -27,6 +27,7 @@ class SideBar extends React.Component{
         const classClearName = this.props.sidebarSize ? 'sidebar-row' : 'hide-row';
         const clearLogMessage = this.props.sidebarSize ? 'login-message' : 'hide-message';
         const classLogButton = this.props.sidebarSize ? 'button-width' : '';
+        
         const LoggedinSidebar = () => (
           <div>
             <SidebarRow

@@ -3,6 +3,9 @@ import React from 'react';
 import {LAUTH} from '../../util/route_utils';
 import {Link} from 'react-router-dom';
 
+import ShowPassword from '@material-ui/icons/Visibility';
+import HidePassword from '@material-ui/icons/Visibility';
+
 class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +14,9 @@ class Signup extends React.Component {
       email: "",
       username: "",
       password: "",
-      // checkPassword: 'Confirm Password'
+      checkPassword: '',
+      passwordHide: true,
+      checkHide: true
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,20 +32,34 @@ class Signup extends React.Component {
     this.props.history.push("/");
   }
 
+  checkToggle() {
+    this.setState({ checkHide: !this.state.checkHide })
+  }
+
+  passwordToggle() {
+    this.setState({ passwordHide: !this.state.passwordHide })
+  }
+
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.createNewUser(this.state).then(
-        () => this.navigateToSplash()
-    );
-    // this.props.action(this.state).then(
-    //     () => this.props.history.push('/videos')
-    // /videos place holder until other model is built
-    // );
+    const newUser = {
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password
+    }
 
+    if (this.state.password === this.state.checkPassword){
+      this.props.createNewUser(newUser).then(
+        () => this.navigateToSplash()
+      );
+    }
   }
 
   render() {
+    const passwordType = this.state.passwordHide ? 'password' : 'text';
+    const checkType = this.state.checkHide ? 'password' : 'text';
+
     return (
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit} className="session-form-box">
@@ -70,26 +89,47 @@ class Signup extends React.Component {
           <br />
           <div className="input-container">
             <input
-              type="password"
+              type={passwordType}
               value={this.state.password}
               onChange={this.update("password")}
               required=" "
             />
             <label className="input-labels">Password</label>
+            {this.state.passwordHide ? 
+              <ShowPassword 
+                onClick={() => this.passwordToggle()}
+                className='password-toggle' 
+              /> : 
+              <HidePassword 
+                onClick={() => this.passwordToggle()}
+                className='password-toggle'  
+              />
+            }
           </div>
           <h6>
             Password must be 6 or more characters. We suggest using a mix of
             letters, numbers {"&"} symbols
           </h6>
-          {/* className=password-check
-                <input
-                  type="password"
-                  placeholder='Confirm'
-                  value={this.state.checkPassword}
-                  onChange={this.update("checkPassword")}
-                />
-                <label className='input-labels'>Password</label>
-                */}
+          <div className='input-container'>
+            <input
+              type={checkType}
+              value={this.state.checkPassword}
+              onChange={this.update("checkPassword")}
+              required
+            />
+            <label className='input-labels'>Confirm Password</label>
+            {this.state.checkHide ?
+              <ShowPassword 
+                onClick={() => this.checkToggle()} 
+                className='password-toggle' 
+              /> :
+              <HidePassword 
+                onClick={() => this.checkToggle()}
+                className='password-toggle' 
+              />
+            }
+          </div>
+               
           <div className="bottom-form">
             <Link className="sign-link" to={LAUTH}>
               <button className="demo-button">Sign in instead</button>

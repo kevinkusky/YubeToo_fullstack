@@ -14,13 +14,13 @@
      margin-left: 45px;
      margin-top: 12px;
      margin-bottom: 0;
-     width: 65%;
+     width: 73%;
      font-family: "roboto", sans-serif
  }
 
  .session-form-container .input-container{
      position: relative;
-     top: 17%;
+     top: calc(13% - 30px);
      left: 13%;
      width: 65%;
      bottom: -20px;
@@ -43,6 +43,14 @@
      font-family: "Lucida Console", Courier, monospace;
      color:rgba(163, 163, 163, 0.815);
      transition: .5s;
+ }
+
+ .password-toggle {
+     position: absolute;
+     top: 6px;
+     right: -39px;
+     color: rgba(163, 163, 163, 0.815) !important;
+     cursor: pointer;
  }
 
  .signin-info {
