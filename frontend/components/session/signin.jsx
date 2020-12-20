@@ -8,9 +8,9 @@ class Signin extends React.Component{
       super(props);
 
       this.state = {
-          email: '',
-          password: '',
-          passwordHide: true,
+        email: '',
+        password: '',
+        passwordHide: true,
       };
 
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -64,7 +64,7 @@ class Signin extends React.Component{
             <br />
             <div className="input-container">
               <input
-                type="password"
+                type={passwordType}
                 value={this.state.password}
                 onChange={this.update("password")}
                 required
