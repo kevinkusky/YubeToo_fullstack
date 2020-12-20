@@ -49,11 +49,18 @@ class Signup extends React.Component {
       password: this.state.password
     }
 
+    let confirmInput = document.querySelector('.password-check')
+
     if (this.state.password === this.state.checkPassword){
       this.props.createNewUser(newUser).then(
         () => this.navigateToSplash()
       );
+    } else {
+      alert('Passwords Do Not Match - Please ReEnter');
+      // confirmInput.setCustomValidity('Passwords Do Not Match - Please ReEnter');
     }
+
+    // confirmInput.setCustomValidity('');
   }
 
   render() {
@@ -92,7 +99,7 @@ class Signup extends React.Component {
               type={passwordType}
               value={this.state.password}
               onChange={this.update("password")}
-              required=" "
+              required
             />
             <label className="input-labels">Password</label>
             {this.state.passwordHide ? 
@@ -116,6 +123,7 @@ class Signup extends React.Component {
               value={this.state.checkPassword}
               onChange={this.update("checkPassword")}
               required
+              className='password-check'
             />
             <label className='input-labels'>Confirm Password</label>
             {this.state.checkHide ?
