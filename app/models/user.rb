@@ -40,11 +40,6 @@ class User < ApplicationRecord
         class_name: :Like,
         foreign_key: :liker_id
 
-    # has_many :liked_videos,
-    #    through: :likes,
-    #    source: :likeable,
-    #    source_type: 'Video'
-
     def filter_likes
         likes = self.likes.where(dislike: false, likeable_type: 'Video')
         liked_videos = []
@@ -56,7 +51,7 @@ class User < ApplicationRecord
         return liked_videos
     end
 
-    # FIGVAPER
+    # FIGVAPER - Authentication
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
 
@@ -82,7 +77,7 @@ class User < ApplicationRecord
     
     def reset_session_token
         self.session_token = SecureRandom.base64(64)
-        #loud fail
+        # loud fail
         self.save!
         # implicit returns again
         self.session_token
