@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import {logoutUser} from '../../actions/session';
 import Greeting from './greeting';
 
-const mSTP = ({ session, entities: { users } }) => (
+const mSTP = ({ session }) => (
     {
         currentUser: session.currentUser
     }

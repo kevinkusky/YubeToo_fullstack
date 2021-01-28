@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import TopNav from '../navs/topnav';
 import ActiveComponent from './active_component';
@@ -40,4 +41,4 @@ class MainPage extends React.Component{
     }
 }
 
-export default MainPage;
+export default connect(null)(MainPage);
