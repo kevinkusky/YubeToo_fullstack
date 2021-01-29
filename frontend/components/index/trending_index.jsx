@@ -10,6 +10,7 @@ class TrendingIndex extends React.Component {
         this.state = {
             popIndex: [],
         };
+        
         this.indexSort = this.indexSort.bind(this);
     }
 

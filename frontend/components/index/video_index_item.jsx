@@ -38,9 +38,7 @@ class VideoIndexItem extends React.Component {
                     <div className='card-text'>
                         <h4>{video.title}</h4>
                         <p>{creator}</p>
-                        <p>
-                            {views} • {video.uploadTime}
-                        </p>
+                        <p>{views} • {video.uploadTime}</p>
                     </div>
                 </div>
             </div>

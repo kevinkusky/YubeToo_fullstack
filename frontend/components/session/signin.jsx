@@ -5,16 +5,16 @@ import HidePassword from '@material-ui/icons/VisibilityOff';
 
 class Signin extends React.Component{
   constructor(props) {
-      super(props);
+    super(props);
 
-      this.state = {
-        email: '',
-        password: '',
-        passwordHide: true,
-      };
+    this.state = {
+      email: '',
+      password: '',
+      passwordHide: true,
+    };
 
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.populateDemo = this.populateDemo.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.populateDemo = this.populateDemo.bind(this);
   }
     
   update(field) {
@@ -50,7 +50,6 @@ class Signin extends React.Component{
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit} className="session-form-box">
           <h3>Please Sign In</h3>
-          {/* {this.renderErrors()} */}
           <div className='signin-info'>
             <div className="input-container">
               <input

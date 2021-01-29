@@ -57,10 +57,7 @@ class Signup extends React.Component {
       );
     } else {
       alert('Passwords Do Not Match - Please ReEnter');
-      // confirmInput.setCustomValidity('Passwords Do Not Match - Please ReEnter');
     }
-
-    // confirmInput.setCustomValidity('');
   }
 
   render() {

@@ -23,17 +23,17 @@ class LikedIndex extends React.Component {
       <div className="videos-index">
         <h2 className="index-header">{`${this.props.currentUser}'s Liked videos`}</h2>
         {this.state.videos.length > 0 ?
-            <div className="videos-list">
+          <div className="videos-list">
             {this.state.videos.map((video) => (
-                <VideoIndexItem
+              <VideoIndexItem
                 video={video}
                 key={video.id}
                 user={this.props.currentUserId}
                 creator={video.creator.username}
-                />
+              />
             ))}
-            </div> :
-            <span>{`${this.props.currentUser} has yet to like a video - please explore the site and enjoy the videos`}</span>
+          </div> :
+          <span>{`${this.props.currentUser} has yet to like a video - please explore the site and enjoy the videos`}</span>
         }
       </div>
     );
