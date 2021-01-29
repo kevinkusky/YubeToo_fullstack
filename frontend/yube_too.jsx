@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
             entities: {
                 users: { [window.currentUser.id]: window.currentUser }
             },
-            session: { currentUser: window.currentUser },
             // for cookies
+            session: { currentUser: window.currentUser },
         };
     }
 

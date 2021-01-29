@@ -46,7 +46,7 @@ class SideBar extends React.Component{
           Icon={SubscriptionIcon}
           title="Subscriptions"
           coverClass={classSizeName}
-          pathName={}
+          pathName={SUBS}
         /> */}
         <hr />
         <SidebarRow
@@ -65,7 +65,7 @@ class SideBar extends React.Component{
           Icon={ClockIcon}
           title="Watch Later"
           coverClass={classClearName}
-          pathName={}
+          pathName={QUE}
         /> */}
         <SidebarRow
           Icon={LikeIcon}
@@ -133,7 +133,7 @@ class SideBar extends React.Component{
       </div>
     );
 
-    return (this.props.currentUser ? LoggedinSidebar() : LoggedoutSidebar())
+    return this.props.currentUser ? LoggedinSidebar() : LoggedoutSidebar()
   }
 }
 

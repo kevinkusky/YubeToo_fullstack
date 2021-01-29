@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 
 import CurrentUserIcon from '../session/currentuser_icon';
 
-import Avatar from '@material-ui/core/Avatar';
 import { createView } from '../../util/video_util';
 
 class VideoIndexItem extends React.Component {
@@ -20,7 +19,6 @@ class VideoIndexItem extends React.Component {
         this.props.history.push(`/videos/show/${videoId}`);
     }
 
-    
     render() {
         const video = this.props.video;
         const views = video.views !== 1 ? `${video.views} views` : '1 view';
